@@ -3,36 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#06152f">
-<title>Phillies</title>
+<meta name="theme-color" content="#07162f">
+<title>PHI | Phillies</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@500;600;700;800&display=swap');
 
 :root{
-  --navy:#06152f;
-  --navy2:#0a1d3d;
-  --navy3:#10284e;
+  --navy:#07162f;
+  --navy-2:#0b1d3d;
+  --navy-3:#11284e;
   --red:#e31837;
-  --white:#f7f8fb;
-  --muted:#899bb5;
-  --line:rgba(255,255,255,.09);
+  --red-dark:#b9102a;
+  --white:#f7f9fc;
+  --gray:#91a1b8;
+  --gray-2:#5f708a;
+  --line:rgba(255,255,255,.085);
+  --green:#55c98a;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html,body{
-  min-height:100%;
+html{
   background:var(--navy);
-  color:var(--white);
 }
 
 body{
+  min-height:100dvh;
+  background:var(--navy);
+  color:var(--white);
   font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
   -webkit-tap-highlight-color:transparent;
 }
 
 button{
+  appearance:none;
   border:0;
   background:none;
   color:inherit;
@@ -41,37 +50,36 @@ button{
 
 .app{
   min-height:100dvh;
-  padding-bottom:92px;
+  padding-bottom:91px;
 }
 
-.container{
-  width:calc(100% - 28px);
-  max-width:760px;
+.shell{
+  width:min(100% - 28px,760px);
   margin:auto;
 }
 
-header{
-  height:70px;
+.topbar{
+  height:68px;
   border-bottom:1px solid var(--line);
   background:var(--navy);
 }
 
-.header{
+.topbar-inner{
   height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo-mark{
-  width:34px;
-  height:34px;
+.brand-p{
+  width:32px;
+  height:32px;
   display:grid;
   place-items:center;
   border:2px solid var(--red);
@@ -80,267 +88,285 @@ header{
   font:900 18px "Barlow Condensed";
 }
 
-.logo-small{
-  color:var(--muted);
-  font:800 8px "Barlow Condensed";
+.brand-name{
+  font:900 25px/.85 "Barlow Condensed";
+  letter-spacing:.4px;
+}
+
+.brand-sub{
+  margin-top:3px;
+  color:var(--gray);
+  font:800 7px "Barlow Condensed";
   letter-spacing:2px;
 }
 
-.logo-main{
-  font:900 26px/1 "Barlow Condensed";
-}
-
-.season{
-  color:var(--muted);
-  font:800 12px "Barlow Condensed";
+.year{
+  color:var(--gray);
+  font:900 11px "Barlow Condensed";
   letter-spacing:1px;
 }
 
-.screen{
+.page{
   display:none;
-  padding-top:26px;
+  padding-top:22px;
 }
 
-.screen.active{
+.page.active{
   display:block;
 }
 
-.kicker{
+.eyebrow{
   color:var(--red);
   font:900 10px "Barlow Condensed";
   letter-spacing:2px;
 }
 
-.title{
+.page-title{
   margin-top:3px;
-  font:900 46px/.9 "Barlow Condensed";
+  font:900 39px/.95 "Barlow Condensed";
+  letter-spacing:.3px;
 }
 
-.subtitle{
-  margin-top:7px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-.section{
-  margin-top:24px;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:9px;
-}
-
-.section-head h2{
-  font:900 20px "Barlow Condensed";
-}
-
-.section-head span{
-  color:var(--muted);
-  font:800 9px "Barlow Condensed";
-  letter-spacing:1px;
+.page-description{
+  margin-top:5px;
+  color:var(--gray);
+  font-size:9px;
 }
 
 /* HOME */
 
-.next-game{
-  margin-top:22px;
+.hero-game{
+  margin-top:20px;
   overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:17px;
-  background:var(--navy2);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  background:linear-gradient(145deg,#0d2349,#091a36);
 }
 
-.next-head{
+.hero-top{
+  height:39px;
   display:flex;
+  align-items:center;
   justify-content:space-between;
-  padding:12px 14px;
+  padding:0 14px;
   border-bottom:1px solid var(--line);
 }
 
-.next-head strong{
-  font:900 11px "Barlow Condensed";
-  letter-spacing:1px;
-}
-
-.next-head span{
-  color:var(--muted);
-  font:800 10px "Barlow Condensed";
-}
-
-.matchup{
-  display:grid;
-  grid-template-columns:1fr 40px 1fr;
-  align-items:center;
-  padding:24px 15px;
-}
-
-.team:last-child{text-align:right}
-
-.team-city{
-  color:var(--muted);
-  font:800 9px "Barlow Condensed";
-  letter-spacing:1px;
-}
-
-.team-code{
-  margin-top:3px;
-  font:900 50px/.85 "Barlow Condensed";
-}
-
-.team-name{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:9px;
-}
-
-.vs{
-  width:34px;
-  height:34px;
-  display:grid;
-  place-items:center;
-  margin:auto;
-  border-radius:50%;
-  background:var(--navy3);
-  color:var(--muted);
-  font:900 9px "Barlow Condensed";
-}
-
-.next-info{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-}
-
-.next-info div{
-  padding:12px 8px;
-  border-right:1px solid var(--line);
-}
-
-.next-info div:last-child{
-  border:0;
-}
-
-.next-info strong{
-  display:block;
-  font:900 14px "Barlow Condensed";
-}
-
-.next-info span{
-  display:block;
-  margin-top:2px;
-  color:var(--muted);
-  font:800 8px "Barlow Condensed";
-}
-
-.live-link{
+.hero-top-left{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:13px 15px;
-  border-top:1px solid var(--line);
-  color:var(--white);
+  gap:7px;
+  font:900 10px "Barlow Condensed";
+  letter-spacing:1.3px;
 }
 
-.live-left{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font:900 11px "Barlow Condensed";
-  letter-spacing:1px;
-}
-
-.live-dot{
+.live-indicator{
   width:7px;
   height:7px;
   border-radius:50%;
   background:var(--red);
 }
 
-.arrow{
-  color:var(--muted);
-  font-size:19px;
-}
-
-.result{
-  display:grid;
-  grid-template-columns:48px 1fr auto;
-  align-items:center;
-  min-height:70px;
-  padding:10px 13px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--navy2);
-}
-
-.result-date{
-  color:var(--muted);
+.hero-top-right{
+  color:var(--gray);
   font:800 9px "Barlow Condensed";
 }
 
-.result-date strong{
-  display:block;
-  color:var(--white);
-  font:900 27px/.8 "Barlow Condensed";
+.matchup{
+  display:grid;
+  grid-template-columns:1fr 48px 1fr;
+  align-items:center;
+  padding:23px 15px 20px;
 }
 
-.result-team{
+.club{
+  min-width:0;
+}
+
+.club.away{
+  text-align:right;
+}
+
+.club-city{
+  color:var(--gray);
+  font:800 8px "Barlow Condensed";
+  letter-spacing:1px;
+}
+
+.club-code{
+  margin-top:1px;
+  font:900 52px/.83 "Barlow Condensed";
+}
+
+.club-name{
+  margin-top:5px;
+  color:var(--gray);
+  font:700 9px "Inter";
+}
+
+.vs{
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  margin:auto;
+  border:1px solid var(--line);
+  border-radius:50%;
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
+}
+
+.game-data{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+}
+
+.game-data-item{
+  min-height:53px;
+  padding:9px 12px;
+  border-right:1px solid var(--line);
+}
+
+.game-data-item:last-child{
+  border-right:0;
+}
+
+.game-data-value{
+  font:900 15px "Barlow Condensed";
+}
+
+.game-data-label{
+  margin-top:2px;
+  color:var(--gray);
+  font:800 7px "Barlow Condensed";
+  letter-spacing:1px;
+}
+
+.open-live{
+  width:100%;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
+  border-top:1px solid var(--line);
+  background:rgba(227,24,55,.055);
+}
+
+.open-live span{
+  font:900 10px "Barlow Condensed";
+  letter-spacing:1.2px;
+}
+
+.open-live b{
+  color:var(--red);
+  font-size:19px;
+  font-weight:400;
+}
+
+.home-section{
+  margin-top:20px;
+}
+
+.section-heading{
+  height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.section-heading h2{
+  font:900 18px "Barlow Condensed";
+}
+
+.section-heading span{
+  color:var(--gray);
+  font:900 8px "Barlow Condensed";
+  letter-spacing:1px;
+}
+
+.recent{
+  border-top:1px solid var(--line);
+}
+
+.recent-row{
+  width:100%;
+  min-height:63px;
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  align-items:center;
+  gap:9px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+}
+
+.recent-date{
+  color:var(--gray);
+  font:800 8px "Barlow Condensed";
+}
+
+.recent-date strong{
+  display:block;
+  color:var(--white);
+  font:900 24px/.8 "Barlow Condensed";
+}
+
+.recent-main{
   display:flex;
   align-items:center;
   gap:9px;
 }
 
-.result-code{
+.mini-logo{
   width:34px;
   height:34px;
   display:grid;
   place-items:center;
   border-radius:8px;
-  background:var(--navy3);
-  font:900 10px "Barlow Condensed";
+  background:var(--navy-2);
+  border:1px solid var(--line);
+  font:900 9px "Barlow Condensed";
 }
 
-.result-name{
-  font:900 18px "Barlow Condensed";
+.recent-opponent{
+  font:900 16px "Barlow Condensed";
 }
 
-.result-meta{
+.recent-location{
   margin-top:2px;
-  color:var(--muted);
-  font-size:8px;
+  color:var(--gray);
+  font-size:7px;
 }
 
-.result-score{
+.recent-score{
   text-align:right;
-  font:900 18px "Barlow Condensed";
+  font:900 16px "Barlow Condensed";
 }
 
 .win{
   display:block;
-  margin-top:2px;
-  color:#6fd29b;
-  font-size:8px;
+  color:var(--green);
+  font:900 8px "Barlow Condensed";
 }
 
-.news{
+.news-list{
   overflow:hidden;
   border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--navy2);
+  border-radius:13px;
+  background:var(--navy-2);
 }
 
-.news-row{
+.news-item{
   display:grid;
-  grid-template-columns:7px 48px 1fr;
+  grid-template-columns:6px 48px 1fr;
   gap:9px;
-  padding:12px;
+  padding:11px 12px;
   border-bottom:1px solid var(--line);
 }
 
-.news-row:last-child{
-  border:0;
+.news-item:last-child{
+  border-bottom:0;
 }
 
 .news-dot{
@@ -352,210 +378,218 @@ header{
 }
 
 .news-time{
-  color:var(--muted);
-  font:800 10px "Barlow Condensed";
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
 }
 
-.news-type{
+.news-category{
   color:var(--red);
-  font:900 9px "Barlow Condensed";
+  font:900 8px "Barlow Condensed";
   letter-spacing:1px;
 }
 
-.news-text{
+.news-headline{
   margin-top:2px;
-  font-size:10px;
+  font-size:9px;
   line-height:1.4;
 }
 
 /* SCHEDULE */
 
-.month-row{
+.schedule-head{
+  margin-top:19px;
   display:flex;
+  align-items:end;
   justify-content:space-between;
-  align-items:center;
-  margin-top:23px;
-  padding-bottom:10px;
+  padding-bottom:9px;
   border-bottom:1px solid var(--line);
 }
 
 .month{
-  font:900 27px "Barlow Condensed";
+  font:900 26px "Barlow Condensed";
 }
 
 .record{
-  color:var(--muted);
-  font:800 10px "Barlow Condensed";
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
 }
 
-.game-row{
+.schedule-day{
   width:100%;
   min-height:82px;
   display:grid;
-  grid-template-columns:50px 1fr auto;
+  grid-template-columns:46px 1fr auto;
   align-items:center;
-  gap:9px;
-  text-align:left;
+  gap:10px;
   border-bottom:1px solid var(--line);
+  text-align:left;
 }
 
-.game-date{
-  color:var(--muted);
-  font:800 9px "Barlow Condensed";
+.day-date{
+  color:var(--gray);
+  font:900 8px "Barlow Condensed";
 }
 
-.game-date strong{
+.day-date strong{
   display:block;
   color:var(--white);
-  font:900 29px/.8 "Barlow Condensed";
+  font:900 28px/.8 "Barlow Condensed";
 }
 
-.game-row.today .game-date strong{
+.schedule-day.today .day-date strong{
   color:var(--red);
 }
 
-.game-team{
+.opponent{
   display:flex;
   align-items:center;
   gap:9px;
 }
 
-.game-logo{
+.opponent-logo{
   width:37px;
   height:37px;
   display:grid;
   place-items:center;
   border-radius:9px;
-  background:var(--navy2);
   border:1px solid var(--line);
+  background:var(--navy-2);
   font:900 9px "Barlow Condensed";
 }
 
-.game-name{
+.opponent-name{
   font:900 18px "Barlow Condensed";
 }
 
-.game-meta{
+.opponent-info{
   margin-top:2px;
-  color:var(--muted);
-  font-size:8px;
+  color:var(--gray);
+  font-size:7px;
 }
 
-.game-result{
+.day-result{
   text-align:right;
   font:900 17px "Barlow Condensed";
 }
 
-.game-result small{
+.day-result small{
   display:block;
   margin-top:2px;
-  color:var(--muted);
-  font:800 8px "Barlow Condensed";
+  color:var(--gray);
+  font:800 7px "Barlow Condensed";
 }
 
 /* PLAYERS */
 
-.player-filter{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+.filters{
+  margin-top:17px;
+  display:flex;
   gap:5px;
-  margin-top:20px;
-  padding:4px;
-  border:1px solid var(--line);
-  border-radius:13px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding-bottom:2px;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
 }
 
 .filter{
-  min-height:34px;
-  border-radius:8px;
-  color:var(--muted);
-  font:900 12px "Barlow Condensed";
+  flex:0 0 auto;
+  min-width:59px;
+  height:32px;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--gray);
+  font:900 10px "Barlow Condensed";
 }
 
 .filter.active{
+  border-color:var(--red);
   background:var(--red);
-  color:white;
+  color:#fff;
 }
 
-.position{
+.roster-section{
   margin-top:20px;
 }
 
-.position-title{
+.position-head{
   display:flex;
   align-items:center;
   gap:8px;
-  color:var(--muted);
-  font:900 10px "Barlow Condensed";
-  letter-spacing:1.5px;
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
+  letter-spacing:1.4px;
 }
 
-.position-title:after{
+.position-head:after{
   content:"";
   flex:1;
   height:1px;
   background:var(--line);
 }
 
-.il{
-  margin-top:7px;
+.il-label{
+  margin-top:8px;
   color:var(--red);
-  font:900 9px "Barlow Condensed";
+  font:900 8px "Barlow Condensed";
   letter-spacing:1px;
 }
 
 .active-label{
   margin-top:8px;
-  color:var(--muted);
-  font:900 8px "Barlow Condensed";
+  color:var(--gray-2);
+  font:900 7px "Barlow Condensed";
   letter-spacing:1px;
 }
 
-.player{
+.player-row{
   width:100%;
-  min-height:66px;
+  min-height:64px;
   display:grid;
-  grid-template-columns:38px 1fr auto 14px;
+  grid-template-columns:34px 1fr auto 16px;
   align-items:center;
   gap:8px;
-  text-align:left;
   border-bottom:1px solid var(--line);
+  text-align:left;
+}
+
+.player-row.il-player{
+  opacity:.58;
 }
 
 .player-number{
-  color:var(--muted);
-  font:900 19px "Barlow Condensed";
-}
-
-.player-name{
+  color:var(--gray);
   font:900 18px "Barlow Condensed";
 }
 
-.player-sub{
+.player-name{
+  font:900 17px "Barlow Condensed";
+}
+
+.player-meta{
   margin-top:2px;
-  color:var(--muted);
-  font-size:8px;
+  color:var(--gray);
+  font-size:7px;
 }
 
-.player-pos{
+.player-position{
   color:var(--red);
-  font:900 12px "Barlow Condensed";
+  font:900 10px "Barlow Condensed";
 }
 
-.player-arrow{
-  color:var(--muted);
+.chevron{
+  color:var(--gray-2);
   font-size:17px;
-}
-
-.player.il-player{
-  opacity:.65;
 }
 
 /* DETAILS */
 
 .detail{
   display:none;
-  padding-top:22px;
+  padding-top:20px;
 }
 
 .detail.active{
@@ -565,192 +599,225 @@ header{
 .back{
   display:flex;
   align-items:center;
-  gap:6px;
-  color:var(--muted);
-  font:900 10px "Barlow Condensed";
+  gap:5px;
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
   letter-spacing:1px;
 }
 
 .back b{
   color:var(--red);
-  font-size:21px;
+  font-size:20px;
+  font-weight:400;
 }
 
 .detail-title{
-  margin-top:17px;
-  font:900 40px/.9 "Barlow Condensed";
+  margin-top:16px;
+  font:900 34px/.9 "Barlow Condensed";
 }
 
 .detail-meta{
-  margin-top:6px;
-  color:var(--muted);
-  font-size:9px;
+  margin-top:5px;
+  color:var(--gray);
+  font-size:8px;
 }
 
 /* BOX SCORE */
 
-.score-card{
-  margin-top:18px;
-  padding:15px;
+.score-summary{
+  margin-top:16px;
+  overflow:hidden;
   border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--navy2);
+  border-radius:14px;
+  background:var(--navy-2);
 }
 
-.score-teams{
+.summary-teams{
   display:grid;
-  grid-template-columns:1fr 38px 1fr;
+  grid-template-columns:1fr 42px 1fr;
   align-items:center;
+  padding:16px 14px;
 }
 
-.score-team:last-child{
+.summary-team:last-child{
   text-align:right;
 }
 
-.score-code{
-  font:900 32px "Barlow Condensed";
+.summary-code{
+  font:900 28px "Barlow Condensed";
 }
 
-.score-value{
+.summary-score{
   margin-top:1px;
   color:var(--red);
-  font:900 27px "Barlow Condensed";
+  font:900 29px "Barlow Condensed";
 }
 
-.score-team:last-child .score-value{
+.summary-team:last-child .summary-score{
   color:var(--white);
 }
 
 .final{
+  color:var(--gray);
   text-align:center;
-  color:var(--muted);
   font:900 8px "Barlow Condensed";
 }
 
 .venue{
-  margin-top:11px;
-  padding-top:9px;
+  padding:8px 13px;
   border-top:1px solid var(--line);
-  color:var(--muted);
-  font-size:8px;
+  color:var(--gray);
+  font-size:7px;
 }
 
-.detail-section{
-  margin-top:18px;
+.detail-block{
+  margin-top:17px;
 }
 
-.detail-section-title{
+.block-title{
   margin-bottom:7px;
-  font:900 18px "Barlow Condensed";
+  font:900 17px "Barlow Condensed";
 }
 
-.box{
+.table{
   overflow:hidden;
   border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--navy2);
+  border-radius:11px;
+  background:var(--navy-2);
 }
 
-.inning{
+.linescore{
   display:grid;
-  grid-template-columns:1.35fr repeat(9,1fr) 30px 30px 30px;
-  min-height:34px;
+  grid-template-columns:1.25fr repeat(9,minmax(0,1fr)) 27px 27px 27px;
+  min-height:35px;
   align-items:center;
   border-bottom:1px solid var(--line);
 }
 
-.inning:last-child{
-  border:0;
+.linescore:last-child{
+  border-bottom:0;
 }
 
-.inning span{
+.linescore div{
   text-align:center;
-  font:800 9px "Barlow Condensed";
+  font:800 8px "Barlow Condensed";
 }
 
-.inning span:first-child{
+.linescore div:first-child{
   padding-left:7px;
   text-align:left;
   font-weight:900;
 }
 
-.inning.header span{
-  color:var(--muted);
-  font-size:7px;
+.linescore.head div{
+  color:var(--gray);
+  font-size:6.5px;
 }
 
-.inning .red{
+.linescore .highlight{
   color:var(--red);
 }
 
-.batting{
+.batting-row{
   display:grid;
-  grid-template-columns:1.6fr repeat(6,1fr);
-  min-height:37px;
+  grid-template-columns:1.55fr repeat(6,1fr);
+  min-height:35px;
   align-items:center;
   border-bottom:1px solid var(--line);
 }
 
-.batting:last-child{
-  border:0;
+.batting-row:last-child{
+  border-bottom:0;
 }
 
-.batting span{
+.batting-row div{
   text-align:center;
-  font:800 9px "Barlow Condensed";
+  font:800 8px "Barlow Condensed";
 }
 
-.batting span:first-child{
-  padding-left:8px;
+.batting-row div:first-child{
+  padding-left:7px;
   text-align:left;
   font-weight:900;
 }
 
-.batting.header span{
-  color:var(--muted);
-  font-size:7px;
+.batting-row.head div{
+  color:var(--gray);
+  font-size:6.5px;
 }
 
-/* LIVE GAME */
+.pitching-row{
+  display:grid;
+  grid-template-columns:1.5fr repeat(5,1fr);
+  min-height:35px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
 
-.live-status{
+.pitching-row:last-child{
+  border-bottom:0;
+}
+
+.pitching-row div{
+  text-align:center;
+  font:800 8px "Barlow Condensed";
+}
+
+.pitching-row div:first-child{
+  padding-left:7px;
+  text-align:left;
+  font-weight:900;
+}
+
+.pitching-row.head div{
+  color:var(--gray);
+  font-size:6.5px;
+}
+
+/* LIVE */
+
+.live-state{
   display:flex;
   align-items:center;
-  gap:7px;
-  margin-top:20px;
+  gap:6px;
+  margin-top:17px;
   color:var(--red);
-  font:900 10px "Barlow Condensed";
+  font:900 9px "Barlow Condensed";
   letter-spacing:1px;
 }
 
-.live-status i{
+.live-state i{
   width:7px;
   height:7px;
   border-radius:50%;
   background:var(--red);
 }
 
-.live-score{
-  margin-top:12px;
+.live-scoreboard{
+  margin-top:10px;
   display:grid;
   grid-template-columns:1fr auto;
   align-items:center;
-  padding:18px 15px;
+  padding:17px 14px;
   border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--navy2);
+  border-radius:14px;
+  background:var(--navy-2);
 }
 
-.live-teams div{
+.live-teams{
+  display:grid;
+  gap:6px;
+}
+
+.live-team{
+  width:155px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  width:150px;
-  font:900 21px "Barlow Condensed";
+  font:900 20px "Barlow Condensed";
 }
 
-.live-teams strong{
-  font-size:28px;
+.live-team strong{
+  font-size:27px;
 }
 
 .live-inning{
@@ -759,152 +826,317 @@ header{
 
 .live-inning strong{
   display:block;
-  font:900 30px "Barlow Condensed";
+  font:900 31px "Barlow Condensed";
 }
 
 .live-inning span{
-  color:var(--muted);
-  font:800 8px "Barlow Condensed";
+  color:var(--gray);
+  font:800 7px "Barlow Condensed";
 }
 
-.pitch-card{
+.count-card{
   margin-top:10px;
-  padding:14px;
+  padding:13px;
   border:1px solid var(--line);
-  border-radius:13px;
-  background:var(--navy2);
+  border-radius:12px;
+  background:var(--navy-2);
 }
 
-.pitch-label{
-  color:var(--muted);
+.count-head{
+  display:flex;
+  justify-content:space-between;
+  color:var(--gray);
   font:900 8px "Barlow Condensed";
   letter-spacing:1px;
 }
 
-.pitcher{
+.batter{
   margin-top:4px;
   font:900 19px "Barlow Condensed";
 }
 
-.pitch-count{
+.batter-meta{
   margin-top:2px;
-  color:var(--muted);
+  color:var(--gray);
   font-size:8px;
 }
 
+.count{
+  margin-top:12px;
+  display:flex;
+  gap:12px;
+}
+
+.count-item{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font:900 10px "Barlow Condensed";
+}
+
+.count-item b{
+  color:var(--red);
+}
+
 .last-pitch{
-  margin-top:14px;
-  padding-top:12px;
+  margin-top:12px;
+  padding-top:10px;
   border-top:1px solid var(--line);
 }
 
-.last-pitch-title{
-  color:var(--muted);
-  font:900 8px "Barlow Condensed";
+.last-pitch-label{
+  color:var(--gray);
+  font:900 7px "Barlow Condensed";
 }
 
-.last-pitch-main{
-  margin-top:3px;
-  font:900 25px "Barlow Condensed";
-}
-
-.last-pitch-detail{
+.last-pitch-value{
   margin-top:2px;
-  color:var(--muted);
-  font-size:9px;
+  font:900 20px "Barlow Condensed";
 }
 
-.events{
-  margin-top:10px;
+.last-pitch-meta{
+  margin-top:1px;
+  color:var(--gray);
+  font-size:7px;
+}
+
+.event-list{
   overflow:hidden;
   border:1px solid var(--line);
-  border-radius:13px;
-  background:var(--navy2);
+  border-radius:12px;
+  background:var(--navy-2);
 }
 
 .event{
+  min-height:46px;
   display:grid;
-  grid-template-columns:35px 1fr auto;
+  grid-template-columns:34px 1fr auto;
   gap:8px;
   align-items:center;
-  min-height:47px;
-  padding:8px 11px;
+  padding:7px 10px;
   border-bottom:1px solid var(--line);
 }
 
 .event:last-child{
-  border:0;
+  border-bottom:0;
 }
 
 .event-inning{
-  color:var(--muted);
-  font:900 10px "Barlow Condensed";
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
 }
 
 .event-text{
-  font-size:9px;
+  font-size:8px;
+  line-height:1.3;
 }
 
-.event-result{
-  color:var(--muted);
+.event-type{
+  color:var(--gray);
+  font:900 8px "Barlow Condensed";
+}
+
+/* PLAYER DETAIL */
+
+.player-hero{
+  margin-top:15px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(145deg,#0d2349,#091a36);
+}
+
+.player-hero-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.player-hero-number{
+  color:var(--gray);
+  font:900 38px "Barlow Condensed";
+}
+
+.player-hero-position{
+  color:var(--red);
   font:900 10px "Barlow Condensed";
+  letter-spacing:1px;
+}
+
+.player-hero-name{
+  margin-top:3px;
+  font:900 31px/.9 "Barlow Condensed";
+}
+
+.player-hero-meta{
+  margin-top:5px;
+  color:var(--gray);
+  font-size:8px;
+}
+
+.stats-switch{
+  display:flex;
+  gap:5px;
+  margin-top:13px;
+}
+
+.stat-switch{
+  flex:1;
+  height:32px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:var(--gray);
+  font:900 9px "Barlow Condensed";
+}
+
+.stat-switch.active{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--navy-2);
+}
+
+.stat{
+  min-height:65px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:8px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.stat:nth-child(4n){
+  border-right:0;
+}
+
+.stat:nth-last-child(-n+4){
+  border-bottom:0;
+}
+
+.stat-value{
+  font:900 20px "Barlow Condensed";
+}
+
+.stat-label{
+  margin-top:2px;
+  color:var(--gray);
+  font:800 7px "Barlow Condensed";
+}
+
+.season-line{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--navy-2);
+}
+
+.season-row{
+  display:grid;
+  grid-template-columns:1.3fr repeat(5,1fr);
+  min-height:34px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
+
+.season-row:last-child{
+  border-bottom:0;
+}
+
+.season-row div{
+  text-align:center;
+  font:800 8px "Barlow Condensed";
+}
+
+.season-row div:first-child{
+  padding-left:8px;
+  text-align:left;
+  font-weight:900;
+}
+
+.season-row.head div{
+  color:var(--gray);
+  font-size:6.5px;
 }
 
 /* NAV */
 
-.nav{
+.bottom-nav{
   position:fixed;
-  z-index:50;
+  z-index:100;
   left:50%;
   bottom:max(9px,env(safe-area-inset-bottom));
   transform:translateX(-50%);
-  width:calc(100% - 24px);
-  max-width:460px;
-  height:65px;
+  width:min(calc(100% - 24px),430px);
+  height:64px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   padding:4px;
   border:1px solid rgba(255,255,255,.12);
-  border-radius:18px;
-  background:rgba(6,21,47,.97);
+  border-radius:17px;
+  background:rgba(7,22,47,.97);
   backdrop-filter:blur(18px);
 }
 
-.nav button{
+.nav-btn{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:1px;
-  border-radius:13px;
-  color:var(--muted);
+  border-radius:12px;
+  color:var(--gray);
 }
 
-.nav-icon{
-  font:900 19px "Barlow Condensed";
+.nav-symbol{
+  height:23px;
+  display:grid;
+  place-items:center;
+  font:900 18px "Barlow Condensed";
 }
 
-.nav-label{
-  font:900 9px "Barlow Condensed";
-  letter-spacing:.8px;
+.nav-text{
+  font:900 8px "Barlow Condensed";
+  letter-spacing:1px;
 }
 
-.nav button.active{
+.nav-btn.active{
+  background:var(--navy-3);
   color:var(--white);
-  background:var(--navy3);
 }
 
-.nav button.active .nav-icon{
+.nav-btn.active .nav-symbol{
   color:var(--red);
 }
 
-@media(max-width:390px){
-  .container{width:calc(100% - 24px)}
-  .title{font-size:43px}
-  .inning{
-    grid-template-columns:1.2fr repeat(9,1fr) 27px 27px 27px;
+@media(max-width:380px){
+  .shell{
+    width:calc(100% - 22px);
   }
-  .inning span{font-size:8px}
+
+  .club-code{
+    font-size:48px;
+  }
+
+  .linescore{
+    grid-template-columns:1.15fr repeat(9,minmax(0,1fr)) 24px 24px 24px;
+  }
+
+  .linescore div{
+    font-size:7px;
+  }
+
+  .stat-grid .stat{
+    min-height:61px;
+  }
 }
 </style>
 </head>
@@ -913,228 +1145,252 @@ header{
 
 <div class="app">
 
-<header>
-  <div class="container header">
-    <div class="logo">
-      <div class="logo-mark">P</div>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <div class="brand">
+      <div class="brand-p">P</div>
       <div>
-        <div class="logo-small">PHILADELPHIA</div>
-        <div class="logo-main">PHILLIES</div>
+        <div class="brand-name">PHILLIES</div>
+        <div class="brand-sub">PHILADELPHIA BASEBALL</div>
       </div>
     </div>
-    <div class="season">2026</div>
+    <div class="year">2026</div>
   </div>
 </header>
 
-<main class="container">
+<main class="shell">
 
 <!-- HOME -->
 
-<section id="home" class="screen active">
+<section id="home" class="page active">
 
-  <div class="kicker">PHILADELPHIA PHILLIES</div>
-  <h1 class="title">HOME</h1>
+  <div class="eyebrow">PHILADELPHIA PHILLIES</div>
+  <h1 class="page-title">HOME</h1>
 
-  <button class="next-game" id="todayGame">
+  <button class="hero-game" id="openLive">
 
-    <div class="next-head">
-      <strong>TODAY</strong>
-      <span>AUG 12 · 7:05 PM</span>
+    <div class="hero-top">
+      <div class="hero-top-left">
+        <i class="live-indicator"></i>
+        TODAY'S GAME
+      </div>
+      <div class="hero-top-right">AUG 12 · 7:05 PM</div>
     </div>
 
     <div class="matchup">
 
-      <div class="team">
-        <div class="team-city">PHILADELPHIA</div>
-        <div class="team-code">PHI</div>
-        <div class="team-name">Phillies</div>
+      <div class="club">
+        <div class="club-city">PHILADELPHIA</div>
+        <div class="club-code">PHI</div>
+        <div class="club-name">Phillies</div>
       </div>
 
       <div class="vs">VS</div>
 
-      <div class="team">
-        <div class="team-city">NEW YORK</div>
-        <div class="team-code">NYM</div>
-        <div class="team-name">Mets</div>
+      <div class="club away">
+        <div class="club-city">NEW YORK</div>
+        <div class="club-code">NYM</div>
+        <div class="club-name">Mets</div>
       </div>
 
     </div>
 
-    <div class="next-info">
-      <div>
-        <strong>7:05 PM</strong>
-        <span>FIRST PITCH</span>
+    <div class="game-data">
+      <div class="game-data-item">
+        <div class="game-data-value">7:05 PM</div>
+        <div class="game-data-label">FIRST PITCH</div>
       </div>
-      <div>
-        <strong>CITIZENS</strong>
-        <span>VENUE</span>
+      <div class="game-data-item">
+        <div class="game-data-value">CITIZENS</div>
+        <div class="game-data-label">BALLPARK</div>
       </div>
-      <div>
-        <strong>HOME</strong>
-        <span>LOCATION</span>
+      <div class="game-data-item">
+        <div class="game-data-value">HOME</div>
+        <div class="game-data-label">LOCATION</div>
       </div>
     </div>
 
-    <div class="live-link">
-      <div class="live-left">
-        <i class="live-dot"></i>
-        LIVE GAME
-      </div>
-      <div class="arrow">›</div>
+    <div class="open-live">
+      <span>OPEN LIVE GAME</span>
+      <b>›</b>
     </div>
 
   </button>
 
-  <div class="section">
-    <div class="section-head">
-      <h2>LAST GAME</h2>
-      <span>FINAL</span>
+  <div class="home-section">
+
+    <div class="section-heading">
+      <h2>RECENT GAMES</h2>
+      <span>LAST 3</span>
     </div>
 
-    <div class="result">
-      <div class="result-date">
-        AUG
-        <strong>11</strong>
-      </div>
+    <div class="recent">
 
-      <div class="result-team">
-        <div class="result-code">MIA</div>
-        <div>
-          <div class="result-name">Marlins</div>
-          <div class="result-meta">AWAY · MIAMI</div>
+      <button class="recent-row" data-open-box>
+        <div class="recent-date">AUG<strong>11</strong></div>
+        <div class="recent-main">
+          <div class="mini-logo">MIA</div>
+          <div>
+            <div class="recent-opponent">Marlins</div>
+            <div class="recent-location">AWAY · MIAMI</div>
+          </div>
         </div>
-      </div>
+        <div class="recent-score">W 4–1<span class="win">FINAL</span></div>
+      </button>
 
-      <div class="result-score">
-        W 4–1
-        <span class="win">PHI</span>
-      </div>
+      <button class="recent-row" data-open-box>
+        <div class="recent-date">AUG<strong>10</strong></div>
+        <div class="recent-main">
+          <div class="mini-logo">MIA</div>
+          <div>
+            <div class="recent-opponent">Marlins</div>
+            <div class="recent-location">AWAY · MIAMI</div>
+          </div>
+        </div>
+        <div class="recent-score">W 5–2<span class="win">FINAL</span></div>
+      </button>
+
+      <button class="recent-row" data-open-box>
+        <div class="recent-date">AUG<strong>09</strong></div>
+        <div class="recent-main">
+          <div class="mini-logo">ATL</div>
+          <div>
+            <div class="recent-opponent">Braves</div>
+            <div class="recent-location">AWAY · ATLANTA</div>
+          </div>
+        </div>
+        <div class="recent-score">L 2–3<span class="win">FINAL</span></div>
+      </button>
+
     </div>
+
   </div>
 
-  <div class="section">
-    <div class="section-head">
+  <div class="home-section">
+
+    <div class="section-heading">
       <h2>NEWS</h2>
-      <span>RECENT</span>
+      <span>PHILLIES</span>
     </div>
 
-    <div class="news">
+    <div class="news-list">
 
-      <div class="news-row">
+      <div class="news-item">
         <div class="news-dot"></div>
         <div class="news-time">10:42</div>
         <div>
-          <div class="news-type">GAME</div>
-          <div class="news-text">Phillies take the series opener in Miami, 4–1.</div>
+          <div class="news-category">GAME</div>
+          <div class="news-headline">Phillies take the series opener in Miami, 4–1.</div>
         </div>
       </div>
 
-      <div class="news-row">
+      <div class="news-item">
         <div class="news-dot"></div>
         <div class="news-time">09:18</div>
         <div>
-          <div class="news-type">ROSTER</div>
-          <div class="news-text">Roster update announced ahead of the home series.</div>
+          <div class="news-category">ROSTER</div>
+          <div class="news-headline">Philadelphia announces a roster move ahead of tonight's game.</div>
         </div>
       </div>
 
-      <div class="news-row">
+      <div class="news-item">
         <div class="news-dot"></div>
         <div class="news-time">08:41</div>
         <div>
-          <div class="news-type">TEAM</div>
-          <div class="news-text">Philadelphia returns home for three games against New York.</div>
+          <div class="news-category">TEAM</div>
+          <div class="news-headline">The Phillies return home for a three-game series.</div>
         </div>
       </div>
 
     </div>
+
   </div>
 
 </section>
 
 <!-- SCHEDULE -->
 
-<section id="schedule" class="screen">
+<section id="schedule" class="page">
 
-  <div class="kicker">2026 REGULAR SEASON</div>
-  <h1 class="title">SCHEDULE</h1>
-  <div class="subtitle">Select a game for the full box score.</div>
+  <div class="eyebrow">2026 REGULAR SEASON</div>
+  <h1 class="page-title">SCHEDULE</h1>
+  <div class="page-description">Tap any completed game for the full box score.</div>
 
-  <div class="month-row">
+  <div class="schedule-head">
     <div class="month">AUGUST</div>
     <div class="record">72–48</div>
   </div>
 
-  <button class="game-row" data-game="aug10">
-    <div class="game-date">MON<strong>10</strong></div>
-    <div class="game-team">
-      <div class="game-logo">MIA</div>
+  <button class="schedule-day" data-open-box>
+    <div class="day-date">MON<strong>10</strong></div>
+    <div class="opponent">
+      <div class="opponent-logo">MIA</div>
       <div>
-        <div class="game-name">Marlins</div>
-        <div class="game-meta">AWAY · MIAMI</div>
+        <div class="opponent-name">Marlins</div>
+        <div class="opponent-info">AWAY · MIAMI</div>
       </div>
     </div>
-    <div class="game-result">W 5–2<small>FINAL</small></div>
+    <div class="day-result">W 5–2<small>FINAL</small></div>
   </button>
 
-  <button class="game-row" data-game="aug11">
-    <div class="game-date">TUE<strong>11</strong></div>
-    <div class="game-team">
-      <div class="game-logo">MIA</div>
+  <button class="schedule-day" data-open-box>
+    <div class="day-date">TUE<strong>11</strong></div>
+    <div class="opponent">
+      <div class="opponent-logo">MIA</div>
       <div>
-        <div class="game-name">Marlins</div>
-        <div class="game-meta">AWAY · MIAMI</div>
+        <div class="opponent-name">Marlins</div>
+        <div class="opponent-info">AWAY · MIAMI</div>
       </div>
     </div>
-    <div class="game-result">W 4–1<small>FINAL</small></div>
+    <div class="day-result">W 4–1<small>FINAL</small></div>
   </button>
 
-  <button class="game-row today">
-    <div class="game-date">WED<strong>12</strong></div>
-    <div class="game-team">
-      <div class="game-logo">NYM</div>
+  <button class="schedule-day today" id="scheduleLive">
+    <div class="day-date">WED<strong>12</strong></div>
+    <div class="opponent">
+      <div class="opponent-logo">NYM</div>
       <div>
-        <div class="game-name">Mets</div>
-        <div class="game-meta">HOME · PHILADELPHIA</div>
+        <div class="opponent-name">Mets</div>
+        <div class="opponent-info">HOME · PHILADELPHIA</div>
       </div>
     </div>
-    <div class="game-result">7:05<small>TODAY</small></div>
+    <div class="day-result">7:05<small>TODAY</small></div>
   </button>
 
-  <button class="game-row">
-    <div class="game-date">THU<strong>13</strong></div>
-    <div class="game-team">
-      <div class="game-logo">NYM</div>
+  <button class="schedule-day">
+    <div class="day-date">THU<strong>13</strong></div>
+    <div class="opponent">
+      <div class="opponent-logo">NYM</div>
       <div>
-        <div class="game-name">Mets</div>
-        <div class="game-meta">HOME · PHILADELPHIA</div>
+        <div class="opponent-name">Mets</div>
+        <div class="opponent-info">HOME · PHILADELPHIA</div>
       </div>
     </div>
-    <div class="game-result">6:45<small>UPCOMING</small></div>
+    <div class="day-result">6:45<small>UPCOMING</small></div>
   </button>
 
-  <button class="game-row">
-    <div class="game-date">FRI<strong>14</strong></div>
-    <div class="game-team">
-      <div class="game-logo">ATL</div>
+  <button class="schedule-day">
+    <div class="day-date">FRI<strong>14</strong></div>
+    <div class="opponent">
+      <div class="opponent-logo">ATL</div>
       <div>
-        <div class="game-name">Braves</div>
-        <div class="game-meta">HOME · PHILADELPHIA</div>
+        <div class="opponent-name">Braves</div>
+        <div class="opponent-info">HOME · PHILADELPHIA</div>
       </div>
     </div>
-    <div class="game-result">7:05<small>UPCOMING</small></div>
+    <div class="day-result">7:05<small>UPCOMING</small></div>
   </button>
 
 </section>
 
 <!-- PLAYERS -->
 
-<section id="players" class="screen">
+<section id="players" class="page">
 
-  <div class="kicker">PHILADELPHIA PHILLIES</div>
-  <h1 class="title">PLAYERS</h1>
+  <div class="eyebrow">PHILADELPHIA PHILLIES</div>
+  <h1 class="page-title">PLAYERS</h1>
 
-  <div class="player-filter">
+  <div class="filters">
     <button class="filter active" data-filter="all">ALL</button>
     <button class="filter" data-filter="active">ACTIVE</button>
     <button class="filter" data-filter="pitcher">PITCHERS</button>
@@ -1144,137 +1400,148 @@ header{
     <button class="filter" data-filter="dh">DH</button>
   </div>
 
-  <div class="position" data-position="pitcher">
-    <div class="position-title">PITCHERS</div>
-    <div class="il">INJURED LIST</div>
+  <div class="roster-section" data-position="pitcher">
 
-    <button class="player il-player" data-player="alvarado">
+    <div class="position-head">PITCHERS</div>
+
+    <div class="il-label">INJURED LIST</div>
+
+    <button class="player-row il-player" data-player="alvarado">
       <div class="player-number">23</div>
       <div>
         <div class="player-name">José Alvarado</div>
-        <div class="player-sub">L/L · RELIEF PITCHER</div>
+        <div class="player-meta">L/L · RELIEF PITCHER</div>
       </div>
-      <div class="player-pos">RP</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">RP</div>
+      <div class="chevron">›</div>
     </button>
 
     <div class="active-label">ACTIVE</div>
 
-    <button class="player" data-player="wheeler">
+    <button class="player-row" data-player="wheeler">
       <div class="player-number">45</div>
       <div>
         <div class="player-name">Zack Wheeler</div>
-        <div class="player-sub">R/R · STARTING PITCHER</div>
+        <div class="player-meta">R/R · STARTING PITCHER</div>
       </div>
-      <div class="player-pos">SP</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">SP</div>
+      <div class="chevron">›</div>
     </button>
 
-    <button class="player" data-player="nola">
+    <button class="player-row" data-player="nola">
       <div class="player-number">27</div>
       <div>
         <div class="player-name">Aaron Nola</div>
-        <div class="player-sub">R/R · STARTING PITCHER</div>
+        <div class="player-meta">R/R · STARTING PITCHER</div>
       </div>
-      <div class="player-pos">SP</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">SP</div>
+      <div class="chevron">›</div>
     </button>
+
   </div>
 
-  <div class="position" data-position="catcher">
-    <div class="position-title">CATCHERS</div>
+  <div class="roster-section" data-position="catcher">
 
-    <button class="player" data-player="realmuto">
+    <div class="position-head">CATCHERS</div>
+
+    <button class="player-row" data-player="realmuto">
       <div class="player-number">10</div>
       <div>
         <div class="player-name">J.T. Realmuto</div>
-        <div class="player-sub">R/R · CATCHER</div>
+        <div class="player-meta">R/R · CATCHER</div>
       </div>
-      <div class="player-pos">C</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">C</div>
+      <div class="chevron">›</div>
     </button>
+
   </div>
 
-  <div class="position" data-position="infielder">
-    <div class="position-title">INFIELDERS</div>
+  <div class="roster-section" data-position="infielder">
 
-    <button class="player" data-player="harper">
+    <div class="position-head">INFIELDERS</div>
+
+    <button class="player-row" data-player="harper">
       <div class="player-number">13</div>
       <div>
         <div class="player-name">Bryce Harper</div>
-        <div class="player-sub">L/L · FIRST BASE</div>
+        <div class="player-meta">L/L · FIRST BASE</div>
       </div>
-      <div class="player-pos">1B</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">1B</div>
+      <div class="chevron">›</div>
     </button>
 
-    <button class="player" data-player="turner">
+    <button class="player-row" data-player="turner">
       <div class="player-number">7</div>
       <div>
         <div class="player-name">Trea Turner</div>
-        <div class="player-sub">R/R · SHORTSTOP</div>
+        <div class="player-meta">R/R · SHORTSTOP</div>
       </div>
-      <div class="player-pos">SS</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">SS</div>
+      <div class="chevron">›</div>
     </button>
 
-    <button class="player" data-player="stott">
+    <button class="player-row" data-player="stott">
       <div class="player-number">5</div>
       <div>
         <div class="player-name">Bryson Stott</div>
-        <div class="player-sub">L/R · SECOND BASE</div>
+        <div class="player-meta">L/R · SECOND BASE</div>
       </div>
-      <div class="player-pos">2B</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">2B</div>
+      <div class="chevron">›</div>
     </button>
 
-    <button class="player" data-player="bohm">
+    <button class="player-row" data-player="bohm">
       <div class="player-number">28</div>
       <div>
         <div class="player-name">Alec Bohm</div>
-        <div class="player-sub">R/R · THIRD BASE</div>
+        <div class="player-meta">R/R · THIRD BASE</div>
       </div>
-      <div class="player-pos">3B</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">3B</div>
+      <div class="chevron">›</div>
     </button>
+
   </div>
 
-  <div class="position" data-position="outfielder">
-    <div class="position-title">OUTFIELDERS</div>
+  <div class="roster-section" data-position="outfielder">
 
-    <button class="player" data-player="castellanos">
+    <div class="position-head">OUTFIELDERS</div>
+
+    <button class="player-row" data-player="castellanos">
       <div class="player-number">8</div>
       <div>
         <div class="player-name">Nick Castellanos</div>
-        <div class="player-sub">R/R · RIGHT FIELD</div>
+        <div class="player-meta">R/R · RIGHT FIELD</div>
       </div>
-      <div class="player-pos">RF</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">RF</div>
+      <div class="chevron">›</div>
     </button>
 
-    <button class="player" data-player="rojas">
+    <button class="player-row" data-player="rojas">
       <div class="player-number">16</div>
       <div>
         <div class="player-name">Johan Rojas</div>
-        <div class="player-sub">R/R · CENTER FIELD</div>
+        <div class="player-meta">R/R · CENTER FIELD</div>
       </div>
-      <div class="player-pos">CF</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">CF</div>
+      <div class="chevron">›</div>
     </button>
+
   </div>
 
-  <div class="position" data-position="dh">
-    <div class="position-title">DESIGNATED HITTERS</div>
+  <div class="roster-section" data-position="dh">
 
-    <button class="player" data-player="schwarber">
+    <div class="position-head">DESIGNATED HITTERS</div>
+
+    <button class="player-row" data-player="schwarber">
       <div class="player-number">12</div>
       <div>
         <div class="player-name">Kyle Schwarber</div>
-        <div class="player-sub">L/R · DESIGNATED HITTER</div>
+        <div class="player-meta">L/R · DESIGNATED HITTER</div>
       </div>
-      <div class="player-pos">DH</div>
-      <div class="player-arrow">›</div>
+      <div class="player-position">DH</div>
+      <div class="chevron">›</div>
     </button>
+
   </div>
 
 </section>
@@ -1285,82 +1552,101 @@ header{
 
   <button class="back" data-back="schedule"><b>‹</b> SCHEDULE</button>
 
-  <div class="kicker">FULL BOX SCORE</div>
+  <div class="eyebrow" style="margin-top:15px">FULL BOX SCORE</div>
   <h1 class="detail-title">PHILLIES 4 · MARLINS 1</h1>
-  <div class="detail-meta">AUGUST 11 · LOANDEPOT PARK</div>
+  <div class="detail-meta">AUGUST 11 · LOANDEPOT PARK · MIAMI</div>
 
-  <div class="score-card">
+  <div class="score-summary">
 
-    <div class="score-teams">
+    <div class="summary-teams">
 
-      <div class="score-team">
-        <div class="score-code">PHI</div>
-        <div class="score-value">4</div>
+      <div class="summary-team">
+        <div class="summary-code">PHI</div>
+        <div class="summary-score">4</div>
       </div>
 
       <div class="final">FINAL</div>
 
-      <div class="score-team">
-        <div class="score-code">MIA</div>
-        <div class="score-value">1</div>
+      <div class="summary-team">
+        <div class="summary-code">MIA</div>
+        <div class="summary-score">1</div>
       </div>
 
     </div>
 
-    <div class="venue">Miami, Florida</div>
+    <div class="venue">Philadelphia 4 · Miami 1</div>
 
   </div>
 
-  <div class="detail-section">
+  <div class="detail-block">
 
-    <div class="detail-section-title">LINE SCORE</div>
+    <div class="block-title">LINE SCORE</div>
 
-    <div class="box">
+    <div class="table">
 
-      <div class="inning header">
-        <span>TEAM</span>
-        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-        <span>6</span><span>7</span><span>8</span><span>9</span>
-        <span>R</span><span>H</span><span>E</span>
+      <div class="linescore head">
+        <div>TEAM</div>
+        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+        <div>6</div><div>7</div><div>8</div><div>9</div>
+        <div>R</div><div>H</div><div>E</div>
       </div>
 
-      <div class="inning">
-        <span>PHI</span>
-        <span>0</span><span>1</span><span>0</span><span class="red">2</span><span>0</span>
-        <span>0</span><span>1</span><span>0</span><span>0</span>
-        <span class="red">4</span><span>9</span><span>0</span>
+      <div class="linescore">
+        <div>PHI</div>
+        <div>0</div><div>1</div><div>0</div><div class="highlight">2</div><div>0</div>
+        <div>0</div><div>1</div><div>0</div><div>0</div>
+        <div class="highlight">4</div><div>9</div><div>0</div>
       </div>
 
-      <div class="inning">
-        <span>MIA</span>
-        <span>0</span><span>0</span><span>1</span><span>0</span><span>0</span>
-        <span>0</span><span>0</span><span>0</span><span>0</span>
-        <span>1</span><span>5</span><span>1</span>
+      <div class="linescore">
+        <div>MIA</div>
+        <div>0</div><div>0</div><div>1</div><div>0</div><div>0</div>
+        <div>0</div><div>0</div><div>0</div><div>0</div>
+        <div>1</div><div>5</div><div>1</div>
       </div>
 
     </div>
 
   </div>
 
-  <div class="detail-section">
+  <div class="detail-block">
 
-    <div class="detail-section-title">PHILLIES BATTING</div>
+    <div class="block-title">PHILLIES BATTING</div>
 
-    <div class="box">
+    <div class="table">
 
-      <div class="batting header">
-        <span>PLAYER</span>
-        <span>AB</span><span>R</span><span>H</span><span>HR</span><span>RBI</span><span>BB</span>
+      <div class="batting-row head">
+        <div>PLAYER</div>
+        <div>AB</div><div>R</div><div>H</div><div>HR</div><div>RBI</div><div>BB</div>
       </div>
 
-      <div class="batting"><span>B. Harper</span><span>4</span><span>2</span><span>2</span><span>1</span><span>2</span><span>1</span></div>
-      <div class="batting"><span>T. Turner</span><span>5</span><span>1</span><span>2</span><span>0</span><span>1</span><span>0</span></div>
-      <div class="batting"><span>K. Schwarber</span><span>4</span><span>1</span><span>1</span><span>0</span><span>1</span><span>1</span></div>
-      <div class="batting"><span>A. Bohm</span><span>4</span><span>0</span><span>1</span><span>0</span><span>0</span><span>0</span></div>
-      <div class="batting"><span>B. Stott</span><span>4</span><span>0</span><span>1</span><span>0</span><span>0</span><span>0</span></div>
-      <div class="batting"><span>N. Castellanos</span><span>4</span><span>0</span><span>1</span><span>0</span><span>0</span><span>0</span></div>
-      <div class="batting"><span>J.T. Realmuto</span><span>3</span><span>0</span><span>1</span><span>0</span><span>0</span><span>1</span></div>
-      <div class="batting"><span>J. Rojas</span><span>4</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span></div>
+      <div class="batting-row"><div>B. Harper</div><div>4</div><div>2</div><div>2</div><div>1</div><div>2</div><div>1</div></div>
+      <div class="batting-row"><div>T. Turner</div><div>5</div><div>1</div><div>2</div><div>0</div><div>1</div><div>0</div></div>
+      <div class="batting-row"><div>K. Schwarber</div><div>4</div><div>1</div><div>1</div><div>0</div><div>1</div><div>1</div></div>
+      <div class="batting-row"><div>A. Bohm</div><div>4</div><div>0</div><div>1</div><div>0</div><div>0</div><div>0</div></div>
+      <div class="batting-row"><div>B. Stott</div><div>4</div><div>0</div><div>1</div><div>0</div><div>0</div><div>0</div></div>
+      <div class="batting-row"><div>N. Castellanos</div><div>4</div><div>0</div><div>1</div><div>0</div><div>0</div><div>0</div></div>
+      <div class="batting-row"><div>J.T. Realmuto</div><div>3</div><div>0</div><div>1</div><div>0</div><div>0</div><div>1</div></div>
+      <div class="batting-row"><div>J. Rojas</div><div>4</div><div>0</div><div>0</div><div>0</div><div>0</div><div>0</div></div>
+
+    </div>
+
+  </div>
+
+  <div class="detail-block">
+
+    <div class="block-title">PHILLIES PITCHING</div>
+
+    <div class="table">
+
+      <div class="pitching-row head">
+        <div>PITCHER</div>
+        <div>IP</div><div>H</div><div>R</div><div>ER</div><div>SO</div>
+      </div>
+
+      <div class="pitching-row"><div>Z. Wheeler</div><div>7.0</div><div>4</div><div>1</div><div>1</div><div>8</div></div>
+      <div class="pitching-row"><div>J. Hoffman</div><div>1.0</div><div>1</div><div>0</div><div>0</div><div>1</div></div>
+      <div class="pitching-row"><div>M. Strahm</div><div>1.0</div><div>0</div><div>0</div><div>0</div><div>2</div></div>
 
     </div>
 
@@ -1368,26 +1654,26 @@ header{
 
 </section>
 
-<!-- LIVE GAME -->
+<!-- LIVE -->
 
 <section id="live" class="detail">
 
   <button class="back" data-back="home"><b>‹</b> HOME</button>
 
-  <div class="kicker">PHILLIES VS METS</div>
+  <div class="eyebrow" style="margin-top:15px">PHILLIES VS METS</div>
   <h1 class="detail-title">LIVE GAME</h1>
   <div class="detail-meta">AUGUST 12 · CITIZENS BANK PARK</div>
 
-  <div class="live-status">
+  <div class="live-state">
     <i></i>
     LIVE
   </div>
 
-  <div class="live-score">
+  <div class="live-scoreboard">
 
     <div class="live-teams">
-      <div>PHI <strong>3</strong></div>
-      <div>NYM <strong>2</strong></div>
+      <div class="live-team">PHI <strong>3</strong></div>
+      <div class="live-team">NYM <strong>2</strong></div>
     </div>
 
     <div class="live-inning">
@@ -1397,54 +1683,174 @@ header{
 
   </div>
 
-  <div class="detail-section">
+  <div class="detail-block">
 
-    <div class="detail-section-title">CURRENT AT BAT</div>
+    <div class="block-title">AT BAT</div>
 
-    <div class="pitch-card">
+    <div class="count-card">
 
-      <div class="pitch-label">BATTER</div>
-      <div class="pitcher">Bryce Harper</div>
-      <div class="pitch-count">1 FOR 2 · HR · BB</div>
+      <div class="count-head">
+        <span>BATTER</span>
+        <span>1 FOR 2 · HR · BB</span>
+      </div>
+
+      <div class="batter">Bryce Harper</div>
+      <div class="batter-meta">LHB · 1B</div>
+
+      <div class="count">
+        <div class="count-item"><b>B</b> 1</div>
+        <div class="count-item"><b>S</b> 2</div>
+        <div class="count-item"><b>O</b> 2</div>
+      </div>
 
       <div class="last-pitch">
-        <div class="last-pitch-title">LAST PITCH</div>
-        <div class="last-pitch-main">94 MPH · FOUR-SEAM FASTBALL</div>
-        <div class="last-pitch-detail">Count 1–2 · Ball</div>
+        <div class="last-pitch-label">LAST PITCH</div>
+        <div class="last-pitch-value">94 MPH · FOUR-SEAM FASTBALL</div>
+        <div class="last-pitch-meta">Ball · Count 1–2</div>
       </div>
 
     </div>
 
   </div>
 
-  <div class="detail-section">
+  <div class="detail-block">
 
-    <div class="detail-section-title">GAME EVENTS</div>
+    <div class="block-title">GAME EVENTS</div>
 
-    <div class="events">
+    <div class="event-list">
 
       <div class="event">
         <div class="event-inning">6TH</div>
-        <div class="event-text">Harper steps in with two outs.</div>
-        <div class="event-result">LIVE</div>
+        <div class="event-text">Harper steps in with two outs and a runner on first.</div>
+        <div class="event-type">LIVE</div>
       </div>
 
       <div class="event">
         <div class="event-inning">5TH</div>
         <div class="event-text">Turner doubles to left field.</div>
-        <div class="event-result">2B</div>
+        <div class="event-type">2B</div>
       </div>
 
       <div class="event">
         <div class="event-inning">4TH</div>
-        <div class="event-text">Schwarber drives in Turner.</div>
-        <div class="event-result">RBI</div>
+        <div class="event-text">Schwarber drives Turner home.</div>
+        <div class="event-type">RBI</div>
       </div>
 
       <div class="event">
         <div class="event-inning">3RD</div>
         <div class="event-text">Mets score on an RBI single.</div>
-        <div class="event-result">RBI</div>
+        <div class="event-type">RBI</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PLAYER DETAIL -->
+
+<section id="playerDetail" class="detail">
+
+  <button class="back" data-back="players"><b>‹</b> PLAYERS</button>
+
+  <div class="player-hero">
+
+    <div class="player-hero-top">
+      <div class="player-hero-number" id="detailNumber">13</div>
+      <div class="player-hero-position" id="detailPosition">1B</div>
+    </div>
+
+    <div class="player-hero-name" id="detailName">Bryce Harper</div>
+    <div class="player-hero-meta" id="detailMeta">L/L · FIRST BASE · 2026 SEASON</div>
+
+  </div>
+
+  <div class="stats-switch">
+    <button class="stat-switch active" data-stat="season">2026 SEASON</button>
+    <button class="stat-switch" data-stat="recent">LAST 30 GAMES</button>
+  </div>
+
+  <div class="detail-block">
+
+    <div class="block-title" id="statTitle">BATTING</div>
+
+    <div class="stat-grid" id="battingStats">
+
+      <div class="stat">
+        <div class="stat-value">.291</div>
+        <div class="stat-label">AVG</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">.401</div>
+        <div class="stat-label">OBP</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">.528</div>
+        <div class="stat-label">SLG</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">.929</div>
+        <div class="stat-label">OPS</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">27</div>
+        <div class="stat-label">HR</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">82</div>
+        <div class="stat-label">RBI</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">74</div>
+        <div class="stat-label">R</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-value">41</div>
+        <div class="stat-label">BB</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="detail-block">
+
+    <div class="block-title">SEASON LOG</div>
+
+    <div class="season-line">
+
+      <div class="season-row head">
+        <div>MONTH</div>
+        <div>G</div><div>AVG</div><div>HR</div><div>RBI</div><div>OPS</div>
+      </div>
+
+      <div class="season-row">
+        <div>APR</div>
+        <div>25</div><div>.284</div><div>6</div><div>18</div><div>.911</div>
+      </div>
+
+      <div class="season-row">
+        <div>MAY</div>
+        <div>27</div><div>.301</div><div>7</div><div>21</div><div>.952</div>
+      </div>
+
+      <div class="season-row">
+        <div>JUN</div>
+        <div>26</div><div>.288</div><div>5</div><div>17</div><div>.901</div>
+      </div>
+
+      <div class="season-row">
+        <div>JUL</div>
+        <div>25</div><div>.296</div><div>6</div><div>19</div><div>.944</div>
       </div>
 
     </div>
@@ -1455,21 +1861,21 @@ header{
 
 </main>
 
-<nav class="nav">
+<nav class="bottom-nav">
 
-  <button class="nav-button" data-page="schedule">
-    <span class="nav-icon">▤</span>
-    <span class="nav-label">SCHEDULE</span>
+  <button class="nav-btn" data-page="schedule">
+    <span class="nav-symbol">▤</span>
+    <span class="nav-text">SCHEDULE</span>
   </button>
 
-  <button class="nav-button active" data-page="home">
-    <span class="nav-icon">⌂</span>
-    <span class="nav-label">HOME</span>
+  <button class="nav-btn active" data-page="home">
+    <span class="nav-symbol">⌂</span>
+    <span class="nav-text">HOME</span>
   </button>
 
-  <button class="nav-button" data-page="players">
-    <span class="nav-icon">#</span>
-    <span class="nav-label">PLAYERS</span>
+  <button class="nav-btn" data-page="players">
+    <span class="nav-symbol">#</span>
+    <span class="nav-text">PLAYERS</span>
   </button>
 
 </nav>
@@ -1477,36 +1883,42 @@ header{
 </div>
 
 <script>
-const screens=document.querySelectorAll(".screen,.detail");
-const navButtons=document.querySelectorAll(".nav-button");
+const pages=document.querySelectorAll(".page,.detail");
+const nav=document.querySelectorAll(".nav-btn");
 
 function show(id){
-  screens.forEach(x=>x.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  pages.forEach(p=>p.classList.remove("active"));
 
-  navButtons.forEach(x=>{
-    x.classList.toggle(
-      "active",
-      x.dataset.page===id
-    );
+  const target=document.getElementById(id);
+
+  if(target){
+    target.classList.add("active");
+  }
+
+  nav.forEach(button=>{
+    button.classList.toggle("active",button.dataset.page===id);
   });
 
-  window.scrollTo(0,0);
+  window.scrollTo({top:0,behavior:"instant"});
 }
 
-navButtons.forEach(button=>{
+nav.forEach(button=>{
   button.addEventListener("click",()=>{
     show(button.dataset.page);
   });
 });
 
-document.getElementById("todayGame").addEventListener("click",()=>{
+document.getElementById("openLive").addEventListener("click",()=>{
   show("live");
 });
 
-document.querySelectorAll(".game-row").forEach((game,index)=>{
-  game.addEventListener("click",()=>{
-    if(index<2) show("boxscore");
+document.getElementById("scheduleLive").addEventListener("click",()=>{
+  show("live");
+});
+
+document.querySelectorAll("[data-open-box]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    show("boxscore");
   });
 });
 
@@ -1516,8 +1928,10 @@ document.querySelectorAll(".back").forEach(button=>{
   });
 });
 
+/* PLAYER FILTER */
+
 const filters=document.querySelectorAll(".filter");
-const positions=document.querySelectorAll(".position");
+const rosterSections=document.querySelectorAll(".roster-section");
 
 filters.forEach(filter=>{
   filter.addEventListener("click",()=>{
@@ -1527,11 +1941,11 @@ filters.forEach(filter=>{
 
     const value=filter.dataset.filter;
 
-    positions.forEach(position=>{
+    rosterSections.forEach(section=>{
 
       let visible=false;
 
-      position.querySelectorAll(".player").forEach(player=>{
+      section.querySelectorAll(".player-row").forEach(player=>{
 
         let showPlayer=false;
 
@@ -1550,16 +1964,198 @@ filters.forEach(filter=>{
           value==="outfielder" ||
           value==="dh"
         ){
-          showPlayer=position.dataset.position===value;
+          showPlayer=section.dataset.position===value;
         }
 
         player.style.display=showPlayer?"grid":"none";
 
-        if(showPlayer) visible=true;
+        if(showPlayer){
+          visible=true;
+        }
       });
 
-      position.style.display=visible?"block":"none";
+      section.style.display=visible?"block":"none";
     });
+  });
+});
+
+/* PLAYER DETAILS */
+
+const players={
+  alvarado:{
+    name:"José Alvarado",
+    number:"23",
+    position:"RP",
+    meta:"L/L · RELIEF PITCHER · INJURED LIST",
+    type:"pitching"
+  },
+  wheeler:{
+    name:"Zack Wheeler",
+    number:"45",
+    position:"SP",
+    meta:"R/R · STARTING PITCHER · 2026 SEASON",
+    type:"pitching"
+  },
+  nola:{
+    name:"Aaron Nola",
+    number:"27",
+    position:"SP",
+    meta:"R/R · STARTING PITCHER · 2026 SEASON",
+    type:"pitching"
+  },
+  realmuto:{
+    name:"J.T. Realmuto",
+    number:"10",
+    position:"C",
+    meta:"R/R · CATCHER · 2026 SEASON",
+    type:"batting"
+  },
+  harper:{
+    name:"Bryce Harper",
+    number:"13",
+    position:"1B",
+    meta:"L/L · FIRST BASE · 2026 SEASON",
+    type:"batting"
+  },
+  turner:{
+    name:"Trea Turner",
+    number:"7",
+    position:"SS",
+    meta:"R/R · SHORTSTOP · 2026 SEASON",
+    type:"batting"
+  },
+  stott:{
+    name:"Bryson Stott",
+    number:"5",
+    position:"2B",
+    meta:"L/R · SECOND BASE · 2026 SEASON",
+    type:"batting"
+  },
+  bohm:{
+    name:"Alec Bohm",
+    number:"28",
+    position:"3B",
+    meta:"R/R · THIRD BASE · 2026 SEASON",
+    type:"batting"
+  },
+  castellanos:{
+    name:"Nick Castellanos",
+    number:"8",
+    position:"RF",
+    meta:"R/R · RIGHT FIELD · 2026 SEASON",
+    type:"batting"
+  },
+  rojas:{
+    name:"Johan Rojas",
+    number:"16",
+    position:"CF",
+    meta:"R/R · CENTER FIELD · 2026 SEASON",
+    type:"batting"
+  },
+  schwarber:{
+    name:"Kyle Schwarber",
+    number:"12",
+    position:"DH",
+    meta:"L/R · DESIGNATED HITTER · 2026 SEASON",
+    type:"batting"
+  }
+};
+
+const detailName=document.getElementById("detailName");
+const detailNumber=document.getElementById("detailNumber");
+const detailPosition=document.getElementById("detailPosition");
+const detailMeta=document.getElementById("detailMeta");
+const statTitle=document.getElementById("statTitle");
+const battingStats=document.getElementById("battingStats");
+
+document.querySelectorAll(".player-row").forEach(button=>{
+  button.addEventListener("click",()=>{
+
+    const player=players[button.dataset.player];
+
+    if(!player){
+      return;
+    }
+
+    detailName.textContent=player.name;
+    detailNumber.textContent=player.number;
+    detailPosition.textContent=player.position;
+    detailMeta.textContent=player.meta;
+
+    if(player.type==="pitching"){
+
+      statTitle.textContent="PITCHING";
+
+      battingStats.innerHTML=`
+        <div class="stat"><div class="stat-value">3.18</div><div class="stat-label">ERA</div></div>
+        <div class="stat"><div class="stat-value">1.08</div><div class="stat-label">WHIP</div></div>
+        <div class="stat"><div class="stat-value">9.8</div><div class="stat-label">K/9</div></div>
+        <div class="stat"><div class="stat-value">2.4</div><div class="stat-label">BB/9</div></div>
+        <div class="stat"><div class="stat-value">148.2</div><div class="stat-label">IP</div></div>
+        <div class="stat"><div class="stat-value">11</div><div class="stat-label">W</div></div>
+        <div class="stat"><div class="stat-value">7</div><div class="stat-label">L</div></div>
+        <div class="stat"><div class="stat-value">164</div><div class="stat-label">SO</div></div>
+      `;
+
+    }else{
+
+      statTitle.textContent="BATTING";
+
+      battingStats.innerHTML=`
+        <div class="stat"><div class="stat-value">.291</div><div class="stat-label">AVG</div></div>
+        <div class="stat"><div class="stat-value">.401</div><div class="stat-label">OBP</div></div>
+        <div class="stat"><div class="stat-value">.528</div><div class="stat-label">SLG</div></div>
+        <div class="stat"><div class="stat-value">.929</div><div class="stat-label">OPS</div></div>
+        <div class="stat"><div class="stat-value">27</div><div class="stat-label">HR</div></div>
+        <div class="stat"><div class="stat-value">82</div><div class="stat-label">RBI</div></div>
+        <div class="stat"><div class="stat-value">74</div><div class="stat-label">R</div></div>
+        <div class="stat"><div class="stat-value">41</div><div class="stat-label">BB</div></div>
+      `;
+    }
+
+    show("playerDetail");
+  });
+});
+
+/* PLAYER STAT RANGE */
+
+document.querySelectorAll(".stat-switch").forEach(button=>{
+  button.addEventListener("click",()=>{
+
+    document.querySelectorAll(".stat-switch")
+      .forEach(x=>x.classList.remove("active"));
+
+    button.classList.add("active");
+
+    if(button.dataset.stat==="recent"){
+
+      const pitcher=statTitle.textContent==="PITCHING";
+
+      if(pitcher){
+        battingStats.innerHTML=`
+          <div class="stat"><div class="stat-value">2.71</div><div class="stat-label">ERA</div></div>
+          <div class="stat"><div class="stat-value">0.96</div><div class="stat-label">WHIP</div></div>
+          <div class="stat"><div class="stat-value">10.7</div><div class="stat-label">K/9</div></div>
+          <div class="stat"><div class="stat-value">2.1</div><div class="stat-label">BB/9</div></div>
+          <div class="stat"><div class="stat-value">46.1</div><div class="stat-label">IP</div></div>
+          <div class="stat"><div class="stat-value">4</div><div class="stat-label">W</div></div>
+          <div class="stat"><div class="stat-value">1</div><div class="stat-label">L</div></div>
+          <div class="stat"><div class="stat-value">55</div><div class="stat-label">SO</div></div>
+        `;
+      }else{
+        battingStats.innerHTML=`
+          <div class="stat"><div class="stat-value">.314</div><div class="stat-label">AVG</div></div>
+          <div class="stat"><div class="stat-value">.425</div><div class="stat-label">OBP</div></div>
+          <div class="stat"><div class="stat-value">.571</div><div class="stat-label">SLG</div></div>
+          <div class="stat"><div class="stat-value">.996</div><div class="stat-label">OPS</div></div>
+          <div class="stat"><div class="stat-value">8</div><div class="stat-label">HR</div></div>
+          <div class="stat"><div class="stat-value">25</div><div class="stat-label">RBI</div></div>
+          <div class="stat"><div class="stat-value">21</div><div class="stat-label">R</div></div>
+          <div class="stat"><div class="stat-value">15</div><div class="stat-label">BB</div></div>
+        `;
+      }
+
+    }
   });
 });
 </script>
