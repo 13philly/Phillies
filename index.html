@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06152f">
 <title>Phillies</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,12 +17,12 @@
 --surface:#0b1c38;
 --surface2:#102747;
 --text:#f7f8fa;
---muted:#75849b;
+--muted:#78869a;
 --line:#ffffff14;
 --red:#e31837;
 --yellow:#e7b82b;
 --green:#72d195;
---gray:#69778b
+--gray:#68778c
 }
 html,body{background:var(--bg);color:var(--text)}
 body{
@@ -35,9 +36,7 @@ button{cursor:pointer}
 .header{
 position:fixed;
 z-index:50;
-top:0;
-left:0;
-right:0;
+top:0;left:0;right:0;
 height:80px;
 background:rgba(6,21,47,.96);
 border-bottom:1px solid var(--line);
@@ -52,7 +51,7 @@ justify-content:space-between
 }
 .logo{
 font:800 32px/1 "Barlow Condensed";
-letter-spacing:.3px
+letter-spacing:.4px
 }
 .logo b{color:var(--red)}
 .tagline{
@@ -68,9 +67,9 @@ color:var(--muted)
 }
 
 main{
-padding:105px 18px 105px;
 max-width:620px;
-margin:auto
+margin:auto;
+padding:105px 18px 105px
 }
 .page,.detail{display:none}
 .page.active,.detail.active{display:block}
@@ -85,7 +84,6 @@ h1{
 margin-top:3px;
 font:800 42px/1 "Barlow Condensed"
 }
-
 .section-head{
 display:flex;
 align-items:baseline;
@@ -101,7 +99,7 @@ font:600 7px "Roboto Mono";
 color:var(--muted)
 }
 
-/* HOME */
+/* HOME GAME */
 
 .home-game{
 margin-top:28px;
@@ -124,16 +122,14 @@ gap:6px;
 color:var(--red)
 }
 .dot{
-width:5px;
-height:5px;
+width:5px;height:5px;
 border-radius:50%;
 background:var(--red)
 }
-
 .matchup{
 padding:23px 0 20px;
 display:grid;
-grid-template-columns:1fr 70px 1fr;
+grid-template-columns:1fr 82px 1fr;
 align-items:center;
 text-align:center
 }
@@ -153,9 +149,9 @@ font:600 7px "Roboto Mono";
 color:var(--muted)
 }
 .score{
-margin-top:4px;
-font:800 28px "Roboto Mono";
-line-height:1
+margin-top:5px;
+font:800 29px/1 "Roboto Mono";
+letter-spacing:-1px
 }
 .score-label{
 margin-top:5px;
@@ -163,10 +159,9 @@ font:700 6px "Roboto Mono";
 color:var(--red);
 letter-spacing:1px
 }
-
 .game-details{
 display:grid;
-grid-template-columns:1fr 1.2fr 1fr;
+grid-template-columns:1fr 1.25fr 1fr;
 border-top:1px solid var(--line)
 }
 .game-details div{
@@ -187,7 +182,6 @@ font-size:9px;
 font-weight:600;
 line-height:1.25
 }
-
 .game-action{
 height:34px;
 display:flex;
@@ -199,26 +193,14 @@ letter-spacing:.8px
 }
 .game-action span:last-child{color:var(--red)}
 
-.home-news{margin-top:32px}
+/* NEWS */
 
+.home-news{margin-top:32px}
 .filters{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:8px;
 margin-bottom:12px
-}
-.filters select,
-.player-filter select{
-width:100%;
-height:42px;
-appearance:none;
--webkit-appearance:none;
-padding:0 36px 0 13px;
-border:1px solid var(--line);
-border-radius:8px;
-background:var(--surface);
-font:700 10px "Barlow Condensed";
-letter-spacing:.5px
 }
 .filter-box{position:relative}
 .filter-box:after{
@@ -230,10 +212,19 @@ color:var(--muted);
 font-size:15px;
 pointer-events:none
 }
-
-.news{
-border-top:1px solid var(--line)
+.filters select,
+.player-filter select{
+width:100%;
+height:42px;
+appearance:none;
+padding:0 36px 0 13px;
+border:1px solid var(--line);
+border-radius:8px;
+background:var(--surface);
+font:700 10px "Barlow Condensed";
+letter-spacing:.5px
 }
+.news{border-top:1px solid var(--line)}
 .news-item{
 padding:15px 0;
 border-bottom:1px solid var(--line);
@@ -248,10 +239,7 @@ margin-bottom:6px;
 font:600 7px "Roboto Mono";
 color:var(--muted)
 }
-.news-source b{
-color:var(--red);
-font-weight:700
-}
+.news-source b{color:var(--red)}
 .news-title{
 font:700 18px/1.15 "Barlow Condensed";
 letter-spacing:.15px
@@ -260,7 +248,7 @@ letter-spacing:.15px
 margin-top:5px;
 font-size:10px;
 line-height:1.4;
-color:#b7c0cd
+color:#c0c8d3
 }
 .news-status{
 margin-top:7px;
@@ -288,34 +276,31 @@ background:none;
 font:700 22px "Barlow Condensed";
 color:var(--muted)
 }
-.month-btn:active{color:#fff}
 .month-name{
 text-align:center;
 font:800 25px "Barlow Condensed"
 }
 .month-name small{
 display:block;
-margin-top:1px;
 font:600 6px "Roboto Mono";
 letter-spacing:1.4px;
 color:var(--muted)
 }
 .games{margin-top:15px}
-
 .game-row{
 position:relative;
 display:grid;
 grid-template-columns:48px 1fr auto;
 gap:12px;
 align-items:center;
-min-height:78px;
+min-height:82px;
 border-bottom:1px solid var(--line);
 cursor:pointer
 }
 .game-row.today{
 margin:5px 0;
 padding:0 12px;
-min-height:88px;
+min-height:90px;
 background:var(--surface);
 border:1px solid var(--line);
 border-radius:9px
@@ -354,115 +339,37 @@ margin-top:5px;
 font:600 6px "Roboto Mono";
 color:var(--muted)
 }
-.time{
-text-align:right;
-font:600 9px/1.5 "Roboto Mono";
-color:var(--muted)
+
+/* SCHEDULE SCORE */
+
+.schedule-score{
+min-width:72px;
+text-align:right
 }
-.final{
-text-align:right;
-font:800 15px "Roboto Mono"
-}
-.final small{
+.schedule-score .label{
 display:block;
 margin-bottom:3px;
-font-size:6px;
+font:600 6px "Roboto Mono";
+letter-spacing:.8px;
 color:var(--muted)
 }
-.final.win{color:var(--green)}
-.final.loss{color:var(--red)}
-.final.today{color:#fff}
-
-/* PLAYERS */
-
-.player-filter{
-margin-top:22px;
-position:relative
+.schedule-score .numbers{
+font:800 20px/1 "Roboto Mono";
+letter-spacing:-1.2px
 }
-.player-filter:after{
-content:"⌄";
-position:absolute;
-right:14px;
-top:10px;
-color:var(--muted);
-font-size:16px;
-pointer-events:none
+.schedule-score .result{
+margin-top:4px;
+font:800 7px "Barlow Condensed";
+letter-spacing:1px
 }
-.player-filter select{
-height:44px
+.schedule-score.win .result{color:var(--green)}
+.schedule-score.loss .result{color:var(--red)}
+.schedule-score.live .numbers{color:var(--red)}
+.schedule-score.live .result{color:var(--red)}
+.schedule-score.upcoming .numbers{
+font:800 17px/1 "Roboto Mono";
+color:#fff
 }
-
-.group{margin-top:24px}
-.group-head{
-display:flex;
-align-items:baseline;
-justify-content:space-between;
-padding-bottom:8px;
-border-bottom:1px solid var(--line)
-}
-.group-head strong{
-font:800 19px "Barlow Condensed";
-letter-spacing:.5px
-}
-.group-head span{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.player{
-position:relative;
-display:grid;
-grid-template-columns:38px 1fr auto;
-gap:10px;
-align-items:center;
-min-height:70px;
-padding-left:13px;
-border-bottom:1px solid var(--line);
-cursor:pointer
-}
-.player:before{
-content:"";
-position:absolute;
-left:0;
-top:9px;
-bottom:9px;
-width:3px;
-border-radius:2px;
-background:var(--gray)
-}
-.player.active:before{background:var(--red)}
-.player.il:before{background:var(--yellow)}
-
-.number{
-font:700 22px "Barlow Condensed";
-color:#52647e
-}
-.player-name{
-font:700 19px/1 "Barlow Condensed"
-}
-.player-meta{
-display:flex;
-gap:9px;
-margin-top:5px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-.player-state{
-text-align:right;
-font:700 7px "Roboto Mono";
-letter-spacing:.4px
-}
-.player-state.active{color:var(--red)}
-.player-state.il{color:var(--yellow)}
-.player-state.roster{color:var(--gray)}
-.player-pos{
-display:block;
-margin-bottom:4px;
-color:#fff;
-font:800 18px "Barlow Condensed"
-}
-.no-number .number{color:#65748a}
-.no-number .player-name{color:#c0c7d1}
 
 /* DETAILS */
 
@@ -499,28 +406,6 @@ border-bottom:1px solid var(--line);
 font:800 11px "Barlow Condensed";
 letter-spacing:1.4px
 }
-.stats{
-display:grid;
-grid-template-columns:repeat(2,1fr)
-}
-.stat{
-padding:14px 0;
-border-bottom:1px solid var(--line)
-}
-.stat:nth-child(odd){
-padding-right:15px;
-border-right:1px solid var(--line)
-}
-.stat:nth-child(even){padding-left:15px}
-.stat small{
-display:block;
-margin-bottom:4px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-.stat strong{
-font:700 24px "Barlow Condensed"
-}
 
 /* BOX SCORE */
 
@@ -529,8 +414,7 @@ margin-top:14px;
 overflow-x:auto;
 border:1px solid var(--line);
 border-radius:9px;
-background:var(--surface);
--webkit-overflow-scrolling:touch
+background:var(--surface)
 }
 .score-table{min-width:620px}
 .score-line{
@@ -561,7 +445,6 @@ margin-top:8px;
 font:600 6px "Roboto Mono";
 color:var(--muted)
 }
-
 .box-table{margin-top:15px}
 .box-row{
 display:grid;
@@ -596,7 +479,8 @@ overflow:hidden
 padding:13px 15px;
 border-bottom:1px solid var(--line);
 display:flex;
-justify-content:space-between
+justify-content:space-between;
+align-items:center
 }
 .live-badge{
 font:800 8px "Roboto Mono";
@@ -609,7 +493,7 @@ color:var(--muted)
 .live-score{
 padding:22px 15px;
 display:grid;
-grid-template-columns:1fr 80px 1fr;
+grid-template-columns:1fr 90px 1fr;
 align-items:center;
 text-align:center
 }
@@ -617,51 +501,289 @@ text-align:center
 font:800 36px "Barlow Condensed"
 }
 .live-score-main{
-font:800 27px "Roboto Mono"
+font:800 28px "Roboto Mono";
+letter-spacing:-1px
 }
 .live-inning{
+margin-top:5px;
+font:600 7px "Roboto Mono";
+color:var(--muted)
+}
+.possession{
+margin-top:5px;
+font:700 6px "Roboto Mono";
+color:var(--red);
+letter-spacing:.8px
+}
+
+/* AT BAT / PITCHER */
+
+.at-card{
+border-top:1px solid var(--line);
+padding:15px
+}
+.at-switch{
+display:flex;
+gap:6px;
+margin-bottom:14px
+}
+.at-switch button{
+flex:1;
+height:32px;
+border:1px solid var(--line);
+border-radius:5px;
+background:transparent;
+font:700 7px "Roboto Mono";
+color:var(--muted)
+}
+.at-switch button.active{
+border-color:var(--red);
+background:#e3183715;
+color:#fff
+}
+.at-label{
+font:600 7px "Roboto Mono";
+color:var(--muted)
+}
+.at-name{
+margin-top:4px;
+font:800 23px "Barlow Condensed"
+}
+.at-sub{
 margin-top:4px;
 font:600 7px "Roboto Mono";
 color:var(--muted)
 }
-.pitch-area{
-border-top:1px solid var(--line);
-padding:17px 15px
-}
-.pitch-label{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-.pitch-text{
-margin-top:5px;
-font:800 22px "Barlow Condensed"
-}
-.count{
-display:flex;
-gap:16px;
-margin-top:14px;
-font:600 8px "Roboto Mono"
-}
-.count b{color:var(--red)}
-.bases{
-margin-top:18px;
+
+/* BSO */
+
+.bso{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:7px
+gap:8px;
+margin-top:16px
+}
+.bso-box{
+padding:10px;
+border:1px solid var(--line);
+border-radius:6px
+}
+.bso-box small{
+display:block;
+font:600 6px "Roboto Mono";
+color:var(--muted)
+}
+.bso-box strong{
+display:block;
+margin-top:3px;
+font:800 20px "Roboto Mono"
+}
+
+/* BASES */
+
+.bases{
+position:relative;
+width:110px;
+height:88px;
+margin:18px auto 4px
 }
 .base{
-height:30px;
-border:1px solid var(--line);
-border-radius:5px;
-display:grid;
-place-items:center;
-font:600 7px "Roboto Mono";
-color:var(--muted)
+position:absolute;
+width:25px;
+height:25px;
+border:1px solid #6c7b90;
+transform:rotate(45deg);
+background:#091a35
 }
 .base.on{
 background:var(--red);
-color:#fff;
 border-color:var(--red)
+}
+.base.second{
+top:3px;left:43px
+}
+.base.third{
+top:46px;left:2px
+}
+.base.first{
+top:46px;right:2px
+}
+.base.home{
+top:46px;left:43px;
+width:24px;height:24px;
+background:transparent;
+border-color:#42526a
+}
+.base-text{
+position:absolute;
+font:600 5px "Roboto Mono";
+color:var(--muted);
+transform:rotate(-45deg);
+inset:0;
+display:grid;
+place-items:center
+}
+
+/* LIVE BOX */
+
+.live-box{
+margin-top:28px
+}
+.live-box .detail-title{
+display:flex;
+justify-content:space-between
+}
+.live-box .detail-title span{
+font:600 6px "Roboto Mono";
+color:var(--muted)
+}
+
+/* TODAY STATS */
+
+.today-stats{
+margin-top:28px
+}
+.today-player{
+display:grid;
+grid-template-columns:1fr repeat(5,34px);
+align-items:center;
+min-height:39px;
+border-bottom:1px solid var(--line)
+}
+.today-player>*{
+text-align:center;
+font:600 7px "Roboto Mono"
+}
+.today-player>*:first-child{
+text-align:left;
+font:800 12px "Barlow Condensed"
+}
+.today-player.head>*{
+font-size:6px;
+color:var(--muted)
+}
+.pitch-stat{
+display:grid;
+grid-template-columns:1fr repeat(5,38px);
+align-items:center;
+min-height:40px;
+border-bottom:1px solid var(--line)
+}
+.pitch-stat>*{
+text-align:center;
+font:600 7px "Roboto Mono"
+}
+.pitch-stat>*:first-child{
+text-align:left;
+font:800 12px "Barlow Condensed"
+}
+
+/* PLAYER */
+
+.player-filter{
+margin-top:22px;
+position:relative
+}
+.player-filter:after{
+content:"⌄";
+position:absolute;
+right:14px;
+top:10px;
+color:var(--muted);
+font-size:16px;
+pointer-events:none
+}
+.player-filter select{height:44px}
+.group{margin-top:24px}
+.group-head{
+display:flex;
+align-items:baseline;
+justify-content:space-between;
+padding-bottom:8px;
+border-bottom:1px solid var(--line)
+}
+.group-head strong{
+font:800 19px "Barlow Condensed";
+letter-spacing:.5px
+}
+.group-head span{
+font:600 7px "Roboto Mono";
+color:var(--muted)
+}
+.player{
+position:relative;
+display:grid;
+grid-template-columns:38px 1fr auto;
+gap:10px;
+align-items:center;
+min-height:70px;
+padding-left:13px;
+border-bottom:1px solid var(--line);
+cursor:pointer
+}
+.player:before{
+content:"";
+position:absolute;
+left:0;
+top:9px;
+bottom:9px;
+width:3px;
+border-radius:2px;
+background:var(--gray)
+}
+.player.active:before{background:var(--red)}
+.player.il:before{background:var(--yellow)}
+.number{
+font:700 22px "Barlow Condensed";
+color:#52647e
+}
+.player-name{
+font:700 19px/1 "Barlow Condensed"
+}
+.player-meta{
+display:flex;
+gap:9px;
+margin-top:5px;
+font:600 7px "Roboto Mono";
+color:var(--muted)
+}
+.player-state{
+text-align:right;
+font:700 7px "Roboto Mono"
+}
+.player-state.active{color:var(--red)}
+.player-state.il{color:var(--yellow)}
+.player-state.roster{color:var(--gray)}
+.player-pos{
+display:block;
+margin-bottom:4px;
+color:#fff;
+font:800 18px "Barlow Condensed"
+}
+.no-number .number{color:#65748a}
+.no-number .player-name{color:#c0c7d1}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr)
+}
+.stat{
+padding:14px 0;
+border-bottom:1px solid var(--line)
+}
+.stat:nth-child(odd){
+padding-right:15px;
+border-right:1px solid var(--line)
+}
+.stat:nth-child(even){padding-left:15px}
+.stat small{
+display:block;
+margin-bottom:4px;
+font:600 7px "Roboto Mono";
+color:var(--muted)
+}
+.stat strong{
+font:700 24px "Barlow Condensed"
 }
 
 /* NAV */
@@ -705,8 +827,7 @@ margin-bottom:3px
 .nav button.active .icon{color:var(--red)}
 
 .home-icon{
-width:18px;
-height:17px;
+width:18px;height:17px;
 position:relative;
 display:block;
 border:2px solid currentColor;
@@ -715,10 +836,8 @@ border-radius:3px
 .home-icon:before{
 content:"";
 position:absolute;
-width:11px;
-height:11px;
-left:1.5px;
-top:-6px;
+width:11px;height:11px;
+left:1.5px;top:-6px;
 border-left:2px solid currentColor;
 border-top:2px solid currentColor;
 transform:rotate(45deg);
@@ -727,17 +846,13 @@ background:#091a36
 .home-icon:after{
 content:"";
 position:absolute;
-width:4px;
-height:7px;
-left:5px;
-bottom:0;
+width:4px;height:7px;
+left:5px;bottom:0;
 border:1px solid currentColor;
 border-bottom:0
 }
-
 .schedule-icon{
-width:18px;
-height:18px;
+width:18px;height:18px;
 display:block;
 border:2px solid currentColor;
 border-radius:2px;
@@ -746,17 +861,13 @@ position:relative
 .schedule-icon:before{
 content:"";
 position:absolute;
-left:3px;
-right:3px;
-top:4px;
+left:3px;right:3px;top:4px;
 height:2px;
 background:currentColor;
 box-shadow:0 4px currentColor,0 8px currentColor
 }
-
 .player-icon{
-width:18px;
-height:18px;
+width:18px;height:18px;
 border:2px solid currentColor;
 border-radius:50%;
 position:relative
@@ -764,19 +875,15 @@ position:relative
 .player-icon:before{
 content:"";
 position:absolute;
-width:4px;
-height:4px;
-left:5px;
-top:3px;
+width:4px;height:4px;
+left:5px;top:3px;
 border:1px solid currentColor;
 border-radius:50%
 }
 .player-icon:after{
 content:"";
 position:absolute;
-left:3px;
-right:3px;
-bottom:2px;
+left:3px;right:3px;bottom:2px;
 height:5px;
 border:1px solid currentColor;
 border-bottom:0;
@@ -786,7 +893,8 @@ border-radius:7px 7px 0 0
 @media(max-width:380px){
 main{padding-left:14px;padding-right:14px}
 .team{font-size:37px}
-.matchup{grid-template-columns:1fr 55px 1fr}
+.matchup{grid-template-columns:1fr 65px 1fr}
+.live-score{grid-template-columns:1fr 78px 1fr}
 }
 </style>
 </head>
@@ -808,6 +916,7 @@ main{padding-left:14px;padding-right:14px}
 <!-- HOME -->
 
 <section id="home" class="page active">
+
 <div class="eyebrow">PHILADELPHIA</div>
 <h1>HOME</h1>
 
@@ -815,7 +924,7 @@ main{padding-left:14px;padding-right:14px}
 
 <div class="game-top">
 <span>AUG 12 · REGULAR SEASON</span>
-<span class="live"><i class="dot"></i>GAME CENTER</span>
+<span class="live"><i class="dot"></i>LIVE</span>
 </div>
 
 <div class="matchup">
@@ -826,9 +935,9 @@ PHI
 </div>
 
 <div>
-<div class="vs">LIVE</div>
+<div class="vs">BOT 7TH</div>
 <div class="score">6 — 3</div>
-<div class="score-label">BOT 7TH</div>
+<div class="score-label">2 OUT</div>
 </div>
 
 <div class="team">
@@ -854,12 +963,11 @@ ATL
 </div>
 
 <div class="game-action">
-<span>LIVE GAME</span>
-<span>OPEN GAME CENTER →</span>
+<span>GAME CENTER</span>
+<span>OPEN →</span>
 </div>
 
 </div>
-
 
 <div class="home-news">
 
@@ -897,13 +1005,13 @@ data-read="unread"
 onclick="toggleRead(this)">
 <div class="news-source">
 <b>MLB.COM</b>
-<span>2 HOURS AGO</span>
+<span>AUG 12 · 2:10 PM ET</span>
 </div>
 <div class="news-title">
 Phillies prepare for another important matchup
 </div>
 <div class="news-jp">
-Philadelphia prepares for another important matchup
+フィリーズ、重要な一戦に向けて準備を整える
 </div>
 <div class="news-status">UNREAD</div>
 </div>
@@ -914,13 +1022,13 @@ data-read="read"
 onclick="toggleRead(this)">
 <div class="news-source">
 <b>PHILADELPHIA INQUIRER</b>
-<span>5 HOURS AGO</span>
+<span>AUG 12 · 10:25 AM ET</span>
 </div>
 <div class="news-title">
 Philadelphia lineup set ahead of first pitch
 </div>
 <div class="news-jp">
-Philadelphia lineup finalized ahead of first pitch
+フィラデルフィア、試合開始を前に先発ラインアップを発表
 </div>
 <div class="news-status">READ</div>
 </div>
@@ -931,13 +1039,13 @@ data-read="unread"
 onclick="toggleRead(this)">
 <div class="news-source">
 <b>ESPN</b>
-<span>1 DAY AGO</span>
+<span>AUG 11 · 6:40 PM ET</span>
 </div>
 <div class="news-title">
 Phillies close out the series with a strong finish
 </div>
 <div class="news-jp">
-Phillies finish the series with a strong performance
+フィリーズ、力強い戦いでシリーズを締めくくる
 </div>
 <div class="news-status">UNREAD</div>
 </div>
@@ -948,19 +1056,20 @@ data-read="read"
 onclick="toggleRead(this)">
 <div class="news-source">
 <b>THE ATHLETIC</b>
-<span>4 DAYS AGO</span>
+<span>AUG 8 · 9:15 AM ET</span>
 </div>
 <div class="news-title">
 Philadelphia continues to build momentum
 </div>
 <div class="news-jp">
-Philadelphia continues building momentum through August
+フィラデルフィア、勢いをさらに積み重ねる
 </div>
 <div class="news-status">READ</div>
 </div>
 
 </div>
 </div>
+
 </section>
 
 
@@ -1028,18 +1137,18 @@ Philadelphia continues building momentum through August
 </section>
 
 
-<!-- BOX SCORE -->
+<!-- GAME DETAIL -->
 
 <section id="gameDetail" class="detail">
 
 <button class="back" onclick="hideGame()">← SCHEDULE</button>
 
 <div class="eyebrow">GAME DETAIL</div>
-<h1>PHI vs ATL</h1>
+<h1 id="gameTitle">PHI vs ATL</h1>
 
 <div class="detail-section">
 
-<div class="detail-title">FINAL BOX SCORE</div>
+<div class="detail-title">BOX SCORE</div>
 
 <div class="score-scroll">
 
@@ -1074,7 +1183,6 @@ Philadelphia continues building momentum through August
 </div>
 
 </div>
-
 
 <div class="detail-section">
 
@@ -1114,7 +1222,6 @@ Philadelphia continues building momentum through August
 </div>
 </div>
 
-
 <div class="detail-section">
 
 <div class="detail-title">PHILADELPHIA PITCHING</div>
@@ -1151,7 +1258,7 @@ Philadelphia continues building momentum through August
 </section>
 
 
-<!-- LIVE -->
+<!-- LIVE GAME -->
 
 <section id="live" class="detail">
 
@@ -1174,67 +1281,201 @@ Philadelphia continues building momentum through August
 <div>
 <div class="live-score-main">6 — 3</div>
 <div class="live-inning">BOTTOM 7</div>
+<div class="possession">PHI BATTING</div>
 </div>
 
 <div class="live-team">ATL</div>
 
 </div>
 
-<div class="pitch-area">
 
-<div class="pitch-label">AT BAT</div>
-<div class="pitch-text">BRYCE HARPER</div>
+<div class="at-card">
 
-<div class="count">
-<div>COUNT <b>2–1</b></div>
-<div>OUT <b>2</b></div>
+<div class="at-switch">
+<button id="batBtn" class="active" onclick="setSide('bat')">AT BAT</button>
+<button id="pitchBtn" onclick="setSide('pitch')">AT PITCHER</button>
 </div>
+
+<div id="batView">
+
+<div class="at-label">PHI AT BAT</div>
+<div class="at-name">BRYCE HARPER</div>
+<div class="at-sub">3 FOR 4 · HR · 2 RBI · 1 BB</div>
+
+</div>
+
+<div id="pitchView" style="display:none">
+
+<div class="at-label">ATL AT BAT · PHI PITCHER</div>
+<div class="at-name">ZACK WHEELER</div>
+<div class="at-sub">6.2 IP · 5 H · 3 ER · 2 BB · 8 SO</div>
+
+</div>
+
+
+<div class="bso">
+
+<div class="bso-box">
+<small>BALLS</small>
+<strong>2</strong>
+</div>
+
+<div class="bso-box">
+<small>STRIKES</small>
+<strong>1</strong>
+</div>
+
+<div class="bso-box">
+<small>OUTS</small>
+<strong>2</strong>
+</div>
+
+</div>
+
 
 <div class="bases">
-<div class="base on">1B</div>
-<div class="base">2B</div>
-<div class="base">3B</div>
+
+<div class="base second">
+<span class="base-text">2B</span>
+</div>
+
+<div class="base third">
+<span class="base-text">3B</span>
+</div>
+
+<div class="base first on">
+<span class="base-text">1B</span>
+</div>
+
+<div class="base home">
+<span class="base-text">HP</span>
 </div>
 
 </div>
 
 </div>
 
+</div>
 
-<div class="detail-section">
 
-<div class="detail-title">RECENT PLAYS</div>
+<!-- LIVE BOX SCORE -->
 
-<div class="box-table">
+<div class="live-box">
 
-<div class="box-row">
-<strong>7TH</strong>
-<span>—</span>
-<span>HR</span>
-<span>2R</span>
+<div class="detail-title">
+<span>LIVE BOX SCORE</span>
+<span>THROUGH 7TH</span>
+</div>
+
+<div class="score-scroll">
+
+<div class="score-table">
+
+<div class="score-line head">
+<span>TEAM</span>
+<span>1</span><span>2</span><span>3</span><span>4</span>
+<span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+<span>R</span><span>H</span><span>E</span>
+</div>
+
+<div class="score-line team">
 <span>PHI</span>
-<span>+</span>
+<span>1</span><span>0</span><span>2</span><span>0</span>
+<span>1</span><span>0</span><span>2</span><span>—</span><span>—</span>
+<span>6</span><span>9</span><span>0</span>
 </div>
 
-<div class="box-row">
-<strong>7TH</strong>
-<span>—</span>
-<span>OUT</span>
-<span>—</span>
+<div class="score-line team">
 <span>ATL</span>
-<span>+</span>
+<span>0</span><span>1</span><span>0</span><span>0</span>
+<span>0</span><span>1</span><span>1</span><span>—</span><span>—</span>
+<span>3</span><span>7</span><span>1</span>
 </div>
 
-<div class="box-row">
-<strong>7TH</strong>
-<span>—</span>
+</div>
+</div>
+
+</div>
+
+
+<!-- TODAY BATTING -->
+
+<div class="today-stats">
+
+<div class="detail-title">PHILLIES TODAY · BATTING</div>
+
+<div class="today-player head">
+<span>PLAYER</span>
+<span>AB</span>
+<span>R</span>
 <span>H</span>
-<span>1B</span>
-<span>PHI</span>
-<span>+</span>
+<span>RBI</span>
+<span>BB</span>
+</div>
+
+<div class="today-player">
+<span>Schwarber</span>
+<span>4</span><span>1</span><span>1</span><span>2</span><span>1</span>
+</div>
+
+<div class="today-player">
+<span>Turner</span>
+<span>4</span><span>1</span><span>2</span><span>1</span><span>0</span>
+</div>
+
+<div class="today-player">
+<span>Harper</span>
+<span>4</span><span>2</span><span>3</span><span>2</span><span>1</span>
+</div>
+
+<div class="today-player">
+<span>Realmuto</span>
+<span>3</span><span>1</span><span>1</span><span>0</span><span>0</span>
+</div>
+
+<div class="today-player">
+<span>Bohm</span>
+<span>3</span><span>0</span><span>1</span><span>0</span><span>1</span>
+</div>
+
+<div class="today-player">
+<span>Stott</span>
+<span>3</span><span>0</span><span>0</span><span>0</span><span>0</span>
 </div>
 
 </div>
+
+
+<!-- TODAY PITCHING -->
+
+<div class="today-stats">
+
+<div class="detail-title">PHILLIES TODAY · PITCHING</div>
+
+<div class="pitch-stat head">
+<span>PITCHER</span>
+<span>IP</span>
+<span>H</span>
+<span>ER</span>
+<span>BB</span>
+<span>SO</span>
+</div>
+
+<div class="pitch-stat">
+<span>Wheeler</span>
+<span>6.2</span><span>5</span><span>3</span><span>2</span><span>8</span>
+</div>
+
+<div class="pitch-stat">
+<span>Alvarado</span>
+<span>0.1</span><span>1</span><span>0</span><span>0</span><span>1</span>
+</div>
+
+<div class="pitch-stat">
+<span>Hoffman</span>
+<span>0.2</span><span>1</span><span>0</span><span>0</span><span>1</span>
+</div>
+
 </div>
 
 </section>
@@ -1274,35 +1515,46 @@ nav.forEach(b=>{
 b.classList.toggle("active",b.dataset.page===id)
 });
 
-scrollTo(0,0);
+scrollTo(0,0)
 }
 
 nav.forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 
+
+/* HOME */
+
 function openLive(){
 pages.forEach(p=>p.classList.remove("active"));
 document.getElementById("live").classList.add("active");
-scrollTo(0,0);
+nav.forEach(b=>b.classList.remove("active"));
+scrollTo(0,0)
 }
 
 function hideLive(){
-showPage("home");
+showPage("home")
 }
 
-function openGame(){
-pages.forEach(p=>p.classList.remove("active"));
-document.getElementById("gameDetail").classList.add("active");
-scrollTo(0,0);
-}
+function setSide(side){
 
-function hideGame(){
-showPage("schedule");
+const bat=document.getElementById("batView");
+const pitch=document.getElementById("pitchView");
+const batBtn=document.getElementById("batBtn");
+const pitchBtn=document.getElementById("pitchBtn");
+
+const isBat=side==="bat";
+
+bat.style.display=isBat?"block":"none";
+pitch.style.display=isBat?"none":"block";
+
+batBtn.classList.toggle("active",isBat);
+pitchBtn.classList.toggle("active",!isBat)
 }
 
 
 /* NEWS */
 
 function toggleRead(el){
+
 const unread=el.dataset.read==="unread";
 
 el.dataset.read=unread?"read":"unread";
@@ -1312,7 +1564,7 @@ el.classList.toggle("read",unread);
 el.querySelector(".news-status").textContent=
 unread?"READ":"UNREAD";
 
-filterNews();
+filterNews()
 }
 
 function filterNews(){
@@ -1323,50 +1575,49 @@ const read=document.getElementById("newsRead").value;
 document.querySelectorAll(".news-item").forEach(item=>{
 
 const periodOK=
-period==="all"||
-item.dataset.period===period;
+period==="all"||item.dataset.period===period;
 
 const readOK=
-read==="all"||
-item.dataset.read===read;
+read==="all"||item.dataset.read===read;
 
-item.style.display=
-periodOK&&readOK?"block":"none";
+item.style.display=periodOK&&readOK?"block":"none"
 
-});
+})
 }
 
 
 /* SCHEDULE */
 
+const months=["JULY","AUGUST","SEPTEMBER","OCTOBER"];
+let monthIndex=1;
+
 const schedule={
-"JULY":[
+
+JULY:[
 ["30","THU","ATLANTA","CITIZENS BANK PARK · PHI","4–2","win"],
 ["31","FRI","ATLANTA","CITIZENS BANK PARK · PHI","3–6","loss"]
 ],
 
-"AUGUST":[
+AUGUST:[
 ["10","MON","ATLANTA","CITIZENS BANK PARK · PHI","6–3","win"],
 ["11","TUE","ATLANTA","CITIZENS BANK PARK · PHI","2–5","loss"],
-["12","WED","ATLANTA","CITIZENS BANK PARK · PHI","LIVE","today"],
-["13","THU","ATLANTA","TRUIST PARK · ATL","7:20 PM","time"],
-["14","FRI","ATLANTA","TRUIST PARK · ATL","7:20 PM","time"],
-["15","SAT","ATLANTA","TRUIST PARK · ATL","4:05 PM","time"]
+["12","WED","ATLANTA","CITIZENS BANK PARK · PHI","6–3","live"],
+["13","THU","ATLANTA","TRUIST PARK · ATL","7:20 PM","upcoming"],
+["14","FRI","ATLANTA","TRUIST PARK · ATL","7:20 PM","upcoming"],
+["15","SAT","ATLANTA","TRUIST PARK · ATL","4:05 PM","upcoming"]
 ],
 
-"SEPTEMBER":[
-["1","TUE","MIAMI","CITIZENS BANK PARK · PHI","7:05 PM","time"],
-["2","WED","MIAMI","CITIZENS BANK PARK · PHI","6:40 PM","time"],
-["3","THU","MIAMI","CITIZENS BANK PARK · PHI","1:05 PM","time"]
+SEPTEMBER:[
+["1","TUE","MIAMI","CITIZENS BANK PARK · PHI","7:05 PM","upcoming"],
+["2","WED","MIAMI","CITIZENS BANK PARK · PHI","6:40 PM","upcoming"],
+["3","THU","MIAMI","CITIZENS BANK PARK · PHI","1:05 PM","upcoming"]
 ],
 
-"OCTOBER":[
-["1","THU","TBD","TBD","TBD","time"]
+OCTOBER:[
+["1","THU","TBD","TBD","TBD","upcoming"]
 ]
-};
 
-const months=["JULY","AUGUST","SEPTEMBER","OCTOBER"];
-let monthIndex=1;
+};
 
 function renderSchedule(){
 
@@ -1375,13 +1626,15 @@ const month=months[monthIndex];
 document.getElementById("monthName").innerHTML=
 `${month}<small>2026 · REGULAR SEASON</small>`;
 
-const list=schedule[month]||[];
-
-document.getElementById("games").innerHTML=list.map(g=>{
+document.getElementById("games").innerHTML=
+(schedule[month]||[]).map(g=>{
 
 const [day,dow,opp,park,result,type]=g;
 
-if(type==="final"){
+if(type==="win"||type==="loss"){
+
+const score=result.split("–");
+
 return `
 <div class="game-row" onclick="openGame()">
 
@@ -1395,14 +1648,18 @@ return `
 <div class="game-type">REGULAR SEASON</div>
 </div>
 
-<div class="final ${result==="win"?"win":"loss"}">
-<small>FINAL</small>${result}
+<div class="schedule-score ${type}">
+<span class="label">FINAL</span>
+<div class="numbers">${result}</div>
+<div class="result">${type==="win"?"W":"L"}</div>
 </div>
 
-</div>`;
+</div>`
+
 }
 
-if(type==="today"){
+if(type==="live"){
+
 return `
 <div class="game-row today" onclick="openLive()">
 
@@ -1416,11 +1673,14 @@ return `
 <div class="game-type">TODAY · LIVE</div>
 </div>
 
-<div class="final today">
-<small>LIVE</small>6–3
+<div class="schedule-score live">
+<span class="label">BOT 7TH</span>
+<div class="numbers">${result}</div>
+<div class="result">LIVE</div>
 </div>
 
-</div>`;
+</div>`
+
 }
 
 return `
@@ -1436,21 +1696,35 @@ return `
 <div class="game-type">REGULAR SEASON</div>
 </div>
 
-<div class="time">${result}</div>
+<div class="schedule-score upcoming">
+<span class="label">FIRST PITCH</span>
+<div class="numbers">${result}</div>
+</div>
 
-</div>`;
-}).join("");
+</div>`
 
+}).join("")
 }
 
-function changeMonth(direction){
+function changeMonth(dir){
 
-monthIndex+=direction;
+monthIndex=Math.max(0,Math.min(months.length-1,monthIndex+dir));
 
-if(monthIndex<0)monthIndex=0;
-if(monthIndex>months.length-1)monthIndex=months.length-1;
+renderSchedule()
+}
 
-renderSchedule();
+
+/* GAME DETAIL */
+
+function openGame(){
+
+pages.forEach(p=>p.classList.remove("active"));
+document.getElementById("gameDetail").classList.add("active");
+scrollTo(0,0)
+}
+
+function hideGame(){
+showPage("schedule")
 }
 
 
@@ -1497,102 +1771,69 @@ players:[]
 ];
 
 const stats={
+
 "Bryce Harper":{
 kind:"HITTER",
 data:[
-["AVG",".298"],
-["HR","31"],
-["RBI","87"],
-["OPS",".951"],
-["H","142"],
-["R","91"],
-["BB","64"],
-["SB","8"]
+["AVG",".298"],["HR","31"],["RBI","87"],["OPS",".951"],
+["H","142"],["R","91"],["BB","64"],["SB","8"]
 ]
 },
+
 "Trea Turner":{
 kind:"HITTER",
 data:[
-["AVG",".287"],
-["HR","18"],
-["RBI","63"],
-["OPS",".842"],
-["H","131"],
-["R","78"],
-["BB","37"],
-["SB","22"]
+["AVG",".287"],["HR","18"],["RBI","63"],["OPS",".842"],
+["H","131"],["R","78"],["BB","37"],["SB","22"]
 ]
 },
+
 "J.T. Realmuto":{
 kind:"HITTER",
 data:[
-["AVG",".264"],
-["HR","14"],
-["RBI","54"],
-["OPS",".758"],
-["H","101"],
-["R","49"],
-["BB","31"],
-["SB","7"]
+["AVG",".264"],["HR","14"],["RBI","54"],["OPS",".758"],
+["H","101"],["R","49"],["BB","31"],["SB","7"]
 ]
 },
+
 "Kyle Schwarber":{
 kind:"HITTER",
 data:[
-["AVG",".251"],
-["HR","37"],
-["RBI","92"],
-["OPS",".884"],
-["H","118"],
-["R","83"],
-["BB","89"],
-["SB","3"]
+["AVG",".251"],["HR","37"],["RBI","92"],["OPS",".884"],
+["H","118"],["R","83"],["BB","89"],["SB","3"]
 ]
 },
+
 "Zack Wheeler":{
 kind:"PITCHER",
 data:[
-["ERA","2.81"],
-["W","12"],
-["L","4"],
-["SO","171"],
-["WHIP","1.04"],
-["IP","147.0"],
-["GS","24"],
-["CG","1"]
+["ERA","2.81"],["W","12"],["L","4"],["SO","171"],
+["WHIP","1.04"],["IP","147.0"],["GS","24"],["CG","1"]
 ]
 },
+
 "Cristopher Sánchez":{
 kind:"PITCHER",
 data:[
-["ERA","3.12"],
-["W","10"],
-["L","5"],
-["SO","148"],
-["WHIP","1.11"],
-["IP","138.2"],
-["GS","24"],
-["CG","0"]
+["ERA","3.12"],["W","10"],["L","5"],["SO","148"],
+["WHIP","1.11"],["IP","138.2"],["GS","24"],["CG","0"]
 ]
 },
+
 "Player Name":{
 kind:"PITCHER",
 data:[
-["ERA","4.21"],
-["W","2"],
-["L","3"],
-["SO","38"],
-["WHIP","1.31"],
-["IP","42.0"],
-["GS","7"],
-["CG","0"]
+["ERA","4.21"],["W","2"],["L","3"],["SO","38"],
+["WHIP","1.31"],["IP","42.0"],["GS","7"],["CG","0"]
 ]
 }
+
 };
 
 function renderRoster(){
 
 document.getElementById("playerRoster").innerHTML=
+
 roster.map(group=>{
 
 const players=[...group.players].sort((a,b)=>{
@@ -1600,7 +1841,7 @@ const players=[...group.players].sort((a,b)=>{
 if(a[0]==="—")return 1;
 if(b[0]==="—")return -1;
 
-return Number(a[0])-Number(b[0]);
+return Number(a[0])-Number(b[0])
 });
 
 return `
@@ -1631,12 +1872,13 @@ onclick="openPlayer('${encodeURIComponent(name)}','${num}','${bt}','${pos}','${s
 ${status}
 </div>
 
-</div>`;
+</div>`
+
 }).join("")}
 
-</div>`;
-}).join("");
+</div>`
 
+}).join("")
 }
 
 function filterPlayers(){
@@ -1646,10 +1888,8 @@ const value=document.getElementById("positionFilter").value;
 document.querySelectorAll(".group").forEach(group=>{
 group.style.display=
 value==="all"||group.dataset.group===value
-?"block"
-:"none";
-});
-
+?"block":"none"
+})
 }
 
 function openPlayer(name,number,bt,pos,status){
@@ -1662,9 +1902,7 @@ document.getElementById("detailNumber").textContent=
 number==="—"?"":"#"+number;
 
 document.getElementById("detailName").textContent=name;
-
 document.getElementById("detailPosition").textContent=pos;
-
 document.getElementById("detailBT").textContent="B/T "+bt;
 
 const statusEl=document.getElementById("detailStatus");
@@ -1692,21 +1930,19 @@ pages.forEach(p=>p.classList.remove("active"));
 
 document.getElementById("detail").classList.add("active");
 
-scrollTo(0,0);
-
+scrollTo(0,0)
 }
 
 function hidePlayer(){
-showPage("players");
+showPage("players")
 }
 
 
-/* INITIALIZE */
+/* INITIAL */
 
-renderRoster();
 renderSchedule();
+renderRoster();
 filterNews();
-
 </script>
 
 </body>
