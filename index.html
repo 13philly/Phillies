@@ -4,73 +4,74 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06152f">
-<title>PHILLIES</title>
+<title>Phillies</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box;margin:0}
-:root{--bg:#06152f;--soft:#0b1c39;--text:#f5f7fb;--muted:#71819a;--line:#ffffff14;--red:#e31837}
-body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased}
+:root{--bg:#06152f;--fg:#f7f8fb;--muted:#73829a;--line:#ffffff14;--red:#e31837;--dim:#0b1b37}
+body{min-height:100dvh;background:var(--bg);color:var(--fg);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit}
 .header{height:80px;border-bottom:1px solid var(--line)}
 .head{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
 .brand{font:800 31px/1 "Barlow Condensed";letter-spacing:.3px}.brand b{color:var(--red)}
 .sub{margin-top:5px;color:var(--muted);font-size:7px;font-weight:700;letter-spacing:2.5px}
 .year{color:var(--muted);font:600 10px "Roboto Mono"}
-main{padding:25px 18px 105px}.page{display:none}.page.active{display:block}
+main{padding:25px 18px 100px}.page{display:none}.page.active{display:block}
 .eyebrow{color:var(--red);font-size:8px;font-weight:700;letter-spacing:2.4px}
 h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
-.section{margin-top:31px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.title h2{font-size:11px;font-weight:700;letter-spacing:1.4px}.title span{color:var(--muted);font:600 8px "Roboto Mono"}
 
 /* HOME */
-.game{position:relative;padding:19px 17px 17px;background:var(--soft);border:1px solid #ffffff12;border-radius:13px;overflow:hidden}
-.game:before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--red)}
-.game-top{display:flex;justify-content:space-between;color:var(--muted);font:600 8px "Roboto Mono"}
-.match{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;text-align:center;margin:22px 0}
-.team{font:800 34px/1 "Barlow Condensed"}.team small{display:block;margin-top:5px;color:var(--muted);font:600 7px "DM Sans";letter-spacing:1.3px}
+.home-game{margin-top:29px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.game-head{height:42px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font:600 8px "Roboto Mono";letter-spacing:.6px}
+.game-main{padding:22px 4px 20px;display:grid;grid-template-columns:1fr 35px 1fr;align-items:center;text-align:center}
+.team{font:800 38px/1 "Barlow Condensed"}.team small{display:block;margin-top:6px;color:var(--muted);font:600 7px "DM Sans";letter-spacing:1.4px}
 .vs{color:var(--muted);font:600 8px "Roboto Mono"}
-.park{text-align:center;padding-top:13px;border-top:1px solid var(--line);color:var(--muted);font-size:8px;font-weight:600}
-.news{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden}
-.news-item{background:var(--soft);padding:14px}
-.news-item:first-child{padding-top:16px}
-.news-meta{display:flex;justify-content:space-between;color:var(--red);font:600 7px "Roboto Mono";letter-spacing:.7px}
-.news-item p{margin-top:6px;font-size:12px;font-weight:600;line-height:1.45}
+.game-foot{padding:12px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:8px;font-weight:600}
+.section{margin-top:31px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+.section-head strong{font-size:11px;letter-spacing:1.5px}.section-head span{color:var(--muted);font:600 8px "Roboto Mono"}
+.story{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+.story:first-child{border-top:1px solid var(--line)}
+.story time{color:var(--red);font:600 7px "Roboto Mono";padding-top:2px}
+.story p{font-size:12px;font-weight:600;line-height:1.5}
 
 /* SCHEDULE */
-.schedule-list{margin-top:23px}
-.schedule-row{position:relative;display:grid;grid-template-columns:48px 1fr 54px;align-items:center;gap:13px;padding:15px 2px;border-bottom:1px solid var(--line)}
-.schedule-row.today{padding:17px 10px;background:var(--soft);border:1px solid #ffffff12;border-radius:11px;margin-bottom:5px}
-.schedule-row.today:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;background:var(--red)}
-.date{color:var(--muted);font:600 8px "Roboto Mono";line-height:1.45}
-.opponent{font:800 19px "Barlow Condensed";letter-spacing:.4px}
-.venue{margin-top:3px;color:var(--muted);font-size:7px;font-weight:600}
-.time{text-align:right;font:600 9px "Roboto Mono";color:var(--muted)}
-.today .opponent,.today .time{color:#fff}.today .time{color:var(--red)}
-.result{font:800 8px "Roboto Mono";color:var(--muted);text-align:right}
+.schedule{margin-top:24px}
+.month{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.month strong{font:700 18px "Barlow Condensed";letter-spacing:.5px}.month span{color:var(--muted);font:600 8px "Roboto Mono"}
+.game-row{display:grid;grid-template-columns:48px 1fr auto;gap:13px;align-items:center;min-height:73px;border-bottom:1px solid var(--line)}
+.game-row.today{margin:8px 0;padding:0 12px;background:var(--dim);border:1px solid #ffffff12;border-radius:10px;min-height:78px}
+.day{color:var(--muted);font:600 8px "Roboto Mono";line-height:1.5}
+.opponent{font:800 20px "Barlow Condensed";letter-spacing:.4px}
+.details{margin-top:4px;color:var(--muted);font-size:7px}
+.clock{text-align:right;color:var(--muted);font:600 9px "Roboto Mono";line-height:1.5}
+.today .opponent{color:#fff}.today .clock{color:var(--red)}
 
 /* PLAYERS */
-.filters{display:flex;gap:6px;overflow:auto;margin:21px -18px 15px;padding:0 18px 2px;scrollbar-width:none}
+.filters{display:flex;gap:5px;overflow:auto;margin:22px -18px 15px;padding:0 18px 3px;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
-.filters button{white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);font-size:8px;font-weight:700;letter-spacing:.5px}
-.filters button.active{background:var(--red);border-color:var(--red);color:#fff}
-.roster{border-top:1px solid var(--line)}
-.player{display:grid;grid-template-columns:36px 1fr 42px;align-items:center;min-height:64px;border-bottom:1px solid var(--line)}
-.num{font:700 21px "Barlow Condensed";color:#50627c}
-.player-name{font-size:13px;font-weight:700}
-.player-meta{margin-top:4px;color:var(--muted);font:600 7px "Roboto Mono";letter-spacing:.7px}
-.pos{text-align:right;font:700 9px "Roboto Mono";color:var(--muted)}
-.player:first-child .num{color:var(--red)}
+.filters button{white-space:nowrap;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:none;color:var(--muted);font-size:8px;font-weight:700}
+.filters .active{background:var(--red);border-color:var(--red);color:#fff}
+.roster-head{display:grid;grid-template-columns:42px 1fr 40px;padding:0 0 8px;color:var(--muted);font:600 7px "Roboto Mono";letter-spacing:1px;border-bottom:1px solid var(--line)}
+.player{display:grid;grid-template-columns:42px 1fr 40px;align-items:center;min-height:66px;border-bottom:1px solid var(--line)}
+.number{font:700 22px "Barlow Condensed";color:#53647d}
+.player-name{font-size:13px;font-weight:700}.player-meta{margin-top:4px;color:var(--muted);font:600 7px "Roboto Mono";letter-spacing:.6px}
+.position{text-align:right;font:700 9px "Roboto Mono";color:var(--muted)}
+.player:first-child .number{color:var(--red)}
 
 /* NAV */
-.nav{position:fixed;z-index:10;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:67px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
-.nav button{position:relative;border:0;background:none;color:var(--muted);border-radius:13px;font-size:8px;font-weight:700;letter-spacing:1.2px}
+.nav{position:fixed;z-index:10;left:50%;bottom:max(9px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:66px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
+.nav button{border:0;background:none;color:var(--muted);border-radius:13px;font-size:8px;font-weight:700;letter-spacing:1.2px}
 .nav button.active{color:#fff;background:#ffffff08}
-.nav button.active:after{content:"";position:absolute;bottom:5px;left:50%;width:4px;height:4px;border-radius:50%;background:var(--red);transform:translateX(-50%)}
 .icon{height:22px;display:grid;place-items:center;margin-bottom:3px}
-.home{width:17px;height:17px;border:2px solid currentColor;border-radius:50%;position:relative}.home:after{content:"";position:absolute;width:5px;height:5px;left:4px;top:4px;border-radius:50%;background:currentColor}
-.user{width:17px;height:17px;border:2px solid currentColor;border-radius:50%;position:relative}.user:after{content:"";position:absolute;left:3px;right:3px;bottom:2px;height:5px;border:1.5px solid currentColor;border-bottom:0;border-radius:8px 8px 0 0}
+.nav button.active .icon{color:var(--red)}
+.home-icon{width:17px;height:17px;border:2px solid currentColor;border-radius:4px;position:relative}
+.home-icon:after{content:"";position:absolute;width:5px;height:5px;left:4px;top:4px;border-radius:50%;background:currentColor}
+.player-icon{width:17px;height:17px;border:2px solid currentColor;border-radius:50%;position:relative}
+.player-icon:after{content:"";position:absolute;left:3px;right:3px;bottom:2px;height:5px;border:1px solid currentColor;border-bottom:0;border-radius:7px 7px 0 0}
 </style>
 </head>
 
@@ -78,7 +79,10 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 
 <header class="header">
 <div class="head">
-<div><div class="brand"><b>P</b>HILLIES</div><div class="sub">PHILADELPHIA BASEBALL</div></div>
+<div>
+<div class="brand"><b>P</b>HILLIES</div>
+<div class="sub">PHILADELPHIA BASEBALL</div>
+</div>
 <div class="year">2026</div>
 </div>
 </header>
@@ -89,25 +93,22 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 <div class="eyebrow">PHILADELPHIA</div>
 <h1>HOME</h1>
 
-<div class="section">
-<div class="title"><h2>TODAY'S GAME</h2><span>AUG 12</span></div>
-<div class="game">
-<div class="game-top"><span>REGULAR SEASON</span><span>7:05 PM</span></div>
-<div class="match">
+<div class="home-game">
+<div class="game-head"><span>TODAY · AUG 12</span><span>7:05 PM</span></div>
+<div class="game-main">
 <div class="team">PHI<small>PHILLIES</small></div>
 <div class="vs">VS</div>
 <div class="team">ATL<small>BRAVES</small></div>
 </div>
-<div class="park">CITIZENS BANK PARK</div>
-</div>
+<div class="game-foot"><span>CITIZENS BANK PARK</span><span>REGULAR SEASON</span></div>
 </div>
 
 <div class="section">
-<div class="title"><h2>LATEST NEWS</h2><span>RECENT</span></div>
-<div class="news">
-<div class="news-item"><div class="news-meta"><span>PHILLIES</span><span>2H</span></div><p>Philadelphia prepares for tonight's matchup.</p></div>
-<div class="news-item"><div class="news-meta"><span>ROSTER</span><span>5H</span></div><p>Lineup and roster updates ahead of first pitch.</p></div>
-<div class="news-item"><div class="news-meta"><span>TEAM</span><span>1D</span></div><p>Philadelphia closes out the previous series.</p></div>
+<div class="section-head"><strong>LATEST NEWS</strong><span>RECENT</span></div>
+<div>
+<div class="story"><time>2H</time><p>Philadelphia prepares for tonight's matchup.</p></div>
+<div class="story"><time>5H</time><p>Lineup and roster updates ahead of first pitch.</p></div>
+<div class="story"><time>1D</time><p>Philadelphia closes out the previous series.</p></div>
 </div>
 </div>
 </section>
@@ -115,38 +116,39 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 <section id="schedule" class="page">
 <div class="eyebrow">2026 SEASON</div>
 <h1>SCHEDULE</h1>
-<div class="schedule-list">
 
-<div class="schedule-row today">
-<div class="date">AUG<br>12</div>
-<div><div class="opponent">ATLANTA</div><div class="venue">CITIZENS BANK PARK · PHI</div></div>
-<div class="time">7:05<br>PM</div>
+<div class="schedule">
+<div class="month"><strong>AUGUST</strong><span>REGULAR SEASON</span></div>
+
+<div class="game-row today">
+<div class="day">12<br>WED</div>
+<div><div class="opponent">ATLANTA</div><div class="details">CITIZENS BANK PARK · PHI</div></div>
+<div class="clock">7:05<br>PM</div>
 </div>
 
-<div class="schedule-row">
-<div class="date">AUG<br>13</div>
-<div><div class="opponent">ATLANTA</div><div class="venue">TRUIST PARK · ATL</div></div>
-<div class="time">7:20<br>PM</div>
+<div class="game-row">
+<div class="day">13<br>THU</div>
+<div><div class="opponent">ATLANTA</div><div class="details">TRUIST PARK · ATL</div></div>
+<div class="clock">7:20<br>PM</div>
 </div>
 
-<div class="schedule-row">
-<div class="date">AUG<br>14</div>
-<div><div class="opponent">ATLANTA</div><div class="venue">TRUIST PARK · ATL</div></div>
-<div class="time">7:20<br>PM</div>
+<div class="game-row">
+<div class="day">14<br>FRI</div>
+<div><div class="opponent">ATLANTA</div><div class="details">TRUIST PARK · ATL</div></div>
+<div class="clock">7:20<br>PM</div>
 </div>
 
-<div class="schedule-row">
-<div class="date">AUG<br>15</div>
-<div><div class="opponent">ATLANTA</div><div class="venue">TRUIST PARK · ATL</div></div>
-<div class="time">4:05<br>PM</div>
+<div class="game-row">
+<div class="day">15<br>SAT</div>
+<div><div class="opponent">ATLANTA</div><div class="details">TRUIST PARK · ATL</div></div>
+<div class="clock">4:05<br>PM</div>
 </div>
 
-<div class="schedule-row">
-<div class="date">AUG<br>17</div>
-<div><div class="opponent">WASHINGTON</div><div class="venue">NATIONALS PARK · WSH</div></div>
-<div class="time">6:45<br>PM</div>
+<div class="game-row">
+<div class="day">17<br>MON</div>
+<div><div class="opponent">WASHINGTON</div><div class="details">NATIONALS PARK · WSH</div></div>
+<div class="clock">6:45<br>PM</div>
 </div>
-
 </div>
 </section>
 
@@ -164,27 +166,27 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 <button>DH</button>
 </div>
 
-<div class="roster">
-<div class="player"><div class="num">3</div><div><div class="player-name">Bryce Harper</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="pos">1B</div></div>
-<div class="player"><div class="num">7</div><div><div class="player-name">Trea Turner</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="pos">SS</div></div>
-<div class="player"><div class="num">12</div><div><div class="player-name">Kyle Schwarber</div><div class="player-meta">ACTIVE · LEFT</div></div><div class="pos">OF</div></div>
-<div class="player"><div class="num">10</div><div><div class="player-name">J.T. Realmuto</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="pos">C</div></div>
-<div class="player"><div class="num">45</div><div><div class="player-name">Zack Wheeler</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="pos">P</div></div>
-<div class="player"><div class="num">61</div><div><div class="player-name">Cristopher Sánchez</div><div class="player-meta">ACTIVE · LEFT</div></div><div class="pos">P</div></div>
-</div>
+<div class="roster-head"><span>NO.</span><span>PLAYER</span><span>POS</span></div>
+
+<div class="player"><div class="number">3</div><div><div class="player-name">Bryce Harper</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="position">1B</div></div>
+<div class="player"><div class="number">7</div><div><div class="player-name">Trea Turner</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="position">SS</div></div>
+<div class="player"><div class="number">12</div><div><div class="player-name">Kyle Schwarber</div><div class="player-meta">ACTIVE · LEFT</div></div><div class="position">OF</div></div>
+<div class="player"><div class="number">10</div><div><div class="player-name">J.T. Realmuto</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="position">C</div></div>
+<div class="player"><div class="number">45</div><div><div class="player-name">Zack Wheeler</div><div class="player-meta">ACTIVE · RIGHT</div></div><div class="position">P</div></div>
+<div class="player"><div class="number">61</div><div><div class="player-name">Cristopher Sánchez</div><div class="player-meta">ACTIVE · LEFT</div></div><div class="position">P</div></div>
 </section>
 
 </main>
 
 <nav class="nav">
 <button data-page="schedule"><span class="icon">▤</span>SCHEDULE</button>
-<button data-page="home" class="active"><span class="icon"><i class="home"></i></span>HOME</button>
-<button data-page="players"><span class="icon"><i class="user"></i></span>PLAYERS</button>
+<button data-page="home" class="active"><span class="icon"><i class="home-icon"></i></span>HOME</button>
+<button data-page="players"><span class="icon"><i class="player-icon"></i></span>PLAYERS</button>
 </nav>
 
 <script>
-const p=document.querySelectorAll(".page"),b=document.querySelectorAll(".nav button");
-b.forEach(x=>x.onclick=()=>{b.forEach(y=>y.classList.remove("active"));x.classList.add("active");p.forEach(y=>y.classList.toggle("active",y.id===x.dataset.page));scrollTo(0,0)})
+const pages=document.querySelectorAll(".page"),nav=document.querySelectorAll(".nav button");
+nav.forEach(b=>b.onclick=()=>{nav.forEach(x=>x.classList.remove("active"));b.classList.add("active");pages.forEach(x=>x.classList.toggle("active",x.id===b.dataset.page));scrollTo(0,0)})
 </script>
 </body>
 </html>
