@@ -3,585 +3,598 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>PHILLIES BASE</title>
+<title>PHILLIES</title>
 <style>
 :root{
-  --bg:#071A36;
-  --surface:#0D2548;
-  --surface-2:#112D54;
-  --red:#E31837;
-  --red-dark:#B5122A;
-  --blue:#2E5B9A;
-  --white:#FFFFFF;
-  --text:#F8FAFD;
-  --muted:#9BA9BC;
-  --line:rgba(255,255,255,.09);
-  --nav-height:76px;
+  --bg:#06162e;
+  --surface:#0b2141;
+  --surface2:#102a4f;
+  --red:#e31837;
+  --white:#f7f9fc;
+  --muted:#8192aa;
+  --line:rgba(255,255,255,.08);
+  --nav:72px;
 }
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-html{
-  background:var(--bg);
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
 body{
   min-height:100vh;
-  background:var(--bg);
-  color:var(--text);
+  color:var(--white);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-button{
-  font:inherit;
-}
+button{font:inherit}
 .app{
   min-height:100vh;
-  padding-bottom:calc(var(--nav-height) + 28px);
+  padding-bottom:calc(var(--nav) + 24px);
 }
 .container{
-  width:min(calc(100% - 32px),1080px);
-  margin:0 auto;
+  width:min(calc(100% - 32px),1100px);
+  margin:auto;
 }
-/* HEADER */
-.header{
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(6,22,46,.9);
   border-bottom:1px solid var(--line);
-  background:rgba(7,26,54,.94);
+  backdrop-filter:blur(18px);
 }
-.header-line{
+.topbar:before{
+  content:"";
+  display:block;
   height:3px;
-  background:linear-gradient(
-    90deg,
-    var(--red) 0 68%,
-    var(--blue) 68% 100%
-  );
+  background:linear-gradient(90deg,var(--red) 0 72%,#315b91 72%);
 }
-.header-inner{
-  height:72px;
+.topbar-inner{
+  height:68px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
-.brand{
+.logo{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
 }
-.brand-mark{
-  width:40px;
-  height:40px;
+.logo-mark{
+  width:38px;
+  height:38px;
   display:grid;
   place-items:center;
-  border-radius:11px;
+  border-radius:10px;
   background:var(--red);
-  color:#fff;
-  font-size:17px;
-  font-weight:950;
-  box-shadow:0 7px 20px rgba(227,24,55,.24);
-}
-.brand-title{
   color:#fff;
   font-size:16px;
   font-weight:950;
-  letter-spacing:1.5px;
 }
-.brand-subtitle{
+.logo-name{
+  font-size:15px;
+  font-weight:950;
+  letter-spacing:1.8px;
+}
+.logo-sub{
   margin-top:3px;
   color:var(--muted);
-  font-size:8px;
+  font-size:7px;
   font-weight:800;
-  letter-spacing:1.6px;
+  letter-spacing:1.5px;
 }
-.header-button{
-  width:40px;
-  height:40px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--surface);
-  color:var(--muted);
+.status{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 0 4px rgba(227,24,55,.1);
 }
-.header-button svg{
-  width:18px;
-  height:18px;
-}
-/* MAIN */
-main{
-  padding:30px 0 42px;
-}
-.page{
-  display:none;
-}
-.page.active{
-  display:block;
-}
-.page-kicker{
+main{padding:28px 0 38px}
+.page{display:none}
+.page.active{display:block}
+.eyebrow{
   color:var(--red);
-  font-size:10px;
+  font-size:9px;
   font-weight:900;
-  letter-spacing:2.4px;
+  letter-spacing:2px;
 }
-.page-title{
-  margin-top:6px;
-  color:var(--white);
-  font-size:clamp(34px,9vw,48px);
+.heading{
+  margin-top:7px;
+  font-size:38px;
   font-weight:950;
-  letter-spacing:-2px;
+  letter-spacing:-1.8px;
   line-height:1;
 }
-.page-subtitle{
-  margin-top:9px;
+.date{
+  margin-top:7px;
   color:var(--muted);
-  font-size:13px;
+  font-size:11px;
 }
-/* HOME */
-.home-grid{
-  margin-top:27px;
+.section{
+  margin-top:28px;
 }
-.next-game{
-  position:relative;
-  overflow:hidden;
-  padding:22px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:23px;
-  background:
-    linear-gradient(
-      145deg,
-      #102E57 0%,
-      #0D2548 55%,
-      #0A1F3E 100%
-    );
-  box-shadow:0 18px 42px rgba(0,0,0,.2);
-}
-.next-game:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  right:-90px;
-  bottom:-90px;
-  border:28px solid rgba(227,24,55,.13);
-  border-radius:50%;
-}
-.game-top{
-  position:relative;
-  z-index:1;
+.section-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  margin-bottom:11px;
+}
+.section-title{
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:-.2px;
+}
+.section-action{
+  border:0;
+  background:none;
+  color:var(--red);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+.game{
+  overflow:hidden;
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--surface);
+  box-shadow:0 18px 40px rgba(0,0,0,.2);
+}
+.game-accent{
+  height:4px;
+  background:linear-gradient(90deg,var(--red) 0 50%,#244d80 50%);
+}
+.game-body{
+  padding:21px;
 }
 .game-label{
-  color:var(--red);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.8px;
-}
-.game-date{
   color:var(--muted);
-  font-size:10px;
-  font-weight:700;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.5px;
 }
 .matchup{
-  position:relative;
-  z-index:1;
   display:grid;
-  grid-template-columns:1fr auto 1fr;
+  grid-template-columns:1fr 38px 1fr;
   align-items:center;
-  gap:15px;
-  margin-top:25px;
+  margin-top:20px;
 }
-.team{
-  min-width:0;
-}
-.team:last-child{
-  text-align:right;
-}
+.team{text-align:center}
 .team-code{
-  color:var(--white);
   font-size:34px;
   font-weight:950;
   letter-spacing:-1.5px;
 }
+.team:first-child .team-code{color:var(--red)}
 .team-name{
-  margin-top:4px;
+  margin-top:3px;
   color:var(--muted);
-  font-size:10px;
-  font-weight:700;
-}
-.team:first-child .team-code{
-  color:var(--red);
+  font-size:9px;
 }
 .vs{
-  color:#617895;
-  font-size:10px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  margin:auto;
+  border:1px solid var(--line);
+  border-radius:50%;
+  color:var(--muted);
+  font-size:8px;
   font-weight:900;
-  letter-spacing:1px;
 }
-.game-bottom{
-  position:relative;
-  z-index:1;
+.game-info{
   display:flex;
-  justify-content:space-between;
-  gap:20px;
-  margin-top:24px;
-  padding-top:16px;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-top:21px;
+  padding-top:15px;
   border-top:1px solid var(--line);
 }
 .game-time{
-  color:var(--white);
-  font-size:13px;
-  font-weight:800;
+  font-size:12px;
+  font-weight:850;
 }
 .game-venue{
   color:var(--muted);
-  font-size:10px;
-  text-align:right;
+  font-size:9px;
 }
-/* SECTION */
-.section{
-  margin-top:30px;
-}
-.section-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:13px;
-}
-.section-title{
-  color:var(--white);
-  font-size:17px;
-  font-weight:900;
-  letter-spacing:-.3px;
-}
-.section-link{
-  border:0;
-  background:none;
-  color:var(--red);
-  font-size:10px;
-  font-weight:900;
-}
-/* NEWS */
 .news-list{
   display:grid;
-  gap:9px;
+  gap:8px;
 }
-.news-card{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  min-height:78px;
-  padding:11px;
+.news{
+  display:grid;
+  grid-template-columns:74px 1fr;
+  gap:12px;
+  padding:10px;
   border:1px solid var(--line);
   border-radius:15px;
   background:var(--surface);
 }
-.news-thumb{
-  position:relative;
-  flex:0 0 66px;
-  width:66px;
-  height:56px;
-  overflow:hidden;
+.news-image{
+  height:62px;
   border-radius:9px;
-  background:var(--surface-2);
+  background:
+    linear-gradient(135deg,#122f55,#091d38);
+  position:relative;
+  overflow:hidden;
 }
-.news-thumb:before{
+.news-image:before{
   content:"";
   position:absolute;
   left:0;
   top:0;
+  bottom:0;
   width:4px;
-  height:100%;
   background:var(--red);
 }
-.news-thumb:after{
-  content:"";
-  position:absolute;
-  right:-10px;
-  bottom:-15px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:var(--blue);
-  opacity:.45;
-}
-.news-content{
-  min-width:0;
-}
 .news-category{
-  margin-bottom:4px;
   color:var(--red);
   font-size:8px;
   font-weight:900;
-  letter-spacing:1.2px;
+  letter-spacing:1px;
 }
 .news-title{
-  display:-webkit-box;
-  overflow:hidden;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;
-  color:var(--text);
+  margin-top:5px;
   font-size:12px;
   font-weight:750;
   line-height:1.4;
 }
-.news-meta{
+.news-time{
   margin-top:5px;
   color:var(--muted);
   font-size:8px;
 }
-/* PLACEHOLDER */
-.placeholder{
-  margin-top:25px;
-  padding:50px 20px;
-  border:1px solid var(--line);
-  border-radius:20px;
-  background:var(--surface);
-  text-align:center;
-}
-.placeholder-icon{
-  width:48px;
-  height:48px;
+.schedule-list{
   display:grid;
-  place-items:center;
-  margin:0 auto 14px;
-  border-radius:15px;
-  background:rgba(227,24,55,.1);
+  gap:8px;
+  margin-top:22px;
+}
+.schedule-item{
+  display:grid;
+  grid-template-columns:55px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+}
+.schedule-date{
   color:var(--red);
-  font-size:17px;
+  font-size:10px;
   font-weight:900;
 }
-.placeholder-title{
-  color:var(--white);
-  font-size:16px;
-  font-weight:900;
+.schedule-opponent{
+  font-size:13px;
+  font-weight:850;
 }
-.placeholder-text{
-  margin-top:6px;
+.schedule-location{
+  margin-top:4px;
   color:var(--muted);
-  font-size:11px;
+  font-size:8px;
 }
-/* NAVIGATION */
+.schedule-time{
+  font-size:10px;
+  font-weight:850;
+}
+.player-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-top:22px;
+}
+.player{
+  min-height:150px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:var(--surface);
+}
+.player-photo{
+  height:82px;
+  border-radius:11px;
+  background:linear-gradient(145deg,#122f55,#091d38);
+}
+.player-number{
+  margin-top:10px;
+  color:var(--red);
+  font-size:9px;
+  font-weight:900;
+}
+.player-name{
+  margin-top:3px;
+  font-size:12px;
+  font-weight:850;
+}
+.player-position{
+  margin-top:3px;
+  color:var(--muted);
+  font-size:8px;
+}
 .bottom-nav{
   position:fixed;
   z-index:100;
   left:50%;
-  bottom:12px;
+  bottom:11px;
   transform:translateX(-50%);
-  width:min(calc(100% - 24px),480px);
-  height:var(--nav-height);
+  width:min(calc(100% - 22px),470px);
+  height:var(--nav);
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  padding:6px;
+  padding:5px;
   border:1px solid rgba(255,255,255,.1);
-  border-radius:24px;
-  background:rgba(13,37,72,.94);
-  box-shadow:0 16px 45px rgba(0,0,0,.38);
+  border-radius:23px;
+  background:rgba(11,33,65,.94);
+  box-shadow:0 18px 45px rgba(0,0,0,.4);
   backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
 }
-.nav-button{
+.nav{
   position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  gap:4px;
   border:0;
-  background:transparent;
-  color:#71839C;
+  background:none;
+  color:#71839c;
 }
-.nav-icon{
-  width:21px;
-  height:21px;
+.nav svg{
+  width:20px;
+  height:20px;
 }
-.nav-text{
+.nav span{
   font-size:8px;
   font-weight:900;
   letter-spacing:.8px;
 }
-.nav-button.home .nav-icon{
-  width:24px;
-  height:24px;
-}
-.nav-button.home:before{
+.nav.active{color:var(--red)}
+.nav.active:before{
   content:"";
   position:absolute;
-  top:5px;
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  background:rgba(227,24,55,.12);
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:rgba(227,24,55,.1);
   z-index:-1;
 }
-.nav-button.active{
-  color:var(--red);
-}
-/* DESKTOP */
 @media(min-width:760px){
-  .container{
-    width:min(calc(100% - 48px),1080px);
-  }
-  .header-inner{
-    height:80px;
-  }
-  main{
-    padding-top:44px;
-  }
-  .home-grid{
+  .container{width:min(calc(100% - 48px),1100px)}
+  .topbar-inner{height:76px}
+  main{padding-top:42px}
+  .home-layout{
     display:grid;
     grid-template-columns:1.05fr .95fr;
-    gap:26px;
+    gap:28px;
+    margin-top:28px;
   }
-  .section{
+  .home-layout .section{
     margin-top:0;
   }
-  .next-game{
-    min-height:300px;
+  .player-grid{
+    grid-template-columns:repeat(4,1fr);
   }
 }
 </style>
 </head>
+
 <body>
 <div class="app">
-<header class="header">
-<div class="header-line"></div>
-<div class="container header-inner">
-<div class="brand">
-<div class="brand-mark">P</div>
+
+<header class="topbar">
+<div class="topbar:before"></div>
+<div class="container topbar-inner">
+<div class="logo">
+<div class="logo-mark">P</div>
 <div>
-<div class="brand-title">PHILLIES</div>
-<div class="brand-subtitle">PERSONAL BASE</div>
+<div class="logo-name">PHILLIES</div>
+<div class="logo-sub">PERSONAL BASE</div>
 </div>
 </div>
-<button class="header-button" aria-label="Settings">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-<circle cx="12" cy="12" r="3"/>
-<path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.8 1.8-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V22h-2.55v-.1a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-1.8-1.8.06-.06A1.7 1.7 0 0 0 8.1 17a1.7 1.7 0 0 0-1.56-1.03H6.4v-2.55h.14A1.7 1.7 0 0 0 8.1 12.4a1.7 1.7 0 0 0-.34-1.88L7.7 10.46l1.8-1.8.06.06a1.7 1.7 0 0 0 1.88-.34 1.7 1.7 0 0 0 1.03-1.56V7.4h2.55v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 1.8 1.8-.06.06a1.7 1.7 0 0 0 1.03 1.56V15Z"/>
-</svg>
-</button>
+<div class="status"></div>
 </div>
 </header>
+
 <main>
 <div class="container">
+
 <section class="page active" id="home">
-<div class="page-kicker">PHILLIES</div>
-<h1 class="page-title">Home</h1>
-<p class="page-subtitle">Your personal Phillies dashboard.</p>
-<div class="home-grid">
-<div class="next-game">
-<div class="game-top">
-<div class="game-label">NEXT GAME</div>
-<div class="game-date">AUG 12</div>
+<div class="eyebrow">PHILADELPHIA PHILLIES</div>
+<h1 class="heading">Home</h1>
+<div class="date">Your personal Phillies dashboard</div>
+
+<div class="home-layout">
+
+<div>
+<div class="section" style="margin-top:0">
+<div class="section-head">
+<div class="section-title">Next Game</div>
 </div>
+
+<div class="game">
+<div class="game-accent"></div>
+<div class="game-body">
+<div class="game-label">UPCOMING</div>
+
 <div class="matchup">
 <div class="team">
 <div class="team-code">PHI</div>
-<div class="team-name">Philadelphia</div>
+<div class="team-name">Phillies</div>
 </div>
+
 <div class="vs">VS</div>
+
 <div class="team">
 <div class="team-code">OPP</div>
 <div class="team-name">Opponent</div>
 </div>
 </div>
-<div class="game-bottom">
+
+<div class="game-info">
 <div class="game-time">7:05 PM</div>
 <div class="game-venue">CITIZENS BANK PARK</div>
 </div>
 </div>
-<section class="section">
-<div class="section-header">
-<h2 class="section-title">Latest News</h2>
-<button class="section-link">VIEW ALL</button>
 </div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-head">
+<div class="section-title">Latest News</div>
+<button class="section-action">ALL NEWS</button>
+</div>
+
 <div class="news-list">
-<article class="news-card">
-<div class="news-thumb"></div>
-<div class="news-content">
+
+<article class="news">
+<div class="news-image"></div>
+<div>
 <div class="news-category">PHILLIES</div>
 <div class="news-title">Latest Phillies news will appear here.</div>
-<div class="news-meta">Today</div>
+<div class="news-time">Today</div>
 </div>
 </article>
-<article class="news-card">
-<div class="news-thumb"></div>
-<div class="news-content">
+
+<article class="news">
+<div class="news-image"></div>
+<div>
 <div class="news-category">MLB</div>
 <div class="news-title">Team updates and important stories.</div>
-<div class="news-meta">Today</div>
+<div class="news-time">Today</div>
 </div>
 </article>
-<article class="news-card">
-<div class="news-thumb"></div>
-<div class="news-content">
+
+<article class="news">
+<div class="news-image"></div>
+<div>
 <div class="news-category">TEAM</div>
 <div class="news-title">Everything Phillies in one place.</div>
-<div class="news-meta">Yesterday</div>
+<div class="news-time">Yesterday</div>
 </div>
 </article>
+
+</div>
+</div>
+
 </div>
 </section>
-</div>
-</section>
+
 <section class="page" id="schedule">
-<div class="page-kicker">PHILLIES</div>
-<h1 class="page-title">Schedule</h1>
-<p class="page-subtitle">Games and results.</p>
-<div class="placeholder">
-<div class="placeholder-icon">S</div>
-<div class="placeholder-title">Schedule</div>
-<div class="placeholder-text">Schedule UI will be built here.</div>
+<div class="eyebrow">PHILADELPHIA PHILLIES</div>
+<h1 class="heading">Schedule</h1>
+<div class="date">Games & results</div>
+
+<div class="schedule-list">
+
+<div class="schedule-item">
+<div class="schedule-date">AUG<br>12</div>
+<div>
+<div class="schedule-opponent">vs Opponent</div>
+<div class="schedule-location">Citizens Bank Park</div>
+</div>
+<div class="schedule-time">7:05 PM</div>
+</div>
+
+<div class="schedule-item">
+<div class="schedule-date">AUG<br>13</div>
+<div>
+<div class="schedule-opponent">vs Opponent</div>
+<div class="schedule-location">Citizens Bank Park</div>
+</div>
+<div class="schedule-time">6:45 PM</div>
+</div>
+
 </div>
 </section>
+
 <section class="page" id="players">
-<div class="page-kicker">PHILLIES</div>
-<h1 class="page-title">Players</h1>
-<p class="page-subtitle">Roster and player information.</p>
-<div class="placeholder">
-<div class="placeholder-icon">P</div>
-<div class="placeholder-title">Players</div>
-<div class="placeholder-text">Players UI will be built here.</div>
+<div class="eyebrow">PHILADELPHIA PHILLIES</div>
+<h1 class="heading">Players</h1>
+<div class="date">Roster</div>
+
+<div class="player-grid">
+
+<div class="player">
+<div class="player-photo"></div>
+<div class="player-number">#00</div>
+<div class="player-name">Player Name</div>
+<div class="player-position">Position</div>
+</div>
+
+<div class="player">
+<div class="player-photo"></div>
+<div class="player-number">#00</div>
+<div class="player-name">Player Name</div>
+<div class="player-position">Position</div>
+</div>
+
+<div class="player">
+<div class="player-photo"></div>
+<div class="player-number">#00</div>
+<div class="player-name">Player Name</div>
+<div class="player-position">Position</div>
+</div>
+
+<div class="player">
+<div class="player-photo"></div>
+<div class="player-number">#00</div>
+<div class="player-name">Player Name</div>
+<div class="player-position">Position</div>
+</div>
+
 </div>
 </section>
+
 </div>
 </main>
+
 <nav class="bottom-nav">
-<button class="nav-button" data-page="schedule">
-<svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+
+<button class="nav" data-page="schedule">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 <rect x="3" y="4" width="18" height="17" rx="3"/>
-<path d="M16 2v4M8 2v4M3 10h18"/>
+<path d="M8 2v4M16 2v4M3 10h18"/>
 </svg>
-<span class="nav-text">SCHEDULE</span>
+<span>SCHEDULE</span>
 </button>
-<button class="nav-button home active" data-page="home">
-<svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M3 10.8 12 3l9 7.8"/>
+
+<button class="nav active" data-page="home">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<path d="M3 10.5 12 3l9 7.5"/>
 <path d="M5.5 9.5V21h13V9.5"/>
 <path d="M9.5 21v-6h5v6"/>
 </svg>
-<span class="nav-text">HOME</span>
+<span>HOME</span>
 </button>
-<button class="nav-button" data-page="players">
-<svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+
+<button class="nav" data-page="players">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
 </svg>
-<span class="nav-text">PLAYERS</span>
+<span>PLAYERS</span>
 </button>
+
 </nav>
+
 </div>
+
 <script>
-const buttons=document.querySelectorAll(".nav-button");
+const navs=document.querySelectorAll(".nav");
 const pages=document.querySelectorAll(".page");
-buttons.forEach(button=>{
-  button.addEventListener("click",()=>{
-    const id=button.dataset.page;
-    buttons.forEach(item=>item.classList.remove("active"));
+
+navs.forEach(nav=>{
+  nav.addEventListener("click",()=>{
+    const target=nav.dataset.page;
+
+    navs.forEach(item=>item.classList.remove("active"));
     pages.forEach(page=>page.classList.remove("active"));
-    button.classList.add("active");
-    document.getElementById(id).classList.add("active");
+
+    nav.classList.add("active");
+    document.getElementById(target).classList.add("active");
+
     window.scrollTo({top:0,behavior:"smooth"});
   });
 });
