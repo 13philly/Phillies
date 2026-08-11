@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06152f">
 
-<title>Phillies</title>
+<title>Phillies Players</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,20 +16,20 @@
 :root{
 --bg:#06152f;
 --panel:#0b1d3b;
---panel2:#102343;
 --text:#f6f7fa;
 --muted:#77869d;
 --line:#ffffff14;
 --red:#e31837;
 }
-html,body{background:var(--bg);color:var(--text)}
 body{
 min-height:100dvh;
+background:var(--bg);
+color:var(--text);
 font-family:"DM Sans",sans-serif;
 -webkit-font-smoothing:antialiased;
 }
 button{font:inherit;color:inherit}
-button,a{tap-highlight-color:transparent}
+
 .header{
 height:80px;
 border-bottom:1px solid var(--line);
@@ -48,248 +48,48 @@ letter-spacing:.3px;
 .brand b{color:var(--red)}
 .sub{
 margin-top:5px;
+color:var(--muted);
 font-size:7px;
 font-weight:700;
 letter-spacing:2.5px;
-color:var(--muted);
 }
 .year{
 font:600 10px "Roboto Mono";
 color:var(--muted);
 }
-main{padding:25px 18px 105px}
-.page{display:none}
-.page.active{display:block}
+
+main{
+padding:25px 18px 105px;
+}
+
 .eyebrow{
 color:var(--red);
 font-size:8px;
 font-weight:700;
 letter-spacing:2.4px;
 }
+
 h1{
 margin-top:3px;
 font:800 42px/1 "Barlow Condensed";
 letter-spacing:.2px;
 }
-.section{margin-top:30px}
-.section-head{
-display:flex;
-justify-content:space-between;
-align-items:baseline;
-margin-bottom:11px;
-}
-.section-head strong{
-font-size:11px;
-font-weight:700;
-letter-spacing:1.5px;
-}
-.section-head span{
-font:600 8px "Roboto Mono";
-color:var(--muted);
-}
 
-/* HOME */
-
-.hero-game{
-margin-top:27px;
-border:1px solid var(--line);
-background:var(--panel);
-border-radius:14px;
-overflow:hidden;
-cursor:pointer;
-}
-.hero-top{
-height:42px;
-padding:0 15px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid var(--line);
-font:600 8px "Roboto Mono";
-color:var(--muted);
-}
-.live{
-display:flex;
-align-items:center;
-gap:6px;
-color:var(--red);
-}
-.live i{
-width:5px;
-height:5px;
-border-radius:50%;
-background:var(--red);
-}
-.hero-match{
-padding:22px 16px 20px;
-display:grid;
-grid-template-columns:1fr 42px 1fr;
-align-items:center;
-text-align:center;
-}
-.club{
-font:800 39px/1 "Barlow Condensed";
-}
-.club small{
-display:block;
-margin-top:6px;
-font:600 7px "DM Sans";
-letter-spacing:1.5px;
-color:var(--muted);
-}
-.versus{
-font:600 8px "Roboto Mono";
-color:var(--muted);
-}
-.hero-bottom{
-display:grid;
-grid-template-columns:1fr 1fr;
-border-top:1px solid var(--line);
-}
-.hero-bottom div{
-padding:12px 14px;
-}
-.hero-bottom div+div{
-border-left:1px solid var(--line);
-}
-.hero-bottom small{
-display:block;
-font:600 7px "Roboto Mono";
-color:var(--muted);
-margin-bottom:4px;
-}
-.hero-bottom strong{
-font-size:9px;
-font-weight:600;
-}
-
-.form{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:5px;
-}
-.form span{
-height:25px;
-display:grid;
-place-items:center;
-border-radius:5px;
-background:var(--panel2);
-font:700 8px "Roboto Mono";
-}
-.form .w{color:#6ecf92}
-.form .l{color:var(--red)}
-
-.news{
-border-top:1px solid var(--line);
-}
-.news-item{
-display:grid;
-grid-template-columns:46px 1fr;
-gap:12px;
-padding:14px 0;
-border-bottom:1px solid var(--line);
-cursor:pointer;
-}
-.news-time{
-font:600 7px "Roboto Mono";
-color:var(--red);
-padding-top:2px;
-}
-.news-item p{
-font-size:12px;
-font-weight:600;
-line-height:1.45;
-}
-
-/* SCHEDULE */
-
-.schedule-tools{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:25px;
-margin-bottom:9px;
-}
-.month{
-font:700 18px "Barlow Condensed";
-letter-spacing:.4px;
-}
-.series{
-font:600 8px "Roboto Mono";
-color:var(--muted);
-}
-.schedule-list{
-border-top:1px solid var(--line);
-}
-.schedule-game{
-display:grid;
-grid-template-columns:48px 1fr auto;
-gap:12px;
-align-items:center;
-min-height:82px;
-border-bottom:1px solid var(--line);
-cursor:pointer;
-}
-.schedule-game.today{
-margin:7px 0;
-padding:0 12px;
-min-height:88px;
-border:1px solid #ffffff16;
-border-radius:12px;
-background:var(--panel);
-}
-.schedule-game.today .opponent{
-color:#fff;
-}
-.day{
-font:600 8px/1.5 "Roboto Mono";
-color:var(--muted);
-}
-.opponent{
-font:800 21px "Barlow Condensed";
-letter-spacing:.4px;
-}
-.meta{
-margin-top:4px;
-font-size:7px;
-color:var(--muted);
-font-weight:600;
-}
-.game-time{
-text-align:right;
-font:600 9px/1.5 "Roboto Mono";
-color:var(--muted);
-}
-.today .game-time{
-color:var(--red);
-}
-.result{
-font:800 11px "Roboto Mono";
-}
-.win{color:#75d39a}
-.loss{color:var(--red)}
-
-.schedule-game:active,
-.hero-game:active,
-.news-item:active,
-.player:active{
-opacity:.7;
-}
-
-/* PLAYERS */
+/* FILTER */
 
 .filters{
 display:flex;
-gap:5px;
+gap:6px;
 overflow:auto;
-margin:21px -18px 14px;
+margin:23px -18px 18px;
 padding:0 18px 3px;
 scrollbar-width:none;
 }
 .filters::-webkit-scrollbar{display:none}
+
 .filters button{
 white-space:nowrap;
-padding:8px 11px;
+padding:9px 12px;
 border:1px solid var(--line);
 border-radius:7px;
 background:none;
@@ -298,55 +98,90 @@ font-size:8px;
 font-weight:700;
 letter-spacing:.5px;
 }
-.filters .active{
+
+.filters button.active{
 background:var(--red);
 border-color:var(--red);
 color:#fff;
 }
 
-.player-head{
-display:grid;
-grid-template-columns:38px 1fr 43px 47px;
-padding:0 0 8px;
+/* ROSTER */
+
+.roster-label{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-bottom:9px;
 border-bottom:1px solid var(--line);
-font:600 7px "Roboto Mono";
-letter-spacing:1px;
-color:var(--muted);
 }
+
+.roster-label strong{
+font-size:10px;
+font-weight:700;
+letter-spacing:1.4px;
+}
+
+.roster-label span{
+font:600 7px "Roboto Mono";
+color:var(--muted);
+letter-spacing:.8px;
+}
+
 .player{
 display:grid;
-grid-template-columns:38px 1fr 43px 47px;
+grid-template-columns:38px 1fr 72px;
 align-items:center;
-min-height:69px;
+min-height:72px;
 border-bottom:1px solid var(--line);
 cursor:pointer;
+transition:opacity .15s;
 }
+
+.player:active{opacity:.55}
+
 .number{
-font:700 22px "Barlow Condensed";
-color:#53657f;
+font:700 23px "Barlow Condensed";
+color:#52647e;
 }
-.player-name{
-font-size:13px;
-font-weight:700;
+
+.name{
+font:700 18px/1 "Barlow Condensed";
+letter-spacing:.15px;
 }
-.player-meta{
-margin-top:4px;
+
+.meta{
+display:flex;
+gap:9px;
+margin-top:6px;
 font:600 7px "Roboto Mono";
-letter-spacing:.5px;
 color:var(--muted);
+letter-spacing:.5px;
 }
-.player-stat{
-font:700 10px "Roboto Mono";
+
+.meta b{
+color:#aeb8c7;
+font-weight:600;
 }
+
 .position{
 text-align:right;
-font:700 8px "Roboto Mono";
+font:700 9px "Roboto Mono";
 color:var(--muted);
 }
 
-.il{
-margin-top:27px;
+.position strong{
+display:block;
+color:var(--text);
+font-size:10px;
+margin-bottom:4px;
 }
+
+/* IL */
+
+.il{
+margin-top:28px;
+}
+
 .il-head{
 display:flex;
 justify-content:space-between;
@@ -354,31 +189,124 @@ align-items:center;
 padding-bottom:9px;
 border-bottom:1px solid var(--line);
 }
+
 .il-head strong{
 font-size:10px;
 letter-spacing:1.4px;
 }
+
 .il-head span{
-font:600 8px "Roboto Mono";
+font:600 7px "Roboto Mono";
 color:var(--muted);
 }
-.il-row{
-display:flex;
-justify-content:space-between;
+
+.il-player{
+display:grid;
+grid-template-columns:38px 1fr auto;
 align-items:center;
-padding:12px 0;
+min-height:62px;
 border-bottom:1px solid var(--line);
 }
-.il-name{
-font-size:11px;
-font-weight:600;
+
+.il-player .number{
+color:#3f5068;
 }
-.il-pos{
+
+.il-player .name{
+color:#b9c1cd;
+}
+
+.il-status{
+text-align:right;
+font:600 7px "Roboto Mono";
+color:var(--muted);
+}
+
+/* PLAYER DETAIL */
+
+.detail{
+display:none;
+}
+
+.detail.active{
+display:block;
+}
+
+.roster-page.hidden{
+display:none;
+}
+
+.back{
+border:0;
+background:none;
+padding:0;
+margin-bottom:25px;
+color:var(--muted);
+font:600 8px "Roboto Mono";
+letter-spacing:1px;
+}
+
+.detail-number{
+font:700 16px "Roboto Mono";
+color:var(--red);
+}
+
+.detail-name{
+margin-top:4px;
+font:800 40px/1 "Barlow Condensed";
+}
+
+.detail-meta{
+display:flex;
+gap:12px;
+margin-top:8px;
 font:600 8px "Roboto Mono";
 color:var(--muted);
 }
 
-/* BOTTOM NAV */
+.detail-section{
+margin-top:31px;
+}
+
+.detail-title{
+padding-bottom:9px;
+border-bottom:1px solid var(--line);
+font-size:10px;
+font-weight:700;
+letter-spacing:1.4px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+}
+
+.stat{
+padding:15px 0;
+border-bottom:1px solid var(--line);
+}
+
+.stat:nth-child(odd){
+padding-right:15px;
+border-right:1px solid var(--line);
+}
+
+.stat:nth-child(even){
+padding-left:15px;
+}
+
+.stat small{
+display:block;
+font:600 7px "Roboto Mono";
+color:var(--muted);
+margin-bottom:5px;
+}
+
+.stat strong{
+font:700 24px "Barlow Condensed";
+}
+
+/* NAV */
 
 .nav{
 position:fixed;
@@ -397,6 +325,7 @@ border:1px solid #ffffff18;
 border-radius:18px;
 backdrop-filter:blur(18px);
 }
+
 .nav button{
 border:0;
 background:none;
@@ -406,19 +335,23 @@ font-size:8px;
 font-weight:700;
 letter-spacing:1.2px;
 }
+
 .nav button.active{
 background:#ffffff08;
 color:#fff;
 }
+
 .icon{
 height:22px;
 display:grid;
 place-items:center;
 margin-bottom:3px;
 }
+
 .nav button.active .icon{
 color:var(--red);
 }
+
 .home-icon{
 width:17px;
 height:17px;
@@ -426,6 +359,7 @@ border:2px solid currentColor;
 border-radius:4px;
 position:relative;
 }
+
 .home-icon:after{
 content:"";
 position:absolute;
@@ -436,6 +370,7 @@ top:4px;
 border-radius:50%;
 background:currentColor;
 }
+
 .player-icon{
 width:17px;
 height:17px;
@@ -443,6 +378,7 @@ border:2px solid currentColor;
 border-radius:50%;
 position:relative;
 }
+
 .player-icon:after{
 content:"";
 position:absolute;
@@ -471,156 +407,9 @@ border-radius:7px 7px 0 0;
 
 <main>
 
-<!-- HOME -->
+<!-- PLAYER LIST -->
 
-<section id="home" class="page active">
-
-<div class="eyebrow">PHILADELPHIA</div>
-<h1>HOME</h1>
-
-<div class="hero-game" onclick="openGame()">
-
-<div class="hero-top">
-<span>AUG 12 · REGULAR SEASON</span>
-<span class="live"><i></i>GAME CENTER</span>
-</div>
-
-<div class="hero-match">
-<div class="club">
-PHI
-<small>PHILLIES</small>
-</div>
-
-<div class="versus">VS</div>
-
-<div class="club">
-ATL
-<small>BRAVES</small>
-</div>
-</div>
-
-<div class="hero-bottom">
-<div>
-<small>FIRST PITCH</small>
-<strong>7:05 PM</strong>
-</div>
-<div>
-<small>LOCATION</small>
-<strong>CITIZENS BANK PARK</strong>
-</div>
-</div>
-
-</div>
-
-<div class="section">
-<div class="section-head">
-<strong>RECENT FORM</strong>
-<span>LAST 5</span>
-</div>
-<div class="form">
-<span class="w">W</span>
-<span class="w">W</span>
-<span class="l">L</span>
-<span class="w">W</span>
-<span class="l">L</span>
-</div>
-</div>
-
-<div class="section">
-<div class="section-head">
-<strong>LATEST NEWS</strong>
-<span>ALL NEWS</span>
-</div>
-
-<div class="news">
-
-<div class="news-item">
-<div class="news-time">2H</div>
-<p>Philadelphia prepares for tonight's matchup.</p>
-</div>
-
-<div class="news-item">
-<div class="news-time">5H</div>
-<p>Lineup and roster updates ahead of first pitch.</p>
-</div>
-
-<div class="news-item">
-<div class="news-time">1D</div>
-<p>Philadelphia closes out the previous series.</p>
-</div>
-
-</div>
-</div>
-
-</section>
-
-
-<!-- SCHEDULE -->
-
-<section id="schedule" class="page">
-
-<div class="eyebrow">2026 SEASON</div>
-<h1>SCHEDULE</h1>
-
-<div class="schedule-tools">
-<div class="month">AUGUST</div>
-<div class="series">REGULAR SEASON</div>
-</div>
-
-<div class="schedule-list">
-
-<div class="schedule-game today" onclick="openGame()">
-<div class="day">12<br>WED</div>
-<div>
-<div class="opponent">ATLANTA</div>
-<div class="meta">CITIZENS BANK PARK · PHI</div>
-</div>
-<div class="game-time">7:05<br>PM</div>
-</div>
-
-<div class="schedule-game" onclick="openGame()">
-<div class="day">13<br>THU</div>
-<div>
-<div class="opponent">ATLANTA</div>
-<div class="meta">TRUIST PARK · ATL</div>
-</div>
-<div class="game-time">7:20<br>PM</div>
-</div>
-
-<div class="schedule-game" onclick="openGame()">
-<div class="day">14<br>FRI</div>
-<div>
-<div class="opponent">ATLANTA</div>
-<div class="meta">TRUIST PARK · ATL</div>
-</div>
-<div class="game-time">7:20<br>PM</div>
-</div>
-
-<div class="schedule-game">
-<div class="day">15<br>SAT</div>
-<div>
-<div class="opponent">ATLANTA</div>
-<div class="meta">TRUIST PARK · ATL</div>
-</div>
-<div class="game-time">4:05<br>PM</div>
-</div>
-
-<div class="schedule-game">
-<div class="day">17<br>MON</div>
-<div>
-<div class="opponent">WASHINGTON</div>
-<div class="meta">NATIONALS PARK · WSH</div>
-</div>
-<div class="game-time">6:45<br>PM</div>
-</div>
-
-</div>
-</section>
-
-
-<!-- PLAYERS -->
-
-<section id="players" class="page">
+<section id="rosterPage" class="roster-page">
 
 <div class="eyebrow">ROSTER</div>
 <h1>PLAYERS</h1>
@@ -635,85 +424,169 @@ ATL
 <button>DH</button>
 </div>
 
-<div class="player-head">
-<span>NO.</span>
-<span>PLAYER</span>
-<span>STAT</span>
-<span>POS</span>
+<div class="roster-label">
+<strong>40-MAN ROSTER</strong>
+<span>PLAYER · B/T · POS</span>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('Bryce Harper','3','1B','L/R')">
 <div class="number">3</div>
 <div>
-<div class="player-name">Bryce Harper</div>
-<div class="player-meta">ACTIVE · RIGHT</div>
+<div class="name">Bryce Harper</div>
+<div class="meta">
+<span>B/T <b>L/R</b></span>
 </div>
-<div class="player-stat">.298</div>
-<div class="position">1B</div>
+</div>
+<div class="position">
+<strong>1B</strong>
+ACTIVE
+</div>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('Trea Turner','7','SS','R/R')">
 <div class="number">7</div>
 <div>
-<div class="player-name">Trea Turner</div>
-<div class="player-meta">ACTIVE · RIGHT</div>
+<div class="name">Trea Turner</div>
+<div class="meta">
+<span>B/T <b>R/R</b></span>
 </div>
-<div class="player-stat">.286</div>
-<div class="position">SS</div>
+</div>
+<div class="position">
+<strong>SS</strong>
+ACTIVE
+</div>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('Kyle Schwarber','12','OF','L/L')">
 <div class="number">12</div>
 <div>
-<div class="player-name">Kyle Schwarber</div>
-<div class="player-meta">ACTIVE · LEFT</div>
+<div class="name">Kyle Schwarber</div>
+<div class="meta">
+<span>B/T <b>L/L</b></span>
 </div>
-<div class="player-stat">.252</div>
-<div class="position">OF</div>
+</div>
+<div class="position">
+<strong>OF</strong>
+ACTIVE
+</div>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('J.T. Realmuto','10','C','R/R')">
 <div class="number">10</div>
 <div>
-<div class="player-name">J.T. Realmuto</div>
-<div class="player-meta">ACTIVE · RIGHT</div>
+<div class="name">J.T. Realmuto</div>
+<div class="meta">
+<span>B/T <b>R/R</b></span>
 </div>
-<div class="player-stat">.267</div>
-<div class="position">C</div>
+</div>
+<div class="position">
+<strong>C</strong>
+ACTIVE
+</div>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('Zack Wheeler','45','P','R/R')">
 <div class="number">45</div>
 <div>
-<div class="player-name">Zack Wheeler</div>
-<div class="player-meta">ACTIVE · RIGHT</div>
+<div class="name">Zack Wheeler</div>
+<div class="meta">
+<span>B/T <b>R/R</b></span>
 </div>
-<div class="player-stat">3.12</div>
-<div class="position">P</div>
+</div>
+<div class="position">
+<strong>P</strong>
+ACTIVE
+</div>
 </div>
 
-<div class="player" onclick="openPlayer()">
+<div class="player" onclick="showPlayer('Cristopher Sánchez','61','P','L/L')">
 <div class="number">61</div>
 <div>
-<div class="player-name">Cristopher Sánchez</div>
-<div class="player-meta">ACTIVE · LEFT</div>
+<div class="name">Cristopher Sánchez</div>
+<div class="meta">
+<span>B/T <b>L/L</b></span>
 </div>
-<div class="player-stat">3.48</div>
-<div class="position">P</div>
+</div>
+<div class="position">
+<strong>P</strong>
+ACTIVE
+</div>
 </div>
 
 <div class="il">
+
 <div class="il-head">
 <strong>INJURED LIST</strong>
 <span>IL</span>
 </div>
-<div class="il-row">
-<div class="il-name">Player Name</div>
-<div class="il-pos">OF</div>
+
+<div class="il-player">
+<div class="number">28</div>
+<div class="name">Player Name</div>
+<div class="il-status">OF · IL</div>
 </div>
-<div class="il-row">
-<div class="il-name">Player Name</div>
-<div class="il-pos">P</div>
+
+<div class="il-player">
+<div class="number">39</div>
+<div class="name">Player Name</div>
+<div class="il-status">P · IL</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PLAYER DETAIL -->
+
+<section id="detailPage" class="detail">
+
+<button class="back" onclick="hidePlayer()">← PLAYERS</button>
+
+<div class="detail-number" id="detailNumber">#3</div>
+<div class="detail-name" id="detailName">Bryce Harper</div>
+
+<div class="detail-meta">
+<span id="detailPosition">1B</span>
+<span id="detailBT">B/T L/R</span>
+<span>ACTIVE</span>
+</div>
+
+<div class="detail-section">
+<div class="detail-title">2026 SEASON</div>
+
+<div class="stats">
+
+<div class="stat">
+<small>AVG</small>
+<strong>.298</strong>
+</div>
+
+<div class="stat">
+<small>HR</small>
+<strong>31</strong>
+</div>
+
+<div class="stat">
+<small>RBI</small>
+<strong>87</strong>
+</div>
+
+<div class="stat">
+<small>OPS</small>
+<strong>.951</strong>
+</div>
+
+<div class="stat">
+<small>H</small>
+<strong>142</strong>
+</div>
+
+<div class="stat">
+<small>R</small>
+<strong>91</strong>
+</div>
+
 </div>
 </div>
 
@@ -723,17 +596,17 @@ ATL
 
 <nav class="nav">
 
-<button data-page="schedule">
+<button>
 <span class="icon">▤</span>
 SCHEDULE
 </button>
 
-<button data-page="home" class="active">
+<button>
 <span class="icon"><i class="home-icon"></i></span>
 HOME
 </button>
 
-<button data-page="players">
+<button class="active">
 <span class="icon"><i class="player-icon"></i></span>
 PLAYERS
 </button>
@@ -741,24 +614,25 @@ PLAYERS
 </nav>
 
 <script>
-const pages=document.querySelectorAll(".page");
-const nav=document.querySelectorAll(".nav button");
+const roster=document.getElementById("rosterPage");
+const detail=document.getElementById("detailPage");
 
-nav.forEach(b=>{
-b.onclick=()=>{
-nav.forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
-pages.forEach(x=>x.classList.toggle("active",x.id===b.dataset.page));
+function showPlayer(name,num,pos,bt){
+roster.classList.add("hidden");
+detail.classList.add("active");
+
+document.getElementById("detailName").textContent=name;
+document.getElementById("detailNumber").textContent="#"+num;
+document.getElementById("detailPosition").textContent=pos;
+document.getElementById("detailBT").textContent="B/T "+bt;
+
 scrollTo(0,0);
-};
-});
-
-function openGame(){
-alert("Game Center");
 }
 
-function openPlayer(){
-alert("Player Stats");
+function hidePlayer(){
+detail.classList.remove("active");
+roster.classList.remove("hidden");
+scrollTo(0,0);
 }
 </script>
 
