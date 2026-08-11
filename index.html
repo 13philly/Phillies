@@ -8,29 +8,56 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@500;600;700;800&display=swap');
 *{box-sizing:border-box;margin:0}
-body{min-height:100dvh;background:#06152f;color:#f5f7fa;font-family:Inter,sans-serif}
+body{background:#06152f;color:#f5f7fa;font-family:Inter,sans-serif;min-height:100dvh}
+button{font:inherit;color:inherit}
 .header{height:78px;border-bottom:1px solid #ffffff12}
-.header-in{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:"Barlow Condensed",sans-serif;font-size:29px;font-weight:800;letter-spacing:.5px}
-.brand b{color:#e31837}
-.sub{margin-top:1px;color:#718199;font:600 7px Inter;letter-spacing:2.2px}
+.head{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{font:800 29px "Barlow Condensed";letter-spacing:.5px}.brand b{color:#e31837}
+.sub{margin-top:1px;color:#718199;font-size:7px;font-weight:600;letter-spacing:2px}
 .year{color:#718199;font-size:10px;font-weight:700;letter-spacing:1.5px}
+main{padding:24px 18px 100px}
+.page{display:none}.page.active{display:block}
+.eyebrow{color:#718199;font-size:9px;font-weight:800;letter-spacing:1.8px;margin-bottom:7px}
+h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
+.section{margin-top:28px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title h2{font-size:13px;letter-spacing:.8px}
+.section-title span{color:#718199;font-size:8px;font-weight:700}
+.game{border-top:1px solid #ffffff18;border-bottom:1px solid #ffffff18;padding:17px 0}
+.game-date{color:#718199;font-size:9px;font-weight:700;letter-spacing:1px;margin-bottom:12px}
+.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center}
+.team{font:800 19px "Barlow Condensed"}
+.team small{display:block;margin-top:3px;color:#718199;font:600 8px Inter;letter-spacing:1px}
+.vs{color:#718199;font-size:9px;font-weight:800}
+.news{border-top:1px solid #ffffff18}.news-item{padding:15px 0;border-bottom:1px solid #ffffff12}
+.news-item small{color:#e31837;font-size:8px;font-weight:800;letter-spacing:1px}
+.news-item p{margin-top:5px;font-size:13px;font-weight:600;line-height:1.4}
+.schedule-list{margin-top:20px}
+.schedule-row{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #ffffff12}
+.schedule-date{color:#718199;font-size:9px;font-weight:700}
+.schedule-opponent{font-size:14px;font-weight:700}
+.schedule-meta{margin-top:4px;color:#718199;font-size:8px}
+.schedule-status{font-size:11px;font-weight:800}
+.filters{display:flex;gap:7px;overflow:auto;margin:20px 0 14px;padding-bottom:3px}
+.filters button{white-space:nowrap;padding:8px 12px;border:1px solid #ffffff18;border-radius:8px;background:none;color:#718199;font-size:9px;font-weight:800}
+.filters button.active{background:#e31837;border-color:#e31837;color:#fff}
+.player{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid #ffffff12}
+.player-name{font-size:14px;font-weight:700}.player-pos{margin-top:4px;color:#718199;font-size:8px;font-weight:700;letter-spacing:1px}
+.number{color:#718199;font:800 18px "Barlow Condensed"}
 .nav{position:fixed;z-index:5;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:66px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
-.nav button{position:relative;border:0;background:none;color:#718199;border-radius:13px;font:600 8px Inter;letter-spacing:1.2px}
+.nav button{border:0;background:none;color:#718199;border-radius:13px;font:700 8px Inter;letter-spacing:1.2px}
 .nav button.active{color:#fff;background:#ffffff08}
-.nav button.active:after{content:"";position:absolute;bottom:5px;left:50%;width:4px;height:4px;background:#e31837;border-radius:50%;transform:translateX(-50%)}
-.icon{height:23px;display:grid;place-items:center;margin-bottom:3px}
-.home{width:18px;height:18px;position:relative;border:2px solid currentColor;border-radius:4px}
-.home:before{content:"";position:absolute;width:7px;height:7px;left:3.5px;top:-5px;border-left:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg)}
-.player{width:18px;height:18px;position:relative}
-.player:before{content:"";position:absolute;left:6px;top:0;width:5px;height:5px;border:2px solid currentColor;border-radius:50%}
-.player:after{content:"";position:absolute;left:2px;bottom:0;width:12px;height:7px;border:2px solid currentColor;border-bottom:0;border-radius:8px 8px 0 0}
+.icon{height:22px;display:grid;place-items:center;margin-bottom:3px}
+.home{width:16px;height:16px;border:2px solid currentColor;border-radius:3px}
+.user{width:17px;height:17px;border:2px solid currentColor;border-radius:50%;position:relative}
+.user:after{content:"";position:absolute;left:3px;right:3px;bottom:2px;height:5px;border:1.5px solid currentColor;border-bottom:0;border-radius:8px 8px 0 0}
 </style>
 </head>
+
 <body>
 
 <header class="header">
-<div class="header-in">
+<div class="head">
 <div>
 <div class="brand"><b>P</b>HILLIES</div>
 <div class="sub">PHILADELPHIA BASEBALL</div>
@@ -39,11 +66,84 @@ body{min-height:100dvh;background:#06152f;color:#f5f7fa;font-family:Inter,sans-s
 </div>
 </header>
 
+<main>
+
+<section id="home" class="page active">
+<div class="eyebrow">PHILADELPHIA</div>
+<h1>HOME</h1>
+
+<div class="section">
+<div class="section-title"><h2>TODAY</h2><span>AUG 12</span></div>
+<div class="game">
+<div class="game-date">REGULAR SEASON</div>
+<div class="match">
+<div class="team">PHI<small>PHILLIES</small></div>
+<div class="vs">VS</div>
+<div class="team">ATL<small>BRAVES</small></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><h2>LATEST NEWS</h2><span>VIEW ALL</span></div>
+<div class="news">
+<div class="news-item"><small>PHILLIES</small><p>Philadelphia prepares for tonight's matchup.</p></div>
+<div class="news-item"><small>ROSTER</small><p>Latest roster updates and team information.</p></div>
+</div>
+</div>
+</section>
+
+<section id="schedule" class="page">
+<div class="eyebrow">2026 SEASON</div>
+<h1>SCHEDULE</h1>
+<div class="schedule-list">
+<div class="schedule-row"><div class="schedule-date">AUG 12</div><div><div class="schedule-opponent">vs ATL</div><div class="schedule-meta">7:05 PM · Citizens Bank Park</div></div><div class="schedule-status">—</div></div>
+<div class="schedule-row"><div class="schedule-date">AUG 13</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
+<div class="schedule-row"><div class="schedule-date">AUG 14</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
+<div class="schedule-row"><div class="schedule-date">AUG 15</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">4:05 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
+</div>
+</section>
+
+<section id="players" class="page">
+<div class="eyebrow">ROSTER</div>
+<h1>PLAYERS</h1>
+
+<div class="filters">
+<button class="active">ALL</button>
+<button>ACTIVE</button>
+<button>PITCHERS</button>
+<button>CATCHERS</button>
+<button>INFIELDERS</button>
+<button>OUTFIELDERS</button>
+<button>DH</button>
+</div>
+
+<div>
+<div class="player"><div><div class="player-name">Bryce Harper</div><div class="player-pos">1B · DH</div></div><div class="number">3</div></div>
+<div class="player"><div><div class="player-name">Trea Turner</div><div class="player-pos">SS</div></div><div class="number">7</div></div>
+<div class="player"><div><div class="player-name">Kyle Schwarber</div><div class="player-pos">OF · DH</div></div><div class="number">12</div></div>
+<div class="player"><div><div class="player-name">J.T. Realmuto</div><div class="player-pos">C</div></div><div class="number">10</div></div>
+<div class="player"><div><div class="player-name">Zack Wheeler</div><div class="player-pos">P</div></div><div class="number">45</div></div>
+</div>
+</section>
+
+</main>
+
 <nav class="nav">
-<button><span class="icon">▤</span>SCHEDULE</button>
-<button class="active"><span class="icon"><i class="home"></i></span>HOME</button>
-<button><span class="icon"><i class="player"></i></span>PLAYERS</button>
+<button data-page="schedule"><span class="icon">▤</span>SCHEDULE</button>
+<button data-page="home" class="active"><span class="icon"><i class="home"></i></span>HOME</button>
+<button data-page="players"><span class="icon"><i class="user"></i></span>PLAYERS</button>
 </nav>
+
+<script>
+const pages=document.querySelectorAll(".page"),buttons=document.querySelectorAll(".nav button");
+buttons.forEach(b=>b.onclick=()=>{
+buttons.forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+pages.forEach(p=>p.classList.toggle("active",p.id==b.dataset.page));
+scrollTo(0,0);
+});
+</script>
 
 </body>
 </html>
