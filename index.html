@@ -5,52 +5,292 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06152f">
 <title>PHILLIES</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@500;600;700;800&display=swap');
 *{box-sizing:border-box;margin:0}
-body{background:#06152f;color:#f5f7fa;font-family:Inter,sans-serif;min-height:100dvh}
+:root{
+--bg:#06152f;
+--panel:#0a1b38;
+--text:#f5f7fb;
+--muted:#71819a;
+--line:#ffffff12;
+--red:#e31837;
+}
+body{
+min-height:100dvh;
+background:var(--bg);
+color:var(--text);
+font-family:"DM Sans",sans-serif;
+-webkit-font-smoothing:antialiased;
+}
 button{font:inherit;color:inherit}
-.header{height:78px;border-bottom:1px solid #ffffff12}
-.head{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.brand{font:800 29px "Barlow Condensed";letter-spacing:.5px}.brand b{color:#e31837}
-.sub{margin-top:1px;color:#718199;font-size:7px;font-weight:600;letter-spacing:2px}
-.year{color:#718199;font-size:10px;font-weight:700;letter-spacing:1.5px}
-main{padding:24px 18px 100px}
-.page{display:none}.page.active{display:block}
-.eyebrow{color:#718199;font-size:9px;font-weight:800;letter-spacing:1.8px;margin-bottom:7px}
-h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
-.section{margin-top:28px}
-.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.section-title h2{font-size:13px;letter-spacing:.8px}
-.section-title span{color:#718199;font-size:8px;font-weight:700}
-.game{border-top:1px solid #ffffff18;border-bottom:1px solid #ffffff18;padding:17px 0}
-.game-date{color:#718199;font-size:9px;font-weight:700;letter-spacing:1px;margin-bottom:12px}
-.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center}
-.team{font:800 19px "Barlow Condensed"}
-.team small{display:block;margin-top:3px;color:#718199;font:600 8px Inter;letter-spacing:1px}
-.vs{color:#718199;font-size:9px;font-weight:800}
-.news{border-top:1px solid #ffffff18}.news-item{padding:15px 0;border-bottom:1px solid #ffffff12}
-.news-item small{color:#e31837;font-size:8px;font-weight:800;letter-spacing:1px}
-.news-item p{margin-top:5px;font-size:13px;font-weight:600;line-height:1.4}
-.schedule-list{margin-top:20px}
-.schedule-row{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #ffffff12}
-.schedule-date{color:#718199;font-size:9px;font-weight:700}
-.schedule-opponent{font-size:14px;font-weight:700}
-.schedule-meta{margin-top:4px;color:#718199;font-size:8px}
-.schedule-status{font-size:11px;font-weight:800}
-.filters{display:flex;gap:7px;overflow:auto;margin:20px 0 14px;padding-bottom:3px}
-.filters button{white-space:nowrap;padding:8px 12px;border:1px solid #ffffff18;border-radius:8px;background:none;color:#718199;font-size:9px;font-weight:800}
-.filters button.active{background:#e31837;border-color:#e31837;color:#fff}
-.player{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid #ffffff12}
-.player-name{font-size:14px;font-weight:700}.player-pos{margin-top:4px;color:#718199;font-size:8px;font-weight:700;letter-spacing:1px}
-.number{color:#718199;font:800 18px "Barlow Condensed"}
-.nav{position:fixed;z-index:5;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:66px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
-.nav button{border:0;background:none;color:#718199;border-radius:13px;font:700 8px Inter;letter-spacing:1.2px}
-.nav button.active{color:#fff;background:#ffffff08}
-.icon{height:22px;display:grid;place-items:center;margin-bottom:3px}
-.home{width:16px;height:16px;border:2px solid currentColor;border-radius:3px}
-.user{width:17px;height:17px;border:2px solid currentColor;border-radius:50%;position:relative}
-.user:after{content:"";position:absolute;left:3px;right:3px;bottom:2px;height:5px;border:1.5px solid currentColor;border-bottom:0;border-radius:8px 8px 0 0}
+.header{
+height:80px;
+border-bottom:1px solid var(--line);
+}
+.head{
+height:100%;
+padding:0 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.brand{
+font:800 31px/1 "Barlow Condensed",sans-serif;
+letter-spacing:.2px;
+}
+.brand b{color:var(--red)}
+.sub{
+margin-top:5px;
+color:var(--muted);
+font-size:7px;
+font-weight:700;
+letter-spacing:2.5px;
+}
+.year{
+color:var(--muted);
+font:600 10px "Roboto Mono",monospace;
+letter-spacing:1px;
+}
+main{padding:25px 18px 105px}
+.page{display:none}
+.page.active{display:block}
+.eyebrow{
+color:var(--red);
+font-size:8px;
+font-weight:700;
+letter-spacing:2.4px;
+}
+h1{
+margin-top:3px;
+font:800 42px/1 "Barlow Condensed",sans-serif;
+letter-spacing:.2px;
+}
+.section{margin-top:30px}
+.section-title{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:13px;
+}
+.section-title h2{
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+}
+.section-title span{
+color:var(--muted);
+font:600 8px "Roboto Mono",monospace;
+letter-spacing:.5px;
+}
+.game{
+padding:18px 0;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+}
+.game-date{
+margin-bottom:15px;
+color:var(--muted);
+font:600 8px "Roboto Mono",monospace;
+letter-spacing:1px;
+}
+.match{
+display:grid;
+grid-template-columns:1fr auto 1fr;
+align-items:center;
+text-align:center;
+}
+.team{
+font:800 27px/1 "Barlow Condensed",sans-serif;
+letter-spacing:.5px;
+}
+.team small{
+display:block;
+margin-top:5px;
+color:var(--muted);
+font:600 7px "DM Sans";
+letter-spacing:1.4px;
+}
+.vs{
+color:var(--muted);
+font:600 8px "Roboto Mono",monospace;
+}
+.news{
+border-top:1px solid var(--line);
+}
+.news-item{
+padding:16px 0;
+border-bottom:1px solid var(--line);
+}
+.news-item small{
+color:var(--red);
+font:700 7px "Roboto Mono",monospace;
+letter-spacing:1.5px;
+}
+.news-item p{
+margin-top:6px;
+font-size:13px;
+font-weight:600;
+line-height:1.45;
+}
+.schedule-list{margin-top:22px}
+.schedule-row{
+display:grid;
+grid-template-columns:58px 1fr auto;
+align-items:center;
+gap:13px;
+padding:17px 0;
+border-bottom:1px solid var(--line);
+}
+.schedule-date{
+color:var(--muted);
+font:600 8px "Roboto Mono",monospace;
+}
+.schedule-opponent{
+font:700 15px "DM Sans";
+}
+.schedule-meta{
+margin-top:5px;
+color:var(--muted);
+font-size:8px;
+}
+.schedule-status{
+font:700 12px "Roboto Mono",monospace;
+}
+.filters{
+display:flex;
+gap:6px;
+overflow:auto;
+margin:21px -18px 13px;
+padding:0 18px 3px;
+scrollbar-width:none;
+}
+.filters::-webkit-scrollbar{display:none}
+.filters button{
+white-space:nowrap;
+padding:8px 11px;
+border:1px solid var(--line);
+border-radius:7px;
+background:none;
+color:var(--muted);
+font-size:8px;
+font-weight:700;
+letter-spacing:.7px;
+}
+.filters button.active{
+border-color:var(--red);
+background:var(--red);
+color:#fff;
+}
+.player{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 0;
+border-bottom:1px solid var(--line);
+}
+.player-name{
+font-size:14px;
+font-weight:700;
+letter-spacing:-.2px;
+}
+.player-pos{
+margin-top:4px;
+color:var(--muted);
+font:600 7px "Roboto Mono",monospace;
+letter-spacing:1px;
+}
+.number{
+color:#53647e;
+font:700 23px "Barlow Condensed",sans-serif;
+}
+.nav{
+position:fixed;
+z-index:10;
+left:50%;
+bottom:max(10px,env(safe-area-inset-bottom));
+transform:translateX(-50%);
+width:calc(100% - 24px);
+max-width:430px;
+height:67px;
+padding:5px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+background:#091a36f5;
+border:1px solid #ffffff18;
+border-radius:18px;
+backdrop-filter:blur(18px);
+}
+.nav button{
+position:relative;
+border:0;
+background:none;
+color:var(--muted);
+border-radius:13px;
+font-size:8px;
+font-weight:700;
+letter-spacing:1.2px;
+}
+.nav button.active{
+color:#fff;
+background:#ffffff08;
+}
+.nav button.active:after{
+content:"";
+position:absolute;
+bottom:5px;
+left:50%;
+width:4px;
+height:4px;
+border-radius:50%;
+background:var(--red);
+transform:translateX(-50%);
+}
+.icon{
+height:22px;
+display:grid;
+place-items:center;
+margin-bottom:3px;
+}
+.home{
+width:17px;
+height:17px;
+border:2px solid currentColor;
+border-radius:50%;
+position:relative;
+}
+.home:after{
+content:"";
+position:absolute;
+width:5px;
+height:5px;
+left:4px;
+top:4px;
+border-radius:50%;
+background:currentColor;
+}
+.user{
+width:17px;
+height:17px;
+border:2px solid currentColor;
+border-radius:50%;
+position:relative;
+}
+.user:after{
+content:"";
+position:absolute;
+left:3px;
+right:3px;
+bottom:2px;
+height:5px;
+border:1.5px solid currentColor;
+border-bottom:0;
+border-radius:8px 8px 0 0;
+}
 </style>
 </head>
 
@@ -73,9 +313,13 @@ h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
 <h1>HOME</h1>
 
 <div class="section">
-<div class="section-title"><h2>TODAY</h2><span>AUG 12</span></div>
+<div class="section-title">
+<h2>TODAY'S GAME</h2>
+<span>AUG 12</span>
+</div>
+
 <div class="game">
-<div class="game-date">REGULAR SEASON</div>
+<div class="game-date">REGULAR SEASON · 7:05 PM</div>
 <div class="match">
 <div class="team">PHI<small>PHILLIES</small></div>
 <div class="vs">VS</div>
@@ -85,10 +329,19 @@ h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
 </div>
 
 <div class="section">
-<div class="section-title"><h2>LATEST NEWS</h2><span>VIEW ALL</span></div>
+<div class="section-title">
+<h2>LATEST NEWS</h2>
+<span>RECENT</span>
+</div>
 <div class="news">
-<div class="news-item"><small>PHILLIES</small><p>Philadelphia prepares for tonight's matchup.</p></div>
-<div class="news-item"><small>ROSTER</small><p>Latest roster updates and team information.</p></div>
+<div class="news-item">
+<small>PHILLIES</small>
+<p>Philadelphia prepares for tonight's matchup.</p>
+</div>
+<div class="news-item">
+<small>ROSTER</small>
+<p>Latest roster updates and team information.</p>
+</div>
 </div>
 </div>
 </section>
@@ -96,11 +349,31 @@ h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
 <section id="schedule" class="page">
 <div class="eyebrow">2026 SEASON</div>
 <h1>SCHEDULE</h1>
+
 <div class="schedule-list">
-<div class="schedule-row"><div class="schedule-date">AUG 12</div><div><div class="schedule-opponent">vs ATL</div><div class="schedule-meta">7:05 PM · Citizens Bank Park</div></div><div class="schedule-status">—</div></div>
-<div class="schedule-row"><div class="schedule-date">AUG 13</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
-<div class="schedule-row"><div class="schedule-date">AUG 14</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
-<div class="schedule-row"><div class="schedule-date">AUG 15</div><div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">4:05 PM · Truist Park</div></div><div class="schedule-status">—</div></div>
+<div class="schedule-row">
+<div class="schedule-date">AUG 12</div>
+<div><div class="schedule-opponent">vs ATL</div><div class="schedule-meta">7:05 PM · Citizens Bank Park</div></div>
+<div class="schedule-status">—</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-date">AUG 13</div>
+<div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div>
+<div class="schedule-status">—</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-date">AUG 14</div>
+<div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">7:20 PM · Truist Park</div></div>
+<div class="schedule-status">—</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-date">AUG 15</div>
+<div><div class="schedule-opponent">@ ATL</div><div class="schedule-meta">4:05 PM · Truist Park</div></div>
+<div class="schedule-status">—</div>
+</div>
 </div>
 </section>
 
@@ -130,17 +403,23 @@ h1{font:800 34px "Barlow Condensed";letter-spacing:.5px}
 </main>
 
 <nav class="nav">
-<button data-page="schedule"><span class="icon">▤</span>SCHEDULE</button>
-<button data-page="home" class="active"><span class="icon"><i class="home"></i></span>HOME</button>
-<button data-page="players"><span class="icon"><i class="user"></i></span>PLAYERS</button>
+<button data-page="schedule">
+<span class="icon">▤</span>SCHEDULE
+</button>
+<button data-page="home" class="active">
+<span class="icon"><i class="home"></i></span>HOME
+</button>
+<button data-page="players">
+<span class="icon"><i class="user"></i></span>PLAYERS
+</button>
 </nav>
 
 <script>
-const pages=document.querySelectorAll(".page"),buttons=document.querySelectorAll(".nav button");
-buttons.forEach(b=>b.onclick=()=>{
-buttons.forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
-pages.forEach(p=>p.classList.toggle("active",p.id==b.dataset.page));
+const p=document.querySelectorAll(".page"),b=document.querySelectorAll(".nav button");
+b.forEach(x=>x.onclick=()=>{
+b.forEach(y=>y.classList.remove("active"));
+x.classList.add("active");
+p.forEach(y=>y.classList.toggle("active",y.id===x.dataset.page));
 scrollTo(0,0);
 });
 </script>
