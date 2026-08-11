@@ -8,36 +8,56 @@
 <style>
 *{box-sizing:border-box;margin:0}
 body{min-height:100dvh;background:#07162f;color:#f7f9fc;font-family:Arial,sans-serif}
-.header{height:68px;border-bottom:1px solid #ffffff1a}
+.header{height:72px;border-bottom:1px solid #ffffff14}
 .header-in{height:100%;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
-.mark{width:34px;height:34px;border:2px solid #e31837;border-radius:50%;display:grid;place-items:center;color:#e31837;font-size:20px;font-weight:900}
-.name{font-size:21px;font-weight:900;letter-spacing:.5px}
-.sub{margin-top:2px;color:#8d9bb0;font-size:7px;font-weight:700;letter-spacing:1.5px}
-.year{color:#8d9bb0;font-size:10px;font-weight:800;letter-spacing:1px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:30px;height:30px;position:relative;display:grid;place-items:center;color:#fff;font-size:17px;font-weight:900}
+.brand-mark:before{content:"";position:absolute;inset:0;border:2px solid #e31837;transform:rotate(45deg);border-radius:4px}
+.brand-mark span{position:relative}
+.name{font-size:23px;font-weight:900;letter-spacing:.8px;line-height:1}
+.sub{margin-top:4px;color:#8190a6;font-size:7px;font-weight:700;letter-spacing:1.8px}
+.year{padding-left:14px;border-left:1px solid #ffffff1a;color:#8190a6;font-size:10px;font-weight:800;letter-spacing:1px}
 .nav{position:fixed;z-index:5;left:50%;bottom:max(9px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:64px;padding:4px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #ffffff1f;border-radius:16px;background:#07162ff7;backdrop-filter:blur(16px)}
-.nav button{position:relative;border:0;background:0;color:#8d9bb0;border-radius:12px;font:inherit}
-.nav button.active{color:#f7f9fc;background:#ffffff0d}
+.nav button{position:relative;border:0;background:0;color:#8190a6;border-radius:12px;font:inherit}
+.nav button.active{color:#f7f9fc;background:#ffffff0b}
 .nav button.active:before{content:"";position:absolute;top:5px;left:50%;width:18px;height:2px;transform:translateX(-50%);border-radius:2px;background:#e31837}
-.icon{display:block;font-size:17px;font-weight:800}
+.icon{height:20px;display:flex;align-items:center;justify-content:center}
 .label{display:block;margin-top:3px;font-size:8px;font-weight:800;letter-spacing:1px}
+.home-icon{width:16px;height:16px;position:relative;border:2px solid currentColor;border-radius:3px 3px 4px 4px;margin-top:1px}
+.home-icon:before{content:"";position:absolute;width:10px;height:10px;left:1px;top:-6px;border-left:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg)}
+.home-icon:after{content:"";position:absolute;width:3px;height:7px;bottom:0;left:5px;background:currentColor}
 </style>
 </head>
 <body>
+
 <header class="header">
 <div class="header-in">
-<div class="logo">
-<div class="mark">P</div>
-<div><div class="name">PHILLIES</div><div class="sub">PHILADELPHIA BASEBALL</div></div>
+<div class="brand">
+<div class="brand-mark"><span>P</span></div>
+<div>
+<div class="name">PHILLIES</div>
+<div class="sub">PHILADELPHIA BASEBALL</div>
+</div>
 </div>
 <div class="year">2026</div>
 </div>
 </header>
 
 <nav class="nav">
-<button data-page="schedule"><span class="icon">▤</span><span class="label">SCHEDULE</span></button>
-<button class="active" data-page="home"><span class="icon">⌂</span><span class="label">HOME</span></button>
-<button data-page="players"><span class="icon">#</span><span class="label">PLAYERS</span></button>
+<button data-page="schedule">
+<span class="icon">▤</span>
+<span class="label">SCHEDULE</span>
+</button>
+
+<button class="active" data-page="home">
+<span class="icon"><i class="home-icon"></i></span>
+<span class="label">HOME</span>
+</button>
+
+<button data-page="players">
+<span class="icon">#</span>
+<span class="label">PLAYERS</span>
+</button>
 </nav>
 
 <script>
@@ -46,5 +66,6 @@ document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active")
 b.classList.add("active");
 });
 </script>
+
 </body>
 </html>
