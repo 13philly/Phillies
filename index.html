@@ -3,43 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07162f">
-<title>PHI</title>
+<meta name="theme-color" content="#06152f">
+<title>PHILLIES</title>
 <style>
 *{box-sizing:border-box;margin:0}
-body{min-height:100dvh;background:#07162f;color:#f7f9fc;font-family:Arial,sans-serif}
-.header{height:72px;border-bottom:1px solid #ffffff14}
-.header-in{height:100%;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:30px;height:30px;position:relative;display:grid;place-items:center;color:#fff;font-size:17px;font-weight:900}
-.brand-mark:before{content:"";position:absolute;inset:0;border:2px solid #e31837;transform:rotate(45deg);border-radius:4px}
-.brand-mark span{position:relative}
-.name{font-size:23px;font-weight:900;letter-spacing:.8px;line-height:1}
-.sub{margin-top:4px;color:#8190a6;font-size:7px;font-weight:700;letter-spacing:1.8px}
-.year{padding-left:14px;border-left:1px solid #ffffff1a;color:#8190a6;font-size:10px;font-weight:800;letter-spacing:1px}
-.nav{position:fixed;z-index:5;left:50%;bottom:max(9px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:64px;padding:4px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #ffffff1f;border-radius:16px;background:#07162ff7;backdrop-filter:blur(16px)}
-.nav button{position:relative;border:0;background:0;color:#8190a6;border-radius:12px;font:inherit}
-.nav button.active{color:#f7f9fc;background:#ffffff0b}
-.nav button.active:before{content:"";position:absolute;top:5px;left:50%;width:18px;height:2px;transform:translateX(-50%);border-radius:2px;background:#e31837}
-.icon{height:20px;display:flex;align-items:center;justify-content:center}
-.label{display:block;margin-top:3px;font-size:8px;font-weight:800;letter-spacing:1px}
-.home-icon{width:16px;height:16px;position:relative;border:2px solid currentColor;border-radius:3px 3px 4px 4px;margin-top:1px}
-.home-icon:before{content:"";position:absolute;width:10px;height:10px;left:1px;top:-6px;border-left:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg)}
-.home-icon:after{content:"";position:absolute;width:3px;height:7px;bottom:0;left:5px;background:currentColor}
+body{min-height:100dvh;background:#06152f;color:#f5f7fa;font-family:Arial,sans-serif}
+.header{height:76px;border-bottom:1px solid #ffffff12}
+.header-in{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:13px}
+.flag{width:4px;height:36px;background:#e31837;border-radius:3px}
+.title{font-size:22px;font-weight:900;letter-spacing:1.4px}
+.meta{margin-top:5px;color:#77869e;font-size:7px;font-weight:700;letter-spacing:2px}
+.season{color:#77869e;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.nav{position:fixed;z-index:5;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:66px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
+.nav button{position:relative;border:0;background:none;color:#77869e;border-radius:13px;font:inherit}
+.nav button.active{color:#fff;background:#ffffff08}
+.nav button.active:after{content:"";position:absolute;bottom:5px;left:50%;width:4px;height:4px;background:#e31837;border-radius:50%;transform:translateX(-50%)}
+.icon{height:22px;display:flex;align-items:center;justify-content:center}
+.label{margin-top:4px;font-size:8px;font-weight:800;letter-spacing:1.2px}
+
+/* HOME */
+.home-icon{width:18px;height:18px;position:relative;border:2px solid currentColor;border-radius:50%}
+.home-icon:before,.home-icon:after{content:"";position:absolute;background:currentColor}
+.home-icon:before{width:7px;height:2px;left:4px;top:7px}
+.home-icon:after{width:2px;height:7px;left:7px;top:4px}
+
+/* PLAYERS */
+.player-icon{width:19px;height:18px;position:relative}
+.player-icon:before{content:"";position:absolute;left:7px;top:0;width:6px;height:6px;border:2px solid currentColor;border-radius:50%}
+.player-icon:after{content:"";position:absolute;left:3px;bottom:0;width:14px;height:8px;border:2px solid currentColor;border-bottom:0;border-radius:9px 9px 0 0}
+.player-icon span{position:absolute;left:0;right:0;bottom:3px;height:2px;background:currentColor}
 </style>
 </head>
+
 <body>
 
 <header class="header">
 <div class="header-in">
 <div class="brand">
-<div class="brand-mark"><span>P</span></div>
+<div class="flag"></div>
 <div>
-<div class="name">PHILLIES</div>
-<div class="sub">PHILADELPHIA BASEBALL</div>
+<div class="title">PHILLIES</div>
+<div class="meta">PHILADELPHIA BASEBALL</div>
 </div>
 </div>
-<div class="year">2026</div>
+<div class="season">2026</div>
 </div>
 </header>
 
@@ -55,15 +63,16 @@ body{min-height:100dvh;background:#07162f;color:#f7f9fc;font-family:Arial,sans-s
 </button>
 
 <button data-page="players">
-<span class="icon">#</span>
+<span class="icon"><i class="player-icon"><span></span></i></span>
 <span class="label">PLAYERS</span>
 </button>
 </nav>
 
 <script>
-document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{
-document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
+const b=document.querySelectorAll(".nav button");
+b.forEach(x=>x.onclick=()=>{
+b.forEach(y=>y.classList.remove("active"));
+x.classList.add("active");
 });
 </script>
 
