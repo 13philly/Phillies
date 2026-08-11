@@ -6,539 +6,556 @@
 <title>PHILLIES</title>
 <style>
 :root{
-  --bg:#06162e;
-  --surface:#0b2141;
-  --surface2:#102a4f;
-  --surface3:#16365f;
+  --bg:#06152d;
+  --panel:#0a1d39;
+  --panel2:#0d2445;
   --red:#e31837;
-  --white:#f7f9fc;
-  --muted:#8192aa;
-  --muted2:#aebbd0;
-  --line:rgba(255,255,255,.08);
-  --green:#45c48a;
-  --nav:72px;
+  --white:#f5f7fb;
+  --text:#dce4ef;
+  --muted:#71839d;
+  --line:rgba(255,255,255,.075);
+  --green:#52c58b;
+  --nav:68px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg)}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  background:var(--bg);
+}
+
 body{
   min-height:100vh;
-  color:var(--white);
+  background:var(--bg);
+  color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-button{font:inherit}
-.app{min-height:100vh;padding-bottom:calc(var(--nav) + 24px)}
-.container{width:min(calc(100% - 32px),1100px);margin:auto}
 
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(6,22,46,.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(18px);
-}
-.topbar-line{
-  height:3px;
-  background:linear-gradient(90deg,var(--red) 0 72%,#315b91 72%);
-}
-.topbar-inner{
-  height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.logo{display:flex;align-items:center;gap:11px}
-.logo-mark{
-  width:38px;height:38px;
-  display:grid;place-items:center;
-  border-radius:10px;
-  background:var(--red);
-  color:#fff;
-  font-size:16px;
-  font-weight:950;
-}
-.logo-name{
-  font-size:15px;
-  font-weight:950;
-  letter-spacing:1.8px;
-}
-.logo-sub{
-  margin-top:3px;
-  color:var(--muted);
-  font-size:7px;
-  font-weight:800;
-  letter-spacing:1.5px;
-}
-.status{
-  width:9px;height:9px;
-  border-radius:50%;
-  background:var(--red);
-  box-shadow:0 0 0 4px rgba(227,24,55,.1);
+button{
+  font:inherit;
 }
 
-main{padding:28px 0 38px}
-.page{display:none}
-.page.active{display:block}
-
-.eyebrow{
-  color:var(--red);
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:2px;
-}
-.heading{
-  margin-top:7px;
-  font-size:38px;
-  font-weight:950;
-  letter-spacing:-1.8px;
-  line-height:1;
-}
-.subheading{
-  margin-top:7px;
-  color:var(--muted);
-  font-size:11px;
+.app{
+  min-height:100vh;
+  padding-bottom:calc(var(--nav) + 22px);
 }
 
-/* HOME */
-
-.home-layout{
-  margin-top:28px;
-}
-.section{margin-top:28px}
-.section:first-child{margin-top:0}
-.section-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:11px;
-}
-.section-title{
-  font-size:15px;
-  font-weight:900;
-}
-.section-action{
-  border:0;
-  background:none;
-  color:var(--red);
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:.7px;
-}
-
-.game{
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:var(--surface);
-  box-shadow:0 18px 40px rgba(0,0,0,.2);
-}
-.game-accent{
-  height:4px;
-  background:linear-gradient(90deg,var(--red) 0 50%,#244d80 50%);
-}
-.game-body{padding:21px}
-.game-label{
-  color:var(--muted);
-  font-size:8px;
-  font-weight:900;
-  letter-spacing:1.5px;
-}
-.matchup{
-  display:grid;
-  grid-template-columns:1fr 38px 1fr;
-  align-items:center;
-  margin-top:20px;
-}
-.team{text-align:center}
-.team-code{
-  font-size:34px;
-  font-weight:950;
-  letter-spacing:-1.5px;
-}
-.team:first-child .team-code{color:var(--red)}
-.team-name{
-  margin-top:3px;
-  color:var(--muted);
-  font-size:9px;
-}
-.vs{
-  width:34px;height:34px;
-  display:grid;place-items:center;
+.container{
+  width:min(calc(100% - 34px),1000px);
   margin:auto;
-  border:1px solid var(--line);
-  border-radius:50%;
-  color:var(--muted);
-  font-size:8px;
-  font-weight:900;
 }
-.game-info{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  margin-top:21px;
-  padding-top:15px;
-  border-top:1px solid var(--line);
-}
-.game-time{font-size:12px;font-weight:850}
-.game-venue{color:var(--muted);font-size:9px}
 
-.news-list{display:grid;gap:8px}
-.news{
-  display:grid;
-  grid-template-columns:74px 1fr;
-  gap:12px;
-  padding:10px;
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--surface);
+/* HEADER */
+
+.header{
+  border-bottom:1px solid var(--line);
 }
-.news-image{
-  height:62px;
-  border-radius:9px;
-  background:linear-gradient(135deg,#122f55,#091d38);
-  position:relative;
-  overflow:hidden;
-}
-.news-image:before{
-  content:"";
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:4px;
+
+.header-line{
+  height:2px;
   background:var(--red);
 }
-.news-category{
-  color:var(--red);
-  font-size:8px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-.news-title{
-  margin-top:5px;
-  font-size:12px;
-  font-weight:750;
-  line-height:1.4;
-}
-.news-time{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:8px;
-}
 
-/* SCHEDULE */
-
-.schedule-toolbar{
+.header-inner{
+  height:64px;
   display:flex;
-  gap:7px;
-  margin-top:22px;
-  overflow:auto;
-  scrollbar-width:none;
-}
-.schedule-toolbar::-webkit-scrollbar{display:none}
-.month-button{
-  flex:0 0 auto;
-  padding:9px 14px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  background:var(--surface);
-  color:var(--muted);
-  font-size:9px;
-  font-weight:850;
-}
-.month-button.active{
-  border-color:rgba(227,24,55,.45);
-  background:rgba(227,24,55,.1);
-  color:var(--red);
-}
-
-.schedule-block{
-  margin-top:25px;
-}
-.schedule-month{
-  margin-bottom:10px;
-  color:var(--muted);
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:1.5px;
-}
-.schedule-list{display:grid;gap:8px}
-
-.schedule-card{
-  position:relative;
-  display:grid;
-  grid-template-columns:52px 1fr auto;
   align-items:center;
-  gap:12px;
-  min-height:82px;
-  padding:13px;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:var(--surface);
+  justify-content:space-between;
 }
-.schedule-card.today{
-  border-color:rgba(227,24,55,.35);
-  background:
-    linear-gradient(90deg,rgba(227,24,55,.08),transparent 45%),
-    var(--surface);
-}
-.schedule-card.today:before{
-  content:"";
-  position:absolute;
-  left:0;top:14px;bottom:14px;
-  width:3px;
-  border-radius:0 3px 3px 0;
-  background:var(--red);
-}
-.schedule-date{text-align:center}
-.schedule-day{
-  color:var(--muted);
-  font-size:8px;
-  font-weight:900;
-}
-.schedule-number{
-  margin-top:2px;
-  font-size:22px;
-  font-weight:950;
-  line-height:1;
-}
-.schedule-card.today .schedule-number{color:var(--red)}
 
-.schedule-opponent{
+.brand{
   display:flex;
   align-items:center;
   gap:10px;
 }
-.mini-logo{
-  width:32px;height:32px;
-  display:grid;place-items:center;
-  flex:0 0 32px;
-  border-radius:9px;
-  background:var(--surface2);
-  color:var(--white);
-  font-size:8px;
+
+.brand-mark{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  background:var(--red);
+  color:#fff;
+  border-radius:8px;
+  font-size:14px;
   font-weight:950;
 }
-.schedule-team{
-  font-size:12px;
-  font-weight:850;
-}
-.schedule-location{
-  margin-top:4px;
-  color:var(--muted);
-  font-size:8px;
-}
-.schedule-result{text-align:right}
-.result-time{
-  font-size:10px;
-  font-weight:850;
-}
-.result-label{
-  margin-top:4px;
-  color:var(--muted);
-  font-size:8px;
-}
-.result-win{color:var(--green)}
-.result-loss{color:var(--red)}
 
-/* PLAYERS */
-
-.player-controls{
-  display:flex;
-  gap:7px;
-  margin-top:22px;
-  overflow:auto;
-  scrollbar-width:none;
-}
-.player-controls::-webkit-scrollbar{display:none}
-
-.filter{
-  flex:0 0 auto;
-  padding:9px 13px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  background:var(--surface);
-  color:var(--muted);
-  font-size:9px;
-  font-weight:850;
-}
-.filter.active{
-  background:var(--red);
-  border-color:var(--red);
+.brand-name{
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:2px;
   color:#fff;
 }
 
-.player-section{margin-top:27px}
-.player-section-title{
-  margin-bottom:10px;
+.brand-sub{
+  margin-top:2px;
   color:var(--muted);
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:1.5px;
-}
-.player-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:9px;
+  font-size:7px;
+  letter-spacing:1.4px;
+  font-weight:800;
 }
 
-.player{
-  position:relative;
-  overflow:hidden;
-  min-height:181px;
-  padding:11px;
-  border:1px solid var(--line);
-  border-radius:17px;
-  background:var(--surface);
+/* COMMON */
+
+main{
+  padding:31px 0 40px;
 }
-.player-photo{
-  position:relative;
-  height:105px;
-  overflow:hidden;
-  border-radius:11px;
-  background:
-    radial-gradient(circle at 50% 25%,#385b83 0 16%,transparent 17%),
-    linear-gradient(145deg,#16365f,#091d38);
+
+.page{
+  display:none;
 }
-.player-photo:after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-27px;
-  transform:translateX(-50%);
-  width:75px;height:75px;
-  border-radius:50% 50% 0 0;
-  background:#1b3d68;
+
+.page.active{
+  display:block;
 }
-.player-number{
-  position:absolute;
-  top:116px;
-  right:13px;
-  color:rgba(255,255,255,.22);
-  font-size:18px;
-  font-weight:950;
-}
-.player-name{
-  margin-top:10px;
-  padding-right:25px;
-  font-size:12px;
-  font-weight:900;
-  line-height:1.2;
-}
-.player-meta{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-top:4px;
-}
-.player-position{
+
+.kicker{
   color:var(--red);
   font-size:8px;
   font-weight:900;
+  letter-spacing:2px;
 }
-.player-bat{
+
+.title{
+  margin-top:8px;
+  color:var(--white);
+  font-size:35px;
+  line-height:1;
+  letter-spacing:-1.5px;
+  font-weight:950;
+}
+
+.description{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.section{
+  margin-top:32px;
+}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+
+.section-title{
+  color:var(--white);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.3px;
+}
+
+.section-meta{
   color:var(--muted);
   font-size:8px;
 }
 
-.roster-status{
+/* HOME */
+
+.today{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:1fr;
+  border-top:1px solid var(--line);
+}
+
+.today-row{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.today-label{
+  color:var(--muted);
+  font-size:8px;
+  font-weight:850;
+  letter-spacing:1.2px;
+}
+
+.today-value{
+  color:var(--white);
+  font-size:13px;
+  font-weight:800;
+}
+
+.today-sub{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:9px;
+}
+
+.matchup-inline{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  margin-top:18px;
-  padding:11px 13px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  background:var(--surface);
+  gap:10px;
 }
-.roster-status-label{
+
+.phi{
+  color:var(--red);
+}
+
+.vs{
+  color:var(--muted);
+  font-size:8px;
+  font-weight:900;
+}
+
+.record{
+  display:flex;
+  gap:22px;
+}
+
+.record-item strong{
+  color:var(--white);
+  font-size:18px;
+  font-weight:950;
+}
+
+.record-item span{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:7px;
+  letter-spacing:.8px;
+}
+
+.news-list{
+  display:grid;
+}
+
+.news-row{
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  align-items:center;
+  gap:12px;
+  min-height:67px;
+  border-bottom:1px solid var(--line);
+}
+
+.news-date{
+  color:var(--muted);
+  font-size:8px;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.news-main{
+  min-width:0;
+}
+
+.news-category{
+  color:var(--red);
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.news-title{
+  margin-top:4px;
+  color:var(--text);
+  font-size:11px;
+  font-weight:700;
+  line-height:1.35;
+}
+
+.news-arrow{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* SCHEDULE */
+
+.schedule-head{
+  margin-top:28px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+
+.month{
+  color:var(--white);
+  font-size:17px;
+  font-weight:900;
+}
+
+.month-year{
+  margin-top:3px;
+  color:var(--muted);
+  font-size:8px;
+}
+
+.schedule-list{
+  display:grid;
+}
+
+.game-row{
+  display:grid;
+  grid-template-columns:62px 1fr auto;
+  align-items:center;
+  min-height:78px;
+  border-bottom:1px solid var(--line);
+}
+
+.game-row.today{
+  border-left:2px solid var(--red);
+  padding-left:12px;
+}
+
+.game-date{
   color:var(--muted);
   font-size:8px;
   font-weight:850;
 }
-.roster-status-value{
+
+.game-day{
+  color:var(--white);
+  font-size:20px;
+  font-weight:950;
+  line-height:1;
+}
+
+.game-row.today .game-day{
+  color:var(--red);
+}
+
+.opponent{
+  color:var(--white);
+  font-size:12px;
+  font-weight:850;
+}
+
+.opponent-detail{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:8px;
+}
+
+.game-result{
+  text-align:right;
+}
+
+.game-result-main{
+  color:var(--white);
+  font-size:10px;
+  font-weight:850;
+}
+
+.game-result-sub{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:7px;
+  font-weight:800;
+}
+
+.win{
   color:var(--green);
+}
+
+/* PLAYERS */
+
+.players-tools{
+  margin-top:25px;
+  display:flex;
+  gap:18px;
+  border-bottom:1px solid var(--line);
+}
+
+.filter{
+  position:relative;
+  padding:0 0 10px;
+  border:0;
+  background:none;
+  color:var(--muted);
   font-size:8px;
   font-weight:900;
+  letter-spacing:.7px;
+}
+
+.filter.active{
+  color:var(--white);
+}
+
+.filter.active:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:2px;
+  background:var(--red);
+}
+
+.roster{
+  margin-top:19px;
+}
+
+.roster-row{
+  display:grid;
+  grid-template-columns:42px 1fr 55px;
+  align-items:center;
+  min-height:63px;
+  border-bottom:1px solid var(--line);
+}
+
+.number{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:850;
+}
+
+.player-name{
+  color:var(--white);
+  font-size:12px;
+  font-weight:800;
+}
+
+.player-meta{
+  margin-top:3px;
+  color:var(--muted);
+  font-size:8px;
+}
+
+.position{
+  color:var(--red);
+  text-align:right;
+  font-size:9px;
+  font-weight:900;
+}
+
+.roster-count{
+  margin-top:17px;
+  color:var(--muted);
+  font-size:8px;
 }
 
 /* NAV */
 
-.bottom-nav{
+.nav{
   position:fixed;
   z-index:100;
   left:50%;
   bottom:11px;
   transform:translateX(-50%);
-  width:min(calc(100% - 22px),470px);
+  width:min(calc(100% - 22px),430px);
   height:var(--nav);
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  padding:5px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:23px;
-  background:rgba(11,33,65,.95);
-  box-shadow:0 18px 45px rgba(0,0,0,.4);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(10,29,57,.96);
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 }
-.nav{
+
+.nav-button{
   position:relative;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
-  gap:4px;
+  align-items:center;
+  gap:5px;
   border:0;
   background:none;
-  color:#71839c;
+  color:var(--muted);
 }
-.nav svg{width:20px;height:20px}
-.nav span{
-  font-size:8px;
+
+.nav-button svg{
+  width:18px;
+  height:18px;
+}
+
+.nav-button span{
+  font-size:7px;
   font-weight:900;
-  letter-spacing:.8px;
+  letter-spacing:1px;
 }
-.nav.active{color:var(--red)}
-.nav.active:before{
+
+.nav-button.active{
+  color:var(--red);
+}
+
+.nav-button.active:before{
   content:"";
   position:absolute;
-  width:44px;height:44px;
-  border-radius:14px;
-  background:rgba(227,24,55,.1);
+  top:7px;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:rgba(227,24,55,.08);
   z-index:-1;
 }
 
 @media(min-width:760px){
-  .container{width:min(calc(100% - 48px),1100px)}
-  .topbar-inner{height:76px}
-  main{padding-top:42px}
-  .home-layout{
+
+  .container{
+    width:min(calc(100% - 48px),1000px);
+  }
+
+  .header-inner{
+    height:70px;
+  }
+
+  main{
+    padding-top:45px;
+  }
+
+  .home-columns{
     display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:28px;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+  }
+
+  .section{
+    margin-top:34px;
+  }
+
+  .home-columns .section{
     margin-top:28px;
   }
-  .home-layout .section{margin-top:0}
-  .player-grid{grid-template-columns:repeat(4,1fr)}
+
+  .today-row{
+    grid-template-columns:105px 1fr;
+  }
+
+  .roster-row{
+    grid-template-columns:55px 1fr 70px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
-<header class="topbar">
-<div class="topbar-line"></div>
-<div class="container topbar-inner">
-<div class="logo">
-<div class="logo-mark">P</div>
+<header class="header">
+<div class="header-line"></div>
+<div class="container header-inner">
+
+<div class="brand">
+<div class="brand-mark">P</div>
 <div>
-<div class="logo-name">PHILLIES</div>
-<div class="logo-sub">PERSONAL BASE</div>
+<div class="brand-name">PHILLIES</div>
+<div class="brand-sub">PERSONAL BASE</div>
 </div>
 </div>
-<div class="status"></div>
+
 </div>
 </header>
 
@@ -546,311 +563,345 @@ main{padding:28px 0 38px}
 <div class="container">
 
 <section class="page active" id="home">
-<div class="eyebrow">PHILADELPHIA PHILLIES</div>
-<h1 class="heading">Home</h1>
-<div class="subheading">Your personal Phillies dashboard</div>
 
-<div class="home-layout">
+<div class="kicker">PHILADELPHIA PHILLIES</div>
+<h1 class="title">Home</h1>
+<div class="description">Wednesday · August 12, 2026</div>
+
+<div class="home-columns">
 
 <div>
-<div class="section">
-<div class="section-head">
-<div class="section-title">Next Game</div>
-</div>
-
-<div class="game">
-<div class="game-accent"></div>
-<div class="game-body">
-<div class="game-label">UPCOMING</div>
-
-<div class="matchup">
-<div class="team">
-<div class="team-code">PHI</div>
-<div class="team-name">Phillies</div>
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-<div class="team-code">NYM</div>
-<div class="team-name">Mets</div>
-</div>
-</div>
-
-<div class="game-info">
-<div class="game-time">7:05 PM</div>
-<div class="game-venue">CITIZENS BANK PARK</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 <div class="section">
-<div class="section-head">
-<div class="section-title">Latest News</div>
-<button class="section-action">ALL NEWS</button>
+<div class="section-header">
+<div class="section-title">TODAY</div>
+<div class="section-meta">GAME DAY</div>
+</div>
+
+<div class="today">
+
+<div class="today-row">
+<div class="today-label">NEXT GAME</div>
+<div>
+<div class="matchup-inline">
+<strong class="phi">PHI</strong>
+<span class="vs">VS</span>
+<strong>NYM</strong>
+</div>
+<div class="today-sub">7:05 PM · Citizens Bank Park</div>
+</div>
+</div>
+
+<div class="today-row">
+<div class="today-label">RECORD</div>
+<div class="record">
+<div class="record-item">
+<strong>72–48</strong>
+<span>SEASON</span>
+</div>
+<div class="record-item">
+<strong class="phi">W3</strong>
+<span>STREAK</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div>
+
+<div class="section">
+<div class="section-header">
+<div class="section-title">LATEST NEWS</div>
+<div class="section-meta">3 STORIES</div>
 </div>
 
 <div class="news-list">
 
-<article class="news">
-<div class="news-image"></div>
-<div>
+<div class="news-row">
+<div class="news-date">2H AGO</div>
+<div class="news-main">
 <div class="news-category">PHILLIES</div>
-<div class="news-title">Phillies prepare for another important series.</div>
-<div class="news-time">2h ago</div>
+<div class="news-title">Phillies prepare for tonight's matchup.</div>
 </div>
-</article>
+<div class="news-arrow">›</div>
+</div>
 
-<article class="news">
-<div class="news-image"></div>
-<div>
+<div class="news-row">
+<div class="news-date">5H AGO</div>
+<div class="news-main">
 <div class="news-category">MLB</div>
-<div class="news-title">Around the league: latest updates.</div>
-<div class="news-time">4h ago</div>
+<div class="news-title">Latest developments from around the league.</div>
 </div>
-</article>
+<div class="news-arrow">›</div>
+</div>
 
-<article class="news">
-<div class="news-image"></div>
-<div>
+<div class="news-row">
+<div class="news-date">YESTERDAY</div>
+<div class="news-main">
 <div class="news-category">TEAM</div>
-<div class="news-title">Roster and team news from Philadelphia.</div>
-<div class="news-time">Yesterday</div>
+<div class="news-title">Philadelphia roster update.</div>
 </div>
-</article>
-
-</div>
+<div class="news-arrow">›</div>
 </div>
 
 </div>
+</div>
+
+</div>
+
 </div>
 </section>
 
 <section class="page" id="schedule">
-<div class="eyebrow">PHILADELPHIA PHILLIES</div>
-<h1 class="heading">Schedule</h1>
-<div class="subheading">Games & results</div>
 
-<div class="schedule-toolbar">
-<button class="month-button active">AUG 2026</button>
-<button class="month-button">SEP 2026</button>
-<button class="month-button">OCT 2026</button>
+<div class="kicker">PHILADELPHIA PHILLIES</div>
+<h1 class="title">Schedule</h1>
+<div class="description">2026 regular season</div>
+
+<div class="schedule-head">
+<div>
+<div class="month">August</div>
+<div class="month-year">2026</div>
 </div>
-
-<div class="schedule-block">
-<div class="schedule-month">AUGUST 2026</div>
+<div class="section-meta">REGULAR SEASON</div>
+</div>
 
 <div class="schedule-list">
 
-<div class="schedule-card">
-<div class="schedule-date">
-<div class="schedule-day">MON</div>
-<div class="schedule-number">10</div>
+<div class="game-row">
+<div class="game-date">
+<div>MON</div>
+<div class="game-day">10</div>
 </div>
-<div class="schedule-opponent">
-<div class="mini-logo">MIA</div>
 <div>
-<div class="schedule-team">Marlins</div>
-<div class="schedule-location">Away · loanDepot park</div>
+<div class="opponent">at Marlins</div>
+<div class="opponent-detail">Miami · loanDepot park</div>
 </div>
-</div>
-<div class="schedule-result">
-<div class="result-time">7:10 PM</div>
-<div class="result-label">FINAL</div>
+<div class="game-result">
+<div class="game-result-main win">W 5–2</div>
+<div class="game-result-sub">FINAL</div>
 </div>
 </div>
 
-<div class="schedule-card">
-<div class="schedule-date">
-<div class="schedule-day">TUE</div>
-<div class="schedule-number">11</div>
+<div class="game-row">
+<div class="game-date">
+<div>TUE</div>
+<div class="game-day">11</div>
 </div>
-<div class="schedule-opponent">
-<div class="mini-logo">MIA</div>
 <div>
-<div class="schedule-team">Marlins</div>
-<div class="schedule-location">Away · loanDepot park</div>
+<div class="opponent">at Marlins</div>
+<div class="opponent-detail">Miami · loanDepot park</div>
 </div>
-</div>
-<div class="schedule-result">
-<div class="result-time result-win">W 5–2</div>
-<div class="result-label">FINAL</div>
+<div class="game-result">
+<div class="game-result-main">W 4–1</div>
+<div class="game-result-sub">FINAL</div>
 </div>
 </div>
 
-<div class="schedule-card today">
-<div class="schedule-date">
-<div class="schedule-day">WED</div>
-<div class="schedule-number">12</div>
+<div class="game-row today">
+<div class="game-date">
+<div>WED</div>
+<div class="game-day">12</div>
 </div>
-<div class="schedule-opponent">
-<div class="mini-logo">NYM</div>
 <div>
-<div class="schedule-team">Mets</div>
-<div class="schedule-location">Home · Citizens Bank Park</div>
+<div class="opponent">vs Mets</div>
+<div class="opponent-detail">Philadelphia · Citizens Bank Park</div>
 </div>
-</div>
-<div class="schedule-result">
-<div class="result-time">7:05 PM</div>
-<div class="result-label">TODAY</div>
+<div class="game-result">
+<div class="game-result-main">7:05 PM</div>
+<div class="game-result-sub">TODAY</div>
 </div>
 </div>
 
-<div class="schedule-card">
-<div class="schedule-date">
-<div class="schedule-day">THU</div>
-<div class="schedule-number">13</div>
+<div class="game-row">
+<div class="game-date">
+<div>THU</div>
+<div class="game-day">13</div>
 </div>
-<div class="schedule-opponent">
-<div class="mini-logo">NYM</div>
 <div>
-<div class="schedule-team">Mets</div>
-<div class="schedule-location">Home · Citizens Bank Park</div>
+<div class="opponent">vs Mets</div>
+<div class="opponent-detail">Philadelphia · Citizens Bank Park</div>
 </div>
-</div>
-<div class="schedule-result">
-<div class="result-time">6:45 PM</div>
-<div class="result-label">UPCOMING</div>
+<div class="game-result">
+<div class="game-result-main">6:45 PM</div>
+<div class="game-result-sub">UPCOMING</div>
 </div>
 </div>
 
-<div class="schedule-card">
-<div class="schedule-date">
-<div class="schedule-day">FRI</div>
-<div class="schedule-number">14</div>
+<div class="game-row">
+<div class="game-date">
+<div>FRI</div>
+<div class="game-day">14</div>
 </div>
-<div class="schedule-opponent">
-<div class="mini-logo">ATL</div>
 <div>
-<div class="schedule-team">Braves</div>
-<div class="schedule-location">Home · Citizens Bank Park</div>
+<div class="opponent">vs Braves</div>
+<div class="opponent-detail">Philadelphia · Citizens Bank Park</div>
+</div>
+<div class="game-result">
+<div class="game-result-main">7:05 PM</div>
+<div class="game-result-sub">UPCOMING</div>
 </div>
 </div>
-<div class="schedule-result">
-<div class="result-time">7:05 PM</div>
-<div class="result-label">UPCOMING</div>
+
+<div class="game-row">
+<div class="game-date">
+<div>SAT</div>
+<div class="game-day">15</div>
+</div>
+<div>
+<div class="opponent">vs Braves</div>
+<div class="opponent-detail">Philadelphia · Citizens Bank Park</div>
+</div>
+<div class="game-result">
+<div class="game-result-main">6:05 PM</div>
+<div class="game-result-sub">UPCOMING</div>
 </div>
 </div>
 
 </div>
-</div>
+
 </section>
 
 <section class="page" id="players">
-<div class="eyebrow">PHILADELPHIA PHILLIES</div>
-<h1 class="heading">Players</h1>
-<div class="subheading">Current roster</div>
 
-<div class="roster-status">
-<div class="roster-status-label">ROSTER DATA</div>
-<div class="roster-status-value">UP TO DATE</div>
-</div>
+<div class="kicker">PHILADELPHIA PHILLIES</div>
+<h1 class="title">Players</h1>
+<div class="description">Active roster</div>
 
-<div class="player-controls">
+<div class="players-tools">
 <button class="filter active" data-filter="all">ALL</button>
-<button class="filter" data-filter="pitchers">PITCHERS</button>
-<button class="filter" data-filter="catchers">CATCHERS</button>
+<button class="filter" data-filter="pitcher">PITCHERS</button>
+<button class="filter" data-filter="catcher">CATCHERS</button>
 <button class="filter" data-filter="infield">INFIELD</button>
 <button class="filter" data-filter="outfield">OUTFIELD</button>
 </div>
 
-<div class="player-section">
-<div class="player-section-title">ROSTER</div>
+<div class="roster" id="roster">
 
-<div class="player-grid" id="playerGrid">
-
-<article class="player" data-position="infield">
-<div class="player-photo"></div>
-<div class="player-number">13</div>
+<div class="roster-row" data-position="infield">
+<div class="number">13</div>
+<div>
 <div class="player-name">Bryce Harper</div>
-<div class="player-meta">
-<div class="player-position">1B</div>
-<div class="player-bat">L/L</div>
+<div class="player-meta">Philadelphia · L/L</div>
 </div>
-</article>
+<div class="position">1B</div>
+</div>
 
-<article class="player" data-position="outfield">
-<div class="player-photo"></div>
-<div class="player-number">3</div>
+<div class="roster-row" data-position="infield">
+<div class="number">5</div>
+<div>
+<div class="player-name">Trea Turner</div>
+<div class="player-meta">Philadelphia · R/R</div>
+</div>
+<div class="position">SS</div>
+</div>
+
+<div class="roster-row" data-position="infield">
+<div class="number">8</div>
+<div>
 <div class="player-name">Bryson Stott</div>
-<div class="player-meta">
-<div class="player-position">2B</div>
-<div class="player-bat">L/R</div>
+<div class="player-meta">Philadelphia · L/R</div>
 </div>
-</article>
+<div class="position">2B</div>
+</div>
 
-<article class="player" data-position="outfield">
-<div class="player-photo"></div>
-<div class="player-number">28</div>
+<div class="roster-row" data-position="infield">
+<div class="number">28</div>
+<div>
 <div class="player-name">Alec Bohm</div>
-<div class="player-meta">
-<div class="player-position">3B</div>
-<div class="player-bat">R/R</div>
+<div class="player-meta">Philadelphia · R/R</div>
 </div>
-</article>
+<div class="position">3B</div>
+</div>
 
-<article class="player" data-position="outfield">
-<div class="player-photo"></div>
-<div class="player-number">17</div>
+<div class="roster-row" data-position="outfield">
+<div class="number">12</div>
+<div>
 <div class="player-name">Kyle Schwarber</div>
-<div class="player-meta">
-<div class="player-position">OF</div>
-<div class="player-bat">L/R</div>
+<div class="player-meta">Philadelphia · L/R</div>
 </div>
-</article>
-
-<article class="player" data-position="catchers">
-<div class="player-photo"></div>
-<div class="player-number">10</div>
-<div class="player-name">J.T. Realmuto</div>
-<div class="player-meta">
-<div class="player-position">C</div>
-<div class="player-bat">R/R</div>
+<div class="position">DH</div>
 </div>
-</article>
 
-<article class="player" data-position="outfield">
-<div class="player-photo"></div>
-<div class="player-number">8</div>
+<div class="roster-row" data-position="outfield">
+<div class="number">16</div>
+<div>
+<div class="player-name">Brandon Marsh</div>
+<div class="player-meta">Philadelphia · L/L</div>
+</div>
+<div class="position">OF</div>
+</div>
+
+<div class="roster-row" data-position="outfield">
+<div class="number">8</div>
+<div>
 <div class="player-name">Nick Castellanos</div>
-<div class="player-meta">
-<div class="player-position">OF</div>
-<div class="player-bat">R/R</div>
+<div class="player-meta">Philadelphia · R/R</div>
 </div>
-</article>
-
-<article class="player" data-position="pitchers">
-<div class="player-photo"></div>
-<div class="player-number">48</div>
-<div class="player-name">Ranger Suárez</div>
-<div class="player-meta">
-<div class="player-position">P</div>
-<div class="player-bat">L/L</div>
+<div class="position">OF</div>
 </div>
-</article>
 
-<article class="player" data-position="pitchers">
-<div class="player-photo"></div>
-<div class="player-number">45</div>
+<div class="roster-row" data-position="catcher">
+<div class="number">10</div>
+<div>
+<div class="player-name">J.T. Realmuto</div>
+<div class="player-meta">Philadelphia · R/R</div>
+</div>
+<div class="position">C</div>
+</div>
+
+<div class="roster-row" data-position="pitcher">
+<div class="number">45</div>
+<div>
 <div class="player-name">Zack Wheeler</div>
-<div class="player-meta">
-<div class="player-position">P</div>
-<div class="player-bat">R/R</div>
+<div class="player-meta">Philadelphia · R/R</div>
 </div>
-</article>
+<div class="position">SP</div>
+</div>
+
+<div class="roster-row" data-position="pitcher">
+<div class="number">55</div>
+<div>
+<div class="player-name">Ranger Suárez</div>
+<div class="player-meta">Philadelphia · L/L</div>
+</div>
+<div class="position">SP</div>
+</div>
+
+<div class="roster-row" data-position="pitcher">
+<div class="number">99</div>
+<div>
+<div class="player-name">Aaron Nola</div>
+<div class="player-meta">Philadelphia · R/R</div>
+</div>
+<div class="position">SP</div>
+</div>
+
+<div class="roster-row" data-position="pitcher">
+<div class="number">23</div>
+<div>
+<div class="player-name">José Alvarado</div>
+<div class="player-meta">Philadelphia · L/L</div>
+</div>
+<div class="position">RP</div>
+</div>
 
 </div>
-</div>
+
+<div class="roster-count">12 PLAYERS SHOWN · DEMO DATA</div>
+
 </section>
 
 </div>
 </main>
 
-<nav class="bottom-nav">
+<nav class="nav">
 
-<button class="nav" data-page="schedule">
+<button class="nav-button" data-page="schedule">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 <rect x="3" y="4" width="18" height="17" rx="3"/>
 <path d="M8 2v4M16 2v4M3 10h18"/>
@@ -858,8 +909,8 @@ main{padding:28px 0 38px}
 <span>SCHEDULE</span>
 </button>
 
-<button class="nav active" data-page="home">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<button class="nav-button active" data-page="home">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 <path d="M3 10.5 12 3l9 7.5"/>
 <path d="M5.5 9.5V21h13V9.5"/>
 <path d="M9.5 21v-6h5v6"/>
@@ -867,7 +918,7 @@ main{padding:28px 0 38px}
 <span>HOME</span>
 </button>
 
-<button class="nav" data-page="players">
+<button class="nav-button" data-page="players">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
@@ -880,25 +931,25 @@ main{padding:28px 0 38px}
 </div>
 
 <script>
-const navs=document.querySelectorAll(".nav");
+const navButtons=document.querySelectorAll(".nav-button");
 const pages=document.querySelectorAll(".page");
 
-navs.forEach(nav=>{
-  nav.addEventListener("click",()=>{
-    const target=nav.dataset.page;
+navButtons.forEach(button=>{
+  button.addEventListener("click",()=>{
+    const target=button.dataset.page;
 
-    navs.forEach(item=>item.classList.remove("active"));
+    navButtons.forEach(item=>item.classList.remove("active"));
     pages.forEach(page=>page.classList.remove("active"));
 
-    nav.classList.add("active");
+    button.classList.add("active");
     document.getElementById(target).classList.add("active");
 
-    window.scrollTo({top:0,behavior:"smooth"});
+    window.scrollTo(0,0);
   });
 });
 
 const filters=document.querySelectorAll(".filter");
-const players=document.querySelectorAll(".player");
+const rosterRows=document.querySelectorAll(".roster-row");
 
 filters.forEach(filter=>{
   filter.addEventListener("click",()=>{
@@ -907,10 +958,10 @@ filters.forEach(filter=>{
     filters.forEach(item=>item.classList.remove("active"));
     filter.classList.add("active");
 
-    players.forEach(player=>{
-      player.style.display=
-        target==="all"||player.dataset.position===target
-        ?"block"
+    rosterRows.forEach(row=>{
+      row.style.display=
+        target==="all"||row.dataset.position===target
+        ?"grid"
         :"none";
     });
   });
