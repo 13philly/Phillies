@@ -6,75 +6,44 @@
 <meta name="theme-color" content="#06152f">
 <title>PHILLIES</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@500;600;700;800&display=swap');
 *{box-sizing:border-box;margin:0}
-body{min-height:100dvh;background:#06152f;color:#f5f7fa;font-family:Arial,sans-serif}
-.header{height:76px;border-bottom:1px solid #ffffff12}
+body{min-height:100dvh;background:#06152f;color:#f5f7fa;font-family:Inter,sans-serif}
+.header{height:78px;border-bottom:1px solid #ffffff12}
 .header-in{height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:13px}
-.flag{width:4px;height:36px;background:#e31837;border-radius:3px}
-.title{font-size:22px;font-weight:900;letter-spacing:1.4px}
-.meta{margin-top:5px;color:#77869e;font-size:7px;font-weight:700;letter-spacing:2px}
-.season{color:#77869e;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.brand{font-family:"Barlow Condensed",sans-serif;font-size:29px;font-weight:800;letter-spacing:.5px}
+.brand b{color:#e31837}
+.sub{margin-top:1px;color:#718199;font:600 7px Inter;letter-spacing:2.2px}
+.year{color:#718199;font-size:10px;font-weight:700;letter-spacing:1.5px}
 .nav{position:fixed;z-index:5;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 24px);max-width:430px;height:66px;padding:5px;display:grid;grid-template-columns:repeat(3,1fr);background:#091a36f5;border:1px solid #ffffff18;border-radius:18px;backdrop-filter:blur(18px)}
-.nav button{position:relative;border:0;background:none;color:#77869e;border-radius:13px;font:inherit}
+.nav button{position:relative;border:0;background:none;color:#718199;border-radius:13px;font:600 8px Inter;letter-spacing:1.2px}
 .nav button.active{color:#fff;background:#ffffff08}
 .nav button.active:after{content:"";position:absolute;bottom:5px;left:50%;width:4px;height:4px;background:#e31837;border-radius:50%;transform:translateX(-50%)}
-.icon{height:22px;display:flex;align-items:center;justify-content:center}
-.label{margin-top:4px;font-size:8px;font-weight:800;letter-spacing:1.2px}
-
-/* HOME */
-.home-icon{width:18px;height:18px;position:relative;border:2px solid currentColor;border-radius:50%}
-.home-icon:before,.home-icon:after{content:"";position:absolute;background:currentColor}
-.home-icon:before{width:7px;height:2px;left:4px;top:7px}
-.home-icon:after{width:2px;height:7px;left:7px;top:4px}
-
-/* PLAYERS */
-.player-icon{width:19px;height:18px;position:relative}
-.player-icon:before{content:"";position:absolute;left:7px;top:0;width:6px;height:6px;border:2px solid currentColor;border-radius:50%}
-.player-icon:after{content:"";position:absolute;left:3px;bottom:0;width:14px;height:8px;border:2px solid currentColor;border-bottom:0;border-radius:9px 9px 0 0}
-.player-icon span{position:absolute;left:0;right:0;bottom:3px;height:2px;background:currentColor}
+.icon{height:23px;display:grid;place-items:center;margin-bottom:3px}
+.home{width:18px;height:18px;position:relative;border:2px solid currentColor;border-radius:4px}
+.home:before{content:"";position:absolute;width:7px;height:7px;left:3.5px;top:-5px;border-left:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg)}
+.player{width:18px;height:18px;position:relative}
+.player:before{content:"";position:absolute;left:6px;top:0;width:5px;height:5px;border:2px solid currentColor;border-radius:50%}
+.player:after{content:"";position:absolute;left:2px;bottom:0;width:12px;height:7px;border:2px solid currentColor;border-bottom:0;border-radius:8px 8px 0 0}
 </style>
 </head>
-
 <body>
 
 <header class="header">
 <div class="header-in">
-<div class="brand">
-<div class="flag"></div>
 <div>
-<div class="title">PHILLIES</div>
-<div class="meta">PHILADELPHIA BASEBALL</div>
+<div class="brand"><b>P</b>HILLIES</div>
+<div class="sub">PHILADELPHIA BASEBALL</div>
 </div>
-</div>
-<div class="season">2026</div>
+<div class="year">2026</div>
 </div>
 </header>
 
 <nav class="nav">
-<button data-page="schedule">
-<span class="icon">▤</span>
-<span class="label">SCHEDULE</span>
-</button>
-
-<button class="active" data-page="home">
-<span class="icon"><i class="home-icon"></i></span>
-<span class="label">HOME</span>
-</button>
-
-<button data-page="players">
-<span class="icon"><i class="player-icon"><span></span></i></span>
-<span class="label">PLAYERS</span>
-</button>
+<button><span class="icon">▤</span>SCHEDULE</button>
+<button class="active"><span class="icon"><i class="home"></i></span>HOME</button>
+<button><span class="icon"><i class="player"></i></span>PLAYERS</button>
 </nav>
-
-<script>
-const b=document.querySelectorAll(".nav button");
-b.forEach(x=>x.onclick=()=>{
-b.forEach(y=>y.classList.remove("active"));
-x.classList.add("active");
-});
-</script>
 
 </body>
 </html>
