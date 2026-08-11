@@ -9,10 +9,13 @@
   --bg:#06162e;
   --surface:#0b2141;
   --surface2:#102a4f;
+  --surface3:#16365f;
   --red:#e31837;
   --white:#f7f9fc;
   --muted:#8192aa;
+  --muted2:#aebbd0;
   --line:rgba(255,255,255,.08);
+  --green:#45c48a;
   --nav:72px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -24,25 +27,18 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 button{font:inherit}
-.app{
-  min-height:100vh;
-  padding-bottom:calc(var(--nav) + 24px);
-}
-.container{
-  width:min(calc(100% - 32px),1100px);
-  margin:auto;
-}
+.app{min-height:100vh;padding-bottom:calc(var(--nav) + 24px)}
+.container{width:min(calc(100% - 32px),1100px);margin:auto}
+
 .topbar{
   position:sticky;
   top:0;
   z-index:20;
-  background:rgba(6,22,46,.9);
+  background:rgba(6,22,46,.92);
   border-bottom:1px solid var(--line);
   backdrop-filter:blur(18px);
 }
-.topbar:before{
-  content:"";
-  display:block;
+.topbar-line{
   height:3px;
   background:linear-gradient(90deg,var(--red) 0 72%,#315b91 72%);
 }
@@ -52,16 +48,10 @@ button{font:inherit}
   align-items:center;
   justify-content:space-between;
 }
-.logo{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
+.logo{display:flex;align-items:center;gap:11px}
 .logo-mark{
-  width:38px;
-  height:38px;
-  display:grid;
-  place-items:center;
+  width:38px;height:38px;
+  display:grid;place-items:center;
   border-radius:10px;
   background:var(--red);
   color:#fff;
@@ -81,15 +71,16 @@ button{font:inherit}
   letter-spacing:1.5px;
 }
 .status{
-  width:9px;
-  height:9px;
+  width:9px;height:9px;
   border-radius:50%;
   background:var(--red);
   box-shadow:0 0 0 4px rgba(227,24,55,.1);
 }
+
 main{padding:28px 0 38px}
 .page{display:none}
 .page.active{display:block}
+
 .eyebrow{
   color:var(--red);
   font-size:9px;
@@ -103,14 +94,19 @@ main{padding:28px 0 38px}
   letter-spacing:-1.8px;
   line-height:1;
 }
-.date{
+.subheading{
   margin-top:7px;
   color:var(--muted);
   font-size:11px;
 }
-.section{
+
+/* HOME */
+
+.home-layout{
   margin-top:28px;
 }
+.section{margin-top:28px}
+.section:first-child{margin-top:0}
 .section-head{
   display:flex;
   align-items:center;
@@ -120,7 +116,6 @@ main{padding:28px 0 38px}
 .section-title{
   font-size:15px;
   font-weight:900;
-  letter-spacing:-.2px;
 }
 .section-action{
   border:0;
@@ -130,9 +125,9 @@ main{padding:28px 0 38px}
   font-weight:900;
   letter-spacing:.7px;
 }
+
 .game{
   overflow:hidden;
-  position:relative;
   border:1px solid var(--line);
   border-radius:22px;
   background:var(--surface);
@@ -142,9 +137,7 @@ main{padding:28px 0 38px}
   height:4px;
   background:linear-gradient(90deg,var(--red) 0 50%,#244d80 50%);
 }
-.game-body{
-  padding:21px;
-}
+.game-body{padding:21px}
 .game-label{
   color:var(--muted);
   font-size:8px;
@@ -170,10 +163,8 @@ main{padding:28px 0 38px}
   font-size:9px;
 }
 .vs{
-  width:34px;
-  height:34px;
-  display:grid;
-  place-items:center;
+  width:34px;height:34px;
+  display:grid;place-items:center;
   margin:auto;
   border:1px solid var(--line);
   border-radius:50%;
@@ -190,18 +181,10 @@ main{padding:28px 0 38px}
   padding-top:15px;
   border-top:1px solid var(--line);
 }
-.game-time{
-  font-size:12px;
-  font-weight:850;
-}
-.game-venue{
-  color:var(--muted);
-  font-size:9px;
-}
-.news-list{
-  display:grid;
-  gap:8px;
-}
+.game-time{font-size:12px;font-weight:850}
+.game-venue{color:var(--muted);font-size:9px}
+
+.news-list{display:grid;gap:8px}
 .news{
   display:grid;
   grid-template-columns:74px 1fr;
@@ -214,17 +197,14 @@ main{padding:28px 0 38px}
 .news-image{
   height:62px;
   border-radius:9px;
-  background:
-    linear-gradient(135deg,#122f55,#091d38);
+  background:linear-gradient(135deg,#122f55,#091d38);
   position:relative;
   overflow:hidden;
 }
 .news-image:before{
   content:"";
   position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
+  left:0;top:0;bottom:0;
   width:4px;
   background:var(--red);
 }
@@ -245,28 +225,102 @@ main{padding:28px 0 38px}
   color:var(--muted);
   font-size:8px;
 }
-.schedule-list{
-  display:grid;
-  gap:8px;
+
+/* SCHEDULE */
+
+.schedule-toolbar{
+  display:flex;
+  gap:7px;
   margin-top:22px;
+  overflow:auto;
+  scrollbar-width:none;
 }
-.schedule-item{
+.schedule-toolbar::-webkit-scrollbar{display:none}
+.month-button{
+  flex:0 0 auto;
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--surface);
+  color:var(--muted);
+  font-size:9px;
+  font-weight:850;
+}
+.month-button.active{
+  border-color:rgba(227,24,55,.45);
+  background:rgba(227,24,55,.1);
+  color:var(--red);
+}
+
+.schedule-block{
+  margin-top:25px;
+}
+.schedule-month{
+  margin-bottom:10px;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+.schedule-list{display:grid;gap:8px}
+
+.schedule-card{
+  position:relative;
   display:grid;
-  grid-template-columns:55px 1fr auto;
+  grid-template-columns:52px 1fr auto;
   align-items:center;
   gap:12px;
-  padding:15px;
+  min-height:82px;
+  padding:13px;
   border:1px solid var(--line);
   border-radius:16px;
   background:var(--surface);
 }
-.schedule-date{
-  color:var(--red);
-  font-size:10px;
+.schedule-card.today{
+  border-color:rgba(227,24,55,.35);
+  background:
+    linear-gradient(90deg,rgba(227,24,55,.08),transparent 45%),
+    var(--surface);
+}
+.schedule-card.today:before{
+  content:"";
+  position:absolute;
+  left:0;top:14px;bottom:14px;
+  width:3px;
+  border-radius:0 3px 3px 0;
+  background:var(--red);
+}
+.schedule-date{text-align:center}
+.schedule-day{
+  color:var(--muted);
+  font-size:8px;
   font-weight:900;
 }
+.schedule-number{
+  margin-top:2px;
+  font-size:22px;
+  font-weight:950;
+  line-height:1;
+}
+.schedule-card.today .schedule-number{color:var(--red)}
+
 .schedule-opponent{
-  font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.mini-logo{
+  width:32px;height:32px;
+  display:grid;place-items:center;
+  flex:0 0 32px;
+  border-radius:9px;
+  background:var(--surface2);
+  color:var(--white);
+  font-size:8px;
+  font-weight:950;
+}
+.schedule-team{
+  font-size:12px;
   font-weight:850;
 }
 .schedule-location{
@@ -274,44 +328,142 @@ main{padding:28px 0 38px}
   color:var(--muted);
   font-size:8px;
 }
-.schedule-time{
+.schedule-result{text-align:right}
+.result-time{
   font-size:10px;
   font-weight:850;
+}
+.result-label{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:8px;
+}
+.result-win{color:var(--green)}
+.result-loss{color:var(--red)}
+
+/* PLAYERS */
+
+.player-controls{
+  display:flex;
+  gap:7px;
+  margin-top:22px;
+  overflow:auto;
+  scrollbar-width:none;
+}
+.player-controls::-webkit-scrollbar{display:none}
+
+.filter{
+  flex:0 0 auto;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--surface);
+  color:var(--muted);
+  font-size:9px;
+  font-weight:850;
+}
+.filter.active{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+}
+
+.player-section{margin-top:27px}
+.player-section-title{
+  margin-bottom:10px;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.5px;
 }
 .player-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:9px;
-  margin-top:22px;
 }
+
 .player{
-  min-height:150px;
-  padding:14px;
+  position:relative;
+  overflow:hidden;
+  min-height:181px;
+  padding:11px;
   border:1px solid var(--line);
   border-radius:17px;
   background:var(--surface);
 }
 .player-photo{
-  height:82px;
+  position:relative;
+  height:105px;
+  overflow:hidden;
   border-radius:11px;
-  background:linear-gradient(145deg,#122f55,#091d38);
+  background:
+    radial-gradient(circle at 50% 25%,#385b83 0 16%,transparent 17%),
+    linear-gradient(145deg,#16365f,#091d38);
+}
+.player-photo:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-27px;
+  transform:translateX(-50%);
+  width:75px;height:75px;
+  border-radius:50% 50% 0 0;
+  background:#1b3d68;
 }
 .player-number{
-  margin-top:10px;
-  color:var(--red);
-  font-size:9px;
-  font-weight:900;
+  position:absolute;
+  top:116px;
+  right:13px;
+  color:rgba(255,255,255,.22);
+  font-size:18px;
+  font-weight:950;
 }
 .player-name{
-  margin-top:3px;
+  margin-top:10px;
+  padding-right:25px;
   font-size:12px;
-  font-weight:850;
+  font-weight:900;
+  line-height:1.2;
+}
+.player-meta{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:4px;
 }
 .player-position{
-  margin-top:3px;
+  color:var(--red);
+  font-size:8px;
+  font-weight:900;
+}
+.player-bat{
   color:var(--muted);
   font-size:8px;
 }
+
+.roster-status{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:18px;
+  padding:11px 13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--surface);
+}
+.roster-status-label{
+  color:var(--muted);
+  font-size:8px;
+  font-weight:850;
+}
+.roster-status-value{
+  color:var(--green);
+  font-size:8px;
+  font-weight:900;
+}
+
+/* NAV */
+
 .bottom-nav{
   position:fixed;
   z-index:100;
@@ -325,9 +477,10 @@ main{padding:28px 0 38px}
   padding:5px;
   border:1px solid rgba(255,255,255,.1);
   border-radius:23px;
-  background:rgba(11,33,65,.94);
+  background:rgba(11,33,65,.95);
   box-shadow:0 18px 45px rgba(0,0,0,.4);
   backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
 }
 .nav{
   position:relative;
@@ -340,10 +493,7 @@ main{padding:28px 0 38px}
   background:none;
   color:#71839c;
 }
-.nav svg{
-  width:20px;
-  height:20px;
-}
+.nav svg{width:20px;height:20px}
 .nav span{
   font-size:8px;
   font-weight:900;
@@ -353,12 +503,12 @@ main{padding:28px 0 38px}
 .nav.active:before{
   content:"";
   position:absolute;
-  width:44px;
-  height:44px;
+  width:44px;height:44px;
   border-radius:14px;
   background:rgba(227,24,55,.1);
   z-index:-1;
 }
+
 @media(min-width:760px){
   .container{width:min(calc(100% - 48px),1100px)}
   .topbar-inner{height:76px}
@@ -369,12 +519,8 @@ main{padding:28px 0 38px}
     gap:28px;
     margin-top:28px;
   }
-  .home-layout .section{
-    margin-top:0;
-  }
-  .player-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
+  .home-layout .section{margin-top:0}
+  .player-grid{grid-template-columns:repeat(4,1fr)}
 }
 </style>
 </head>
@@ -383,7 +529,7 @@ main{padding:28px 0 38px}
 <div class="app">
 
 <header class="topbar">
-<div class="topbar:before"></div>
+<div class="topbar-line"></div>
 <div class="container topbar-inner">
 <div class="logo">
 <div class="logo-mark">P</div>
@@ -402,12 +548,12 @@ main{padding:28px 0 38px}
 <section class="page active" id="home">
 <div class="eyebrow">PHILADELPHIA PHILLIES</div>
 <h1 class="heading">Home</h1>
-<div class="date">Your personal Phillies dashboard</div>
+<div class="subheading">Your personal Phillies dashboard</div>
 
 <div class="home-layout">
 
 <div>
-<div class="section" style="margin-top:0">
+<div class="section">
 <div class="section-head">
 <div class="section-title">Next Game</div>
 </div>
@@ -426,8 +572,8 @@ main{padding:28px 0 38px}
 <div class="vs">VS</div>
 
 <div class="team">
-<div class="team-code">OPP</div>
-<div class="team-name">Opponent</div>
+<div class="team-code">NYM</div>
+<div class="team-name">Mets</div>
 </div>
 </div>
 
@@ -452,8 +598,8 @@ main{padding:28px 0 38px}
 <div class="news-image"></div>
 <div>
 <div class="news-category">PHILLIES</div>
-<div class="news-title">Latest Phillies news will appear here.</div>
-<div class="news-time">Today</div>
+<div class="news-title">Phillies prepare for another important series.</div>
+<div class="news-time">2h ago</div>
 </div>
 </article>
 
@@ -461,8 +607,8 @@ main{padding:28px 0 38px}
 <div class="news-image"></div>
 <div>
 <div class="news-category">MLB</div>
-<div class="news-title">Team updates and important stories.</div>
-<div class="news-time">Today</div>
+<div class="news-title">Around the league: latest updates.</div>
+<div class="news-time">4h ago</div>
 </div>
 </article>
 
@@ -470,7 +616,7 @@ main{padding:28px 0 38px}
 <div class="news-image"></div>
 <div>
 <div class="news-category">TEAM</div>
-<div class="news-title">Everything Phillies in one place.</div>
+<div class="news-title">Roster and team news from Philadelphia.</div>
 <div class="news-time">Yesterday</div>
 </div>
 </article>
@@ -479,71 +625,223 @@ main{padding:28px 0 38px}
 </div>
 
 </div>
+</div>
 </section>
 
 <section class="page" id="schedule">
 <div class="eyebrow">PHILADELPHIA PHILLIES</div>
 <h1 class="heading">Schedule</h1>
-<div class="date">Games & results</div>
+<div class="subheading">Games & results</div>
+
+<div class="schedule-toolbar">
+<button class="month-button active">AUG 2026</button>
+<button class="month-button">SEP 2026</button>
+<button class="month-button">OCT 2026</button>
+</div>
+
+<div class="schedule-block">
+<div class="schedule-month">AUGUST 2026</div>
 
 <div class="schedule-list">
 
-<div class="schedule-item">
-<div class="schedule-date">AUG<br>12</div>
-<div>
-<div class="schedule-opponent">vs Opponent</div>
-<div class="schedule-location">Citizens Bank Park</div>
+<div class="schedule-card">
+<div class="schedule-date">
+<div class="schedule-day">MON</div>
+<div class="schedule-number">10</div>
 </div>
-<div class="schedule-time">7:05 PM</div>
+<div class="schedule-opponent">
+<div class="mini-logo">MIA</div>
+<div>
+<div class="schedule-team">Marlins</div>
+<div class="schedule-location">Away · loanDepot park</div>
+</div>
+</div>
+<div class="schedule-result">
+<div class="result-time">7:10 PM</div>
+<div class="result-label">FINAL</div>
+</div>
 </div>
 
-<div class="schedule-item">
-<div class="schedule-date">AUG<br>13</div>
-<div>
-<div class="schedule-opponent">vs Opponent</div>
-<div class="schedule-location">Citizens Bank Park</div>
+<div class="schedule-card">
+<div class="schedule-date">
+<div class="schedule-day">TUE</div>
+<div class="schedule-number">11</div>
 </div>
-<div class="schedule-time">6:45 PM</div>
+<div class="schedule-opponent">
+<div class="mini-logo">MIA</div>
+<div>
+<div class="schedule-team">Marlins</div>
+<div class="schedule-location">Away · loanDepot park</div>
+</div>
+</div>
+<div class="schedule-result">
+<div class="result-time result-win">W 5–2</div>
+<div class="result-label">FINAL</div>
+</div>
 </div>
 
+<div class="schedule-card today">
+<div class="schedule-date">
+<div class="schedule-day">WED</div>
+<div class="schedule-number">12</div>
+</div>
+<div class="schedule-opponent">
+<div class="mini-logo">NYM</div>
+<div>
+<div class="schedule-team">Mets</div>
+<div class="schedule-location">Home · Citizens Bank Park</div>
+</div>
+</div>
+<div class="schedule-result">
+<div class="result-time">7:05 PM</div>
+<div class="result-label">TODAY</div>
+</div>
+</div>
+
+<div class="schedule-card">
+<div class="schedule-date">
+<div class="schedule-day">THU</div>
+<div class="schedule-number">13</div>
+</div>
+<div class="schedule-opponent">
+<div class="mini-logo">NYM</div>
+<div>
+<div class="schedule-team">Mets</div>
+<div class="schedule-location">Home · Citizens Bank Park</div>
+</div>
+</div>
+<div class="schedule-result">
+<div class="result-time">6:45 PM</div>
+<div class="result-label">UPCOMING</div>
+</div>
+</div>
+
+<div class="schedule-card">
+<div class="schedule-date">
+<div class="schedule-day">FRI</div>
+<div class="schedule-number">14</div>
+</div>
+<div class="schedule-opponent">
+<div class="mini-logo">ATL</div>
+<div>
+<div class="schedule-team">Braves</div>
+<div class="schedule-location">Home · Citizens Bank Park</div>
+</div>
+</div>
+<div class="schedule-result">
+<div class="result-time">7:05 PM</div>
+<div class="result-label">UPCOMING</div>
+</div>
+</div>
+
+</div>
 </div>
 </section>
 
 <section class="page" id="players">
 <div class="eyebrow">PHILADELPHIA PHILLIES</div>
 <h1 class="heading">Players</h1>
-<div class="date">Roster</div>
+<div class="subheading">Current roster</div>
 
-<div class="player-grid">
-
-<div class="player">
-<div class="player-photo"></div>
-<div class="player-number">#00</div>
-<div class="player-name">Player Name</div>
-<div class="player-position">Position</div>
+<div class="roster-status">
+<div class="roster-status-label">ROSTER DATA</div>
+<div class="roster-status-value">UP TO DATE</div>
 </div>
 
-<div class="player">
-<div class="player-photo"></div>
-<div class="player-number">#00</div>
-<div class="player-name">Player Name</div>
-<div class="player-position">Position</div>
+<div class="player-controls">
+<button class="filter active" data-filter="all">ALL</button>
+<button class="filter" data-filter="pitchers">PITCHERS</button>
+<button class="filter" data-filter="catchers">CATCHERS</button>
+<button class="filter" data-filter="infield">INFIELD</button>
+<button class="filter" data-filter="outfield">OUTFIELD</button>
 </div>
 
-<div class="player">
-<div class="player-photo"></div>
-<div class="player-number">#00</div>
-<div class="player-name">Player Name</div>
-<div class="player-position">Position</div>
-</div>
+<div class="player-section">
+<div class="player-section-title">ROSTER</div>
 
-<div class="player">
-<div class="player-photo"></div>
-<div class="player-number">#00</div>
-<div class="player-name">Player Name</div>
-<div class="player-position">Position</div>
-</div>
+<div class="player-grid" id="playerGrid">
 
+<article class="player" data-position="infield">
+<div class="player-photo"></div>
+<div class="player-number">13</div>
+<div class="player-name">Bryce Harper</div>
+<div class="player-meta">
+<div class="player-position">1B</div>
+<div class="player-bat">L/L</div>
+</div>
+</article>
+
+<article class="player" data-position="outfield">
+<div class="player-photo"></div>
+<div class="player-number">3</div>
+<div class="player-name">Bryson Stott</div>
+<div class="player-meta">
+<div class="player-position">2B</div>
+<div class="player-bat">L/R</div>
+</div>
+</article>
+
+<article class="player" data-position="outfield">
+<div class="player-photo"></div>
+<div class="player-number">28</div>
+<div class="player-name">Alec Bohm</div>
+<div class="player-meta">
+<div class="player-position">3B</div>
+<div class="player-bat">R/R</div>
+</div>
+</article>
+
+<article class="player" data-position="outfield">
+<div class="player-photo"></div>
+<div class="player-number">17</div>
+<div class="player-name">Kyle Schwarber</div>
+<div class="player-meta">
+<div class="player-position">OF</div>
+<div class="player-bat">L/R</div>
+</div>
+</article>
+
+<article class="player" data-position="catchers">
+<div class="player-photo"></div>
+<div class="player-number">10</div>
+<div class="player-name">J.T. Realmuto</div>
+<div class="player-meta">
+<div class="player-position">C</div>
+<div class="player-bat">R/R</div>
+</div>
+</article>
+
+<article class="player" data-position="outfield">
+<div class="player-photo"></div>
+<div class="player-number">8</div>
+<div class="player-name">Nick Castellanos</div>
+<div class="player-meta">
+<div class="player-position">OF</div>
+<div class="player-bat">R/R</div>
+</div>
+</article>
+
+<article class="player" data-position="pitchers">
+<div class="player-photo"></div>
+<div class="player-number">48</div>
+<div class="player-name">Ranger Suárez</div>
+<div class="player-meta">
+<div class="player-position">P</div>
+<div class="player-bat">L/L</div>
+</div>
+</article>
+
+<article class="player" data-position="pitchers">
+<div class="player-photo"></div>
+<div class="player-number">45</div>
+<div class="player-name">Zack Wheeler</div>
+<div class="player-meta">
+<div class="player-position">P</div>
+<div class="player-bat">R/R</div>
+</div>
+</article>
+
+</div>
 </div>
 </section>
 
@@ -598,6 +896,26 @@ navs.forEach(nav=>{
     window.scrollTo({top:0,behavior:"smooth"});
   });
 });
+
+const filters=document.querySelectorAll(".filter");
+const players=document.querySelectorAll(".player");
+
+filters.forEach(filter=>{
+  filter.addEventListener("click",()=>{
+    const target=filter.dataset.filter;
+
+    filters.forEach(item=>item.classList.remove("active"));
+    filter.classList.add("active");
+
+    players.forEach(player=>{
+      player.style.display=
+        target==="all"||player.dataset.position===target
+        ?"block"
+        :"none";
+    });
+  });
+});
 </script>
+
 </body>
 </html>
