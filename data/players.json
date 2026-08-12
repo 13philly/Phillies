@@ -1,712 +1,624 @@
 {
-  "team": {
-    "id": 143,
-    "name": "Philadelphia Phillies",
-    "abbreviation": "PHI"
-  },
-  "updatedAt": "2026-08-12T02:43:44.726Z",
+  "updatedAt": "2026-08-12T02:53:06.516Z",
+  "source": "MLB StatsAPI",
+  "teamId": 143,
+  "rosterBasis": "40-Man",
   "players": [
     {
-      "id": 804523,
-      "name": "Casey Steward",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-08-02",
-      "height": "6' 5\"",
-      "weight": 260
-    },
-    {
-      "id": 687362,
-      "name": "Connor Gillispie",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1997-11-10",
-      "height": "5' 11\"",
-      "weight": 185
-    },
-    {
-      "id": 694839,
-      "name": "Ethan Chenault",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-03-28",
-      "height": "6' 5\"",
-      "weight": 200
-    },
-    {
-      "id": 686651,
-      "name": "Levi Stoudt",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1997-12-04",
-      "height": "6' 1\"",
-      "weight": 195
-    },
-    {
-      "id": 815005,
-      "name": "Nathanael Cijntje",
-      "number": "",
-      "position": "OF",
-      "positionName": "Outfield",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2007-01-16",
-      "height": "5' 9\"",
-      "weight": 166
-    },
-    {
-      "id": 667744,
-      "name": "Wesley Moore",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1999-09-05",
-      "height": "6' 2\"",
-      "weight": 200
-    },
-    {
-      "id": 808253,
-      "name": "Yhoan Escalona",
-      "number": "",
-      "position": "C",
-      "positionName": "Catcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2005-11-04",
-      "height": "6' 2\"",
-      "weight": 185
-    },
-    {
-      "id": 821486,
-      "name": "Zack Tukis",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2002-09-10",
-      "height": "6' 5\"",
-      "weight": 180
-    },
-    {
-      "id": 815003,
-      "name": "Jalvin Arias",
-      "number": "44",
-      "position": "OF",
-      "positionName": "Outfield",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2006-10-01",
-      "height": "6' 2\"",
-      "weight": 230
-    },
-    {
-      "id": 815004,
-      "name": "Maylerson Casanova",
-      "number": "97",
-      "position": "IF",
-      "positionName": "Infield",
-      "status": "IL",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2006-11-13",
-      "height": "5' 11\"",
-      "weight": 165
-    },
-    {
-      "id": 702222,
-      "name": "Justin Crawford",
-      "number": "2",
-      "position": "CF",
-      "positionName": "Outfielder",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "2004-01-13",
-      "height": "6' 2\"",
-      "weight": 188
-    },
-    {
-      "id": 547180,
-      "name": "Bryce Harper",
-      "number": "3",
-      "position": "1B",
-      "positionName": "First Base",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1992-10-16",
-      "height": "6' 1\"",
-      "weight": 210
-    },
-    {
-      "id": 650333,
-      "name": "Luis Arraez",
-      "number": "4",
-      "position": "2B",
-      "positionName": "Second Base",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1997-04-09",
-      "height": "5' 10\"",
-      "weight": 186
-    },
-    {
-      "id": 681082,
-      "name": "Bryson Stott",
-      "number": "5",
-      "position": "2B",
-      "positionName": "Second Base",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1997-10-06",
-      "height": "6' 0\"",
-      "weight": 200
-    },
-    {
-      "id": 607208,
-      "name": "Trea Turner",
-      "number": "7",
-      "position": "SS",
-      "positionName": "Shortstop",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1993-06-30",
-      "height": "6' 1\"",
-      "weight": 185
-    },
-    {
-      "id": 592663,
-      "name": "J.T. Realmuto",
-      "number": "10",
-      "position": "C",
-      "positionName": "Catcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1991-03-18",
-      "height": "6' 0\"",
-      "weight": 212
-    },
-    {
-      "id": 656941,
-      "name": "Kyle Schwarber",
-      "number": "12",
-      "position": "DH",
-      "positionName": "Designated Hitter",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1993-03-05",
-      "height": "5' 11\"",
-      "weight": 229
-    },
-    {
-      "id": 669016,
-      "name": "Brandon Marsh",
-      "number": "16",
-      "position": "LF",
-      "positionName": "Outfielder",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1997-12-18",
-      "height": "6' 2\"",
-      "weight": 215
-    },
-    {
-      "id": 596117,
-      "name": "Garrett Stubbs",
-      "number": "21",
-      "position": "C",
-      "positionName": "Catcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1993-05-26",
-      "height": "5' 9\"",
-      "weight": 170
-    },
-    {
-      "id": 691725,
-      "name": "Andrew Painter",
-      "number": "24",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2003-04-10",
-      "height": "6' 7\"",
-      "weight": 215
-    },
-    {
-      "id": 605400,
-      "name": "Aaron Nola",
-      "number": "27",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1993-06-04",
-      "height": "6' 2\"",
-      "weight": 200
-    },
-    {
-      "id": 664761,
-      "name": "Alec Bohm",
-      "number": "28",
-      "position": "3B",
-      "positionName": "Third Base",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1996-08-03",
-      "height": "6' 4\"",
-      "weight": 218
-    },
-    {
-      "id": 548384,
-      "name": "Brooks Raley",
-      "number": "30",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1988-06-29",
-      "height": "6' 3\"",
-      "weight": 200
-    },
-    {
-      "id": 624641,
-      "name": "Edmundo Sosa",
-      "number": "33",
-      "position": "LF",
-      "positionName": "Outfielder",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1996-03-06",
-      "height": "5' 11\"",
-      "weight": 210
-    },
-    {
-      "id": 641835,
-      "name": "Tim Mayza",
-      "number": "37",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1992-01-15",
-      "height": "6' 3\"",
-      "weight": 215
-    },
-    {
-      "id": 650559,
-      "name": "Bryan De La Cruz",
-      "number": "41",
-      "position": "RF",
-      "positionName": "Outfielder",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1996-12-16",
-      "height": "6' 0\"",
-      "weight": 175
-    },
-    {
-      "id": 666200,
-      "name": "Jesús Luzardo",
-      "number": "44",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1997-09-30",
-      "height": "6' 0\"",
-      "weight": 218
-    },
-    {
-      "id": 554430,
-      "name": "Zack Wheeler",
-      "number": "45",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1990-05-30",
-      "height": "6' 4\"",
-      "weight": 195
-    },
-    {
-      "id": 621237,
-      "name": "José Alvarado",
-      "number": "46",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1995-05-21",
-      "height": "6' 2\"",
-      "weight": 245
-    },
-    {
-      "id": 656537,
-      "name": "Derek Hill",
-      "number": "49",
-      "position": "CF",
-      "positionName": "Outfielder",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1995-12-30",
-      "height": "6' 0\"",
-      "weight": 206
-    },
-    {
-      "id": 689147,
-      "name": "Orion Kerkering",
-      "number": "50",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-04-04",
-      "height": "6' 2\"",
-      "weight": 204
-    },
-    {
-      "id": 680742,
-      "name": "Jonathan Bowlan",
-      "number": "52",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1996-12-01",
-      "height": "6' 6\"",
-      "weight": 240
-    },
-    {
-      "id": 663767,
-      "name": "Chase Shugart",
-      "number": "55",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "1996-10-24",
-      "height": "5' 11\"",
-      "weight": 200
-    },
-    {
-      "id": 661395,
-      "name": "Jhoan Duran",
-      "number": "59",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1998-01-08",
-      "height": "6' 5\"",
-      "weight": 230
-    },
-    {
-      "id": 650911,
-      "name": "Cristopher Sánchez",
-      "number": "61",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1996-12-12",
-      "height": "6' 6\"",
-      "weight": 200
-    },
-    {
-      "id": 686934,
-      "name": "Alex McFarlane",
-      "number": "71",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "ACTIVE",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-06-09",
-      "height": "6' 3\"",
-      "weight": 215
-    },
-    {
-      "id": 686551,
-      "name": "Christian Cairo",
-      "number": "",
-      "position": "SS",
-      "positionName": "Shortstop",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-06-11",
-      "height": "5' 8\"",
-      "weight": 185
-    },
-    {
-      "id": 687515,
-      "name": "Colby Thomas",
-      "number": "",
-      "position": "RF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-01-26",
-      "height": "5' 10\"",
-      "weight": 190
-    },
-    {
-      "id": 680880,
-      "name": "Grant Holman",
-      "number": "",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2000-05-31",
-      "height": "6' 6\"",
-      "weight": 250
-    },
-    {
-      "id": 670224,
-      "name": "Kameron Misner",
-      "number": "",
-      "position": "CF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1998-01-09",
-      "height": "6' 3\"",
-      "weight": 220
-    },
-    {
-      "id": 805249,
-      "name": "Otto Kemp",
-      "number": "4",
-      "position": "LF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1999-09-09",
-      "height": "5' 11\"",
-      "weight": 185
-    },
-    {
-      "id": 665561,
-      "name": "Rafael Marchán",
-      "number": "13",
-      "position": "C",
-      "positionName": "Catcher",
-      "status": "40-MAN",
-      "bats": "S",
-      "throws": "R",
-      "birthDate": "1999-02-25",
-      "height": "5' 9\"",
-      "weight": 170
-    },
-    {
-      "id": 687282,
-      "name": "Gabriel Rincones Jr.",
-      "number": "17",
-      "position": "RF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "L",
-      "throws": "R",
-      "birthDate": "2001-03-03",
-      "height": "6' 3\"",
-      "weight": 225
-    },
-    {
-      "id": 679775,
-      "name": "Kyle Backhus",
-      "number": "19",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "L",
-      "throws": "L",
-      "birthDate": "1998-01-31",
-      "height": "6' 4\"",
-      "weight": 185
-    },
-    {
-      "id": 679032,
-      "name": "Johan Rojas",
-      "number": "23",
-      "position": "CF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2000-08-14",
-      "height": "5' 11\"",
-      "weight": 165
-    },
-    {
-      "id": 694025,
-      "name": "Felix Reyes",
-      "number": "29",
-      "position": "LF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2001-03-26",
-      "height": "6' 3\"",
-      "weight": 195
+      "id": 666969,
+      "name": "Adolis García",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "53",
+      "position": {
+        "abbreviation": "RF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
     },
     {
       "id": 641745,
       "name": "Brad Keller",
-      "number": "40",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1995-07-27",
-      "height": "6' 5\"",
-      "weight": 255
-    },
-    {
-      "id": 662144,
-      "name": "Brian Keller",
-      "number": "48",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1994-06-21",
-      "height": "6' 3\"",
-      "weight": 210
-    },
-    {
-      "id": 666969,
-      "name": "Adolis García",
-      "number": "53",
-      "position": "RF",
-      "positionName": "Outfielder",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1993-03-02",
-      "height": "6' 0\"",
-      "weight": 205
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "40",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
     },
     {
       "id": 668873,
       "name": "Caleb Kilian",
-      "number": "56",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1997-06-02",
-      "height": "6' 4\"",
-      "weight": 206
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "56",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
     },
     {
-      "id": 660604,
-      "name": "Alan Rangel",
-      "number": "57",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1997-08-21",
-      "height": "6' 2\"",
-      "weight": 170
+      "id": 679032,
+      "name": "Johan Rojas",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "23",
+      "position": {
+        "abbreviation": "CF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
+    },
+    {
+      "id": 665561,
+      "name": "Rafael Marchán",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "13",
+      "position": {
+        "abbreviation": "C",
+        "name": "Catcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
     },
     {
       "id": 621383,
       "name": "Tanner Banks",
-      "number": "58",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "L",
-      "birthDate": "1991-10-24",
-      "height": "6' 1\"",
-      "weight": 205
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "58",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "IL"
+    },
+    {
+      "id": 605400,
+      "name": "Aaron Nola",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "27",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 664761,
+      "name": "Alec Bohm",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "28",
+      "position": {
+        "abbreviation": "3B",
+        "name": "Third Base"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 686934,
+      "name": "Alex McFarlane",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "71",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 691725,
+      "name": "Andrew Painter",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "24",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 669016,
+      "name": "Brandon Marsh",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "16",
+      "position": {
+        "abbreviation": "LF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 548384,
+      "name": "Brooks Raley",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "30",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 650559,
+      "name": "Bryan De La Cruz",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "41",
+      "position": {
+        "abbreviation": "RF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 547180,
+      "name": "Bryce Harper",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "3",
+      "position": {
+        "abbreviation": "1B",
+        "name": "First Base"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 681082,
+      "name": "Bryson Stott",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "5",
+      "position": {
+        "abbreviation": "2B",
+        "name": "Second Base"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 663767,
+      "name": "Chase Shugart",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "55",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 650911,
+      "name": "Cristopher Sánchez",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "61",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 656537,
+      "name": "Derek Hill",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "49",
+      "position": {
+        "abbreviation": "CF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 624641,
+      "name": "Edmundo Sosa",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "33",
+      "position": {
+        "abbreviation": "LF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 596117,
+      "name": "Garrett Stubbs",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "21",
+      "position": {
+        "abbreviation": "C",
+        "name": "Catcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 592663,
+      "name": "J.T. Realmuto",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "10",
+      "position": {
+        "abbreviation": "C",
+        "name": "Catcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 666200,
+      "name": "Jesús Luzardo",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "44",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 661395,
+      "name": "Jhoan Duran",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "59",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 680742,
+      "name": "Jonathan Bowlan",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "52",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 621237,
+      "name": "José Alvarado",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "46",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 702222,
+      "name": "Justin Crawford",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "2",
+      "position": {
+        "abbreviation": "CF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 656941,
+      "name": "Kyle Schwarber",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "12",
+      "position": {
+        "abbreviation": "DH",
+        "name": "Designated Hitter"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 650333,
+      "name": "Luis Arraez",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "4",
+      "position": {
+        "abbreviation": "2B",
+        "name": "Second Base"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 689147,
+      "name": "Orion Kerkering",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "50",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 641835,
+      "name": "Tim Mayza",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "37",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 607208,
+      "name": "Trea Turner",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "7",
+      "position": {
+        "abbreviation": "SS",
+        "name": "Shortstop"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 554430,
+      "name": "Zack Wheeler",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "45",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "ACTIVE"
+    },
+    {
+      "id": 660604,
+      "name": "Alan Rangel",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "57",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 662144,
+      "name": "Brian Keller",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "48",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 686551,
+      "name": "Christian Cairo",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": null,
+      "position": {
+        "abbreviation": "SS",
+        "name": "Shortstop"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 687515,
+      "name": "Colby Thomas",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": null,
+      "position": {
+        "abbreviation": "RF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 694025,
+      "name": "Felix Reyes",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "29",
+      "position": {
+        "abbreviation": "LF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 687282,
+      "name": "Gabriel Rincones Jr.",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "17",
+      "position": {
+        "abbreviation": "RF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 680880,
+      "name": "Grant Holman",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": null,
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 670224,
+      "name": "Kameron Misner",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": null,
+      "position": {
+        "abbreviation": "CF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 679775,
+      "name": "Kyle Backhus",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "19",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
     },
     {
       "id": 676661,
       "name": "Max Lazar",
-      "number": "60",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "1999-06-03",
-      "height": "6' 1\"",
-      "weight": 200
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "60",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
     },
     {
       "id": 691330,
       "name": "Moisés Chace",
-      "number": "75",
-      "position": "P",
-      "positionName": "Pitcher",
-      "status": "40-MAN",
-      "bats": "R",
-      "throws": "R",
-      "birthDate": "2003-06-09",
-      "height": "6' 1\"",
-      "weight": 213
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "75",
+      "position": {
+        "abbreviation": "P",
+        "name": "Pitcher"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
+    },
+    {
+      "id": 805249,
+      "name": "Otto Kemp",
+      "firstName": "",
+      "lastName": "",
+      "jerseyNumber": "4",
+      "position": {
+        "abbreviation": "LF",
+        "name": "Outfielder"
+      },
+      "bats": "",
+      "throws": "",
+      "rosterType": "40-MAN"
     }
   ]
 }
