@@ -1,624 +1,3245 @@
 {
-  "updatedAt": "2026-08-12T02:53:06.516Z",
-  "source": "MLB StatsAPI",
-  "teamId": 143,
-  "rosterBasis": "40-Man",
+  "team": {
+    "id": 143,
+    "name": "Philadelphia Phillies"
+  },
+  "season": 2026,
+  "updatedAt": "2026-08-12T03:03:41.170Z",
+  "source": "MLB Stats API",
   "players": [
-    {
-      "id": 666969,
-      "name": "Adolis García",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "53",
-      "position": {
-        "abbreviation": "RF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
-    {
-      "id": 641745,
-      "name": "Brad Keller",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "40",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
-    {
-      "id": 668873,
-      "name": "Caleb Kilian",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "56",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
-    {
-      "id": 679032,
-      "name": "Johan Rojas",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "23",
-      "position": {
-        "abbreviation": "CF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
-    {
-      "id": 665561,
-      "name": "Rafael Marchán",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "13",
-      "position": {
-        "abbreviation": "C",
-        "name": "Catcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
-    {
-      "id": 621383,
-      "name": "Tanner Banks",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "58",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "IL"
-    },
     {
       "id": 605400,
       "name": "Aaron Nola",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "27",
+      "firstName": "Aaron",
+      "lastName": "Nola",
+      "number": "27",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 200,
+        "birthDate": "1993-06-04",
+        "birthCity": "Baton Rouge",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 24,
+            "gamesStarted": 24,
+            "wins": 3,
+            "losses": 9,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "125.0",
+            "hits": 138,
+            "runs": 78,
+            "earnedRuns": 76,
+            "homeRuns": 29,
+            "baseOnBalls": 43,
+            "strikeOuts": 129,
+            "era": "5.47",
+            "whip": "1.45"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "2.09",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".630"
+          },
+          "sabermetrics": {
+            "war": 0.589499,
+            "fip": 5.09799,
+            "xfip": 3.9395,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:35.667Z"
     },
     {
-      "id": 664761,
-      "name": "Alec Bohm",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "28",
+      "id": 666969,
+      "name": "Adolis García",
+      "firstName": "Jose",
+      "lastName": "García",
+      "number": "53",
       "position": {
-        "abbreviation": "3B",
-        "name": "Third Base"
+        "code": "9",
+        "name": "Outfielder",
+        "abbreviation": "RF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 686934,
-      "name": "Alex McFarlane",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "71",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 691725,
-      "name": "Andrew Painter",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "24",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 205,
+        "birthDate": "1993-03-02",
+        "birthCity": "Ciego de Avila",
+        "birthCountry": "Cuba"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 669016,
-      "name": "Brandon Marsh",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "16",
-      "position": {
-        "abbreviation": "LF",
-        "name": "Outfielder"
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 548384,
-      "name": "Brooks Raley",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "30",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 67,
+            "plateAppearances": 259,
+            "atBats": 231,
+            "runs": 21,
+            "hits": 45,
+            "doubles": 8,
+            "triples": 1,
+            "homeRuns": 7,
+            "rbi": 21,
+            "baseOnBalls": 21,
+            "strikeOuts": 84,
+            "stolenBases": 3,
+            "caughtStealing": 0,
+            "avg": ".195",
+            "obp": ".270",
+            "slg": ".329",
+            "ops": ".599",
+            "babip": ".266",
+            "totalBases": 76
+          },
+          "advanced": {
+            "iso": ".134",
+            "pitchesPerPlateAppearance": "4.178",
+            "walksPerPlateAppearance": ".081",
+            "strikeoutsPerPlateAppearance": ".324",
+            "homeRunsPerPlateAppearance": ".027",
+            "walksPerStrikeout": ".250",
+            "extraBaseHits": 16
+          },
+          "sabermetrics": {
+            "war": 0.00932,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.267888
+          }
+        },
+        "pitching": null
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 650559,
-      "name": "Bryan De La Cruz",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "41",
-      "position": {
-        "abbreviation": "RF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 547180,
-      "name": "Bryce Harper",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "3",
-      "position": {
-        "abbreviation": "1B",
-        "name": "First Base"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 681082,
-      "name": "Bryson Stott",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "5",
-      "position": {
-        "abbreviation": "2B",
-        "name": "Second Base"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 663767,
-      "name": "Chase Shugart",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "55",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 650911,
-      "name": "Cristopher Sánchez",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "61",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 656537,
-      "name": "Derek Hill",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "49",
-      "position": {
-        "abbreviation": "CF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 624641,
-      "name": "Edmundo Sosa",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "33",
-      "position": {
-        "abbreviation": "LF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 596117,
-      "name": "Garrett Stubbs",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "21",
-      "position": {
-        "abbreviation": "C",
-        "name": "Catcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 592663,
-      "name": "J.T. Realmuto",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "10",
-      "position": {
-        "abbreviation": "C",
-        "name": "Catcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 666200,
-      "name": "Jesús Luzardo",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "44",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 661395,
-      "name": "Jhoan Duran",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "59",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 680742,
-      "name": "Jonathan Bowlan",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "52",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 621237,
-      "name": "José Alvarado",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "46",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 702222,
-      "name": "Justin Crawford",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "2",
-      "position": {
-        "abbreviation": "CF",
-        "name": "Outfielder"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 656941,
-      "name": "Kyle Schwarber",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "12",
-      "position": {
-        "abbreviation": "DH",
-        "name": "Designated Hitter"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 650333,
-      "name": "Luis Arraez",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "4",
-      "position": {
-        "abbreviation": "2B",
-        "name": "Second Base"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 689147,
-      "name": "Orion Kerkering",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "50",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 641835,
-      "name": "Tim Mayza",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "37",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 607208,
-      "name": "Trea Turner",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "7",
-      "position": {
-        "abbreviation": "SS",
-        "name": "Shortstop"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
-    },
-    {
-      "id": 554430,
-      "name": "Zack Wheeler",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "45",
-      "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
-      },
-      "bats": "",
-      "throws": "",
-      "rosterType": "ACTIVE"
+      "updatedAt": "2026-08-12T03:03:35.770Z"
     },
     {
       "id": 660604,
       "name": "Alan Rangel",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "57",
+      "firstName": "Alan",
+      "lastName": "Rangel",
+      "number": "57",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 170,
+        "birthDate": "1997-08-21",
+        "birthCity": "Hermosillo",
+        "birthCountry": "Mexico"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 7,
+            "gamesStarted": 3,
+            "wins": 0,
+            "losses": 3,
+            "saves": 0,
+            "holds": 1,
+            "inningsPitched": "26.0",
+            "hits": 31,
+            "runs": 17,
+            "earnedRuns": 17,
+            "homeRuns": 4,
+            "baseOnBalls": 13,
+            "strikeOuts": 29,
+            "era": "5.88",
+            "whip": "1.69"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.38",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".660"
+          },
+          "sabermetrics": {
+            "war": 0.229239,
+            "fip": 4.58999,
+            "xfip": 4.63287,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:35.875Z"
+    },
+    {
+      "id": 664761,
+      "name": "Alec Bohm",
+      "firstName": "Alec",
+      "lastName": "Bohm",
+      "number": "28",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "abbreviation": "3B"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 4\"",
+        "weight": 218,
+        "birthDate": "1996-08-03",
+        "birthCity": "Omaha",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 116,
+            "plateAppearances": 470,
+            "atBats": 426,
+            "runs": 39,
+            "hits": 97,
+            "doubles": 17,
+            "triples": 0,
+            "homeRuns": 13,
+            "rbi": 63,
+            "baseOnBalls": 32,
+            "strikeOuts": 66,
+            "stolenBases": 2,
+            "caughtStealing": 0,
+            "avg": ".228",
+            "obp": ".289",
+            "slg": ".359",
+            "ops": ".648",
+            "babip": ".239",
+            "totalBases": 153
+          },
+          "advanced": {
+            "iso": ".131",
+            "pitchesPerPlateAppearance": "3.638",
+            "walksPerPlateAppearance": ".068",
+            "strikeoutsPerPlateAppearance": ".140",
+            "homeRunsPerPlateAppearance": ".028",
+            "walksPerStrikeout": ".485",
+            "extraBaseHits": 30
+          },
+          "sabermetrics": {
+            "war": -0.34254,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.285597
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:35.951Z"
+    },
+    {
+      "id": 686934,
+      "name": "Alex McFarlane",
+      "firstName": "Alexander",
+      "lastName": "McFarlane",
+      "number": "71",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 215,
+        "birthDate": "2001-06-09",
+        "birthCity": "St. Thomas",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 2,
+            "gamesStarted": 0,
+            "wins": 0,
+            "losses": 1,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "2.0",
+            "hits": 2,
+            "runs": 1,
+            "earnedRuns": 1,
+            "homeRuns": 0,
+            "baseOnBalls": 1,
+            "strikeOuts": 1,
+            "era": "4.50",
+            "whip": "1.50"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.00",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".610"
+          },
+          "sabermetrics": {
+            "war": 0.00704227,
+            "fip": 3.08999,
+            "xfip": 4.60756,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.025Z"
+    },
+    {
+      "id": 691725,
+      "name": "Andrew Painter",
+      "firstName": "Andrew",
+      "lastName": "Painter",
+      "number": "24",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 7\"",
+        "weight": 215,
+        "birthDate": "2003-04-10",
+        "birthCity": "Pompano Beach",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 17,
+            "gamesStarted": 15,
+            "wins": 2,
+            "losses": 8,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "80.1",
+            "hits": 92,
+            "runs": 56,
+            "earnedRuns": 56,
+            "homeRuns": 15,
+            "baseOnBalls": 31,
+            "strikeOuts": 69,
+            "era": "6.27",
+            "whip": "1.53"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.68",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".640"
+          },
+          "sabermetrics": {
+            "war": 0.278298,
+            "fip": 5.10659,
+            "xfip": 4.62497,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.093Z"
+    },
+    {
+      "id": 641745,
+      "name": "Brad Keller",
+      "firstName": "Brad",
+      "lastName": "Keller",
+      "number": "40",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 5\"",
+        "weight": 255,
+        "birthDate": "1995-07-27",
+        "birthCity": "Snellville",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 32,
+            "gamesStarted": 0,
+            "wins": 2,
+            "losses": 1,
+            "saves": 3,
+            "holds": 13,
+            "inningsPitched": "31.1",
+            "hits": 29,
+            "runs": 15,
+            "earnedRuns": 14,
+            "homeRuns": 4,
+            "baseOnBalls": 13,
+            "strikeOuts": 32,
+            "era": "4.02",
+            "whip": "1.34"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.15",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".620"
+          },
+          "sabermetrics": {
+            "war": 0.172466,
+            "fip": 4.14318,
+            "xfip": 3.98504,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.160Z"
+    },
+    {
+      "id": 669016,
+      "name": "Brandon Marsh",
+      "firstName": "Brandon",
+      "lastName": "Marsh",
+      "number": "16",
+      "position": {
+        "code": "7",
+        "name": "Outfielder",
+        "abbreviation": "LF"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 215,
+        "birthDate": "1997-12-18",
+        "birthCity": "Buford",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 116,
+            "plateAppearances": 459,
+            "atBats": 427,
+            "runs": 62,
+            "hits": 117,
+            "doubles": 17,
+            "triples": 2,
+            "homeRuns": 16,
+            "rbi": 52,
+            "baseOnBalls": 26,
+            "strikeOuts": 117,
+            "stolenBases": 10,
+            "caughtStealing": 3,
+            "avg": ".274",
+            "obp": ".316",
+            "slg": ".436",
+            "ops": ".752",
+            "babip": ".339",
+            "totalBases": 186
+          },
+          "advanced": {
+            "iso": ".162",
+            "pitchesPerPlateAppearance": "3.723",
+            "walksPerPlateAppearance": ".057",
+            "strikeoutsPerPlateAppearance": ".255",
+            "homeRunsPerPlateAppearance": ".035",
+            "walksPerStrikeout": ".222",
+            "extraBaseHits": 35
+          },
+          "sabermetrics": {
+            "war": 0.87593,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.324278
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.248Z"
     },
     {
       "id": 662144,
       "name": "Brian Keller",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "48",
+      "firstName": "Brian",
+      "lastName": "Keller",
+      "number": "48",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 210,
+        "birthDate": "1994-06-21",
+        "birthCity": "Germantown",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 1,
+            "gamesStarted": 0,
+            "wins": 0,
+            "losses": 0,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "3.0",
+            "hits": 2,
+            "runs": 1,
+            "earnedRuns": 1,
+            "homeRuns": 1,
+            "baseOnBalls": 0,
+            "strikeOuts": 3,
+            "era": "3.00",
+            "whip": "0.67"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "3.00",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".740"
+          },
+          "sabermetrics": {
+            "war": -0.0335751,
+            "fip": 5.42333,
+            "xfip": 3.61928,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.333Z"
+    },
+    {
+      "id": 548384,
+      "name": "Brooks Raley",
+      "firstName": "Brooks",
+      "lastName": "Raley",
+      "number": "30",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 200,
+        "birthDate": "1988-06-29",
+        "birthCity": "San Antonio",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 48,
+            "gamesStarted": 0,
+            "wins": 5,
+            "losses": 5,
+            "saves": 0,
+            "holds": 14,
+            "inningsPitched": "44.1",
+            "hits": 33,
+            "runs": 14,
+            "earnedRuns": 11,
+            "homeRuns": 3,
+            "baseOnBalls": 16,
+            "strikeOuts": 43,
+            "era": "2.23",
+            "whip": "1.11"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.61",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".660"
+          },
+          "sabermetrics": {
+            "war": 0.7569208,
+            "fip": 3.3155543609022557,
+            "xfip": 4.113168270676692,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.412Z"
+    },
+    {
+      "id": 650559,
+      "name": "Bryan De La Cruz",
+      "firstName": "Bryan",
+      "lastName": "De La Cruz",
+      "number": "41",
+      "position": {
+        "code": "9",
+        "name": "Outfielder",
+        "abbreviation": "RF"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 175,
+        "birthDate": "1996-12-16",
+        "birthCity": "Santo Domingo Este",
+        "birthCountry": "Dominican Republic"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 12,
+            "plateAppearances": 32,
+            "atBats": 26,
+            "runs": 4,
+            "hits": 9,
+            "doubles": 1,
+            "triples": 0,
+            "homeRuns": 2,
+            "rbi": 6,
+            "baseOnBalls": 2,
+            "strikeOuts": 7,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".346",
+            "obp": ".406",
+            "slg": ".615",
+            "ops": "1.021",
+            "babip": ".368",
+            "totalBases": 16
+          },
+          "advanced": {
+            "iso": ".269",
+            "pitchesPerPlateAppearance": "3.500",
+            "walksPerPlateAppearance": ".063",
+            "strikeoutsPerPlateAppearance": ".219",
+            "homeRunsPerPlateAppearance": ".063",
+            "walksPerStrikeout": ".286",
+            "extraBaseHits": 3
+          },
+          "sabermetrics": {
+            "war": 0.39488,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.423337
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.480Z"
+    },
+    {
+      "id": 547180,
+      "name": "Bryce Harper",
+      "firstName": "Bryce",
+      "lastName": "Harper",
+      "number": "3",
+      "position": {
+        "code": "3",
+        "name": "First Base",
+        "abbreviation": "1B"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 1\"",
+        "weight": 210,
+        "birthDate": "1992-10-16",
+        "birthCity": "Las Vegas",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 121,
+            "plateAppearances": 514,
+            "atBats": 424,
+            "runs": 72,
+            "hits": 107,
+            "doubles": 22,
+            "triples": 3,
+            "homeRuns": 25,
+            "rbi": 71,
+            "baseOnBalls": 82,
+            "strikeOuts": 108,
+            "stolenBases": 7,
+            "caughtStealing": 5,
+            "avg": ".252",
+            "obp": ".370",
+            "slg": ".495",
+            "ops": ".865",
+            "babip": ".275",
+            "totalBases": 210
+          },
+          "advanced": {
+            "iso": ".243",
+            "pitchesPerPlateAppearance": "3.914",
+            "walksPerPlateAppearance": ".160",
+            "strikeoutsPerPlateAppearance": ".210",
+            "homeRunsPerPlateAppearance": ".049",
+            "walksPerStrikeout": ".759",
+            "extraBaseHits": 50
+          },
+          "sabermetrics": {
+            "war": 2.40299,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.372548
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.546Z"
+    },
+    {
+      "id": 681082,
+      "name": "Bryson Stott",
+      "firstName": "Bryson",
+      "lastName": "Stott",
+      "number": "5",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "abbreviation": "2B"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 200,
+        "birthDate": "1997-10-06",
+        "birthCity": "Las Vegas",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 115,
+            "plateAppearances": 449,
+            "atBats": 398,
+            "runs": 51,
+            "hits": 106,
+            "doubles": 25,
+            "triples": 6,
+            "homeRuns": 8,
+            "rbi": 53,
+            "baseOnBalls": 44,
+            "strikeOuts": 78,
+            "stolenBases": 23,
+            "caughtStealing": 0,
+            "avg": ".266",
+            "obp": ".341",
+            "slg": ".420",
+            "ops": ".761",
+            "babip": ".312",
+            "totalBases": 167
+          },
+          "advanced": {
+            "iso": ".153",
+            "pitchesPerPlateAppearance": "4.138",
+            "walksPerPlateAppearance": ".098",
+            "strikeoutsPerPlateAppearance": ".174",
+            "homeRunsPerPlateAppearance": ".018",
+            "walksPerStrikeout": ".564",
+            "extraBaseHits": 39
+          },
+          "sabermetrics": {
+            "war": 3.11374,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.334041
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.635Z"
+    },
+    {
+      "id": 668873,
+      "name": "Caleb Kilian",
+      "firstName": "Caleb",
+      "lastName": "Kilian",
+      "number": "56",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 4\"",
+        "weight": 206,
+        "birthDate": "1997-06-02",
+        "birthCity": "Anaheim",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 49,
+            "gamesStarted": 0,
+            "wins": 4,
+            "losses": 7,
+            "saves": 8,
+            "holds": 4,
+            "inningsPitched": "47.2",
+            "hits": 43,
+            "runs": 30,
+            "earnedRuns": 26,
+            "homeRuns": 6,
+            "baseOnBalls": 22,
+            "strikeOuts": 56,
+            "era": "4.91",
+            "whip": "1.36"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.13",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".650"
+          },
+          "sabermetrics": {
+            "war": 0.2400167,
+            "fip": 3.8242551748251747,
+            "xfip": 3.7797544055944057,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.730Z"
+    },
+    {
+      "id": 663767,
+      "name": "Chase Shugart",
+      "firstName": "Chase",
+      "lastName": "Shugart",
+      "number": "55",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 11\"",
+        "weight": 200,
+        "birthDate": "1996-10-24",
+        "birthCity": "Bridge City",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 33,
+            "gamesStarted": 0,
+            "wins": 2,
+            "losses": 1,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "38.1",
+            "hits": 35,
+            "runs": 23,
+            "earnedRuns": 21,
+            "homeRuns": 9,
+            "baseOnBalls": 16,
+            "strikeOuts": 45,
+            "era": "4.93",
+            "whip": "1.33"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "2.11",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".610"
+          },
+          "sabermetrics": {
+            "war": -0.238046,
+            "fip": 5.2813,
+            "xfip": 3.89185,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.828Z"
     },
     {
       "id": 686551,
       "name": "Christian Cairo",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": null,
+      "firstName": "Christian",
+      "lastName": "Cairo",
+      "number": "",
       "position": {
-        "abbreviation": "SS",
-        "name": "Shortstop"
+        "code": "6",
+        "name": "Shortstop",
+        "abbreviation": "SS"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 8\"",
+        "weight": 185,
+        "birthDate": "2001-06-11",
+        "birthCity": "Bakersfield",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": null,
+            "plateAppearances": null,
+            "atBats": null,
+            "runs": null,
+            "hits": null,
+            "doubles": null,
+            "triples": null,
+            "homeRuns": null,
+            "rbi": null,
+            "baseOnBalls": null,
+            "strikeOuts": null,
+            "stolenBases": null,
+            "caughtStealing": null,
+            "avg": null,
+            "obp": null,
+            "slg": null,
+            "ops": null,
+            "babip": null,
+            "totalBases": null
+          },
+          "advanced": {
+            "iso": null,
+            "pitchesPerPlateAppearance": null,
+            "walksPerPlateAppearance": null,
+            "strikeoutsPerPlateAppearance": null,
+            "homeRunsPerPlateAppearance": null,
+            "walksPerStrikeout": null,
+            "extraBaseHits": null
+          },
+          "sabermetrics": {
+            "war": null,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": null
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.888Z"
     },
     {
       "id": 687515,
       "name": "Colby Thomas",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": null,
+      "firstName": "Colby",
+      "lastName": "Thomas",
+      "number": "",
       "position": {
-        "abbreviation": "RF",
-        "name": "Outfielder"
+        "code": "9",
+        "name": "Outfielder",
+        "abbreviation": "RF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 10\"",
+        "weight": 190,
+        "birthDate": "2001-01-26",
+        "birthCity": "Valdosta",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 55,
+            "plateAppearances": 121,
+            "atBats": 114,
+            "runs": 11,
+            "hits": 23,
+            "doubles": 3,
+            "triples": 0,
+            "homeRuns": 4,
+            "rbi": 11,
+            "baseOnBalls": 4,
+            "strikeOuts": 37,
+            "stolenBases": 1,
+            "caughtStealing": 1,
+            "avg": ".202",
+            "obp": ".235",
+            "slg": ".333",
+            "ops": ".568",
+            "babip": ".260",
+            "totalBases": 38
+          },
+          "advanced": {
+            "iso": ".132",
+            "pitchesPerPlateAppearance": "3.653",
+            "walksPerPlateAppearance": ".033",
+            "strikeoutsPerPlateAppearance": ".306",
+            "homeRunsPerPlateAppearance": ".033",
+            "walksPerStrikeout": ".108",
+            "extraBaseHits": 7
+          },
+          "sabermetrics": {
+            "war": -0.50324,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.249798
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:36.974Z"
+    },
+    {
+      "id": 650911,
+      "name": "Cristopher Sánchez",
+      "firstName": "Cristopher",
+      "lastName": "Sánchez",
+      "number": "61",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 6\"",
+        "weight": 200,
+        "birthDate": "1996-12-12",
+        "birthCity": "La Romana",
+        "birthCountry": "Dominican Republic"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 25,
+            "gamesStarted": 25,
+            "wins": 15,
+            "losses": 4,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "155.2",
+            "hits": 151,
+            "runs": 50,
+            "earnedRuns": 44,
+            "homeRuns": 13,
+            "baseOnBalls": 35,
+            "strikeOuts": 181,
+            "era": "2.54",
+            "whip": "1.19"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.75",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".660"
+          },
+          "sabermetrics": {
+            "war": 4.63312,
+            "fip": 2.69578,
+            "xfip": 2.60085,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:37.033Z"
+    },
+    {
+      "id": 656537,
+      "name": "Derek Hill",
+      "firstName": "Derek",
+      "lastName": "Hill",
+      "number": "49",
+      "position": {
+        "code": "8",
+        "name": "Outfielder",
+        "abbreviation": "CF"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 206,
+        "birthDate": "1995-12-30",
+        "birthCity": "Des Moines",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 88,
+            "plateAppearances": 174,
+            "atBats": 159,
+            "runs": 26,
+            "hits": 37,
+            "doubles": 3,
+            "triples": 0,
+            "homeRuns": 9,
+            "rbi": 22,
+            "baseOnBalls": 11,
+            "strikeOuts": 61,
+            "stolenBases": 13,
+            "caughtStealing": 4,
+            "avg": ".233",
+            "obp": ".287",
+            "slg": ".421",
+            "ops": ".708",
+            "babip": ".315",
+            "totalBases": 67
+          },
+          "advanced": {
+            "iso": ".189",
+            "pitchesPerPlateAppearance": "3.925",
+            "walksPerPlateAppearance": ".063",
+            "strikeoutsPerPlateAppearance": ".351",
+            "homeRunsPerPlateAppearance": ".052",
+            "walksPerStrikeout": ".180",
+            "extraBaseHits": 12
+          },
+          "sabermetrics": {
+            "war": 0.76647,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.309006
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:37.114Z"
+    },
+    {
+      "id": 624641,
+      "name": "Edmundo Sosa",
+      "firstName": "Edmundo",
+      "lastName": "Sosa",
+      "number": "33",
+      "position": {
+        "code": "7",
+        "name": "Outfielder",
+        "abbreviation": "LF"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 11\"",
+        "weight": 210,
+        "birthDate": "1996-03-06",
+        "birthCity": "Panama City",
+        "birthCountry": "Panama"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 63,
+            "plateAppearances": 196,
+            "atBats": 179,
+            "runs": 19,
+            "hits": 39,
+            "doubles": 6,
+            "triples": 1,
+            "homeRuns": 5,
+            "rbi": 28,
+            "baseOnBalls": 6,
+            "strikeOuts": 41,
+            "stolenBases": 3,
+            "caughtStealing": 0,
+            "avg": ".218",
+            "obp": ".259",
+            "slg": ".346",
+            "ops": ".605",
+            "babip": ".250",
+            "totalBases": 62
+          },
+          "advanced": {
+            "iso": ".128",
+            "pitchesPerPlateAppearance": "3.724",
+            "walksPerPlateAppearance": ".031",
+            "strikeoutsPerPlateAppearance": ".209",
+            "homeRunsPerPlateAppearance": ".026",
+            "walksPerStrikeout": ".146",
+            "extraBaseHits": 12
+          },
+          "sabermetrics": {
+            "war": -0.07619,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.265528
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:37.230Z"
     },
     {
       "id": 694025,
       "name": "Felix Reyes",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "29",
+      "firstName": "Felix",
+      "lastName": "Reyes",
+      "number": "29",
       "position": {
-        "abbreviation": "LF",
-        "name": "Outfielder"
+        "code": "7",
+        "name": "Outfielder",
+        "abbreviation": "LF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 195,
+        "birthDate": "2001-03-26",
+        "birthCity": "Bani",
+        "birthCountry": "Dominican Republic"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 12,
+            "plateAppearances": 38,
+            "atBats": 38,
+            "runs": 2,
+            "hits": 6,
+            "doubles": 1,
+            "triples": 0,
+            "homeRuns": 1,
+            "rbi": 2,
+            "baseOnBalls": 0,
+            "strikeOuts": 9,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".158",
+            "obp": ".158",
+            "slg": ".263",
+            "ops": ".421",
+            "babip": ".179",
+            "totalBases": 10
+          },
+          "advanced": {
+            "iso": ".105",
+            "pitchesPerPlateAppearance": "3.105",
+            "walksPerPlateAppearance": ".000",
+            "strikeoutsPerPlateAppearance": ".237",
+            "homeRunsPerPlateAppearance": ".026",
+            "walksPerStrikeout": ".---",
+            "extraBaseHits": 2
+          },
+          "sabermetrics": {
+            "war": -0.38707,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.180695
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:37.313Z"
     },
     {
       "id": 687282,
       "name": "Gabriel Rincones Jr.",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "17",
+      "firstName": "Gabriel",
+      "lastName": "Rincones",
+      "number": "17",
       "position": {
-        "abbreviation": "RF",
-        "name": "Outfielder"
+        "code": "9",
+        "name": "Outfielder",
+        "abbreviation": "RF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 225,
+        "birthDate": "2001-03-03",
+        "birthCity": "Boynton Beach",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 29,
+            "plateAppearances": 89,
+            "atBats": 84,
+            "runs": 7,
+            "hits": 14,
+            "doubles": 4,
+            "triples": 0,
+            "homeRuns": 2,
+            "rbi": 7,
+            "baseOnBalls": 2,
+            "strikeOuts": 29,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".167",
+            "obp": ".202",
+            "slg": ".286",
+            "ops": ".488",
+            "babip": ".222",
+            "totalBases": 24
+          },
+          "advanced": {
+            "iso": ".119",
+            "pitchesPerPlateAppearance": "3.865",
+            "walksPerPlateAppearance": ".022",
+            "strikeoutsPerPlateAppearance": ".326",
+            "homeRunsPerPlateAppearance": ".022",
+            "walksPerStrikeout": ".069",
+            "extraBaseHits": 6
+          },
+          "sabermetrics": {
+            "war": -0.54345,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.214693
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:37.374Z"
+    },
+    {
+      "id": 596117,
+      "name": "Garrett Stubbs",
+      "firstName": "Garrett",
+      "lastName": "Stubbs",
+      "number": "21",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "abbreviation": "C"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 9\"",
+        "weight": 170,
+        "birthDate": "1993-05-26",
+        "birthCity": "San Diego",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 25,
+            "plateAppearances": 46,
+            "atBats": 41,
+            "runs": 8,
+            "hits": 5,
+            "doubles": 0,
+            "triples": 0,
+            "homeRuns": 0,
+            "rbi": 2,
+            "baseOnBalls": 2,
+            "strikeOuts": 10,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".122",
+            "obp": ".196",
+            "slg": ".122",
+            "ops": ".318",
+            "babip": ".156",
+            "totalBases": 5
+          },
+          "advanced": {
+            "iso": ".000",
+            "pitchesPerPlateAppearance": "3.674",
+            "walksPerPlateAppearance": ".043",
+            "strikeoutsPerPlateAppearance": ".217",
+            "homeRunsPerPlateAppearance": ".000",
+            "walksPerStrikeout": ".200",
+            "extraBaseHits": 0
+          },
+          "sabermetrics": {
+            "war": -0.34917,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.158739
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:38.189Z"
     },
     {
       "id": 680880,
       "name": "Grant Holman",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": null,
+      "firstName": "Grant",
+      "lastName": "Holman",
+      "number": "",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 6\"",
+        "weight": 250,
+        "birthDate": "2000-05-31",
+        "birthCity": "Chula Vista",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": null,
+            "gamesStarted": null,
+            "wins": null,
+            "losses": null,
+            "saves": null,
+            "holds": null,
+            "inningsPitched": null,
+            "hits": null,
+            "runs": null,
+            "earnedRuns": null,
+            "homeRuns": null,
+            "baseOnBalls": null,
+            "strikeOuts": null,
+            "era": null,
+            "whip": null
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": null,
+            "strikeoutWalkRatio": null,
+            "strikePercentage": null
+          },
+          "sabermetrics": {
+            "war": null,
+            "fip": null,
+            "xfip": null,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:38.248Z"
+    },
+    {
+      "id": 592663,
+      "name": "J.T. Realmuto",
+      "firstName": "Jacob",
+      "lastName": "Realmuto",
+      "number": "10",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "abbreviation": "C"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 212,
+        "birthDate": "1991-03-18",
+        "birthCity": "Del City",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 88,
+            "plateAppearances": 333,
+            "atBats": 297,
+            "runs": 36,
+            "hits": 66,
+            "doubles": 14,
+            "triples": 0,
+            "homeRuns": 8,
+            "rbi": 38,
+            "baseOnBalls": 24,
+            "strikeOuts": 69,
+            "stolenBases": 3,
+            "caughtStealing": 0,
+            "avg": ".222",
+            "obp": ".297",
+            "slg": ".350",
+            "ops": ".647",
+            "babip": ".260",
+            "totalBases": 104
+          },
+          "advanced": {
+            "iso": ".128",
+            "pitchesPerPlateAppearance": "3.919",
+            "walksPerPlateAppearance": ".072",
+            "strikeoutsPerPlateAppearance": ".207",
+            "homeRunsPerPlateAppearance": ".024",
+            "walksPerStrikeout": ".348",
+            "extraBaseHits": 22
+          },
+          "sabermetrics": {
+            "war": 0.8793,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.293259
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:38.304Z"
+    },
+    {
+      "id": 666200,
+      "name": "Jesús Luzardo",
+      "firstName": "Jesús",
+      "lastName": "Luzardo",
+      "number": "44",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 0\"",
+        "weight": 218,
+        "birthDate": "1997-09-30",
+        "birthCity": "Lima",
+        "birthCountry": "Peru"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 24,
+            "gamesStarted": 24,
+            "wins": 10,
+            "losses": 5,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "143.2",
+            "hits": 120,
+            "runs": 59,
+            "earnedRuns": 53,
+            "homeRuns": 12,
+            "baseOnBalls": 44,
+            "strikeOuts": 176,
+            "era": "3.32",
+            "whip": "1.14"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.75",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".640"
+          },
+          "sabermetrics": {
+            "war": 4.25001,
+            "fip": 2.83245,
+            "xfip": 2.92968,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:38.394Z"
+    },
+    {
+      "id": 661395,
+      "name": "Jhoan Duran",
+      "firstName": "Jhoan",
+      "lastName": "Duran",
+      "number": "59",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 5\"",
+        "weight": 230,
+        "birthDate": "1998-01-08",
+        "birthCity": "Esperanza",
+        "birthCountry": "Dominican Republic"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 44,
+            "gamesStarted": 0,
+            "wins": 1,
+            "losses": 4,
+            "saves": 25,
+            "holds": 0,
+            "inningsPitched": "41.1",
+            "hits": 34,
+            "runs": 9,
+            "earnedRuns": 8,
+            "homeRuns": 1,
+            "baseOnBalls": 7,
+            "strikeOuts": 59,
+            "era": "1.74",
+            "whip": "0.99"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.22",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".650"
+          },
+          "sabermetrics": {
+            "war": 2.11871,
+            "fip": 1.27548,
+            "xfip": 1.62184,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.174Z"
+    },
+    {
+      "id": 679032,
+      "name": "Johan Rojas",
+      "firstName": "Johan",
+      "lastName": "Rojas",
+      "number": "23",
+      "position": {
+        "code": "8",
+        "name": "Outfielder",
+        "abbreviation": "CF"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 11\"",
+        "weight": 165,
+        "birthDate": "2000-08-14",
+        "birthCity": "San Francisco de Macoris",
+        "birthCountry": "Dominican Republic"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": null,
+            "plateAppearances": null,
+            "atBats": null,
+            "runs": null,
+            "hits": null,
+            "doubles": null,
+            "triples": null,
+            "homeRuns": null,
+            "rbi": null,
+            "baseOnBalls": null,
+            "strikeOuts": null,
+            "stolenBases": null,
+            "caughtStealing": null,
+            "avg": null,
+            "obp": null,
+            "slg": null,
+            "ops": null,
+            "babip": null,
+            "totalBases": null
+          },
+          "advanced": {
+            "iso": null,
+            "pitchesPerPlateAppearance": null,
+            "walksPerPlateAppearance": null,
+            "strikeoutsPerPlateAppearance": null,
+            "homeRunsPerPlateAppearance": null,
+            "walksPerStrikeout": null,
+            "extraBaseHits": null
+          },
+          "sabermetrics": {
+            "war": null,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": null
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.210Z"
+    },
+    {
+      "id": 680742,
+      "name": "Jonathan Bowlan",
+      "firstName": "Jonathan",
+      "lastName": "Bowlan",
+      "number": "52",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 6\"",
+        "weight": 240,
+        "birthDate": "1996-12-01",
+        "birthCity": "Arlington",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 45,
+            "gamesStarted": 0,
+            "wins": 2,
+            "losses": 1,
+            "saves": 1,
+            "holds": 8,
+            "inningsPitched": "42.2",
+            "hits": 30,
+            "runs": 15,
+            "earnedRuns": 13,
+            "homeRuns": 4,
+            "baseOnBalls": 10,
+            "strikeOuts": 53,
+            "era": "2.74",
+            "whip": "0.94"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.84",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".640"
+          },
+          "sabermetrics": {
+            "war": 0.96978,
+            "fip": 2.66812,
+            "xfip": 2.62311,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.287Z"
+    },
+    {
+      "id": 621237,
+      "name": "José Alvarado",
+      "firstName": "José",
+      "lastName": "Alvarado",
+      "number": "46",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 245,
+        "birthDate": "1995-05-21",
+        "birthCity": "Maracaibo",
+        "birthCountry": "Venezuela"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 50,
+            "gamesStarted": 0,
+            "wins": 3,
+            "losses": 3,
+            "saves": 1,
+            "holds": 10,
+            "inningsPitched": "43.2",
+            "hits": 47,
+            "runs": 30,
+            "earnedRuns": 28,
+            "homeRuns": 4,
+            "baseOnBalls": 19,
+            "strikeOuts": 56,
+            "era": "5.77",
+            "whip": "1.51"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.82",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".610"
+          },
+          "sabermetrics": {
+            "war": 0.551601,
+            "fip": 3.57091,
+            "xfip": 4.04824,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.366Z"
+    },
+    {
+      "id": 702222,
+      "name": "Justin Crawford",
+      "firstName": "Justin",
+      "lastName": "Crawford",
+      "number": "2",
+      "position": {
+        "code": "8",
+        "name": "Outfielder",
+        "abbreviation": "CF"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 188,
+        "birthDate": "2004-01-13",
+        "birthCity": "Phoenix",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 111,
+            "plateAppearances": 355,
+            "atBats": 326,
+            "runs": 37,
+            "hits": 86,
+            "doubles": 15,
+            "triples": 4,
+            "homeRuns": 2,
+            "rbi": 30,
+            "baseOnBalls": 21,
+            "strikeOuts": 66,
+            "stolenBases": 16,
+            "caughtStealing": 3,
+            "avg": ".264",
+            "obp": ".313",
+            "slg": ".353",
+            "ops": ".666",
+            "babip": ".323",
+            "totalBases": 115
+          },
+          "advanced": {
+            "iso": ".089",
+            "pitchesPerPlateAppearance": "3.670",
+            "walksPerPlateAppearance": ".059",
+            "strikeoutsPerPlateAppearance": ".186",
+            "homeRunsPerPlateAppearance": ".006",
+            "walksPerStrikeout": ".318",
+            "extraBaseHits": 21
+          },
+          "sabermetrics": {
+            "war": 0.39756,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.298141
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.432Z"
     },
     {
       "id": 670224,
       "name": "Kameron Misner",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": null,
+      "firstName": "Kameron",
+      "lastName": "Misner",
+      "number": "",
       "position": {
-        "abbreviation": "CF",
-        "name": "Outfielder"
+        "code": "8",
+        "name": "Outfielder",
+        "abbreviation": "CF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 220,
+        "birthDate": "1998-01-09",
+        "birthCity": "Poplar Bluff",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 18,
+            "plateAppearances": 44,
+            "atBats": 41,
+            "runs": 2,
+            "hits": 9,
+            "doubles": 1,
+            "triples": 0,
+            "homeRuns": 0,
+            "rbi": 4,
+            "baseOnBalls": 2,
+            "strikeOuts": 17,
+            "stolenBases": 3,
+            "caughtStealing": 1,
+            "avg": ".220",
+            "obp": ".256",
+            "slg": ".244",
+            "ops": ".500",
+            "babip": ".375",
+            "totalBases": 10
+          },
+          "advanced": {
+            "iso": ".024",
+            "pitchesPerPlateAppearance": "4.182",
+            "walksPerPlateAppearance": ".045",
+            "strikeoutsPerPlateAppearance": ".386",
+            "homeRunsPerPlateAppearance": ".000",
+            "walksPerStrikeout": ".118",
+            "extraBaseHits": 1
+          },
+          "sabermetrics": {
+            "war": -0.39005,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.227293
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.502Z"
     },
     {
       "id": 679775,
       "name": "Kyle Backhus",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "19",
+      "firstName": "Kyle",
+      "lastName": "Backhus",
+      "number": "19",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 4\"",
+        "weight": 185,
+        "birthDate": "1998-01-31",
+        "birthCity": "New Waverly",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 21,
+            "gamesStarted": 1,
+            "wins": 2,
+            "losses": 1,
+            "saves": 0,
+            "holds": 1,
+            "inningsPitched": "20.0",
+            "hits": 25,
+            "runs": 12,
+            "earnedRuns": 11,
+            "homeRuns": 3,
+            "baseOnBalls": 6,
+            "strikeOuts": 20,
+            "era": "4.95",
+            "whip": "1.55"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.35",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".640"
+          },
+          "sabermetrics": {
+            "war": 0.0500041,
+            "fip": 4.23999,
+            "xfip": 3.88344,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.611Z"
+    },
+    {
+      "id": 656941,
+      "name": "Kyle Schwarber",
+      "firstName": "Kyle",
+      "lastName": "Schwarber",
+      "number": "12",
+      "position": {
+        "code": "10",
+        "name": "Designated Hitter",
+        "abbreviation": "DH"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 11\"",
+        "weight": 229,
+        "birthDate": "1993-03-05",
+        "birthCity": "Middletown",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 115,
+            "plateAppearances": 512,
+            "atBats": 423,
+            "runs": 69,
+            "hits": 106,
+            "doubles": 14,
+            "triples": 1,
+            "homeRuns": 35,
+            "rbi": 69,
+            "baseOnBalls": 79,
+            "strikeOuts": 174,
+            "stolenBases": 3,
+            "caughtStealing": 1,
+            "avg": ".251",
+            "obp": ".374",
+            "slg": ".537",
+            "ops": ".911",
+            "babip": ".327",
+            "totalBases": 227
+          },
+          "advanced": {
+            "iso": ".286",
+            "pitchesPerPlateAppearance": "4.232",
+            "walksPerPlateAppearance": ".154",
+            "strikeoutsPerPlateAppearance": ".340",
+            "homeRunsPerPlateAppearance": ".068",
+            "walksPerStrikeout": ".454",
+            "extraBaseHits": 50
+          },
+          "sabermetrics": {
+            "war": 2.90083,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.388756
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.685Z"
+    },
+    {
+      "id": 650333,
+      "name": "Luis Arraez",
+      "firstName": "Luis",
+      "lastName": "Arraez",
+      "number": "4",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "abbreviation": "2B"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 10\"",
+        "weight": 186,
+        "birthDate": "1997-04-09",
+        "birthCity": "San Felipe",
+        "birthCountry": "Venezuela"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 113,
+            "plateAppearances": 502,
+            "atBats": 456,
+            "runs": 56,
+            "hits": 143,
+            "doubles": 25,
+            "triples": 7,
+            "homeRuns": 5,
+            "rbi": 48,
+            "baseOnBalls": 26,
+            "strikeOuts": 23,
+            "stolenBases": 10,
+            "caughtStealing": 0,
+            "avg": ".314",
+            "obp": ".349",
+            "slg": ".432",
+            "ops": ".781",
+            "babip": ".315",
+            "totalBases": 197
+          },
+          "advanced": {
+            "iso": ".118",
+            "pitchesPerPlateAppearance": "3.727",
+            "walksPerPlateAppearance": ".052",
+            "strikeoutsPerPlateAppearance": ".046",
+            "homeRunsPerPlateAppearance": ".010",
+            "walksPerStrikeout": "1.130",
+            "extraBaseHits": 37
+          },
+          "sabermetrics": {
+            "war": 3.66036,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.339066
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:39.776Z"
     },
     {
       "id": 676661,
       "name": "Max Lazar",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "60",
+      "firstName": "Max",
+      "lastName": "Lazar",
+      "number": "60",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 1\"",
+        "weight": 200,
+        "birthDate": "1999-06-03",
+        "birthCity": "Coral Springs",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 6,
+            "gamesStarted": 0,
+            "wins": 0,
+            "losses": 0,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "8.0",
+            "hits": 8,
+            "runs": 5,
+            "earnedRuns": 5,
+            "homeRuns": 3,
+            "baseOnBalls": 3,
+            "strikeOuts": 5,
+            "era": "5.63",
+            "whip": "1.38"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "3.38",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".650"
+          },
+          "sabermetrics": {
+            "war": -0.158416,
+            "fip": 7.83999,
+            "xfip": 4.86195,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.537Z"
     },
     {
       "id": 691330,
       "name": "Moisés Chace",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "75",
+      "firstName": "Moises",
+      "lastName": "Chace",
+      "number": "75",
       "position": {
-        "abbreviation": "P",
-        "name": "Pitcher"
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 1\"",
+        "weight": 213,
+        "birthDate": "2003-06-09",
+        "birthCity": "La Guaira",
+        "birthCountry": "Venezuela"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": null,
+            "gamesStarted": null,
+            "wins": null,
+            "losses": null,
+            "saves": null,
+            "holds": null,
+            "inningsPitched": null,
+            "hits": null,
+            "runs": null,
+            "earnedRuns": null,
+            "homeRuns": null,
+            "baseOnBalls": null,
+            "strikeOuts": null,
+            "era": null,
+            "whip": null
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": null,
+            "strikeoutWalkRatio": null,
+            "strikePercentage": null
+          },
+          "sabermetrics": {
+            "war": null,
+            "fip": null,
+            "xfip": null,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.579Z"
+    },
+    {
+      "id": 689147,
+      "name": "Orion Kerkering",
+      "firstName": "Richard",
+      "lastName": "Kerkering",
+      "number": "50",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 2\"",
+        "weight": 204,
+        "birthDate": "2001-04-04",
+        "birthCity": "Huntington Beach",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 50,
+            "gamesStarted": 0,
+            "wins": 6,
+            "losses": 1,
+            "saves": 1,
+            "holds": 13,
+            "inningsPitched": "46.1",
+            "hits": 35,
+            "runs": 21,
+            "earnedRuns": 20,
+            "homeRuns": 3,
+            "baseOnBalls": 26,
+            "strikeOuts": 51,
+            "era": "3.88",
+            "whip": "1.32"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.58",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".610"
+          },
+          "sabermetrics": {
+            "war": 0.546879,
+            "fip": 3.67273,
+            "xfip": 4.7962,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.725Z"
     },
     {
       "id": 805249,
       "name": "Otto Kemp",
-      "firstName": "",
-      "lastName": "",
-      "jerseyNumber": "4",
+      "firstName": "Otto",
+      "lastName": "Kemp",
+      "number": "4",
       "position": {
-        "abbreviation": "LF",
-        "name": "Outfielder"
+        "code": "7",
+        "name": "Outfielder",
+        "abbreviation": "LF"
       },
-      "bats": "",
-      "throws": "",
-      "rosterType": "40-MAN"
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 11\"",
+        "weight": 185,
+        "birthDate": "1999-09-09",
+        "birthCity": "Fullerton",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 13,
+            "plateAppearances": 27,
+            "atBats": 25,
+            "runs": 0,
+            "hits": 2,
+            "doubles": 0,
+            "triples": 0,
+            "homeRuns": 0,
+            "rbi": 0,
+            "baseOnBalls": 1,
+            "strikeOuts": 10,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".080",
+            "obp": ".148",
+            "slg": ".080",
+            "ops": ".228",
+            "babip": ".133",
+            "totalBases": 2
+          },
+          "advanced": {
+            "iso": ".000",
+            "pitchesPerPlateAppearance": "4.444",
+            "walksPerPlateAppearance": ".037",
+            "strikeoutsPerPlateAppearance": ".370",
+            "homeRunsPerPlateAppearance": ".000",
+            "walksPerStrikeout": ".100",
+            "extraBaseHits": 0
+          },
+          "sabermetrics": {
+            "war": -0.7155,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.118747
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.801Z"
+    },
+    {
+      "id": 665561,
+      "name": "Rafael Marchán",
+      "firstName": "Rafael",
+      "lastName": "Marchán",
+      "number": "13",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "abbreviation": "C"
+      },
+      "bt": {
+        "bats": "S",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "5' 9\"",
+        "weight": 170,
+        "birthDate": "1999-02-25",
+        "birthCity": "San Cristobal",
+        "birthCountry": "Venezuela"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 32,
+            "plateAppearances": 92,
+            "atBats": 88,
+            "runs": 5,
+            "hits": 9,
+            "doubles": 0,
+            "triples": 0,
+            "homeRuns": 2,
+            "rbi": 6,
+            "baseOnBalls": 2,
+            "strikeOuts": 14,
+            "stolenBases": 0,
+            "caughtStealing": 0,
+            "avg": ".102",
+            "obp": ".141",
+            "slg": ".170",
+            "ops": ".311",
+            "babip": ".097",
+            "totalBases": 15
+          },
+          "advanced": {
+            "iso": ".068",
+            "pitchesPerPlateAppearance": "3.935",
+            "walksPerPlateAppearance": ".022",
+            "strikeoutsPerPlateAppearance": ".152",
+            "homeRunsPerPlateAppearance": ".022",
+            "walksPerStrikeout": ".143",
+            "extraBaseHits": 2
+          },
+          "sabermetrics": {
+            "war": -0.38548,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.143216
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.871Z"
+    },
+    {
+      "id": 621383,
+      "name": "Tanner Banks",
+      "firstName": "Tanner",
+      "lastName": "Banks",
+      "number": "58",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 1\"",
+        "weight": 205,
+        "birthDate": "1991-10-24",
+        "birthCity": "Riverton",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "40-MAN",
+        "rosterType": "40-MAN",
+        "active": false,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 28,
+            "gamesStarted": 1,
+            "wins": 0,
+            "losses": 4,
+            "saves": 0,
+            "holds": 2,
+            "inningsPitched": "29.0",
+            "hits": 45,
+            "runs": 27,
+            "earnedRuns": 23,
+            "homeRuns": 7,
+            "baseOnBalls": 13,
+            "strikeOuts": 32,
+            "era": "7.14",
+            "whip": "2.00"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "2.17",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".660"
+          },
+          "sabermetrics": {
+            "war": -0.233703,
+            "fip": 5.36585,
+            "xfip": 4.58277,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:40.949Z"
+    },
+    {
+      "id": 641835,
+      "name": "Tim Mayza",
+      "firstName": "Timothy",
+      "lastName": "Mayza",
+      "number": "37",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "L"
+      },
+      "physical": {
+        "height": "6' 3\"",
+        "weight": 215,
+        "birthDate": "1992-01-15",
+        "birthCity": "Allentown",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 48,
+            "gamesStarted": 4,
+            "wins": 3,
+            "losses": 3,
+            "saves": 0,
+            "holds": 1,
+            "inningsPitched": "55.1",
+            "hits": 46,
+            "runs": 24,
+            "earnedRuns": 22,
+            "homeRuns": 6,
+            "baseOnBalls": 14,
+            "strikeOuts": 54,
+            "era": "3.58",
+            "whip": "1.08"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "0.98",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".630"
+          },
+          "sabermetrics": {
+            "war": 0.738175,
+            "fip": 3.16361,
+            "xfip": 3.28004,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:41.024Z"
+    },
+    {
+      "id": 607208,
+      "name": "Trea Turner",
+      "firstName": "Trea",
+      "lastName": "Turner",
+      "number": "7",
+      "position": {
+        "code": "6",
+        "name": "Shortstop",
+        "abbreviation": "SS"
+      },
+      "bt": {
+        "bats": "R",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 1\"",
+        "weight": 185,
+        "birthDate": "1993-06-30",
+        "birthCity": "Boynton Beach",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "hitter",
+        "hitting": {
+          "season": {
+            "gamesPlayed": 117,
+            "plateAppearances": 520,
+            "atBats": 482,
+            "runs": 80,
+            "hits": 120,
+            "doubles": 20,
+            "triples": 1,
+            "homeRuns": 17,
+            "rbi": 47,
+            "baseOnBalls": 32,
+            "strikeOuts": 113,
+            "stolenBases": 17,
+            "caughtStealing": 3,
+            "avg": ".249",
+            "obp": ".298",
+            "slg": ".400",
+            "ops": ".698",
+            "babip": ".290",
+            "totalBases": 193
+          },
+          "advanced": {
+            "iso": ".151",
+            "pitchesPerPlateAppearance": "3.787",
+            "walksPerPlateAppearance": ".062",
+            "strikeoutsPerPlateAppearance": ".217",
+            "homeRunsPerPlateAppearance": ".033",
+            "walksPerStrikeout": ".283",
+            "extraBaseHits": 38
+          },
+          "sabermetrics": {
+            "war": 1.22656,
+            "wpa": null,
+            "wpaMinus": null,
+            "wpaPlus": null,
+            "re24": null,
+            "wrcPlus": null,
+            "wraa": null,
+            "woba": 0.30387
+          }
+        },
+        "pitching": null
+      },
+      "updatedAt": "2026-08-12T03:03:41.088Z"
+    },
+    {
+      "id": 554430,
+      "name": "Zack Wheeler",
+      "firstName": "Zachary",
+      "lastName": "Wheeler",
+      "number": "45",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "abbreviation": "P"
+      },
+      "bt": {
+        "bats": "L",
+        "throws": "R"
+      },
+      "physical": {
+        "height": "6' 4\"",
+        "weight": 195,
+        "birthDate": "1990-05-30",
+        "birthCity": "Smyrna",
+        "birthCountry": "USA"
+      },
+      "roster": {
+        "status": "ACTIVE",
+        "rosterType": "40-MAN",
+        "active": true,
+        "injured": false,
+        "fortyMan": true
+      },
+      "stats": {
+        "type": "pitcher",
+        "pitching": {
+          "season": {
+            "gamesPlayed": 19,
+            "gamesStarted": 19,
+            "wins": 10,
+            "losses": 3,
+            "saves": 0,
+            "holds": 0,
+            "inningsPitched": "110.1",
+            "hits": 80,
+            "runs": 33,
+            "earnedRuns": 33,
+            "homeRuns": 14,
+            "baseOnBalls": 28,
+            "strikeOuts": 132,
+            "era": "2.69",
+            "whip": "0.98"
+          },
+          "advanced": {
+            "strikeoutsPer9Inn": null,
+            "walksPer9Inn": null,
+            "hitsPer9Inn": null,
+            "homeRunsPer9": "1.14",
+            "strikeoutWalkRatio": null,
+            "strikePercentage": ".640"
+          },
+          "sabermetrics": {
+            "war": 2.96252,
+            "fip": 3.1625,
+            "xfip": 2.84713,
+            "siera": null,
+            "wpa": null,
+            "re24": null
+          }
+        },
+        "hitting": null
+      },
+      "updatedAt": "2026-08-12T03:03:41.169Z"
     }
   ]
 }
