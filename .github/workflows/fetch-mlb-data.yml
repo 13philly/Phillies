@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
+    inputs:
+      season:
+        description: "MLB season"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -19,7 +24,10 @@ jobs:
         with:
           node-version: 20
 
-      - run: node scripts/fetch-mlb-data.js
+      - name: Fetch MLB data
+        env:
+          SEASON: ${{ github.event.inputs.season }}
+        run: node scripts/fetch-mlb-data.js
 
       - name: Commit data
         run: |
