@@ -2,7 +2,7 @@ const fs=require("fs");
 const path=require("path");
 
 const TEAM=143;
-const SEASON=Number(process.env.SEASON)||new Date().getUTCFullYear();
+const SEASON=new Date().getUTCFullYear();
 const API="https://statsapi.mlb.com/api/v1";
 const OUT=path.join("data","fetch-mlb-data.json");
 
@@ -14,25 +14,24 @@ async function get(url){
 
 async function api(url,params={}){
   const u=new URL(API+url);
-  Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));
+  for(const[k,v]of Object.entries(params))u.searchParams.set(k,v);
   return get(u);
 }
 
-function team(t){
+function side(t){
   return{
-    name:t.team?.name??null,
-    R:t.score??null,
-    H:t.hits??null,
-    E:t.errors??null
+    R:t?.score??null,
+    H:t?.hits??null,
+    E:t?.errors??null
   };
 }
 
-async function game(g){
+async function getGame(g){
   const home=g.teams.home.team.id===TEAM;
   const ph=home?g.teams.home:g.teams.away;
   const opp=home?g.teams.away:g.teams.home;
 
-  const result={
+  const game={
     gamePk:g.gamePk,
     date:g.gameDate,
     status:g.status?.detailedState??null,
@@ -44,38 +43,28 @@ async function game(g){
     pitching:[]
   };
 
-  if(g.status?.abstractGameState==="Preview")return result;
+  if(g.status?.abstractGameState==="Preview")return game;
 
   const box=await api(`/game/${g.gamePk}/boxscore`);
-  const teamData=box.teams?.[home?"home":"away"];
-  const lines=box.linescore;
+  const t=box.teams?.[home?"home":"away"];
+  const l=box.linescore;
 
-  result.boxscore={
-    innings:(lines?.innings||[]).map(i=>({
+  game.boxscore={
+    innings:(l?.innings||[]).map(i=>({
       inning:i.num,
-      PHI:team({
-        team:{name:"PHI"},
-        score:home?i.home?.runs:i.away?.runs,
-        hits:home?i.home?.hits:i.away?.hits,
-        errors:home?i.home?.errors:i.away?.errors
-      }),
-      OPP:team({
-        team:{name:"OPP"},
-        score:home?i.away?.runs:i.home?.runs,
-        hits:home?i.away?.hits:i.home?.hits,
-        errors:home?i.away?.errors:i.home?.errors
-      })
+      PHI:home?side(i.home):side(i.away),
+      OPP:home?side(i.away):side(i.home)
     })),
-    PHI:team(ph),
-    OPP:team(opp)
+    PHI:side(ph),
+    OPP:side(opp)
   };
 
-  for(const p of Object.values(teamData?.players||{})){
+  for(const p of Object.values(t?.players||{})){
     const b=p.stats?.batting;
     const pi=p.stats?.pitching;
 
     if(b){
-      result.batting.push({
+      game.batting.push({
         order:p.battingOrder
           ?Number(String(p.battingOrder).slice(0,1))
           :null,
@@ -90,7 +79,7 @@ async function game(g){
     }
 
     if(pi){
-      result.pitching.push({
+      game.pitching.push({
         id:p.person?.id??null,
         name:p.person?.fullName??null,
         IP:pi.inningsPitched??null,
@@ -102,11 +91,9 @@ async function game(g){
     }
   }
 
-  result.batting.sort((a,b)=>
-    (a.order??99)-(b.order??99)
-  );
+  game.batting.sort((a,b)=>(a.order??99)-(b.order??99));
 
-  return result;
+  return game;
 }
 
 async function main(){
@@ -114,20 +101,19 @@ async function main(){
     sportId:1,
     teamId:TEAM,
     season:SEASON,
-    hydrate:"team,venue",
     startDate:`${SEASON}-01-01`,
-    endDate:`${SEASON}-12-31`
+    endDate:`${SEASON}-12-31`,
+    hydrate:"team,venue"
   });
 
   const games=schedule.dates?.flatMap(d=>d.games||[])||[];
-  const output=[];
+  const data=[];
 
   for(const g of games){
     try{
-      output.push(await game(g));
-      console.log(`${g.gamePk} ${g.status.detailedState}`);
+      data.push(await getGame(g));
     }catch(e){
-      console.error(`ERROR ${g.gamePk}: ${e.message}`);
+      console.error(`${g.gamePk}: ${e.message}`);
     }
   }
 
@@ -142,13 +128,11 @@ async function main(){
         name:"Philadelphia Phillies"
       },
       updatedAt:new Date().toISOString(),
-      games:output
+      games:data
     })
   );
 
-  console.log(
-    `Saved ${output.length} games for ${SEASON}`
-  );
+  console.log(`${SEASON}: ${data.length} games saved`);
 }
 
 main().catch(e=>{
