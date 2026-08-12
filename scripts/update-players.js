@@ -3,65 +3,40 @@ const fs = require("fs");
 const API = "https://statsapi.mlb.com/api/v1";
 const TEAM_ID = 143;
 
-async function fetchJSON(url) {
+async function getJSON(url) {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(
-      `MLB API request failed: ${response.status} ${url}`
-    );
+    throw new Error(`MLB API ${response.status}: ${url}`);
   }
 
   return response.json();
 }
 
-function classifyRosterStatus(entry) {
-  const status = entry.status || {};
+async function getRoster(rosterType) {
+  const data = await getJSON(
+    `${API}/teams/${TEAM_ID}/roster?rosterType=${rosterType}`
+  );
 
-  const code = String(status.code || "").toUpperCase();
-  const description = String(
-    status.description || ""
-  ).toLowerCase();
-
-  /*
-   * 保存対象
-   * ACTIVE
-   * IL
-   * 40-MAN
-   */
-
-  if (
-    code.includes("IL") ||
-    description.includes("injured list")
-  ) {
-    return "IL";
-  }
-
-  if (
-    code === "ACTIVE" ||
-    description === "active"
-  ) {
-    return "ACTIVE";
-  }
-
-  if (
-    code.includes("40") ||
-    description.includes("40-man")
-  ) {
-    return "40-MAN";
-  }
-
-  return null;
+  return data.roster || [];
 }
 
-function normalizePlayer(entry, person) {
+async function getPerson(id) {
+  const data = await getJSON(
+    `${API}/people/${id}`
+  );
+
+  return data.people?.[0] || null;
+}
+
+function playerData(entry, person, status) {
   return {
     id: person.id,
     name: person.fullName || "",
     number: entry.jerseyNumber || "",
     position: entry.position?.abbreviation || "",
     positionName: entry.position?.name || "",
-    status: classifyRosterStatus(entry),
+    status,
     bats: person.batSide?.code || "",
     throws: person.pitchHand?.code || "",
     birthDate: person.birthDate || "",
@@ -70,74 +45,134 @@ function normalizePlayer(entry, person) {
   };
 }
 
-function sortPlayers(players) {
+async function main() {
+  /*
+   * 3種類を個別取得
+   */
+  const activeRoster = await getRoster("Active");
+  const fortyManRoster = await getRoster("40Man");
+
+  /*
+   * fullRosterにはIL等のロスター情報も含まれる。
+   * ここからIL対象を抽出する。
+   */
+  const fullRoster = await getRoster("fullRoster");
+
+  const players = new Map();
+
+  /*
+   * ACTIVE
+   */
+  for (const entry of activeRoster) {
+    const person = await getPerson(entry.person.id);
+
+    if (!person) continue;
+
+    players.set(person.id, {
+      entry,
+      person,
+      status: "ACTIVE"
+    });
+  }
+
+  /*
+   * 40-MAN
+   *
+   * Activeに既に存在する選手はACTIVEを優先。
+   */
+  for (const entry of fortyManRoster) {
+    const id = entry.person.id;
+
+    if (players.has(id)) continue;
+
+    const person = await getPerson(id);
+
+    if (!person) continue;
+
+    players.set(id, {
+      entry,
+      person,
+      status: "40-MAN"
+    });
+  }
+
+  /*
+   * IL
+   *
+   * fullRosterのstatusを確認。
+   */
+  for (const entry of fullRoster) {
+    const id = entry.person.id;
+
+    const status = String(
+      entry.status?.description || ""
+    ).toLowerCase();
+
+    const code = String(
+      entry.status?.code || ""
+    ).toUpperCase();
+
+    const isIL =
+      code.includes("IL") ||
+      status.includes("injured list");
+
+    if (!isIL) continue;
+
+    const person = await getPerson(id);
+
+    if (!person) continue;
+
+    /*
+     * ILはACTIVEより優先しない。
+     * API上でActiveと重複する場合はActiveを維持。
+     */
+    if (players.has(id)) continue;
+
+    players.set(id, {
+      entry,
+      person,
+      status: "IL"
+    });
+  }
+
+  /*
+   * JSON化
+   */
+  const result = Array.from(players.values()).map(
+    ({ entry, person, status }) =>
+      playerData(entry, person, status)
+  );
+
+  /*
+   * 並び順
+   */
   const statusOrder = {
     ACTIVE: 0,
     IL: 1,
     "40-MAN": 2
   };
 
-  return players.sort((a, b) => {
-    const statusDifference =
-      statusOrder[a.status] - statusOrder[b.status];
+  result.sort((a, b) => {
+    const statusDiff =
+      statusOrder[a.status] -
+      statusOrder[b.status];
 
-    if (statusDifference !== 0) {
-      return statusDifference;
+    if (statusDiff !== 0) {
+      return statusDiff;
     }
 
-    const aNumber = Number(a.number);
-    const bNumber = Number(b.number);
+    const aNum = Number(a.number);
+    const bNum = Number(b.number);
 
-    if (Number.isNaN(aNumber) && Number.isNaN(bNumber)) {
+    if (Number.isNaN(aNum) && Number.isNaN(bNum)) {
       return a.name.localeCompare(b.name);
     }
 
-    if (Number.isNaN(aNumber)) return 1;
-    if (Number.isNaN(bNumber)) return -1;
+    if (Number.isNaN(aNum)) return 1;
+    if (Number.isNaN(bNum)) return -1;
 
-    return aNumber - bNumber;
+    return aNum - bNum;
   });
-}
-
-async function main() {
-  console.log("Fetching Phillies roster...");
-
-  const rosterData = await fetchJSON(
-    `${API}/teams/${TEAM_ID}/roster`
-  );
-
-  const players = [];
-
-  for (const entry of rosterData.roster || []) {
-    const status = classifyRosterStatus(entry);
-
-    /*
-     * ACTIVE / IL / 40-MAN以外は
-     * person APIにもアクセスしない。
-     */
-    if (!status) {
-      continue;
-    }
-
-    const personData = await fetchJSON(
-      `${API}/people/${entry.person.id}`
-    );
-
-    const person = personData.people?.[0];
-
-    if (!person) {
-      console.warn(
-        `Person data not found: ${entry.person.id}`
-      );
-      continue;
-    }
-
-    players.push(
-      normalizePlayer(entry, person)
-    );
-  }
-
-  sortPlayers(players);
 
   const output = {
     team: {
@@ -145,10 +180,8 @@ async function main() {
       name: "Philadelphia Phillies",
       abbreviation: "PHI"
     },
-
     updatedAt: new Date().toISOString(),
-
-    players
+    players: result
   };
 
   fs.mkdirSync("data", {
@@ -161,24 +194,26 @@ async function main() {
     "utf8"
   );
 
-  const active = players.filter(
-    player => player.status === "ACTIVE"
+  const active = result.filter(
+    p => p.status === "ACTIVE"
   ).length;
 
-  const il = players.filter(
-    player => player.status === "IL"
+  const il = result.filter(
+    p => p.status === "IL"
   ).length;
 
-  const fortyMan = players.filter(
-    player => player.status === "40-MAN"
+  const fortyMan = result.filter(
+    p => p.status === "40-MAN"
   ).length;
 
-  console.log("");
-  console.log("Phillies roster updated.");
-  console.log(`Total: ${players.length}`);
-  console.log(`ACTIVE: ${active}`);
-  console.log(`IL: ${il}`);
-  console.log(`40-MAN: ${fortyMan}`);
+  console.log("================================");
+  console.log("Phillies roster updated");
+  console.log("================================");
+  console.log(`ACTIVE : ${active}`);
+  console.log(`IL     : ${il}`);
+  console.log(`40-MAN : ${fortyMan}`);
+  console.log(`TOTAL  : ${result.length}`);
+  console.log("================================");
 }
 
 main().catch(error => {
