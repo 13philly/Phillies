@@ -74,9 +74,11 @@ async function getGame(game){
 
   const team=boxscore.teams?.[home?"home":"away"];
 
+  /*
+   * 打撃データ
+   */
   for(const p of Object.values(team?.players||{})){
     const batting=p.stats?.batting;
-    const pitching=p.stats?.pitching;
 
     if(batting){
       out.batting.push({
@@ -91,24 +93,53 @@ async function getGame(game){
         BB:batting.baseOnBalls??0
       });
     }
-
-    if(pitching){
-      out.pitching.push({
-        order:p.pitchingOrder??null,
-        name:p.person?.fullName??null,
-        IP:pitching.inningsPitched??null,
-        H:pitching.hits??0,
-        ER:pitching.earnedRuns??0,
-        BB:pitching.baseOnBalls??0,
-        SO:pitching.strikeOuts??0
-      });
-    }
   }
 
+  /*
+   * 投手データ
+   *
+   * team.pitchers はMLB Stats APIが返す
+   * 実際の投手起用順の配列。
+   *
+   * その配列順をそのまま
+   * 1=最初の投手
+   * 2=2番目の投手
+   * 3=3番目の投手
+   * ...
+   * として保存する。
+   */
+  const pitcherOrder=Array.isArray(team?.pitchers)
+    ?team.pitchers
+    :[];
+
+  pitcherOrder.forEach((playerId,index)=>{
+    const p=team?.players?.[playerId];
+    if(!p)return;
+
+    const pitching=p.stats?.pitching;
+    if(!pitching)return;
+
+    out.pitching.push({
+      order:index+1,
+      name:p.person?.fullName??null,
+      IP:pitching.inningsPitched??null,
+      H:pitching.hits??0,
+      ER:pitching.earnedRuns??0,
+      BB:pitching.baseOnBalls??0,
+      SO:pitching.strikeOuts??0
+    });
+  });
+
+  /*
+   * 打順を1〜9番順にする
+   */
   out.batting.sort(
     (a,b)=>(a.order??99)-(b.order??99)
   );
 
+  /*
+   * 念のため登板順でもソート
+   */
   out.pitching.sort(
     (a,b)=>(a.order??99)-(b.order??99)
   );
@@ -134,11 +165,17 @@ async function main(){
       data.push(await getGame(game));
       console.log(game.gamePk);
     }catch(error){
-      console.error(`gamePk ${game.gamePk}:`,error.message);
+      console.error(
+        `gamePk ${game.gamePk}:`,
+        error.message
+      );
     }
   }
 
-  fs.mkdirSync(path.dirname(OUT),{recursive:true});
+  fs.mkdirSync(
+    path.dirname(OUT),
+    {recursive:true}
+  );
 
   fs.writeFileSync(
     OUT,
