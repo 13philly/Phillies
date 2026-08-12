@@ -3,20 +3,32 @@ const fs = require("fs");
 const API = "https://statsapi.mlb.com/api/v1";
 const TEAM_ID = 143;
 
-async function getJSON(url) {
+async function fetchJSON(url) {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(`MLB API ${response.status}: ${url}`);
+    throw new Error(
+      `MLB API request failed: ${response.status} ${url}`
+    );
   }
 
   return response.json();
 }
 
-function classifyStatus(entry) {
-  const code = String(entry.status?.code || "").toUpperCase();
-  const description =
-    String(entry.status?.description || "").toLowerCase();
+function classifyRosterStatus(entry) {
+  const status = entry.status || {};
+
+  const code = String(status.code || "").toUpperCase();
+  const description = String(
+    status.description || ""
+  ).toLowerCase();
+
+  /*
+   * 保存対象
+   * ACTIVE
+   * IL
+   * 40-MAN
+   */
 
   if (
     code.includes("IL") ||
@@ -26,8 +38,8 @@ function classifyStatus(entry) {
   }
 
   if (
-    code.includes("ACTIVE") ||
-    description.includes("active")
+    code === "ACTIVE" ||
+    description === "active"
   ) {
     return "ACTIVE";
   }
@@ -42,82 +54,131 @@ function classifyStatus(entry) {
   return null;
 }
 
+function normalizePlayer(entry, person) {
+  return {
+    id: person.id,
+    name: person.fullName || "",
+    number: entry.jerseyNumber || "",
+    position: entry.position?.abbreviation || "",
+    positionName: entry.position?.name || "",
+    status: classifyRosterStatus(entry),
+    bats: person.batSide?.code || "",
+    throws: person.pitchHand?.code || "",
+    birthDate: person.birthDate || "",
+    height: person.height || "",
+    weight: person.weight || ""
+  };
+}
+
+function sortPlayers(players) {
+  const statusOrder = {
+    ACTIVE: 0,
+    IL: 1,
+    "40-MAN": 2
+  };
+
+  return players.sort((a, b) => {
+    const statusDifference =
+      statusOrder[a.status] - statusOrder[b.status];
+
+    if (statusDifference !== 0) {
+      return statusDifference;
+    }
+
+    const aNumber = Number(a.number);
+    const bNumber = Number(b.number);
+
+    if (Number.isNaN(aNumber) && Number.isNaN(bNumber)) {
+      return a.name.localeCompare(b.name);
+    }
+
+    if (Number.isNaN(aNumber)) return 1;
+    if (Number.isNaN(bNumber)) return -1;
+
+    return aNumber - bNumber;
+  });
+}
+
 async function main() {
-  const roster = await getJSON(
+  console.log("Fetching Phillies roster...");
+
+  const rosterData = await fetchJSON(
     `${API}/teams/${TEAM_ID}/roster`
   );
 
   const players = [];
 
-  for (const entry of roster.roster || []) {
-    const status = classifyStatus(entry);
+  for (const entry of rosterData.roster || []) {
+    const status = classifyRosterStatus(entry);
 
-    if (!status) continue;
+    /*
+     * ACTIVE / IL / 40-MAN以外は
+     * person APIにもアクセスしない。
+     */
+    if (!status) {
+      continue;
+    }
 
-    const person = await getJSON(
+    const personData = await fetchJSON(
       `${API}/people/${entry.person.id}`
     );
 
-    const p = person.people?.[0] || {};
-    const position = entry.position || {};
+    const person = personData.people?.[0];
 
-    players.push({
-      id: p.id,
-      name: p.fullName || entry.person.fullName || "",
-      number: entry.jerseyNumber || "",
-      position: position.abbreviation || "",
-      positionName: position.name || "",
-      status,
-      bats: p.batSide?.code || "",
-      throws: p.pitchHand?.code || "",
-      birthDate: p.birthDate || "",
-      height: p.height || "",
-      weight: p.weight || ""
-    });
-  }
-
-  players.sort((a, b) => {
-    const order = {
-      ACTIVE: 1,
-      IL: 2,
-      "40-MAN": 3
-    };
-
-    if (order[a.status] !== order[b.status]) {
-      return order[a.status] - order[b.status];
+    if (!person) {
+      console.warn(
+        `Person data not found: ${entry.person.id}`
+      );
+      continue;
     }
 
-    const na = parseInt(a.number, 10);
-    const nb = parseInt(b.number, 10);
+    players.push(
+      normalizePlayer(entry, person)
+    );
+  }
 
-    if (Number.isNaN(na)) return 1;
-    if (Number.isNaN(nb)) return -1;
+  sortPlayers(players);
 
-    return na - nb;
-  });
-
-  const data = {
+  const output = {
     team: {
       id: TEAM_ID,
       name: "Philadelphia Phillies",
       abbreviation: "PHI"
     },
+
     updatedAt: new Date().toISOString(),
+
     players
   };
 
+  fs.mkdirSync("data", {
+    recursive: true
+  });
+
   fs.writeFileSync(
     "data/players.json",
-    JSON.stringify(data, null, 2) + "\n",
+    JSON.stringify(output, null, 2) + "\n",
     "utf8"
   );
 
-  console.log(
-    `Saved ${players.length} players: ` +
-    `${players.filter(p => p.status === "ACTIVE").length} ACTIVE, ` +
-    `${players.filter(p => p.status === "IL").length} IL, ` +
-    `${players.filter(p => p.status === "40-MAN").length} 40-MAN`
-  );
+  const active = players.filter(
+    player => player.status === "ACTIVE"
+  ).length;
+
+  const il = players.filter(
+    player => player.status === "IL"
+  ).length;
+
+  const fortyMan = players.filter(
+    player => player.status === "40-MAN"
+  ).length;
+
+  console.log("");
+  console.log("Phillies roster updated.");
+  console.log(`Total: ${players.length}`);
+  console.log(`ACTIVE: ${active}`);
+  console.log(`IL: ${il}`);
+  console.log(`40-MAN: ${fortyMan}`);
 }
 
 main().catch(error => {
