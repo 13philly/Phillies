@@ -114,11 +114,7 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 
 <section id="schedule" class="page">
 <div class="eyebrow">2026 SEASON</div><h1>SCHEDULE</h1>
-<div class="schedule-nav">
-<button class="month-btn" onclick="changeMonth(-1)">‹</button>
-<div class="month-name" id="monthName"></div>
-<button class="month-btn" onclick="changeMonth(1)">›</button>
-</div>
+<div class="schedule-nav"><button class="month-btn" onclick="changeMonth(-1)">‹</button><div class="month-name" id="monthName"></div><button class="month-btn" onclick="changeMonth(1)">›</button></div>
 <div class="games" id="games"></div>
 </section>
 
@@ -208,375 +204,76 @@ h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 </nav>
 
 <script>
-const DATA="./data/players.json",SCHEDULE_DATA="./data/fetch-mlb-data.json";
-const $=id=>document.getElementById(id);
-const pages=document.querySelectorAll(".page,.detail"),nav=document.querySelectorAll(".nav button");
+const DATA="./data/players.json",SCHEDULE_DATA="./data/fetch-mlb-data.json",$=id=>document.getElementById(id),pages=document.querySelectorAll(".page,.detail"),nav=document.querySelectorAll(".nav button");
 let playersData=[],scheduleData=[],scheduleMonths=[],monthIndex=0;
+const groups=["pitchers","catchers","infielders","outfielders","dh"],titles={pitchers:"PITCHERS",catchers:"CATCHERS",infielders:"INFIELDERS",outfielders:"OUTFIELDERS",dh:"DESIGNATED HITTER"},months=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
 
-const groups=["pitchers","catchers","infielders","outfielders","dh"];
-const titles={pitchers:"PITCHERS",catchers:"CATCHERS",infielders:"INFIELDERS",outfielders:"OUTFIELDERS",dh:"DESIGNATED HITTER"};
-const months=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
-
-function showPage(id){
-pages.forEach(x=>x.classList.remove("active"));
-$(id)?.classList.add("active");
-nav.forEach(x=>x.classList.toggle("active",x.dataset.page===id));
-scrollTo(0,0);
-}
+function showPage(id){pages.forEach(x=>x.classList.remove("active"));$(id)?.classList.add("active");nav.forEach(x=>x.classList.toggle("active",x.dataset.page===id));scrollTo(0,0)}
 nav.forEach(x=>x.onclick=()=>showPage(x.dataset.page));
+function toggleRead(x){const read=x.dataset.read==="read";x.dataset.read=read?"unread":"read";x.classList.toggle("read",!read);x.classList.toggle("unread",read);x.querySelector(".news-status").textContent=read?"UNREAD":"READ";filterNews()}
+function filterNews(){const p=$("newsPeriod").value,r=$("newsRead").value;document.querySelectorAll(".news-item").forEach(x=>x.style.display=(p==="all"||x.dataset.period===p)&&(r==="all"||x.dataset.read===r)?"block":"none")}
 
-function toggleRead(x){
-const read=x.dataset.read==="read";
-x.dataset.read=read?"unread":"read";
-x.classList.toggle("read",!read);
-x.classList.toggle("unread",read);
-x.querySelector(".news-status").textContent=read?"UNREAD":"READ";
-filterNews();
-}
-function filterNews(){
-const p=$("newsPeriod").value,r=$("newsRead").value;
-document.querySelectorAll(".news-item").forEach(x=>{
-x.style.display=(p==="all"||x.dataset.period===p)&&(r==="all"||x.dataset.read===r)?"block":"none";
-});
-}
-
-function dateOf(g){
-const d=new Date(g.date);
-return Number.isNaN(d.getTime())?null:d;
-}
-function monthKey(g){
-const d=dateOf(g);
-return d?`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`:"";
-}
-function dayName(d){return["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()];}
-function esc(v){
-return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-}
-function status(g){return String(g.status||"").toLowerCase();}
-function final(g){return status(g)==="final";}
-function liveGame(g){
-return["live","in progress","warmup","pre-game","game delayed","suspended"].includes(status(g));
-}
-function totals(g){
-const r={PHI:{R:0,H:0,E:0},OPP:{R:0,H:0,E:0}};
-(g.innings||[]).forEach(i=>{
-["PHI","OPP"].forEach(t=>{
-const x=i[t]||{};
-["R","H","E"].forEach(k=>r[t][k]+=Number(x[k])||0);
-});
-});
-return r;
-}
-function score(g){
-const t=totals(g);
-return `${t.PHI.R}–${t.OPP.R}`;
-}
-function resultClass(g){
-return String(g.result||"").toUpperCase()==="W"?"win":"loss";
-}
+function dateOf(g){const d=new Date(g.date);return Number.isNaN(d.getTime())?null:d}
+function monthKey(g){const d=dateOf(g);return d?`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`:""}
+function dayName(d){return["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()]}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function status(g){return String(g.status||"").toLowerCase()}
+function final(g){return status(g)==="final"}
+function liveGame(g){return["live","in progress","warmup","pre-game","game delayed","suspended"].includes(status(g))}
+function score(g){const p=g.score?.PHI||{},o=g.score?.OPP||{};return`${p.R??0}–${o.R??0}`}
+function resultClass(g){return String(g.result||"").toUpperCase()==="W"?"win":"loss"}
 
 function renderSchedule(){
-$("monthName").innerHTML=scheduleMonths.length
-?`${months[Number(scheduleMonths[monthIndex].slice(5))-1]}<small>${scheduleMonths[monthIndex].slice(0,4)} · REGULAR SEASON</small>`
-:`SCHEDULE<small>NO DATA</small>`;
-
 const key=scheduleMonths[monthIndex];
+$("monthName").innerHTML=key?`${months[+key.slice(5)-1]}<small>${key.slice(0,4)} · REGULAR SEASON</small>`:"SCHEDULE<small>NO DATA</small>";
 const list=scheduleData.filter(g=>monthKey(g)===key);
-
 $("games").innerHTML=list.length?list.map(g=>{
-const d=dateOf(g);
-if(!d||liveGame(g))return"";
-
-const opp=esc(g.opponent||"TBD");
-const venue=esc(g.venue||"TBD");
-const home=g.home===true?"HOME":"AWAY";
-
-if(final(g)){
-const rc=resultClass(g),r=String(g.result||"").toUpperCase();
-return`
-<div class="game-row" onclick="openScheduleGame(${g.gamePk})">
-<div class="date"><strong>${d.getDate()}</strong>${dayName(d)}</div>
-<div>
-<div class="opponent">${opp}</div>
-<div class="ballpark">${venue} · ${home}</div>
-<div class="game-type">REGULAR SEASON · FINAL</div>
-</div>
-<div class="schedule-score ${rc}">
-<span class="label">FINAL</span>
-<div class="numbers">${score(g)}</div>
-<div class="result">${r||"FINAL"}</div>
-</div>
-</div>`;
+const d=dateOf(g);if(!d||liveGame(g))return"";
+const opp=esc(g.opponent||"TBD"),venue=esc(g.venue||"TBD"),home=g.home===true?"HOME":"AWAY";
+if(final(g)){const r=String(g.result||"").toUpperCase();return`<div class="game-row" onclick="openScheduleGame(${g.gamePk})"><div class="date"><strong>${d.getDate()}</strong>${dayName(d)}</div><div><div class="opponent">${opp}</div><div class="ballpark">${venue} · ${home}</div><div class="game-type">REGULAR SEASON · FINAL</div></div><div class="schedule-score ${resultClass(g)}"><span class="label">FINAL</span><div class="numbers">${score(g)}</div><div class="result">${r||"FINAL"}</div></div></div>`}
+const s=status(g).toUpperCase();return`<div class="game-row"><div class="date"><strong>${d.getDate()}</strong>${dayName(d)}</div><div><div class="opponent">${opp}</div><div class="ballpark">${venue} · ${home}</div><div class="game-type">REGULAR SEASON · UPCOMING</div></div><div class="schedule-score upcoming"><span class="label">STATUS</span><div class="numbers">TBD</div><div class="result">${s==="POSTPONED"?"POSTPONED":"UPCOMING"}</div></div></div>`
+}).join(""):`<div class="game-row"><div class="date"><strong>—</strong>—</div><div><div class="opponent">NO GAMES</div><div class="ballpark">No completed or upcoming games</div><div class="game-type">REGULAR SEASON</div></div><div class="schedule-score upcoming"><span class="label">STATUS</span><div class="numbers">—</div></div></div>`
 }
-
-const s=status(g).toUpperCase();
-return`
-<div class="game-row">
-<div class="date"><strong>${d.getDate()}</strong>${dayName(d)}</div>
-<div>
-<div class="opponent">${opp}</div>
-<div class="ballpark">${venue} · ${home}</div>
-<div class="game-type">REGULAR SEASON · UPCOMING</div>
-</div>
-<div class="schedule-score upcoming">
-<span class="label">STATUS</span>
-<div class="numbers">TBD</div>
-<div class="result">${s==="POSTPONED"?"POSTPONED":"UPCOMING"}</div>
-</div>
-</div>`;
-}).join(""):`
-<div class="game-row">
-<div class="date"><strong>—</strong>—</div>
-<div>
-<div class="opponent">NO GAMES</div>
-<div class="ballpark">No completed or upcoming games</div>
-<div class="game-type">REGULAR SEASON</div>
-</div>
-<div class="schedule-score upcoming"><span class="label">STATUS</span><div class="numbers">—</div></div>
-</div>`;
-}
-
-function changeMonth(n){
-monthIndex=Math.max(0,Math.min(scheduleMonths.length-1,monthIndex+n));
-renderSchedule();
-}
-
-function openScheduleGame(id){
-const g=scheduleData.find(x=>Number(x.gamePk)===Number(id));
-if(!g)return;
-
-$("gameTitle").textContent=`PHI vs ${String(g.opponent||"OPP").toUpperCase()}`;
-renderGameDetail(g);
-pages.forEach(x=>x.classList.remove("active"));
-$("gameDetail").classList.add("active");
-scrollTo(0,0);
-}
-
+function changeMonth(n){monthIndex=Math.max(0,Math.min(scheduleMonths.length-1,monthIndex+n));renderSchedule()}
+function openScheduleGame(id){const g=scheduleData.find(x=>Number(x.gamePk)===Number(id));if(!g)return;$("gameTitle").textContent=`PHI vs ${String(g.opponent||"OPP").toUpperCase()}`;renderGameDetail(g);pages.forEach(x=>x.classList.remove("active"));$("gameDetail").classList.add("active");scrollTo(0,0)}
 function renderGameDetail(g){
-const t=totals(g);
-const innings=g.innings||[];
-const rows=Array.from({length:9},(_,i)=>{
-const x=innings.find(v=>Number(v.inning)===i+1);
-return`
-<span>${x?.PHI?.R??0}</span>
-<span>${x?.OPP?.R??0}</span>`;
-});
-
-const inningCells=(team,i)=>{
-const x=innings.find(v=>Number(v.inning)===i+1);
-return x?.[team]?.R??0;
+const p=g.score?.PHI||{},o=g.score?.OPP||{},innings=g.innings||[],cells=(team,i)=>innings.find(x=>Number(x.inning)===i+1)?.[team]?.R??0;
+const rows=team=>Array.from({length:9},(_,i)=>`<span>${cells(team,i)}</span>`).join("");
+const scoreRows=`<div class="score-line head"><span>TEAM</span>${Array.from({length:9},(_,i)=>`<span>${i+1}</span>`).join("")}<span>R</span><span>H</span><span>E</span></div><div class="score-line team"><span>PHI</span>${rows("PHI")}<span>${p.R??0}</span><span>${p.H??0}</span><span>${p.E??0}</span></div><div class="score-line team"><span>OPP</span>${rows("OPP")}<span>${o.R??0}</span><span>${o.H??0}</span><span>${o.E??0}</span></div>`;
+const bat=(g.batting||[]).filter(x=>Number(x.AB)>0),pitch=[...(g.pitching||[])].filter(x=>x.IP!==null&&x.IP!==undefined).sort((a,b)=>(a.order??99)-(b.order??99));
+const table=(items,fields,empty)=>{
+if(!items.length)return`<div class="box-row"><strong>${empty}</strong>${fields.map(()=>"<span>—</span>").join("")}</div>`;
+return items.map(x=>`<div class="box-row"><strong>${esc(x.name)}</strong>${fields.map(k=>`<span>${x[k]??0}</span>`).join("")}</div>`).join("")
 };
-
-const scoreRows=`
-<div class="score-line head">
-<span>TEAM</span>${Array.from({length:9},(_,i)=>`<span>${i+1}</span>`).join("")}<span>R</span><span>H</span><span>E</span>
-</div>
-<div class="score-line team">
-<span>PHI</span>${Array.from({length:9},(_,i)=>`<span>${inningCells("PHI",i)}</span>`).join("")}
-<span>${t.PHI.R}</span><span>${t.PHI.H}</span><span>${t.PHI.E}</span>
-</div>
-<div class="score-line team">
-<span>OPP</span>${Array.from({length:9},(_,i)=>`<span>${inningCells("OPP",i)}</span>`).join("")}
-<span>${t.OPP.R}</span><span>${t.OPP.H}</span><span>${t.OPP.E}</span>
-</div>`;
-
-const batting=(g.batting||[]).filter(x=>Number(x.AB)>0);
-const pitching=(g.pitching||[]).filter(x=>x.IP!==null&&x.IP!==undefined);
-
-const batHTML=batting.length?batting.map(x=>`
-<div class="box-row">
-<strong>${esc(x.name)}</strong>
-<span>${x.AB??0}</span><span>${x.R??0}</span><span>${x.H??0}</span><span>${x.RBI??0}</span><span>${x.BB??0}</span>
-</div>`).join(""):`<div class="box-row"><strong>NO DATA</strong><span>—</span><span>—</span><span>—</span><span>—</span><span>—</span></div>`;
-
-const pitchHTML=pitching.length?pitching.map(x=>`
-<div class="box-row">
-<strong>${esc(x.name)}</strong>
-<span>${x.IP??"—"}</span><span>${x.H??0}</span><span>${x.ER??0}</span><span>${x.BB??0}</span><span>${x.SO??0}</span>
-</div>`).join(""):`<div class="box-row"><strong>NO DATA</strong><span>—</span><span>—</span><span>—</span><span>—</span><span>—</span></div>`;
-
-$("gameDetailContent").innerHTML=`
-<div class="detail-section">
-<div class="detail-title">BOX SCORE</div>
-<div class="score-scroll"><div class="score-table">${scoreRows}</div></div>
-<div class="score-note">9 INNINGS · R RUNS · H HITS · E ERRORS</div>
-</div>
-
-<div class="detail-section">
-<div class="detail-title">PHILADELPHIA BATTING</div>
-<div class="box-table">
-<div class="box-row head"><span>PLAYER</span><span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span></div>
-${batHTML}
-</div>
-</div>
-
-<div class="detail-section">
-<div class="detail-title">PHILADELPHIA PITCHING</div>
-<div class="box-table">
-<div class="box-row head"><span>PITCHER</span><span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span></div>
-${pitchHTML}
-</div>
-</div>`;
+$("gameDetailContent").innerHTML=`<div class="detail-section"><div class="detail-title">BOX SCORE</div><div class="score-scroll"><div class="score-table">${scoreRows}</div></div><div class="score-note">9 INNINGS · R RUNS · H HITS · E ERRORS</div></div><div class="detail-section"><div class="detail-title">PHILADELPHIA BATTING</div><div class="box-table"><div class="box-row head"><span>PLAYER</span><span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span></div>${table(bat,["AB","R","H","RBI","BB"],"NO DATA")}</div></div><div class="detail-section"><div class="detail-title">PHILADELPHIA PITCHING</div><div class="box-table"><div class="box-row head"><span>PITCHER</span><span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span></div>${table(pitch,["IP","H","ER","BB","SO"],"NO DATA")}</div></div>`
 }
-
-function hideGame(){showPage("schedule");}
+function hideGame(){showPage("schedule")}
 
 async function loadSchedule(){
 try{
-const r=await fetch(`${SCHEDULE_DATA}?v=${Date.now()}`,{cache:"no-store"});
-if(!r.ok)throw Error(r.status);
-const d=await r.json();
-
-scheduleData=(Array.isArray(d.games)?d.games:[])
-.filter(g=>g&&dateOf(g)&&!liveGame(g))
-.sort((a,b)=>dateOf(a)-dateOf(b));
-
+const r=await fetch(`${SCHEDULE_DATA}?v=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw Error(r.status);
+const d=await r.json();scheduleData=(Array.isArray(d.games)?d.games:[]).filter(g=>g&&dateOf(g)&&!liveGame(g)).sort((a,b)=>dateOf(a)-dateOf(b));
 scheduleMonths=[...new Set(scheduleData.map(monthKey).filter(Boolean))];
-
-const now=new Date();
-const current=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`;
-const ci=scheduleMonths.indexOf(current);
-monthIndex=ci>=0?ci:Math.max(0,scheduleMonths.length-1);
-
-renderSchedule();
-}catch(e){
-console.error(e);
-scheduleData=[];
-scheduleMonths=[];
-monthIndex=0;
-$("monthName").innerHTML="SCHEDULE<small>DATA ERROR</small>";
-$("games").innerHTML=`
-<div class="game-row">
-<div class="date"><strong>—</strong>—</div>
-<div><div class="opponent">Unable to load schedule</div><div class="ballpark">data/fetch-mlb-data.json</div><div class="game-type">DATA ERROR</div></div>
-<div class="schedule-score upcoming"><span class="label">STATUS</span><div class="numbers">ERROR</div></div>
-</div>`;
-}
+const now=new Date(),current=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`,ci=scheduleMonths.indexOf(current);
+monthIndex=ci>=0?ci:Math.max(0,scheduleMonths.length-1);renderSchedule();
+}catch(e){console.error(e);scheduleData=[];scheduleMonths=[];monthIndex=0;$("monthName").innerHTML="SCHEDULE<small>DATA ERROR</small>";$("games").innerHTML=`<div class="game-row"><div class="date"><strong>—</strong>—</div><div><div class="opponent">Unable to load schedule</div><div class="ballpark">data/fetch-mlb-data.json</div><div class="game-type">DATA ERROR</div></div><div class="schedule-score upcoming"><span class="label">STATUS</span><div class="numbers">ERROR</div></div></div>`}
 }
 
-/* PLAYERS — unchanged functionality */
-
-function statusOf(p){
-const r=p.roster||{};
-if(r.injured===true||r.injured==="true")return["IL","il"];
-if(r.status==="ACTIVE"||r.active===true||r.active==="true")return["ACTIVE","active"];
-if(r.status==="40-MAN"||r.rosterType==="40-MAN"||r.fortyMan===true||r.fortyMan==="true")return["40-MAN","roster"];
-return[r.status||"—","roster"];
-}
-
-function positionGroup(p){
-const x=p.position||{},c=String(x.code||""),n=String(x.name||"").toLowerCase(),a=String(x.abbreviation||"").toUpperCase();
-if(c==="1"||n.includes("pitcher")||a==="P")return"pitchers";
-if(c==="2"||n.includes("catcher")||a==="C")return"catchers";
-if(["3","4","5","6"].includes(c)||["1B","2B","3B","SS"].includes(a)||/first base|second base|third base|shortstop/.test(n))return"infielders";
-if(["7","8","9"].includes(c)||n.includes("outfield")||["LF","CF","RF","OF"].includes(a))return"outfielders";
-if(n.includes("designated hitter")||a==="DH")return"dh";
-return"infielders";
-}
-
-function numberOf(p){
-const n=parseInt(p.number,10);
-return Number.isFinite(n)?n:null;
-}
-
-function sortPlayers(a,b){
-const x=numberOf(a),y=numberOf(b);
-return x===null?(y===null?String(a.name).localeCompare(String(b.name)):1):y===null?-1:x-y;
-}
-
-function renderRoster(){
-const grouped=Object.fromEntries(groups.map(x=>[x,[]]));
-playersData.forEach(p=>(grouped[positionGroup(p)]||grouped.infielders).push(p));
-
-$("playerRoster").innerHTML=groups.map(g=>{
-const list=grouped[g].sort(sortPlayers);
-return`
-<div class="group" data-group="${g}">
-<div class="group-head"><strong>${titles[g]}</strong><span>${list.length} ${list.length===1?"PLAYER":"PLAYERS"}</span></div>
-${list.map(p=>{
-const[st,cl]=statusOf(p);
-const num=p.number==null||p.number===""?"—":p.number;
-const pos=p.position?.abbreviation||p.position?.name||"-";
-const b=p.bt?.bats||"-",t=p.bt?.throws||"-";
-return`
-<div class="player ${cl} ${num==="—"?"no-number":""}" onclick="openPlayer(${Number(p.id)})">
-<div class="number">${esc(num)}</div>
-<div><div class="player-name">${esc(p.name)}</div><div class="player-meta">B/T ${esc(b)}/${esc(t)}</div></div>
-<div class="player-state ${cl}"><span class="player-pos">${esc(pos)}</span>${esc(st)}</div>
-</div>`;
-}).join("")}
-</div>`;
-}).join("");
-}
-
-function filterPlayers(){
-const v=$("positionFilter").value;
-document.querySelectorAll(".group").forEach(x=>x.style.display=v==="all"||x.dataset.group===v?"block":"none");
-}
-
-function openPlayer(id){
-const p=playersData.find(x=>Number(x.id)===Number(id));
-if(!p)return;
-
-const[st,cl]=statusOf(p);
-$("detailNumber").textContent=p.number==null||p.number===""?"":"#"+p.number;
-$("detailName").textContent=p.name||"-";
-$("detailPosition").textContent=p.position?.abbreviation||p.position?.name||"-";
-$("detailBT").textContent=`B/T ${p.bt?.bats||"-"}/${p.bt?.throws||"-"}`;
-$("detailStatus").textContent=st;
-$("detailStatus").className=cl==="active"?"status-active":cl==="il"?"status-il":"status-roster";
-$("detailTitle").textContent=`${p.__season||2026} SEASON`;
-
-renderStats(p,positionGroup(p)==="pitchers"||p.stats?.type==="pitcher");
-pages.forEach(x=>x.classList.remove("active"));
-$("detail").classList.add("active");
-scrollTo(0,0);
-}
-
+function statusOf(p){const r=p.roster||{};if(r.injured===true||r.injured==="true")return["IL","il"];if(r.status==="ACTIVE"||r.active===true||r.active==="true")return["ACTIVE","active"];if(r.status==="40-MAN"||r.rosterType==="40-MAN"||r.fortyMan===true||r.fortyMan==="true")return["40-MAN","roster"];return[r.status||"—","roster"]}
+function positionGroup(p){const x=p.position||{},c=String(x.code||""),n=String(x.name||"").toLowerCase(),a=String(x.abbreviation||"").toUpperCase();if(c==="1"||n.includes("pitcher")||a==="P")return"pitchers";if(c==="2"||n.includes("catcher")||a==="C")return"catchers";if(["3","4","5","6"].includes(c)||["1B","2B","3B","SS"].includes(a)||/first base|second base|third base|shortstop/.test(n))return"infielders";if(["7","8","9"].includes(c)||n.includes("outfield")||["LF","CF","RF","OF"].includes(a))return"outfielders";if(n.includes("designated hitter")||a==="DH")return"dh";return"infielders"}
+function numberOf(p){const n=parseInt(p.number,10);return Number.isFinite(n)?n:null}
+function sortPlayers(a,b){const x=numberOf(a),y=numberOf(b);return x===null?(y===null?String(a.name).localeCompare(String(b.name)):1):y===null?-1:x-y}
+function renderRoster(){const grouped=Object.fromEntries(groups.map(x=>[x,[]]));playersData.forEach(p=>(grouped[positionGroup(p)]||grouped.infielders).push(p));$("playerRoster").innerHTML=groups.map(g=>{const list=grouped[g].sort(sortPlayers);return`<div class="group" data-group="${g}"><div class="group-head"><strong>${titles[g]}</strong><span>${list.length} ${list.length===1?"PLAYER":"PLAYERS"}</span></div>${list.map(p=>{const[st,cl]=statusOf(p),num=p.number==null||p.number===""?"—":p.number,pos=p.position?.abbreviation||p.position?.name||"-",b=p.bt?.bats||"-",t=p.bt?.throws||"-";return`<div class="player ${cl} ${num==="—"?"no-number":""}" onclick="openPlayer(${Number(p.id)})"><div class="number">${esc(num)}</div><div><div class="player-name">${esc(p.name)}</div><div class="player-meta">B/T ${esc(b)}/${esc(t)}</div></div><div class="player-state ${cl}"><span class="player-pos">${esc(pos)}</span>${esc(st)}</div></div>`}).join("")}</div>`}).join("")}
+function filterPlayers(){const v=$("positionFilter").value;document.querySelectorAll(".group").forEach(x=>x.style.display=v==="all"||x.dataset.group===v?"block":"none")}
+function openPlayer(id){const p=playersData.find(x=>Number(x.id)===Number(id));if(!p)return;const[st,cl]=statusOf(p);$("detailNumber").textContent=p.number==null||p.number===""?"":"#"+p.number;$("detailName").textContent=p.name||"-";$("detailPosition").textContent=p.position?.abbreviation||p.position?.name||"-";$("detailBT").textContent=`B/T ${p.bt?.bats||"-"}/${p.bt?.throws||"-"}`;$("detailStatus").textContent=st;$("detailStatus").className=cl==="active"?"status-active":cl==="il"?"status-il":"status-roster";$("detailTitle").textContent=`${p.__season||2026} SEASON`;renderStats(p,positionGroup(p)==="pitchers"||p.stats?.type==="pitcher");pages.forEach(x=>x.classList.remove("active"));$("detail").classList.add("active");scrollTo(0,0)}
 function value(v){return v===null||v===undefined||v===""?"-":v}
 function fixed(v,n){const x=Number(v);return Number.isFinite(x)?x.toFixed(n):"-"}
-
-function renderStats(p,pitcher){
-const s=p.stats||{};
-const a=pitcher?s.pitching?.season||{}:s.hitting?.season||{};
-const m=pitcher?s.pitching?.sabermetrics||{}:s.hitting?.sabermetrics||{};
-const data=pitcher
-?[["G",value(a.gamesPlayed)],["WAR",fixed(m.war,3)],["IP",value(a.inningsPitched)],["FIP",fixed(m.fip??a.fip,2)],["W-L",`${value(a.wins)}-${value(a.losses)}`],["xFIP",fixed(m.xfip??a.xfip,2)],["ERA",value(a.era)],["SIERA",value(m.siera??a.siera)]]
-:[["G",value(a.gamesPlayed)],["WAR",fixed(m.war,3)],["AVG",value(a.avg)],["wOBA",Number.isFinite(Number(m.woba))?Number(m.woba).toFixed(3).replace(/^0/,""):"-"],["HR",value(a.homeRuns)],["OPS",value(a.ops)],["RBI",value(a.rbi)],["BABIP",value(a.babip)]];
-$("detailStats").innerHTML=data.map(([k,v])=>`<div class="stat"><small>${k}</small><strong>${v}</strong></div>`).join("");
-}
-
-async function loadPlayers(){
-try{
-const r=await fetch(`${DATA}?v=${Date.now()}`,{cache:"no-store"});
-if(!r.ok)throw Error(r.status);
-const d=await r.json();
-playersData=(Array.isArray(d.players)?d.players:[]).map(p=>({...p,__season:Number(d.season)||2026}));
-renderRoster();
-filterPlayers();
-}catch(e){
-console.error(e);
-$("playerRoster").innerHTML=`<div class="group"><div class="group-head"><strong>PLAYERS</strong><span>DATA ERROR</span></div><div class="player"><div class="number">—</div><div><div class="player-name">Unable to load roster</div><div class="player-meta">data/players.json</div></div><div class="player-state roster"><span class="player-pos">—</span>ERROR</div></div></div>`;
-}
-}
-
-function openLive(){
-pages.forEach(x=>x.classList.remove("active"));
-$("live").classList.add("active");
-scrollTo(0,0);
-updateGameSide();
-}
+function renderStats(p,pitcher){const s=p.stats||{},a=pitcher?s.pitching?.season||{}:s.hitting?.season||{},m=pitcher?s.pitching?.sabermetrics||{}:s.hitting?.sabermetrics||{},data=pitcher?[["G",value(a.gamesPlayed)],["WAR",fixed(m.war,3)],["IP",value(a.inningsPitched)],["FIP",fixed(m.fip??a.fip,2)],["W-L",`${value(a.wins)}-${value(a.losses)}`],["xFIP",fixed(m.xfip??a.xfip,2)],["ERA",value(a.era)],["SIERA",value(m.siera??a.siera)]]:[["G",value(a.gamesPlayed)],["WAR",fixed(m.war,3)],["AVG",value(a.avg)],["wOBA",Number.isFinite(Number(m.woba))?Number(m.woba).toFixed(3).replace(/^0/,""):"-"],["HR",value(a.homeRuns)],["OPS",value(a.ops)],["RBI",value(a.rbi)],["BABIP",value(a.babip)]];$("detailStats").innerHTML=data.map(([k,v])=>`<div class="stat"><small>${k}</small><strong>${v}</strong></div>`).join("")}
+async function loadPlayers(){try{const r=await fetch(`${DATA}?v=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw Error(r.status);const d=await r.json();playersData=(Array.isArray(d.players)?d.players:[]).map(p=>({...p,__season:Number(d.season)||2026}));renderRoster();filterPlayers()}catch(e){console.error(e);$("playerRoster").innerHTML=`<div class="group"><div class="group-head"><strong>PLAYERS</strong><span>DATA ERROR</span></div><div class="player"><div class="number">—</div><div><div class="player-name">Unable to load roster</div><div class="player-meta">data/players.json</div></div><div class="player-state roster"><span class="player-pos">—</span>ERROR</div></div></div>`}}
+function openLive(){pages.forEach(x=>x.classList.remove("active"));$("live").classList.add("active");scrollTo(0,0);updateGameSide()}
 function hideLive(){showPage("home")}
-function updateGameSide(){
-const pitching=$("possession").textContent.includes("PITCHING");
-$("batView").style.display=pitching?"none":"block";
-$("pitchView").style.display=pitching?"block":"none";
-}
-
-filterNews();
-loadPlayers();
-loadSchedule();
-updateGameSide();
+function updateGameSide(){const pitching=$("possession").textContent.includes("PITCHING");$("batView").style.display=pitching?"none":"block";$("pitchView").style.display=pitching?"block":"none"}
+filterNews();loadPlayers();loadSchedule();updateGameSide();
 </script>
 </body>
 </html>
