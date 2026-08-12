@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Update MLB player data
+      - name: Collect current MLB roster
         run: node scripts/update-players.js
 
       - name: Commit changes
@@ -38,5 +38,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update Phillies player data"
+          git commit -m "Update current Phillies roster"
           git push
