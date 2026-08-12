@@ -1,5 +1,5 @@
-# .github/workflows/fetch-mlb-data.yml
-name: Fetch MLB Data
+
+name:Fetch MLB Data
 
 on:
   schedule:
