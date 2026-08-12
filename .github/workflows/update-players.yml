@@ -3,6 +3,7 @@ name: Update Phillies Players
 on:
   schedule:
     - cron: "0 */6 * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -16,10 +17,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run player updater
-        run: node scripts/update-players.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Save changes
+      - name: Update player data
+        run: node scripts/update-players.mjs
+
+      - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -27,8 +33,9 @@ jobs:
           git add data/players.json
 
           if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Update Phillies roster"
-            git push
+            echo "No changes."
+            exit 0
           fi
+
+          git commit -m "Update Phillies player data"
+          git push
