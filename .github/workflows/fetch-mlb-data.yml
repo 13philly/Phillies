@@ -19,9 +19,10 @@ jobs:
         with:
           node-version: 20
 
-      - run: node scripts/fetch-mlb-data.js
+      - name: Fetch MLB data
+        run: node scripts/fetch-mlb-data.js
 
-      - name: Commit data
+      - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
