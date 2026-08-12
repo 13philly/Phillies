@@ -5,1358 +5,468 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06152f">
 <title>Phillies</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-
 <style>
 *{box-sizing:border-box;margin:0}
-
 :root{
---bg:#06152f;
---surface:#0b1c38;
---surface2:#102747;
---text:#f7f8fa;
---muted:#78869a;
---line:#ffffff14;
---red:#e31837;
---yellow:#e7b82b;
---green:#72d195;
---gray:#68778c
+--bg:#06152f;--surface:#0b1c38;--surface2:#102747;
+--text:#f7f8fa;--muted:#78869a;--line:#ffffff14;
+--red:#e31837;--yellow:#e7b82b;--green:#72d195;--gray:#68778c
 }
-
-html,body{
-background:var(--bg);
-color:var(--text)
-}
-
-body{
-min-height:100dvh;
-font-family:"DM Sans",sans-serif;
--webkit-font-smoothing:antialiased
-}
-
-button,select{
-font:inherit;
-color:inherit
-}
-
+html,body{background:var(--bg);color:var(--text)}
+body{min-height:100dvh;font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
 button{cursor:pointer}
-
-/* HEADER */
-
 .header{
-position:fixed;
-z-index:50;
-top:0;
-left:0;
-right:0;
-height:80px;
-background:rgba(6,21,47,.96);
-border-bottom:1px solid var(--line);
+position:fixed;z-index:50;top:0;left:0;right:0;height:80px;
+background:rgba(6,21,47,.96);border-bottom:1px solid var(--line);
 backdrop-filter:blur(18px)
 }
-
 .header-inner{
-height:100%;
-padding:0 20px;
-display:flex;
-align-items:center;
-justify-content:space-between
+height:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between
 }
-
-.logo{
-font:800 32px/1 "Barlow Condensed";
-letter-spacing:.4px
-}
-
+.logo{font:800 32px/1 "Barlow Condensed";letter-spacing:.4px}
 .logo b{color:var(--red)}
-
-.tagline{
-margin-top:5px;
-font-size:7px;
-font-weight:700;
-letter-spacing:2.5px;
-color:var(--muted)
-}
-
-.season{
-font:600 10px "Roboto Mono";
-color:var(--muted)
-}
-
-main{
-max-width:620px;
-margin:auto;
-padding:105px 18px 105px
-}
-
+.tagline{margin-top:5px;font-size:7px;font-weight:700;letter-spacing:2.5px;color:var(--muted)}
+.season{font:600 10px "Roboto Mono";color:var(--muted)}
+main{max-width:620px;margin:auto;padding:105px 18px 105px}
 .page,.detail{display:none}
 .page.active,.detail.active{display:block}
-
-.eyebrow{
-font-size:8px;
-font-weight:700;
-letter-spacing:2.4px;
-color:var(--red)
-}
-
-h1{
-margin-top:3px;
-font:800 42px/1 "Barlow Condensed"
-}
-
+.eyebrow{font-size:8px;font-weight:700;letter-spacing:2.4px;color:var(--red)}
+h1{margin-top:3px;font:800 42px/1 "Barlow Condensed"}
 .section-head{
-display:flex;
-align-items:baseline;
-justify-content:space-between;
-margin-bottom:11px
+display:flex;align-items:baseline;justify-content:space-between;margin-bottom:11px
 }
-
-.section-head strong{
-font:800 13px "Barlow Condensed";
-letter-spacing:1.2px
-}
-
-.section-head span{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-/* HOME GAME */
-
+.section-head strong{font:800 13px "Barlow Condensed";letter-spacing:1.2px}
+.section-head span{font:600 7px "Roboto Mono";color:var(--muted)}
+/* HOME */
 .home-game{
-margin-top:28px;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-cursor:pointer
+margin-top:28px;border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);cursor:pointer
 }
-
 .game-top{
-height:40px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-font:600 8px "Roboto Mono";
-color:var(--muted)
+height:40px;display:flex;align-items:center;justify-content:space-between;
+font:600 8px "Roboto Mono";color:var(--muted)
 }
-
-.live{
-display:flex;
-align-items:center;
-gap:6px;
-color:var(--red)
-}
-
-.dot{
-width:5px;
-height:5px;
-border-radius:50%;
-background:var(--red)
-}
-
+.live{display:flex;align-items:center;gap:6px;color:var(--red)}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--red)}
 .matchup{
 padding:23px 0 20px;
-display:grid;
-grid-template-columns:1fr 82px 1fr;
-align-items:center;
-text-align:center
+display:grid;grid-template-columns:1fr 82px 1fr;
+align-items:center;text-align:center
 }
-
-.team{
-font:800 40px/1 "Barlow Condensed";
-letter-spacing:.5px
-}
-
+.team{font:800 40px/1 "Barlow Condensed";letter-spacing:.5px}
 .team small{
-display:block;
-margin-top:7px;
-font:600 7px "DM Sans";
-letter-spacing:1.6px;
-color:var(--muted)
+display:block;margin-top:7px;
+font:600 7px "DM Sans";letter-spacing:1.6px;color:var(--muted)
 }
-
-.vs{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.score{
-margin-top:5px;
-font:800 29px/1 "Barlow Condensed";
-letter-spacing:.2px
-}
-
+.vs{font:600 7px "Roboto Mono";color:var(--muted)}
+.score{margin-top:5px;font:800 29px/1 "Barlow Condensed"}
 .score-label{
-margin-top:5px;
-font:700 7px "Barlow Condensed";
-letter-spacing:1px;
-color:var(--red)
+margin-top:5px;font:700 7px "Barlow Condensed";
+letter-spacing:1px;color:var(--red)
 }
-
 .game-details{
-display:grid;
-grid-template-columns:1fr 1.25fr 1fr;
+display:grid;grid-template-columns:1fr 1.25fr 1fr;
 border-top:1px solid var(--line)
 }
-
 .game-details div{padding:13px 0}
-
 .game-details div+div{
-padding-left:12px;
-border-left:1px solid var(--line)
+padding-left:12px;border-left:1px solid var(--line)
 }
-
 .game-details small{
-display:block;
-margin-bottom:5px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
+display:block;margin-bottom:5px;
+font:600 7px "Roboto Mono";color:var(--muted)
 }
-
-.game-details strong{
-font-size:9px;
-font-weight:600;
-line-height:1.25
-}
-
+.game-details strong{font-size:9px;font-weight:600;line-height:1.25}
 .game-action{
-height:34px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+height:34px;display:flex;align-items:center;justify-content:space-between;
 border-top:1px solid var(--line);
-font:700 7px "Roboto Mono";
-letter-spacing:.8px
+font:700 7px "Roboto Mono";letter-spacing:.8px
 }
-
 .game-action span:last-child{color:var(--red)}
-
-/* STANDINGS */
-
-.home-standings{
-margin-top:30px
-}
-
-.standings-card{
-border:1px solid var(--line);
-border-radius:10px;
-overflow:hidden;
-background:var(--surface)
-}
-
-.standings-title{
-height:43px;
-padding:0 13px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid var(--line)
-}
-
-.standings-title strong{
-font:800 13px "Barlow Condensed";
-letter-spacing:1.2px
-}
-
-.standings-title span{
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.standing-row{
-display:grid;
-grid-template-columns:28px minmax(0,1fr) repeat(4,39px);
-align-items:center;
-min-height:39px;
-border-bottom:1px solid var(--line)
-}
-
-.standing-row:last-child{border-bottom:0}
-
-.standing-row>*{
-text-align:center;
-font:600 8px "Roboto Mono";
-color:#d6dbe3
-}
-
-.standing-row>*:nth-child(2){
-text-align:left;
-font:800 13px "Barlow Condensed";
-color:#fff
-}
-
-.standing-row.head{
-min-height:28px;
-background:var(--surface2)
-}
-
-.standing-row.head>*{
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.standing-row .rank{
-font:700 9px "Roboto Mono";
-color:var(--muted)
-}
-
-.standing-row.first{
-background:#ffffff05
-}
-
-.standing-row.first .rank{
-color:var(--red)
-}
-
-.standing-row .record{
-font-weight:800;
-color:#fff
-}
-
-.standing-row .gb{
-color:var(--muted)
-}
-
 /* NEWS */
-
-.home-news{
-margin-top:32px
-}
-
+.home-news{margin-top:32px}
 .filters{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-bottom:12px
+display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px
 }
-
-.filter-box{
-position:relative
-}
-
+.filter-box{position:relative}
 .filter-box:after{
-content:"⌄";
-position:absolute;
-right:13px;
-top:9px;
-color:var(--muted);
-font-size:15px;
-pointer-events:none
+content:"⌄";position:absolute;right:13px;top:9px;
+color:var(--muted);font-size:15px;pointer-events:none
 }
-
-.filters select,
-.player-filter select{
-width:100%;
-height:42px;
-appearance:none;
-padding:0 36px 0 13px;
-border:1px solid var(--line);
-border-radius:8px;
-background:var(--surface);
-font:700 10px "Barlow Condensed";
-letter-spacing:.5px
+.filters select,.player-filter select{
+width:100%;height:42px;appearance:none;padding:0 36px 0 13px;
+border:1px solid var(--line);border-radius:8px;background:var(--surface);
+font:700 10px "Barlow Condensed";letter-spacing:.5px
 }
-
-.news{
-border-top:1px solid var(--line)
-}
-
+.news{border-top:1px solid var(--line)}
 .news-item{
-position:relative;
-padding:15px 42px 15px 0;
-border-bottom:1px solid var(--line);
-cursor:pointer
+padding:15px 0;border-bottom:1px solid var(--line);cursor:pointer
 }
-
-.news-item.read{
-opacity:.48
-}
-
+.news-item.read{opacity:.48}
 .news-source{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:6px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
+display:flex;justify-content:space-between;align-items:center;
+margin-bottom:6px;font:600 7px "Roboto Mono";color:var(--muted)
 }
-
-.news-source b{
-color:var(--red)
-}
-
-.news-title{
-font:700 18px/1.15 "Barlow Condensed";
-letter-spacing:.15px
-}
-
+.news-source b{color:var(--red)}
+.news-title{font:700 18px/1.15 "Barlow Condensed"}
 .news-jp{
-margin-top:5px;
-font-size:10px;
-line-height:1.4;
-color:#c0c8d3
+margin-top:5px;font-size:10px;line-height:1.4;color:#c0c8d3
 }
-
-.news-status{
-margin-top:7px;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.news-item.unread .news-status{
-color:var(--red)
-}
-
-.favorite-btn{
-position:absolute;
-right:0;
-top:14px;
-width:30px;
-height:30px;
-border:1px solid var(--line);
-border-radius:7px;
-background:var(--surface);
-display:grid;
-place-items:center;
-color:var(--muted);
-font-size:16px;
-line-height:1;
-transition:.15s
-}
-
-.favorite-btn:hover{
-border-color:#ffffff30
-}
-
-.favorite-btn.active{
-color:var(--red);
-border-color:#e3183750;
-background:#e3183712
-}
-
+.news-status{margin-top:7px;font:600 6px "Roboto Mono";color:var(--muted)}
+.news-item.unread .news-status{color:var(--red)}
 /* SCHEDULE */
-
 .schedule-nav{
-margin-top:24px;
-height:58px;
-display:grid;
-grid-template-columns:44px 1fr 44px;
-align-items:center;
-border:1px solid var(--line);
-border-radius:10px;
-background:var(--surface)
+margin-top:24px;height:58px;display:grid;
+grid-template-columns:44px 1fr 44px;align-items:center;
+border:1px solid var(--line);border-radius:10px;background:var(--surface)
 }
-
 .month-btn{
-height:100%;
-border:0;
-background:none;
-font:700 22px "Barlow Condensed";
-color:var(--muted)
+height:100%;border:0;background:none;
+font:700 22px "Barlow Condensed";color:var(--muted)
 }
-
-.month-name{
-text-align:center;
-font:800 25px "Barlow Condensed"
-}
-
+.month-name{text-align:center;font:800 25px "Barlow Condensed"}
 .month-name small{
-display:block;
-font:600 6px "Roboto Mono";
-letter-spacing:1.4px;
-color:var(--muted)
+display:block;font:600 6px "Roboto Mono";
+letter-spacing:1.4px;color:var(--muted)
 }
-
-.games{
-margin-top:15px
-}
-
+.games{margin-top:15px}
 .game-row{
-position:relative;
-display:grid;
-grid-template-columns:48px 1fr auto;
-gap:12px;
-align-items:center;
-min-height:82px;
-border-bottom:1px solid var(--line);
-cursor:pointer
+position:relative;display:grid;grid-template-columns:48px 1fr auto;
+gap:12px;align-items:center;min-height:82px;
+border-bottom:1px solid var(--line);cursor:pointer
 }
-
 .game-row.today{
-margin:5px 0;
-padding:0 12px;
-min-height:90px;
-background:var(--surface);
-border:1px solid var(--line);
-border-radius:9px
+margin:5px 0;padding:0 12px;min-height:90px;
+background:var(--surface);border:1px solid var(--line);border-radius:9px
 }
-
 .game-row.today:before{
-content:"";
-position:absolute;
-left:-1px;
-top:8px;
-bottom:8px;
-width:3px;
-border-radius:2px;
-background:var(--red)
+content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;
+border-radius:2px;background:var(--red)
 }
-
-.date{
-font:600 8px/1.5 "Roboto Mono";
-color:var(--muted)
-}
-
-.date strong{
-display:block;
-color:#fff;
-font:800 18px "Barlow Condensed"
-}
-
-.opponent{
-font:800 21px "Barlow Condensed";
-letter-spacing:.4px
-}
-
-.ballpark{
-margin-top:4px;
-font-size:7px;
-font-weight:600;
-color:var(--muted)
-}
-
-.game-type{
-margin-top:5px;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.schedule-score{
-min-width:76px;
-text-align:right
-}
-
+.date{font:600 8px/1.5 "Roboto Mono";color:var(--muted)}
+.date strong{display:block;color:#fff;font:800 18px "Barlow Condensed"}
+.opponent{font:800 21px "Barlow Condensed"}
+.ballpark{margin-top:4px;font-size:7px;font-weight:600;color:var(--muted)}
+.game-type{margin-top:5px;font:600 6px "Roboto Mono";color:var(--muted)}
+.schedule-score{min-width:76px;text-align:right}
 .schedule-score .label{
-display:block;
-margin-bottom:3px;
-font:600 6px "Roboto Mono";
-letter-spacing:.8px;
-color:var(--muted)
+display:block;margin-bottom:3px;
+font:600 6px "Roboto Mono";letter-spacing:.8px;color:var(--muted)
 }
-
 .schedule-score .numbers{
-font:800 23px/1 "Barlow Condensed";
-letter-spacing:.2px
+font:800 23px/1 "Barlow Condensed"
 }
-
 .schedule-score .result{
-margin-top:3px;
-font:800 10px/1 "Barlow Condensed";
-letter-spacing:1px
+margin-top:3px;font:800 10px/1 "Barlow Condensed";letter-spacing:1px
 }
-
 .schedule-score.win .result{color:var(--green)}
 .schedule-score.loss .result{color:var(--red)}
 .schedule-score.live .numbers{color:var(--red)}
 .schedule-score.live .result{color:var(--red)}
-
 .schedule-score.upcoming .numbers{
-font:800 18px/1 "Barlow Condensed";
-color:#fff
+font:800 18px/1 "Barlow Condensed";color:#fff
 }
-
 /* DETAILS */
-
 .back{
-border:0;
-background:none;
-padding:0;
-margin-bottom:23px;
-font:600 8px "Roboto Mono";
-letter-spacing:1px;
-color:var(--muted)
+border:0;background:none;padding:0;margin-bottom:23px;
+font:600 8px "Roboto Mono";letter-spacing:1px;color:var(--muted)
 }
-
-.detail-number{
-font:700 15px "Roboto Mono";
-color:var(--red)
-}
-
-.detail-name{
-margin-top:3px;
-font:800 40px/1 "Barlow Condensed"
-}
-
+.detail-number{font:700 15px "Roboto Mono";color:var(--red)}
+.detail-name{margin-top:3px;font:800 40px/1 "Barlow Condensed"}
 .detail-meta{
-display:flex;
-gap:12px;
-margin-top:8px;
-font:600 8px "Roboto Mono";
-color:var(--muted)
+display:flex;gap:12px;margin-top:8px;
+font:600 8px "Roboto Mono";color:var(--muted)
 }
-
 .detail-meta .status-active{color:var(--red)}
 .detail-meta .status-il{color:var(--yellow)}
-
-.detail-section{
-margin-top:30px
-}
-
+.detail-section{margin-top:30px}
 .detail-title{
-padding-bottom:9px;
-border-bottom:1px solid var(--line);
-font:800 11px "Barlow Condensed";
-letter-spacing:1.4px
+padding-bottom:9px;border-bottom:1px solid var(--line);
+font:800 11px "Barlow Condensed";letter-spacing:1.4px
 }
-
-/* PLAYER DETAIL */
-
-.player-profile{
-position:relative;
-margin-top:20px;
-padding:20px;
-border:1px solid var(--line);
-border-radius:12px;
-background:
-linear-gradient(135deg,#102747 0%,#0b1c38 54%,#081932 100%);
-overflow:hidden
-}
-
-.player-profile:after{
-content:"";
-position:absolute;
-right:-38px;
-top:-45px;
-width:150px;
-height:150px;
-background:#e3183709;
-transform:rotate(22deg);
-pointer-events:none
-}
-
-.profile-top{
-position:relative;
-z-index:1;
-display:flex;
-align-items:flex-end;
-justify-content:space-between;
-gap:15px
-}
-
-.profile-number{
-font:900 72px/.78 "Barlow Condensed";
-color:#ffffff12;
-letter-spacing:-2px
-}
-
-.profile-copy{
-margin-left:auto;
-text-align:right
-}
-
-.profile-position{
-font:800 10px "Roboto Mono";
-letter-spacing:1.2px;
-color:var(--red)
-}
-
-.profile-name{
-margin-top:3px;
-font:800 34px/.95 "Barlow Condensed"
-}
-
-.profile-meta{
-display:flex;
-justify-content:flex-end;
-gap:9px;
-margin-top:7px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.profile-status{
-margin-top:11px;
-display:inline-block;
-padding:4px 7px;
-border:1px solid #ffffff18;
-border-radius:4px;
-font:700 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.profile-status.active{
-color:var(--red);
-border-color:#e3183738
-}
-
-.profile-status.il{
-color:var(--yellow);
-border-color:#e7b82b38
-}
-
-.profile-stats{
-position:relative;
-z-index:1;
-margin-top:20px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-border-top:1px solid var(--line)
-}
-
-.profile-stat{
-padding:12px 8px 2px 0
-}
-
-.profile-stat+.profile-stat{
-padding-left:9px;
-border-left:1px solid var(--line)
-}
-
-.profile-stat small{
-display:block;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.profile-stat strong{
-display:block;
-margin-top:3px;
-font:800 20px "Barlow Condensed"
-}
-
-.profile-overview{
-display:grid;
-grid-template-columns:1fr 1fr;
-margin-top:14px;
-border-top:1px solid var(--line)
-}
-
-.profile-info{
-padding-top:12px
-}
-
-.profile-info:nth-child(even){
-padding-left:12px;
-border-left:1px solid var(--line)
-}
-
-.profile-info small{
-display:block;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.profile-info strong{
-display:block;
-margin-top:4px;
-font:700 12px "Barlow Condensed"
-}
-
-/* BOX SCORE */
-
+/* SCORE */
 .score-scroll{
-margin-top:14px;
-width:100%;
-overflow:hidden;
-border:1px solid var(--line);
-border-radius:9px;
-background:var(--surface)
+margin-top:14px;width:100%;overflow:hidden;
+border:1px solid var(--line);border-radius:9px;background:var(--surface)
 }
-
-.score-table{
-width:100%
-}
-
+.score-table{width:100%}
 .score-line{
 display:grid;
-grid-template-columns:minmax(48px,1.6fr) repeat(9,minmax(0,1fr)) repeat(3,minmax(20px,.7fr))
+grid-template-columns:minmax(48px,1.6fr) repeat(9,minmax(0,1fr))
+repeat(3,minmax(20px,.7fr))
 }
-
 .score-line>*{
-min-width:0;
-padding:8px 1px;
-text-align:center;
+min-width:0;padding:8px 1px;text-align:center;
 font:700 10px/1 "Barlow Condensed";
 border-bottom:1px solid var(--line)
 }
-
 .score-line>*:first-child{
-text-align:left;
-padding-left:7px;
-font-size:12px
+text-align:left;padding-left:7px;font-size:12px
 }
-
-.score-line.head{
-background:var(--surface2)
-}
-
+.score-line.head{background:var(--surface2)}
 .score-line.head>*{
-font:700 8px/1 "Barlow Condensed";
-color:var(--muted)
+font:700 8px/1 "Barlow Condensed";color:var(--muted)
 }
-
-.score-line.team>*:first-child{
-font-size:12px;
-font-weight:800
-}
-
-.score-note{
-margin-top:8px;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-/* BOX DETAIL */
-
-.box-table{
-margin-top:15px
-}
-
+.score-line.team>*:first-child{font-size:12px;font-weight:800}
+.score-line.total>*{font-weight:800;background:#ffffff06}
+.score-note{margin-top:8px;font:600 6px "Roboto Mono";color:var(--muted)}
+/* BOX */
+.box-table{margin-top:15px}
 .box-row{
-display:grid;
-grid-template-columns:minmax(0,1fr) repeat(5,36px);
+display:grid;grid-template-columns:minmax(0,1fr) repeat(5,36px);
 border-bottom:1px solid var(--line)
 }
-
 .box-row>*{
-padding:9px 2px;
-text-align:center;
-font:600 8px "Roboto Mono"
+padding:9px 2px;text-align:center;font:600 8px "Roboto Mono"
 }
-
-.box-row>*:first-child{
-text-align:left;
-padding-left:5px
-}
-
-.box-row.head{
-background:var(--surface)
-}
-
-.box-row.head>*{
-color:var(--muted);
-font-size:7px
-}
-
-.box-row strong{
-font:700 13px "Barlow Condensed"
-}
-
+.box-row>*:first-child{text-align:left;padding-left:5px}
+.box-row.head{background:var(--surface)}
+.box-row.head>*{color:var(--muted);font-size:7px}
+.box-row strong{font:700 13px "Barlow Condensed"}
 /* LIVE */
-
 .live-board{
-margin-top:22px;
-border:1px solid var(--line);
-border-radius:11px;
-background:var(--surface);
-overflow:hidden
+margin-top:22px;border:1px solid var(--line);
+border-radius:11px;background:var(--surface);overflow:hidden
 }
-
 .live-top{
-padding:13px 15px;
-border-bottom:1px solid var(--line);
-display:flex;
-justify-content:space-between;
-align-items:center
+padding:13px 15px;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between;align-items:center
 }
-
-.live-badge{
-font:800 8px "Roboto Mono";
-color:var(--red)
-}
-
-.live-clock{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
+.live-badge{font:800 8px "Roboto Mono";color:var(--red)}
+.live-clock{font:600 7px "Roboto Mono";color:var(--muted)}
 .live-score{
-padding:22px 15px;
-display:grid;
+padding:22px 15px;display:grid;
 grid-template-columns:1fr 90px 1fr;
-align-items:center;
-text-align:center
+align-items:center;text-align:center
 }
-
-.live-team{
-font:800 36px "Barlow Condensed"
-}
-
-.live-score-main{
-font:800 31px "Barlow Condensed";
-letter-spacing:.2px
-}
-
-.live-inning{
-margin-top:5px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
+.live-team{font:800 36px "Barlow Condensed"}
+.live-score-main{font:800 31px "Barlow Condensed"}
+.live-inning{margin-top:5px;font:600 7px "Roboto Mono";color:var(--muted)}
 .possession{
-margin-top:5px;
-font:700 7px "Barlow Condensed";
-color:var(--red);
-letter-spacing:.8px
+margin-top:5px;font:700 7px "Barlow Condensed";
+color:var(--red);letter-spacing:.8px
 }
-
-.at-card{
-border-top:1px solid var(--line);
-padding:15px
-}
-
-.at-label{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.at-name{
-margin-top:4px;
-font:800 23px "Barlow Condensed"
-}
-
-.at-sub{
-margin-top:4px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.bso{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-margin-top:16px
-}
-
-.bso-box{
-padding:10px;
-border:1px solid var(--line);
-border-radius:6px
-}
-
-.bso-box small{
-display:block;
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-.bso-box strong{
-display:block;
-margin-top:3px;
-font:800 20px "Barlow Condensed"
-}
-
-/* PARALLELOGRAM BASES */
-
-.bases{
-position:relative;
-width:112px;
-height:82px;
-margin:18px auto 4px
-}
-
-.base{
-position:absolute;
-width:24px;
-height:18px;
-border:1px solid #63738a;
-background:#091a35;
-transform:skewX(-32deg);
-transition:.15s
-}
-
-.base.on{
-background:var(--red);
-border-color:var(--red);
-box-shadow:0 0 0 1px #e3183730
-}
-
-.base.second{
-top:1px;
-left:44px
-}
-
-.base.third{
-top:43px;
-left:2px
-}
-
-.base.first{
-top:43px;
-right:2px
-}
-
-.base.home{
-top:43px;
-left:44px;
-width:24px;
-height:18px;
-background:#091a35;
-border-color:#53647a
-}
-
-.base.home.on{
-background:var(--red);
-border-color:var(--red)
-}
-
-/* LIVE BOX */
-
-.live-box{
-margin-top:28px
-}
-
-.live-box .detail-title{
+/* AT BAT */
+.at-card{border-top:1px solid var(--line);padding:15px}
+.at-label{font:600 7px "Roboto Mono";color:var(--muted)}
+.at-name{margin-top:4px;font:800 23px "Barlow Condensed"}
+.at-sub{margin-top:4px;font:600 7px "Roboto Mono";color:var(--muted)}
+.bso{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.bso-box{padding:10px;border:1px solid var(--line);border-radius:6px}
+.bso-box small{display:block;font:600 6px "Roboto Mono";color:var(--muted)}
+.bso-box strong{display:block;margin-top:3px;font:800 20px "Barlow Condensed"}
+/* BASE DIAMOND */
+.base-area{
 display:flex;
-justify-content:space-between
-}
-
-.live-box .detail-title span:last-child{
-font:600 6px "Roboto Mono";
-color:var(--muted)
-}
-
-/* TODAY STATS */
-
-.today-stats{
-margin-top:28px
-}
-
-.today-player{
-display:grid;
-grid-template-columns:minmax(0,1fr) repeat(5,34px);
+justify-content:center;
 align-items:center;
-min-height:39px;
-border-bottom:1px solid var(--line)
+padding:16px 0 7px
 }
-
-.today-player>*{
-text-align:center;
-font:600 7px "Roboto Mono"
-}
-
-.today-player>*:first-child{
-text-align:left;
-font:800 12px "Barlow Condensed"
-}
-
-.today-player.head>*{
-font-size:6px;
-color:var(--muted)
-}
-
-.pitch-stat{
-display:grid;
-grid-template-columns:minmax(0,1fr) repeat(5,38px);
-align-items:center;
-min-height:40px;
-border-bottom:1px solid var(--line)
-}
-
-.pitch-stat>*{
-text-align:center;
-font:600 7px "Roboto Mono"
-}
-
-.pitch-stat>*:first-child{
-text-align:left;
-font:800 12px "Barlow Condensed"
-}
-
-/* PLAYERS */
-
-.player-filter{
-margin-top:22px;
-position:relative
-}
-
-.player-filter:after{
-content:"⌄";
-position:absolute;
-right:14px;
-top:10px;
-color:var(--muted);
-font-size:16px;
-pointer-events:none
-}
-
-.player-filter select{
-height:44px
-}
-
-.group{
-margin-top:24px
-}
-
-.group-head{
-display:flex;
-align-items:baseline;
-justify-content:space-between;
-padding-bottom:8px;
-border-bottom:1px solid var(--line)
-}
-
-.group-head strong{
-font:800 19px "Barlow Condensed";
-letter-spacing:.5px
-}
-
-.group-head span{
-font:600 7px "Roboto Mono";
-color:var(--muted)
-}
-
-.player{
+.base-diamond{
 position:relative;
-display:grid;
-grid-template-columns:38px 1fr auto;
-gap:10px;
-align-items:center;
-min-height:70px;
-padding-left:13px;
-border-bottom:1px solid var(--line);
-cursor:pointer
+width:118px;
+height:118px;
 }
-
-.player:before{
+.base-diamond:before{
 content:"";
 position:absolute;
-left:0;
-top:9px;
-bottom:9px;
-width:3px;
-border-radius:2px;
-background:var(--gray)
+width:66px;
+height:66px;
+left:26px;
+top:26px;
+border:1px solid #50627a;
+transform:rotate(45deg);
 }
-
+.base-point{
+position:absolute;
+width:18px;
+height:18px;
+transform:rotate(45deg);
+border:1px solid #63738a;
+background:#091a35;
+z-index:2;
+}
+.base-point span{
+display:block;
+transform:rotate(-45deg);
+font:700 6px "Roboto Mono";
+color:var(--muted);
+text-align:center;
+line-height:16px;
+}
+.base-point.on{
+background:var(--red);
+border-color:var(--red);
+}
+.base-point.on span{
+color:#fff;
+}
+.base-second{
+left:50px;
+top:5px;
+}
+.base-third{
+left:5px;
+top:50px;
+}
+.base-first{
+right:5px;
+top:50px;
+}
+.base-home{
+left:50px;
+bottom:5px;
+}
+/* LIVE BOX */
+.live-box{margin-top:28px}
+.live-box .detail-title{
+display:flex;justify-content:space-between
+}
+.live-box .detail-title span:last-child{
+font:600 6px "Roboto Mono";color:var(--muted)
+}
+/* TODAY STATS */
+.today-stats{margin-top:28px}
+.today-player{
+display:grid;grid-template-columns:minmax(0,1fr) repeat(5,34px);
+align-items:center;min-height:39px;border-bottom:1px solid var(--line)
+}
+.today-player>*{
+text-align:center;font:600 7px "Roboto Mono"
+}
+.today-player>*:first-child{
+text-align:left;font:800 12px "Barlow Condensed"
+}
+.today-player.head>*{font-size:6px;color:var(--muted)}
+.pitch-stat{
+display:grid;grid-template-columns:minmax(0,1fr) repeat(5,38px);
+align-items:center;min-height:40px;border-bottom:1px solid var(--line)
+}
+.pitch-stat>*{
+text-align:center;font:600 7px "Roboto Mono"
+}
+.pitch-stat>*:first-child{
+text-align:left;font:800 12px "Barlow Condensed"
+}
+/* PLAYERS */
+.player-filter{margin-top:22px;position:relative}
+.player-filter:after{
+content:"⌄";position:absolute;right:14px;top:10px;
+color:var(--muted);font-size:16px;pointer-events:none
+}
+.player-filter select{height:44px}
+.group{margin-top:24px}
+.group-head{
+display:flex;align-items:baseline;justify-content:space-between;
+padding-bottom:8px;border-bottom:1px solid var(--line)
+}
+.group-head strong{font:800 19px "Barlow Condensed"}
+.group-head span{font:600 7px "Roboto Mono";color:var(--muted)}
+.player{
+position:relative;display:grid;grid-template-columns:38px 1fr auto;
+gap:10px;align-items:center;min-height:70px;
+padding-left:13px;border-bottom:1px solid var(--line);cursor:pointer
+}
+.player:before{
+content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;
+border-radius:2px;background:var(--gray)
+}
 .player.active:before{background:var(--red)}
 .player.il:before{background:var(--yellow)}
-
-.number{
-font:700 22px "Barlow Condensed";
-color:#52647e
-}
-
-.player-name{
-font:700 19px/1 "Barlow Condensed"
-}
-
+.number{font:700 22px "Barlow Condensed";color:#52647e}
+.player-name{font:700 19px/1 "Barlow Condensed"}
 .player-meta{
-display:flex;
-gap:9px;
-margin-top:5px;
-font:600 7px "Roboto Mono";
-color:var(--muted)
+display:flex;gap:9px;margin-top:5px;
+font:600 7px "Roboto Mono";color:var(--muted)
 }
-
-.player-state{
-text-align:right;
-font:700 7px "Roboto Mono"
-}
-
+.player-state{text-align:right;font:700 7px "Roboto Mono"}
 .player-state.active{color:var(--red)}
 .player-state.il{color:var(--yellow)}
 .player-state.roster{color:var(--gray)}
-
 .player-pos{
-display:block;
-margin-bottom:4px;
-color:#fff;
+display:block;margin-bottom:4px;color:#fff;
 font:800 18px "Barlow Condensed"
 }
-
 .no-number .number{color:#65748a}
 .no-number .player-name{color:#c0c7d1}
-
+.stats{display:grid;grid-template-columns:repeat(2,1fr)}
+.stat{padding:14px 0;border-bottom:1px solid var(--line)}
+.stat:nth-child(odd){
+padding-right:15px;border-right:1px solid var(--line)
+}
+.stat:nth-child(even){padding-left:15px}
+.stat small{
+display:block;margin-bottom:4px;
+font:600 7px "Roboto Mono";color:var(--muted)
+}
+.stat strong{font:700 24px "Barlow Condensed"}
 /* NAV */
-
 .nav{
-position:fixed;
-z-index:60;
-left:50%;
+position:fixed;z-index:60;left:50%;
 bottom:max(9px,env(safe-area-inset-bottom));
-transform:translateX(-50%);
-width:calc(100% - 24px);
-max-width:430px;
-height:66px;
-padding:5px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-background:#091a36f5;
-border:1px solid #ffffff18;
-border-radius:18px;
-backdrop-filter:blur(18px)
+transform:translateX(-50%);width:calc(100% - 24px);
+max-width:430px;height:66px;padding:5px;
+display:grid;grid-template-columns:repeat(3,1fr);
+background:#091a36f5;border:1px solid #ffffff18;
+border-radius:18px;backdrop-filter:blur(18px)
 }
-
 .nav button{
-border:0;
-background:none;
-color:var(--muted);
-border-radius:13px;
-font-size:8px;
-font-weight:700;
-letter-spacing:1.2px
+border:0;background:none;color:var(--muted);
+border-radius:13px;font-size:8px;font-weight:700;letter-spacing:1.2px
 }
-
-.nav button.active{
-color:#fff;
-background:#ffffff08
-}
-
-.icon{
-height:22px;
-display:grid;
-place-items:center;
-margin-bottom:3px
-}
-
-.nav button.active .icon{
-color:var(--red)
-}
-
+.nav button.active{color:#fff;background:#ffffff08}
+.icon{height:22px;display:grid;place-items:center;margin-bottom:3px}
+.nav button.active .icon{color:var(--red)}
 .home-icon{
-width:18px;
-height:17px;
-position:relative;
-display:block;
-border:2px solid currentColor;
-border-radius:3px
+width:18px;height:17px;position:relative;display:block;
+border:2px solid currentColor;border-radius:3px
 }
-
 .home-icon:before{
-content:"";
-position:absolute;
-width:11px;
-height:11px;
-left:1.5px;
-top:-6px;
-border-left:2px solid currentColor;
-border-top:2px solid currentColor;
-transform:rotate(45deg);
+content:"";position:absolute;width:11px;height:11px;
+left:1.5px;top:-6px;border-left:2px solid currentColor;
+border-top:2px solid currentColor;transform:rotate(45deg);
 background:#091a36
 }
-
 .home-icon:after{
-content:"";
-position:absolute;
-width:4px;
-height:7px;
-left:5px;
-bottom:0;
-border:1px solid currentColor;
-border-bottom:0
+content:"";position:absolute;width:4px;height:7px;left:5px;bottom:0;
+border:1px solid currentColor;border-bottom:0
 }
-
 .schedule-icon{
-width:18px;
-height:18px;
-display:block;
-border:2px solid currentColor;
-border-radius:2px;
-position:relative
+width:18px;height:18px;display:block;
+border:2px solid currentColor;border-radius:2px;position:relative
 }
-
 .schedule-icon:before{
-content:"";
-position:absolute;
-left:3px;
-right:3px;
-top:4px;
-height:2px;
-background:currentColor;
-box-shadow:0 4px currentColor,0 8px currentColor
+content:"";position:absolute;left:3px;right:3px;top:4px;height:2px;
+background:currentColor;box-shadow:0 4px currentColor,0 8px currentColor
 }
-
 .player-icon{
-width:18px;
-height:18px;
-border:2px solid currentColor;
-border-radius:50%;
-position:relative
+width:18px;height:18px;border:2px solid currentColor;
+border-radius:50%;position:relative
 }
-
 .player-icon:before{
-content:"";
-position:absolute;
-width:4px;
-height:4px;
-left:5px;
-top:3px;
-border:1px solid currentColor;
-border-radius:50%
+content:"";position:absolute;width:4px;height:4px;
+left:5px;top:3px;border:1px solid currentColor;border-radius:50%
 }
-
 .player-icon:after{
-content:"";
-position:absolute;
-left:3px;
-right:3px;
-bottom:2px;
-height:5px;
-border:1px solid currentColor;
-border-bottom:0;
-border-radius:7px 7px 0 0
+content:"";position:absolute;left:3px;right:3px;bottom:2px;height:5px;
+border:1px solid currentColor;border-bottom:0;border-radius:7px 7px 0 0
 }
-
 @media(max-width:380px){
-
-main{
-padding-left:14px;
-padding-right:14px
-}
-
-.team{
-font-size:37px
-}
-
-.matchup{
-grid-template-columns:1fr 65px 1fr
-}
-
-.live-score{
-grid-template-columns:1fr 72px 1fr
-}
-
-.score-line>*{
-font-size:9px
-}
-
-.score-line>*:first-child{
-font-size:11px
-}
-
-.score-line.head>*{
-font-size:7px
-}
-
-.standing-row{
-grid-template-columns:25px minmax(0,1fr) repeat(4,34px)
-}
-
-.profile-name{
-font-size:30px
-}
-
-.profile-number{
-font-size:62px
-}
-
-.profile-stats{
-grid-template-columns:repeat(2,1fr)
-}
-
-.profile-stat:nth-child(3){
-border-left:0;
-padding-left:0
-}
+main{padding-left:14px;padding-right:14px}
+.team{font-size:37px}
+.matchup{grid-template-columns:1fr 65px 1fr}
+.live-score{grid-template-columns:1fr 72px 1fr}
+.score-line>*{font-size:9px}
+.score-line>*:first-child{font-size:11px}
+.score-line.head>*{font-size:7px}
 }
 </style>
 </head>
-
 <body>
-
 <header class="header">
 <div class="header-inner">
 <div>
@@ -1366,151 +476,38 @@ padding-left:0
 <div class="season">2026</div>
 </div>
 </header>
-
 <main>
-
-<!-- HOME -->
-
 <section id="home" class="page active">
-
 <div class="eyebrow">PHILADELPHIA</div>
 <h1>HOME</h1>
-
 <div class="home-game" onclick="openLive()">
-
 <div class="game-top">
 <span>AUG 12 · REGULAR SEASON</span>
 <span class="live"><i class="dot"></i>LIVE</span>
 </div>
-
 <div class="matchup">
-
-<div class="team">
-PHI
-<small>PHILLIES</small>
-</div>
-
+<div class="team">PHI<small>PHILLIES</small></div>
 <div>
 <div class="vs">BOT 7TH</div>
 <div class="score">6 — 3</div>
 <div class="score-label">2 OUT</div>
 </div>
-
-<div class="team">
-ATL
-<small>BRAVES</small>
+<div class="team">ATL<small>BRAVES</small></div>
 </div>
-
-</div>
-
 <div class="game-details">
-<div>
-<small>FIRST PITCH</small>
-<strong>7:05 PM ET</strong>
+<div><small>FIRST PITCH</small><strong>7:05 PM ET</strong></div>
+<div><small>LOCATION</small><strong>CITIZENS BANK PARK</strong></div>
+<div><small>STATUS</small><strong>BOT 7TH</strong></div>
 </div>
-
-<div>
-<small>LOCATION</small>
-<strong>CITIZENS BANK PARK</strong>
-</div>
-
-<div>
-<small>STATUS</small>
-<strong>BOT 7TH</strong>
-</div>
-</div>
-
 <div class="game-action">
-<span>GAME CENTER</span>
-<span>OPEN →</span>
-</div>
-
-</div>
-
-<!-- STANDINGS -->
-
-<div class="home-standings">
-
-<div class="section-head">
-<strong>NATIONAL LEAGUE EAST</strong>
-<span>2026 · REGULAR SEASON</span>
-</div>
-
-<div class="standings-card">
-
-<div class="standings-title">
-<strong>NL EAST</strong>
-<span>DIVISION RACE</span>
-</div>
-
-<div class="standing-row head">
-<span>#</span>
-<span>TEAM</span>
-<span>W</span>
-<span>L</span>
-<span>PCT</span>
-<span>GB</span>
-</div>
-
-<div class="standing-row first">
-<span class="rank">1</span>
-<span>PHI</span>
-<span class="record">72</span>
-<span>45</span>
-<span>.615</span>
-<span class="gb">—</span>
-</div>
-
-<div class="standing-row">
-<span class="rank">2</span>
-<span>ATL</span>
-<span class="record">68</span>
-<span>49</span>
-<span>.581</span>
-<span class="gb">4.0</span>
-</div>
-
-<div class="standing-row">
-<span class="rank">3</span>
-<span>NYM</span>
-<span class="record">63</span>
-<span>54</span>
-<span>.538</span>
-<span class="gb">9.0</span>
-</div>
-
-<div class="standing-row">
-<span class="rank">4</span>
-<span>MIA</span>
-<span class="record">51</span>
-<span>66</span>
-<span>.436</span>
-<span class="gb">21.0</span>
-</div>
-
-<div class="standing-row">
-<span class="rank">5</span>
-<span>WSH</span>
-<span class="record">44</span>
-<span>73</span>
-<span>.376</span>
-<span class="gb">28.0</span>
-</div>
-
+<span>GAME CENTER</span><span>OPEN →</span>
 </div>
 </div>
-
-<!-- NEWS -->
-
 <div class="home-news">
-
 <div class="section-head">
-<strong>LATEST NEWS</strong>
-<span>NEWS FEED</span>
+<strong>LATEST NEWS</strong><span>NEWS FEED</span>
 </div>
-
 <div class="filters">
-
 <div class="filter-box">
 <select id="newsPeriod" onchange="filterNews()">
 <option value="all">ALL PERIODS</option>
@@ -1519,161 +516,55 @@ ATL
 <option value="month">THIS MONTH</option>
 </select>
 </div>
-
 <div class="filter-box">
 <select id="newsRead" onchange="filterNews()">
 <option value="all">ALL ARTICLES</option>
 <option value="unread">UNREAD</option>
 <option value="read">READ</option>
-<option value="favorites">FAVORITES</option>
 </select>
 </div>
-
 </div>
-
 <div class="news">
-
-<div class="news-item unread"
-data-id="mlb-0812-1"
-data-period="today"
-data-read="unread"
-onclick="toggleRead(this)">
-
-<button class="favorite-btn"
-type="button"
-aria-label="Favorite"
-onclick="toggleFavorite(event,this)">☆</button>
-
-<div class="news-source">
-<b>MLB.COM</b>
-<span>AUG 12 · 2:10 PM ET</span>
-</div>
-
-<div class="news-title">
-Phillies prepare for another important matchup
-</div>
-
-<div class="news-jp">
-フィリーズ、重要な一戦に向けて準備を整える
-</div>
-
+<div class="news-item unread" data-period="today" data-read="unread" onclick="toggleRead(this)">
+<div class="news-source"><b>MLB.COM</b><span>AUG 12 · 2:10 PM ET</span></div>
+<div class="news-title">Phillies prepare for another important matchup</div>
+<div class="news-jp">フィリーズ、重要な一戦に向けて準備を整える</div>
 <div class="news-status">UNREAD</div>
-
 </div>
-
-<div class="news-item read"
-data-id="inquirer-0812-1"
-data-period="today"
-data-read="read"
-onclick="toggleRead(this)">
-
-<button class="favorite-btn"
-type="button"
-aria-label="Favorite"
-onclick="toggleFavorite(event,this)">☆</button>
-
-<div class="news-source">
-<b>PHILADELPHIA INQUIRER</b>
-<span>AUG 12 · 10:25 AM ET</span>
-</div>
-
-<div class="news-title">
-Philadelphia lineup set ahead of first pitch
-</div>
-
-<div class="news-jp">
-フィラデルフィア、試合開始を前に先発ラインアップを発表
-</div>
-
+<div class="news-item read" data-period="today" data-read="read" onclick="toggleRead(this)">
+<div class="news-source"><b>PHILADELPHIA INQUIRER</b><span>AUG 12 · 10:25 AM ET</span></div>
+<div class="news-title">Philadelphia lineup set ahead of first pitch</div>
+<div class="news-jp">フィラデルフィア、試合開始を前に先発ラインアップを発表</div>
 <div class="news-status">READ</div>
-
 </div>
-
-<div class="news-item unread"
-data-id="espn-0811-1"
-data-period="week"
-data-read="unread"
-onclick="toggleRead(this)">
-
-<button class="favorite-btn"
-type="button"
-aria-label="Favorite"
-onclick="toggleFavorite(event,this)">☆</button>
-
-<div class="news-source">
-<b>ESPN</b>
-<span>AUG 11 · 6:40 PM ET</span>
-</div>
-
-<div class="news-title">
-Phillies close out the series with a strong finish
-</div>
-
-<div class="news-jp">
-フィリーズ、力強い戦いでシリーズを締めくくる
-</div>
-
+<div class="news-item unread" data-period="week" data-read="unread" onclick="toggleRead(this)">
+<div class="news-source"><b>ESPN</b><span>AUG 11 · 6:40 PM ET</span></div>
+<div class="news-title">Phillies close out the series with a strong finish</div>
+<div class="news-jp">フィリーズ、力強い戦いでシリーズを締めくくる</div>
 <div class="news-status">UNREAD</div>
-
 </div>
-
-<div class="news-item read"
-data-id="athletic-0808-1"
-data-period="month"
-data-read="read"
-onclick="toggleRead(this)">
-
-<button class="favorite-btn"
-type="button"
-aria-label="Favorite"
-onclick="toggleFavorite(event,this)">☆</button>
-
-<div class="news-source">
-<b>THE ATHLETIC</b>
-<span>AUG 8 · 9:15 AM ET</span>
-</div>
-
-<div class="news-title">
-Philadelphia continues to build momentum
-</div>
-
-<div class="news-jp">
-フィラデルフィア、勢いをさらに積み重ねる
-</div>
-
+<div class="news-item read" data-period="month" data-read="read" onclick="toggleRead(this)">
+<div class="news-source"><b>THE ATHLETIC</b><span>AUG 8 · 9:15 AM ET</span></div>
+<div class="news-title">Philadelphia continues to build momentum</div>
+<div class="news-jp">フィラデルフィア、勢いをさらに積み重ねる</div>
 <div class="news-status">READ</div>
-
-</div>
-
 </div>
 </div>
-
+</div>
 </section>
-
-<!-- SCHEDULE -->
-
 <section id="schedule" class="page">
-
 <div class="eyebrow">2026 SEASON</div>
 <h1>SCHEDULE</h1>
-
 <div class="schedule-nav">
 <button class="month-btn" onclick="changeMonth(-1)">‹</button>
 <div class="month-name" id="monthName"></div>
 <button class="month-btn" onclick="changeMonth(1)">›</button>
 </div>
-
 <div class="games" id="games"></div>
-
 </section>
-
-<!-- PLAYERS -->
-
 <section id="players" class="page">
-
 <div class="eyebrow">ROSTER</div>
 <h1>PLAYERS</h1>
-
 <div class="player-filter">
 <select id="positionFilter" onchange="filterPlayers()">
 <option value="all">ALL PLAYERS</option>
@@ -1684,617 +575,248 @@ Philadelphia continues to build momentum
 <option value="dh">DESIGNATED HITTER</option>
 </select>
 </div>
-
 <div id="playerRoster"></div>
-
 </section>
-
-<!-- PLAYER DETAIL -->
-
 <section id="detail" class="detail">
-
 <button class="back" onclick="hidePlayer()">← PLAYERS</button>
-
-<div class="eyebrow">PLAYER PROFILE</div>
-
-<div class="player-profile">
-
-<div class="profile-top">
-
-<div class="profile-number" id="profileNumber">#3</div>
-
-<div class="profile-copy">
-
-<div class="profile-position" id="profilePosition">1B</div>
-
-<div class="profile-name" id="profileName">
-BRYCE HARPER
+<div class="detail-number" id="detailNumber"></div>
+<div class="detail-name" id="detailName"></div>
+<div class="detail-meta">
+<span id="detailPosition"></span>
+<span id="detailBT"></span>
+<span id="detailStatus"></span>
 </div>
-
-<div class="profile-meta">
-<span id="profileBT">B/T L/R</span>
-<span id="profileStatus">ACTIVE</span>
-</div>
-
-<div class="profile-status active" id="profileBadge">
-ACTIVE
-</div>
-
-</div>
-
-</div>
-
-<div class="profile-stats" id="profileStats"></div>
-
-<div class="profile-overview">
-
-<div class="profile-info">
-<small>POSITION</small>
-<strong id="profilePositionBottom">1B</strong>
-</div>
-
-<div class="profile-info">
-<small>BATS / THROWS</small>
-<strong id="profileBTBottom">L / R</strong>
-</div>
-
-<div class="profile-info">
-<small>STATUS</small>
-<strong id="profileStatusBottom">ACTIVE</strong>
-</div>
-
-<div class="profile-info">
-<small>SEASON</small>
-<strong>2026</strong>
-</div>
-
-</div>
-
-</div>
-
 <div class="detail-section">
-
-<div class="detail-title" id="detailTitle">
-2026 SEASON
+<div class="detail-title" id="detailTitle">2026 SEASON</div>
+<div class="stats" id="detailStats"></div>
 </div>
-
-</div>
-
 </section>
-
-<!-- GAME DETAIL -->
-
 <section id="gameDetail" class="detail">
-
 <button class="back" onclick="hideGame()">← SCHEDULE</button>
-
 <div class="eyebrow">GAME DETAIL</div>
 <h1 id="gameTitle">PHI vs ATL</h1>
-
 <div class="detail-section">
-
 <div class="detail-title">BOX SCORE</div>
-
 <div class="score-scroll">
-
 <div class="score-table">
-
 <div class="score-line head">
 <span>TEAM</span>
 <span>1</span><span>2</span><span>3</span><span>4</span>
 <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
 <span>R</span><span>H</span><span>E</span>
 </div>
-
 <div class="score-line team">
 <span>PHI</span>
 <span>1</span><span>0</span><span>2</span><span>0</span>
 <span>1</span><span>0</span><span>2</span><span>0</span><span>0</span>
 <span>6</span><span>10</span><span>0</span>
 </div>
-
 <div class="score-line team">
 <span>ATL</span>
 <span>0</span><span>1</span><span>0</span><span>0</span>
 <span>0</span><span>1</span><span>1</span><span>0</span><span>0</span>
 <span>3</span><span>7</span><span>1</span>
 </div>
-
 </div>
 </div>
-
-<div class="score-note">
-9 INNINGS · R RUNS · H HITS · E ERRORS
+<div class="score-note">9 INNINGS · R RUNS · H HITS · E ERRORS</div>
 </div>
-
-</div>
-
 <div class="detail-section">
-
-<div class="detail-title">
-PHILADELPHIA BATTING
-</div>
-
+<div class="detail-title">PHILADELPHIA BATTING</div>
 <div class="box-table">
-
 <div class="box-row head">
-<span>PLAYER</span>
-<span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span>
+<span>PLAYER</span><span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span>
 </div>
-
-<div class="box-row">
-<strong>Harper</strong>
-<span>4</span><span>2</span><span>3</span><span>2</span><span>1</span>
-</div>
-
-<div class="box-row">
-<strong>Turner</strong>
-<span>5</span><span>1</span><span>2</span><span>1</span><span>0</span>
-</div>
-
-<div class="box-row">
-<strong>Schwarber</strong>
-<span>4</span><span>1</span><span>1</span><span>2</span><span>1</span>
-</div>
-
-<div class="box-row">
-<strong>Realmuto</strong>
-<span>4</span><span>1</span><span>1</span><span>0</span><span>0</span>
-</div>
-
+<div class="box-row"><strong>Harper</strong><span>4</span><span>2</span><span>3</span><span>2</span><span>1</span></div>
+<div class="box-row"><strong>Turner</strong><span>5</span><span>1</span><span>2</span><span>1</span><span>0</span></div>
+<div class="box-row"><strong>Schwarber</strong><span>4</span><span>1</span><span>1</span><span>2</span><span>1</span></div>
+<div class="box-row"><strong>Realmuto</strong><span>4</span><span>1</span><span>1</span><span>0</span><span>0</span></div>
 </div>
 </div>
-
 <div class="detail-section">
-
-<div class="detail-title">
-PHILADELPHIA PITCHING
-</div>
-
+<div class="detail-title">PHILADELPHIA PITCHING</div>
 <div class="box-table">
-
 <div class="box-row head">
-<span>PITCHER</span>
-<span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span>
+<span>PITCHER</span><span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span>
 </div>
-
-<div class="box-row">
-<strong>Wheeler</strong>
-<span>6.2</span><span>5</span><span>3</span><span>2</span><span>8</span>
-</div>
-
-<div class="box-row">
-<strong>Alvarado</strong>
-<span>1.1</span><span>1</span><span>0</span><span>0</span><span>2</span>
-</div>
-
-<div class="box-row">
-<strong>Hoffman</strong>
-<span>1.0</span><span>1</span><span>0</span><span>0</span><span>1</span>
-</div>
-
+<div class="box-row"><strong>Wheeler</strong><span>6.2</span><span>5</span><span>3</span><span>2</span><span>8</span></div>
+<div class="box-row"><strong>Alvarado</strong><span>1.1</span><span>1</span><span>0</span><span>0</span><span>2</span></div>
+<div class="box-row"><strong>Hoffman</strong><span>1.0</span><span>1</span><span>0</span><span>0</span><span>1</span></div>
 </div>
 </div>
-
 </section>
-
-<!-- LIVE -->
-
 <section id="live" class="detail">
-
 <button class="back" onclick="hideLive()">← HOME</button>
-
 <div class="eyebrow">GAME CENTER</div>
 <h1>PHI vs ATL</h1>
-
 <div class="live-board">
-
 <div class="live-top">
 <span class="live-badge">● LIVE</span>
 <span class="live-clock">BOT 7TH · 2 OUT</span>
 </div>
-
 <div class="live-score">
-
 <div class="live-team">PHI</div>
-
 <div>
 <div class="live-score-main">6 — 3</div>
 <div class="live-inning">BOTTOM 7</div>
 <div class="possession" id="possession">PHI BATTING</div>
 </div>
-
 <div class="live-team">ATL</div>
-
 </div>
-
 <div class="at-card">
-
 <div id="batView">
-
 <div class="at-label">AT BAT</div>
 <div class="at-name">BRYCE HARPER</div>
 <div class="at-sub">3 FOR 4 · HR · 2 RBI · 1 BB</div>
-
 </div>
-
 <div id="pitchView" style="display:none">
-
 <div class="at-label">AT PITCHER</div>
 <div class="at-name">ZACK WHEELER</div>
 <div class="at-sub">6.2 IP · 5 H · 3 ER · 2 BB · 8 SO</div>
-
 </div>
-
 <div class="bso">
-
-<div class="bso-box">
-<small>BALLS</small>
-<strong>2</strong>
+<div class="bso-box"><small>BALLS</small><strong>2</strong></div>
+<div class="bso-box"><small>STRIKES</small><strong>1</strong></div>
+<div class="bso-box"><small>OUTS</small><strong>2</strong></div>
 </div>
-
-<div class="bso-box">
-<small>STRIKES</small>
-<strong>1</strong>
+<!-- BASE RUNNER DISPLAY -->
+<div class="base-area">
+<div class="base-diamond">
+<div class="base-point base-second">
+<span>2B</span>
 </div>
-
-<div class="bso-box">
-<small>OUTS</small>
-<strong>2</strong>
+<div class="base-point base-third">
+<span>3B</span>
 </div>
-
+<div class="base-point base-first on">
+<span>1B</span>
 </div>
-
-<!-- PARALLELOGRAM BASES -->
-
-<div class="bases">
-
-<div class="base second"></div>
-<div class="base third"></div>
-<div class="base first on"></div>
-<div class="base home"></div>
-
-</div>
-
+<div class="base-point base-home">
+<span>H</span>
 </div>
 </div>
-
+</div>
+</div>
+</div>
 <div class="live-box">
-
 <div class="detail-title">
 <span>LIVE BOX SCORE</span>
 <span>THROUGH 7TH</span>
 </div>
-
 <div class="score-scroll">
-
 <div class="score-table">
-
 <div class="score-line head">
 <span>TEAM</span>
 <span>1</span><span>2</span><span>3</span><span>4</span>
 <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
 <span>R</span><span>H</span><span>E</span>
 </div>
-
 <div class="score-line team">
 <span>PHI</span>
 <span>1</span><span>0</span><span>2</span><span>0</span>
 <span>1</span><span>0</span><span>2</span><span>—</span><span>—</span>
 <span>6</span><span>9</span><span>0</span>
 </div>
-
 <div class="score-line team">
 <span>ATL</span>
 <span>0</span><span>1</span><span>0</span><span>0</span>
 <span>0</span><span>1</span><span>1</span><span>—</span><span>—</span>
 <span>3</span><span>7</span><span>1</span>
 </div>
-
 </div>
 </div>
-
 </div>
-
 <div class="today-stats">
-
-<div class="detail-title">
-PHILLIES TODAY · BATTING
-</div>
-
+<div class="detail-title">PHILLIES TODAY · BATTING</div>
 <div class="today-player head">
-<span>PLAYER</span>
-<span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span>
+<span>PLAYER</span><span>AB</span><span>R</span><span>H</span><span>RBI</span><span>BB</span>
 </div>
-
-<div class="today-player">
-<span>Schwarber</span><span>4</span><span>1</span><span>1</span><span>2</span><span>1</span>
+<div class="today-player"><span>Schwarber</span><span>4</span><span>1</span><span>1</span><span>2</span><span>1</span></div>
+<div class="today-player"><span>Turner</span><span>4</span><span>1</span><span>2</span><span>1</span><span>0</span></div>
+<div class="today-player"><span>Harper</span><span>4</span><span>2</span><span>3</span><span>2</span><span>1</span></div>
+<div class="today-player"><span>Realmuto</span><span>3</span><span>1</span><span>1</span><span>0</span><span>0</span></div>
+<div class="today-player"><span>Bohm</span><span>3</span><span>0</span><span>1</span><span>0</span><span>1</span></div>
+<div class="today-player"><span>Stott</span><span>3</span><span>0</span><span>0</span><span>0</span><span>0</span></div>
 </div>
-
-<div class="today-player">
-<span>Turner</span><span>4</span><span>1</span><span>2</span><span>1</span><span>0</span>
-</div>
-
-<div class="today-player">
-<span>Harper</span><span>4</span><span>2</span><span>3</span><span>2</span><span>1</span>
-</div>
-
-<div class="today-player">
-<span>Realmuto</span><span>3</span><span>1</span><span>1</span><span>0</span><span>0</span>
-</div>
-
-<div class="today-player">
-<span>Bohm</span><span>3</span><span>0</span><span>1</span><span>0</span><span>1</span>
-</div>
-
-<div class="today-player">
-<span>Stott</span><span>3</span><span>0</span><span>0</span><span>0</span><span>0</span>
-</div>
-
-</div>
-
 <div class="today-stats">
-
-<div class="detail-title">
-PHILLIES TODAY · PITCHING
-</div>
-
+<div class="detail-title">PHILLIES TODAY · PITCHING</div>
 <div class="pitch-stat head">
-<span>PITCHER</span>
-<span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span>
+<span>PITCHER</span><span>IP</span><span>H</span><span>ER</span><span>BB</span><span>SO</span>
 </div>
-
-<div class="pitch-stat">
-<span>Wheeler</span><span>6.2</span><span>5</span><span>3</span><span>2</span><span>8</span>
+<div class="pitch-stat"><span>Wheeler</span><span>6.2</span><span>5</span><span>3</span><span>2</span><span>8</span></div>
+<div class="pitch-stat"><span>Alvarado</span><span>0.1</span><span>1</span><span>0</span><span>0</span><span>1</span></div>
+<div class="pitch-stat"><span>Hoffman</span><span>0.2</span><span>1</span><span>0</span><span>0</span><span>1</span></div>
 </div>
-
-<div class="pitch-stat">
-<span>Alvarado</span><span>0.1</span><span>1</span><span>0</span><span>0</span><span>1</span>
-</div>
-
-<div class="pitch-stat">
-<span>Hoffman</span><span>0.2</span><span>1</span><span>0</span><span>0</span><span>1</span>
-</div>
-
-</div>
-
 </section>
-
 </main>
-
 <nav class="nav">
-
 <button data-page="schedule">
 <span class="icon"><i class="schedule-icon"></i></span>
 SCHEDULE
 </button>
-
 <button data-page="home" class="active">
 <span class="icon"><i class="home-icon"></i></span>
 HOME
 </button>
-
 <button data-page="players">
 <span class="icon"><i class="player-icon"></i></span>
 PLAYERS
 </button>
-
 </nav>
-
 <script>
-
 const pages=document.querySelectorAll(".page,.detail");
 const nav=document.querySelectorAll(".nav button");
-
-/* NAVIGATION */
-
 function showPage(id){
-
 pages.forEach(p=>p.classList.remove("active"));
-
 document.getElementById(id).classList.add("active");
-
-nav.forEach(b=>{
-b.classList.toggle("active",b.dataset.page===id)
-});
-
+nav.forEach(b=>b.classList.toggle("active",b.dataset.page===id));
 scrollTo(0,0);
-
 }
-
-nav.forEach(b=>{
-b.onclick=()=>showPage(b.dataset.page)
-});
-
-/* HOME / LIVE */
-
+nav.forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 function openLive(){
-
 pages.forEach(p=>p.classList.remove("active"));
-
 document.getElementById("live").classList.add("active");
-
 nav.forEach(b=>b.classList.remove("active"));
-
 scrollTo(0,0);
-
 updateGameSide();
-
 }
-
-function hideLive(){
-showPage("home")
-}
-
+function hideLive(){showPage("home")}
 let philliesBatting=true;
-
 function updateGameSide(){
-
 document.getElementById("batView").style.display=
 philliesBatting?"block":"none";
-
 document.getElementById("pitchView").style.display=
 philliesBatting?"none":"block";
-
 document.getElementById("possession").textContent=
-philliesBatting
-?"PHI BATTING"
-:"ATL BATTING · PHI PITCHING";
-
+philliesBatting?"PHI BATTING":"ATL BATTING · PHI PITCHING";
 }
-
 /* NEWS */
-
-const favoriteStorageKey="phillies-news-favorites";
-
-function getFavorites(){
-
-try{
-return JSON.parse(
-localStorage.getItem(favoriteStorageKey)||"[]"
-);
-}catch{
-return [];
-}
-
-}
-
-function saveFavorites(list){
-
-localStorage.setItem(
-favoriteStorageKey,
-JSON.stringify(list)
-);
-
-}
-
-function initializeFavorites(){
-
-const favorites=getFavorites();
-
-document.querySelectorAll(".news-item").forEach(item=>{
-
-const id=item.dataset.id;
-const button=item.querySelector(".favorite-btn");
-
-if(favorites.includes(id)){
-
-button.classList.add("active");
-button.textContent="★";
-
-}else{
-
-button.classList.remove("active");
-button.textContent="☆";
-
-}
-
-});
-
-}
-
-function toggleFavorite(event,button){
-
-event.stopPropagation();
-
-const item=button.closest(".news-item");
-
-const id=item.dataset.id;
-
-let favorites=getFavorites();
-
-if(favorites.includes(id)){
-
-favorites=favorites.filter(x=>x!==id);
-
-button.classList.remove("active");
-button.textContent="☆";
-
-}else{
-
-favorites.push(id);
-
-button.classList.add("active");
-button.textContent="★";
-
-}
-
-saveFavorites(favorites);
-
-filterNews();
-
-}
-
 function toggleRead(el){
-
 const unread=el.dataset.read==="unread";
-
 el.dataset.read=unread?"read":"unread";
-
 el.classList.toggle("unread",!unread);
 el.classList.toggle("read",unread);
-
 el.querySelector(".news-status").textContent=
 unread?"READ":"UNREAD";
-
 filterNews();
-
 }
-
 function filterNews(){
-
 const period=document.getElementById("newsPeriod").value;
 const read=document.getElementById("newsRead").value;
-
-const favorites=getFavorites();
-
 document.querySelectorAll(".news-item").forEach(item=>{
-
-const periodOK=
-period==="all"||
-item.dataset.period===period;
-
-let readOK=true;
-
-if(read==="unread"){
-readOK=item.dataset.read==="unread";
-}
-
-if(read==="read"){
-readOK=item.dataset.read==="read";
-}
-
-if(read==="favorites"){
-readOK=favorites.includes(item.dataset.id);
-}
-
-item.style.display=
-periodOK&&readOK
-?"block"
-:"none";
-
+const periodOK=period==="all"||item.dataset.period===period;
+const readOK=read==="all"||item.dataset.read===read;
+item.style.display=periodOK&&readOK?"block":"none";
 });
-
 }
-
 /* SCHEDULE */
-
-const months=[
-"JULY",
-"AUGUST",
-"SEPTEMBER",
-"OCTOBER"
-];
-
+const months=["JULY","AUGUST","SEPTEMBER","OCTOBER"];
 let monthIndex=1;
-
 const schedule={
-
 JULY:[
 ["30","THU","ATLANTA","CITIZENS BANK PARK · PHI","4–2","win"],
 ["31","FRI","ATLANTA","CITIZENS BANK PARK · PHI","3–6","loss"]
 ],
-
 AUGUST:[
 ["10","MON","ATLANTA","CITIZENS BANK PARK · PHI","6–3","win"],
 ["11","TUE","ATLANTA","CITIZENS BANK PARK · PHI","2–5","loss"],
@@ -2303,145 +825,87 @@ AUGUST:[
 ["14","FRI","ATLANTA","TRUIST PARK · ATL","7:20 PM","upcoming"],
 ["15","SAT","ATLANTA","TRUIST PARK · ATL","4:05 PM","upcoming"]
 ],
-
 SEPTEMBER:[
 ["1","TUE","MIAMI","CITIZENS BANK PARK · PHI","7:05 PM","upcoming"],
 ["2","WED","MIAMI","CITIZENS BANK PARK · PHI","6:40 PM","upcoming"],
 ["3","THU","MIAMI","CITIZENS BANK PARK · PHI","1:05 PM","upcoming"]
 ],
-
 OCTOBER:[
 ["1","THU","TBD","TBD","TBD","upcoming"]
 ]
-
 };
-
 function renderSchedule(){
-
 const month=months[monthIndex];
-
 document.getElementById("monthName").innerHTML=
 `${month}<small>2026 · REGULAR SEASON</small>`;
-
 document.getElementById("games").innerHTML=
 (schedule[month]||[]).map(g=>{
-
 const [day,dow,opp,park,result,type]=g;
-
 if(type==="win"||type==="loss"){
-
 return `
 <div class="game-row" onclick="openGame()">
-
-<div class="date">
-<strong>${day}</strong>${dow}
-</div>
-
+<div class="date"><strong>${day}</strong>${dow}</div>
 <div>
 <div class="opponent">${opp}</div>
 <div class="ballpark">${park}</div>
 <div class="game-type">REGULAR SEASON</div>
 </div>
-
 <div class="schedule-score ${type}">
 <span class="label">FINAL</span>
 <div class="numbers">${result}</div>
-<div class="result">
-${type==="win"?"WIN":"LOSE"}
+<div class="result">${type==="win"?"WIN":"LOSE"}</div>
 </div>
-</div>
-
 </div>`;
-
 }
-
 if(type==="live"){
-
 return `
 <div class="game-row today" onclick="openLive()">
-
-<div class="date">
-<strong>${day}</strong>${dow}
-</div>
-
+<div class="date"><strong>${day}</strong>${dow}</div>
 <div>
 <div class="opponent">${opp}</div>
 <div class="ballpark">${park}</div>
 <div class="game-type">TODAY · LIVE</div>
 </div>
-
 <div class="schedule-score live">
 <span class="label">BOT 7TH</span>
 <div class="numbers">${result}</div>
 <div class="result">LIVE</div>
 </div>
-
 </div>`;
-
 }
-
 return `
 <div class="game-row">
-
-<div class="date">
-<strong>${day}</strong>${dow}
-</div>
-
+<div class="date"><strong>${day}</strong>${dow}</div>
 <div>
 <div class="opponent">${opp}</div>
 <div class="ballpark">${park}</div>
 <div class="game-type">REGULAR SEASON</div>
 </div>
-
 <div class="schedule-score upcoming">
 <span class="label">FIRST PITCH</span>
 <div class="numbers">${result}</div>
 </div>
-
 </div>`;
-
 }).join("");
-
 }
-
 function changeMonth(dir){
-
-monthIndex=
-Math.max(
+monthIndex=Math.max(
 0,
-Math.min(
-months.length-1,
-monthIndex+dir
-)
+Math.min(months.length-1,monthIndex+dir)
 );
-
 renderSchedule();
-
 }
-
 /* GAME DETAIL */
-
 function openGame(){
-
 pages.forEach(p=>p.classList.remove("active"));
-
 document.getElementById("gameDetail").classList.add("active");
-
 scrollTo(0,0);
-
 }
-
-function hideGame(){
-showPage("schedule")
-}
-
+function hideGame(){showPage("schedule")}
 /* PLAYERS */
-
 const roster=[
-
 {
-key:"pitchers",
-title:"PITCHERS",
+key:"pitchers",title:"PITCHERS",
 players:[
 ["45","Zack Wheeler","R/R","P","ACTIVE","active"],
 ["61","Cristopher Sánchez","L/L","P","ACTIVE","active"],
@@ -2449,336 +913,154 @@ players:[
 ["—","Player Name","R/R","P","40-MAN","roster"]
 ]
 },
-
 {
-key:"catchers",
-title:"CATCHERS",
+key:"catchers",title:"CATCHERS",
 players:[
 ["10","J.T. Realmuto","R/R","C","ACTIVE","active"]
 ]
 },
-
 {
-key:"infielders",
-title:"INFIELDERS",
+key:"infielders",title:"INFIELDERS",
 players:[
 ["3","Bryce Harper","L/R","1B","ACTIVE","active"],
 ["7","Trea Turner","R/R","SS","ACTIVE","active"]
 ]
 },
-
 {
-key:"outfielders",
-title:"OUTFIELDERS",
+key:"outfielders",title:"OUTFIELDERS",
 players:[
 ["12","Kyle Schwarber","L/L","OF","ACTIVE","active"]
 ]
 },
-
 {
-key:"dh",
-title:"DESIGNATED HITTER",
+key:"dh",title:"DESIGNATED HITTER",
 players:[]
 }
-
 ];
-
 const stats={
-
 "Bryce Harper":{
 kind:"HITTER",
 data:[
-["AVG",".298"],
-["HR","31"],
-["RBI","87"],
-["OPS",".951"],
-["H","142"],
-["R","91"],
-["BB","64"],
-["SB","8"]
+["AVG",".298"],["HR","31"],["RBI","87"],["OPS",".951"],
+["H","142"],["R","91"],["BB","64"],["SB","8"]
 ]
 },
-
 "Trea Turner":{
 kind:"HITTER",
 data:[
-["AVG",".287"],
-["HR","18"],
-["RBI","63"],
-["OPS",".842"],
-["H","131"],
-["R","78"],
-["BB","37"],
-["SB","22"]
+["AVG",".287"],["HR","18"],["RBI","63"],["OPS",".842"],
+["H","131"],["R","78"],["BB","37"],["SB","22"]
 ]
 },
-
 "J.T. Realmuto":{
 kind:"HITTER",
 data:[
-["AVG",".264"],
-["HR","14"],
-["RBI","54"],
-["OPS",".758"],
-["H","101"],
-["R","49"],
-["BB","31"],
-["SB","7"]
+["AVG",".264"],["HR","14"],["RBI","54"],["OPS",".758"],
+["H","101"],["R","49"],["BB","31"],["SB","7"]
 ]
 },
-
 "Kyle Schwarber":{
 kind:"HITTER",
 data:[
-["AVG",".251"],
-["HR","37"],
-["RBI","92"],
-["OPS",".884"],
-["H","118"],
-["R","83"],
-["BB","89"],
-["SB","3"]
+["AVG",".251"],["HR","37"],["RBI","92"],["OPS",".884"],
+["H","118"],["R","83"],["BB","89"],["SB","3"]
 ]
 },
-
 "Zack Wheeler":{
 kind:"PITCHER",
 data:[
-["ERA","2.81"],
-["W","12"],
-["L","4"],
-["SO","171"],
-["WHIP","1.04"],
-["IP","147.0"],
-["GS","24"],
-["CG","1"]
+["ERA","2.81"],["W","12"],["L","4"],["SO","171"],
+["WHIP","1.04"],["IP","147.0"],["GS","24"],["CG","1"]
 ]
 },
-
 "Cristopher Sánchez":{
 kind:"PITCHER",
 data:[
-["ERA","3.12"],
-["W","10"],
-["L","5"],
-["SO","148"],
-["WHIP","1.11"],
-["IP","138.2"],
-["GS","24"],
-["CG","0"]
+["ERA","3.12"],["W","10"],["L","5"],["SO","148"],
+["WHIP","1.11"],["IP","138.2"],["GS","24"],["CG","0"]
 ]
 },
-
 "Player Name":{
 kind:"PITCHER",
 data:[
-["ERA","4.21"],
-["W","2"],
-["L","3"],
-["SO","38"],
-["WHIP","1.31"],
-["IP","42.0"],
-["GS","7"],
-["CG","0"]
+["ERA","4.21"],["W","2"],["L","3"],["SO","38"],
+["WHIP","1.31"],["IP","42.0"],["GS","7"],["CG","0"]
 ]
 }
-
 };
-
 function renderRoster(){
-
 document.getElementById("playerRoster").innerHTML=
-
 roster.map(group=>{
-
 const players=[...group.players].sort((a,b)=>{
-
 if(a[0]==="—")return 1;
 if(b[0]==="—")return -1;
-
 return Number(a[0])-Number(b[0]);
-
 });
-
 return `
-
 <div class="group" data-group="${group.key}">
-
 <div class="group-head">
 <strong>${group.title}</strong>
-<span>
-${players.length}
-${players.length===1?"PLAYER":"PLAYERS"}
-</span>
+<span>${players.length} ${players.length===1?"PLAYER":"PLAYERS"}</span>
 </div>
-
 ${players.map(p=>{
-
 const [num,name,bt,pos,status,state]=p;
-
 return `
-
 <div class="player ${state} ${num==="—"?"no-number":""}"
-onclick="openPlayer(
-'${encodeURIComponent(name)}',
-'${num}',
-'${bt}',
-'${pos}',
-'${status}'
-)">
-
+onclick="openPlayer('${encodeURIComponent(name)}','${num}','${bt}','${pos}','${status}')">
 <div class="number">${num}</div>
-
 <div>
-
 <div class="player-name">${name}</div>
-
-<div class="player-meta">
-B/T ${bt}
+<div class="player-meta">B/T ${bt}</div>
 </div>
-
-</div>
-
 <div class="player-state ${state}">
-
-<span class="player-pos">
-${pos}
-</span>
-
+<span class="player-pos">${pos}</span>
 ${status}
-
 </div>
-
 </div>`;
-
 }).join("")}
-
 </div>`;
-
 }).join("");
-
 }
-
 function filterPlayers(){
-
-const value=
-document.getElementById("positionFilter").value;
-
+const value=document.getElementById("positionFilter").value;
 document.querySelectorAll(".group").forEach(group=>{
-
 group.style.display=
-value==="all"||
-group.dataset.group===value
-?"block"
-:"none";
-
+value==="all"||group.dataset.group===value
+?"block":"none";
 });
-
 }
-
-/* PLAYER DETAIL */
-
-function openPlayer(
-name,
-number,
-bt,
-pos,
-status
-){
-
+function openPlayer(name,number,bt,pos,status){
 name=decodeURIComponent(name);
-
 const data=stats[name];
-
-const firstName=name.toUpperCase();
-
-document.getElementById("profileNumber").textContent=
-number==="—"?"":("#"+number);
-
-document.getElementById("profileName").textContent=
-firstName;
-
-document.getElementById("profilePosition").textContent=
-pos;
-
-document.getElementById("profileBT").textContent=
-"B/T "+bt;
-
-document.getElementById("profileStatus").textContent=
-status;
-
-document.getElementById("profilePositionBottom").textContent=
-pos;
-
-document.getElementById("profileBTBottom").textContent=
-bt.replace("/"," / ");
-
-document.getElementById("profileStatusBottom").textContent=
-status;
-
-const badge=
-document.getElementById("profileBadge");
-
-badge.textContent=status;
-
-badge.className=
-"profile-status "+
-(
-status==="ACTIVE"
-?"active":
-status==="IL"
-?"il":
-""
-);
-
+document.getElementById("detailNumber").textContent=
+number==="—"?"":"#"+number;
+document.getElementById("detailName").textContent=name;
+document.getElementById("detailPosition").textContent=pos;
+document.getElementById("detailBT").textContent="B/T "+bt;
+const statusEl=document.getElementById("detailStatus");
+statusEl.textContent=status;
+statusEl.className=
+status==="ACTIVE"?"status-active":
+status==="IL"?"status-il":"";
 document.getElementById("detailTitle").textContent=
-data
-?`2026 SEASON · ${data.kind}`
-:"2026 SEASON";
-
-const statsContainer=
-document.getElementById("profileStats");
-
-statsContainer.innerHTML=
+data?`2026 SEASON · ${data.kind}`:"2026 SEASON";
+document.getElementById("detailStats").innerHTML=
 (data?data.data:[]).map(s=>`
-
-<div class="profile-stat">
-
+<div class="stat">
 <small>${s[0]}</small>
-
 <strong>${s[1]}</strong>
-
 </div>
-
 `).join("");
-
 pages.forEach(p=>p.classList.remove("active"));
-
 document.getElementById("detail").classList.add("active");
-
-nav.forEach(b=>b.classList.remove("active"));
-
 scrollTo(0,0);
-
 }
-
-function hidePlayer(){
-showPage("players")
-}
-
+function hidePlayer(){showPage("players")}
 /* INITIAL */
-
 renderSchedule();
-
 renderRoster();
-
-initializeFavorites();
-
 filterNews();
-
 updateGameSide();
-
 </script>
-
 </body>
 </html>
