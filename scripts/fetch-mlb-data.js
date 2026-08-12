@@ -1,98 +1,114 @@
 const fs=require("fs");
 const path=require("path");
 
-const TEAM_ID=143;
+const TEAM=143;
 const SEASON=new Date().getUTCFullYear();
 const API="https://statsapi.mlb.com/api/v1";
-const FILE=path.join(process.cwd(),"data","fetch-mlb-data.json");
+const OUT=path.join("data","fetch-mlb-data.json");
 
 async function get(url){
-  const res=await fetch(url);
-  if(!res.ok)throw new Error(`${res.status} ${url}`);
-  return res.json();
+  const r=await fetch(url);
+  if(!r.ok)throw new Error(`${r.status} ${url}`);
+  return r.json();
 }
 
-function api(path,params={}){
-  const url=new URL(API+path);
-  for(const [key,value] of Object.entries(params)){
-    url.searchParams.set(key,value);
-  }
-  return get(url);
+async function api(path,params={}){
+  const u=new URL(API+path);
+  Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));
+  return get(u);
 }
 
-function team(data){
+const team=x=>({
+  id:x?.team?.id??null,
+  name:x?.team?.name??null,
+  abbreviation:x?.team?.abbreviation??null,
+  R:x?.score??null,
+  H:x?.hits??null,
+  E:x?.errors??null,
+  win:x?.isWinner??false
+});
+
+function batting(p){
+  const s=p.stats?.batting;
+  if(!s)return null;
   return {
-    id:data?.team?.id??null,
-    name:data?.team?.name??null,
-    abbreviation:data?.team?.abbreviation??null,
-    score:data?.score??null,
-    hits:data?.hits??null,
-    errors:data?.errors??null,
-    winner:data?.isWinner??false
+    id:p.person?.id??null,
+    name:p.person?.fullName??null,
+    jersey:p.jerseyNumber??null,
+    pos:p.position?.abbreviation??null,
+    AB:s.atBats??0,
+    R:s.runs??0,
+    H:s.hits??0,
+    RBI:s.rbi??0,
+    BB:s.baseOnBalls??0,
+    HR:s.homeRuns??0,
+    SO:s.strikeOuts??0,
+    AVG:s.avg??null,
+    OBP:s.obp??null,
+    SLG:s.slg??null,
+    OPS:s.ops??null,
+    BABIP:s.babip??null
   };
 }
 
-function player(data,stats){
+function pitching(p){
+  const s=p.stats?.pitching;
+  if(!s)return null;
   return {
-    id:data.person?.id??null,
-    name:data.person?.fullName??null,
-    jersey:data.jerseyNumber??null,
-    position:data.position?.abbreviation??null,
-    stats:stats||{}
+    id:p.person?.id??null,
+    name:p.person?.fullName??null,
+    jersey:p.jerseyNumber??null,
+    pos:p.position?.abbreviation??null,
+    IP:s.inningsPitched??null,
+    H:s.hits??0,
+    R:s.runs??0,
+    ER:s.earnedRuns??0,
+    BB:s.baseOnBalls??0,
+    SO:s.strikeOuts??0,
+    HR:s.homeRuns??0,
+    ERA:s.era??null,
+    WHIP:s.whip??null,
+    P:s.numberOfPitches??null
   };
 }
 
-async function getBoxscore(gamePk){
-  const data=await get(
-    `${API}/game/${gamePk}/boxscore`
-  );
+async function players(gamePk,home){
+  const d=await api(`/game/${gamePk}/boxscore`);
+  const t=d.teams?.[home?"home":"away"];
 
-  const result={};
+  const batting=[];
+  const pitching=[];
 
-  for(const side of ["away","home"]){
-    const teamData=data.teams?.[side];
-    if(!teamData)continue;
-
-    const batting=[];
-    const pitching=[];
-
-    for(const p of Object.values(teamData.players||{})){
-      if(p.stats?.batting){
-        batting.push(player(p,p.stats.batting));
-      }
-
-      if(p.stats?.pitching){
-        pitching.push(player(p,p.stats.pitching));
-      }
-    }
-
-    result[side]={
-      team:teamData.team||null,
-      batting,
-      pitching,
-      teamStats:teamData.teamStats||{}
-    };
+  for(const p of Object.values(t?.players||{})){
+    const b=battingData(p);
+    const q=pitchingData(p);
+    if(b)batting.push(b);
+    if(q)pitching.push(q);
   }
 
-  return result;
+  return {batting,pitching};
 }
 
-async function getLive(gamePk){
-  const data=await get(
+const battingData=batting;
+const pitchingData=pitching;
+
+async function innings(gamePk){
+  const d=await get(
     `https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`
   );
 
-  const linescore=data.liveData?.linescore||{};
+  const l=d.liveData?.linescore;
+  if(!l)return null;
 
   return {
-    inning:linescore.currentInning??null,
-    ordinal:linescore.currentInningOrdinal??null,
-    state:linescore.inningState??null,
-    balls:linescore.balls??null,
-    strikes:linescore.strikes??null,
-    outs:linescore.outs??null,
-    innings:(linescore.innings||[]).map(i=>({
-      inning:i.num,
+    inning:l.currentInning??null,
+    ordinal:l.currentInningOrdinal??null,
+    state:l.inningState??null,
+    balls:l.balls??null,
+    strikes:l.strikes??null,
+    outs:l.outs??null,
+    data:(l.innings||[]).map(i=>({
+      n:i.num,
       away:{
         R:i.away?.runs??0,
         H:i.away?.hits??0,
@@ -110,64 +126,51 @@ async function getLive(gamePk){
 async function main(){
   const schedule=await api("/schedule",{
     sportId:1,
-    teamId:TEAM_ID,
+    teamId:TEAM,
     season:SEASON,
     hydrate:"team,venue,linescore"
   });
 
-  const games=schedule.dates?.flatMap(
-    date=>date.games||[]
-  )||[];
-
+  const games=schedule.dates?.flatMap(x=>x.games||[])||[];
   const output=[];
 
-  for(const game of games){
-    const away=team(game.teams?.away);
-    const home=team(game.teams?.home);
+  for(const g of games){
+    const away=team(g.teams?.away);
+    const home=team(g.teams?.home);
+    const homeGame=home.id===TEAM;
+    const phillies=homeGame?home:away;
+    const opponent=homeGame?away:home;
 
-    const philliesHome=home.id===TEAM_ID;
-    const phillies=philliesHome?home:away;
-    const opponent=philliesHome?away:home;
+    let data={batting:[],pitching:[]};
+    let line=null;
 
-    let boxscore=null;
-    let live=null;
-
-    try{
-      boxscore=await getBoxscore(game.gamePk);
-    }catch(error){
-      console.error(`Boxscore ${game.gamePk}:`,error.message);
-    }
-
-    if(
-      game.status?.abstractGameState==="Live"||
-      game.status?.abstractGameState==="Final"
-    ){
+    if(["Final","Live"].includes(g.status?.abstractGameState)){
       try{
-        live=await getLive(game.gamePk);
-      }catch(error){
-        console.error(`Live ${game.gamePk}:`,error.message);
+        data=await players(g.gamePk,homeGame);
+      }catch(e){
+        console.error(`BOX ${g.gamePk}: ${e.message}`);
+      }
+
+      try{
+        line=await innings(g.gamePk);
+      }catch(e){
+        console.error(`LIVE ${g.gamePk}: ${e.message}`);
       }
     }
 
-    const own=boxscore
-      ?philliesHome?boxscore.home:boxscore.away
-      :null;
-
     output.push({
-      gamePk:game.gamePk,
-      season:SEASON,
-      date:game.gameDate,
-      gameType:game.gameType??null,
+      gamePk:g.gamePk,
+      date:g.gameDate,
+      type:g.gameType??null,
 
       status:{
-        abstract:game.status?.abstractGameState??null,
-        detailed:game.status?.detailedState??null,
-        code:game.status?.codedGameState??null
+        abstract:g.status?.abstractGameState??null,
+        detailed:g.status?.detailedState??null
       },
 
       venue:{
-        id:game.venue?.id??null,
-        name:game.venue?.name??null
+        id:g.venue?.id??null,
+        name:g.venue?.name??null
       },
 
       opponent:{
@@ -176,66 +179,45 @@ async function main(){
         abbreviation:opponent.abbreviation
       },
 
-      home:philliesHome,
+      home:homeGame,
 
       score:{
-        R:phillies.score,
-        H:phillies.hits,
-        E:phillies.errors,
-        opponentR:opponent.score,
-        opponentH:opponent.hits,
-        opponentE:opponent.errors
+        R:phillies.R,
+        H:phillies.H,
+        E:phillies.E,
+        opponentR:opponent.R,
+        opponentH:opponent.H,
+        opponentE:opponent.E
       },
 
-      teams:{
-        away,
-        home
-      },
+      innings:line,
 
-      innings:live?.innings||[],
+      batting:data.batting,
 
-      batting:own?.batting||[],
-
-      pitching:own?.pitching||[],
-
-      teamStats:own?.teamStats||{},
-
-      boxscore,
-
-      live
+      pitching:data.pitching
     });
   }
 
-  const result={
-    season:SEASON,
-
-    team:{
-      id:TEAM_ID,
-      name:"Philadelphia Phillies"
-    },
-
-    updatedAt:new Date().toISOString(),
-
-    games:output
-  };
-
-  fs.mkdirSync(
-    path.dirname(FILE),
-    {recursive:true}
-  );
+  fs.mkdirSync("data",{recursive:true});
 
   fs.writeFileSync(
-    FILE,
-    JSON.stringify(result,null,2),
+    OUT,
+    JSON.stringify({
+      season:SEASON,
+      team:{
+        id:TEAM,
+        name:"Philadelphia Phillies"
+      },
+      updatedAt:new Date().toISOString(),
+      games:output
+    },null,2),
     "utf8"
   );
 
-  console.log(
-    `Wrote ${output.length} games to ${FILE}`
-  );
+  console.log(`Saved ${output.length} games to ${OUT}`);
 }
 
-main().catch(error=>{
-  console.error(error);
+main().catch(e=>{
+  console.error(e);
   process.exit(1);
 });
