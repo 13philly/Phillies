@@ -4,7 +4,7 @@
     "name": "Philadelphia Phillies"
   },
   "season": 2026,
-  "updatedAt": "2026-09-13T20:24:54.752Z",
+  "updatedAt": "2026-09-14T03:41:41.459Z",
   "source": "MLB Stats API",
   "players": [
     {
@@ -75,7 +75,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:49.416Z"
+      "updatedAt": "2026-09-14T03:41:31.112Z"
     },
     {
       "id": 666969,
@@ -152,7 +152,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:49.527Z"
+      "updatedAt": "2026-09-14T03:41:31.220Z"
     },
     {
       "id": 660604,
@@ -222,7 +222,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:49.660Z"
+      "updatedAt": "2026-09-14T03:41:32.661Z"
     },
     {
       "id": 664761,
@@ -299,7 +299,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:49.770Z"
+      "updatedAt": "2026-09-14T03:41:32.772Z"
     },
     {
       "id": 686934,
@@ -339,7 +339,7 @@
             "wins": 4,
             "losses": 1,
             "saves": 0,
-            "holds": 3,
+            "holds": 4,
             "inningsPitched": "14.2",
             "hits": 10,
             "runs": 6,
@@ -369,7 +369,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:49.904Z"
+      "updatedAt": "2026-09-14T03:41:33.572Z"
     },
     {
       "id": 694851,
@@ -439,7 +439,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:50.020Z"
+      "updatedAt": "2026-09-14T03:41:33.739Z"
     },
     {
       "id": 691725,
@@ -509,7 +509,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:50.154Z"
+      "updatedAt": "2026-09-14T03:41:33.842Z"
     },
     {
       "id": 641745,
@@ -579,7 +579,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:50.283Z"
+      "updatedAt": "2026-09-14T03:41:34.027Z"
     },
     {
       "id": 669016,
@@ -656,7 +656,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:50.395Z"
+      "updatedAt": "2026-09-14T03:41:34.152Z"
     },
     {
       "id": 548384,
@@ -726,7 +726,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:50.518Z"
+      "updatedAt": "2026-09-14T03:41:34.288Z"
     },
     {
       "id": 650559,
@@ -803,7 +803,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:50.637Z"
+      "updatedAt": "2026-09-14T03:41:34.396Z"
     },
     {
       "id": 547180,
@@ -880,7 +880,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:50.767Z"
+      "updatedAt": "2026-09-14T03:41:34.555Z"
     },
     {
       "id": 681082,
@@ -957,7 +957,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:50.872Z"
+      "updatedAt": "2026-09-14T03:41:34.692Z"
     },
     {
       "id": 668873,
@@ -1027,7 +1027,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:51.018Z"
+      "updatedAt": "2026-09-14T03:41:34.837Z"
     },
     {
       "id": 663767,
@@ -1097,7 +1097,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:51.182Z"
+      "updatedAt": "2026-09-14T03:41:35.014Z"
     },
     {
       "id": 687515,
@@ -1174,7 +1174,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:51.288Z"
+      "updatedAt": "2026-09-14T03:41:35.171Z"
     },
     {
       "id": 650911,
@@ -1244,7 +1244,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:51.399Z"
+      "updatedAt": "2026-09-14T03:41:35.335Z"
     },
     {
       "id": 656537,
@@ -1321,7 +1321,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:51.492Z"
+      "updatedAt": "2026-09-14T03:41:35.450Z"
     },
     {
       "id": 624641,
@@ -1398,7 +1398,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:51.605Z"
+      "updatedAt": "2026-09-14T03:41:35.574Z"
     },
     {
       "id": 694025,
@@ -1475,7 +1475,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:51.731Z"
+      "updatedAt": "2026-09-14T03:41:35.688Z"
     },
     {
       "id": 687282,
@@ -1552,7 +1552,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:51.855Z"
+      "updatedAt": "2026-09-14T03:41:35.858Z"
     },
     {
       "id": 596117,
@@ -1629,7 +1629,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:52.019Z"
+      "updatedAt": "2026-09-14T03:41:35.983Z"
     },
     {
       "id": 680880,
@@ -1699,7 +1699,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:52.138Z"
+      "updatedAt": "2026-09-14T03:41:36.089Z"
     },
     {
       "id": 592663,
@@ -1776,7 +1776,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:52.229Z"
+      "updatedAt": "2026-09-14T03:41:36.231Z"
     },
     {
       "id": 666200,
@@ -1846,7 +1846,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:52.367Z"
+      "updatedAt": "2026-09-14T03:41:36.391Z"
     },
     {
       "id": 661395,
@@ -1916,7 +1916,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:52.506Z"
+      "updatedAt": "2026-09-14T03:41:36.514Z"
     },
     {
       "id": 679032,
@@ -1993,7 +1993,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:52.605Z"
+      "updatedAt": "2026-09-14T03:41:36.632Z"
     },
     {
       "id": 680742,
@@ -2063,7 +2063,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:52.715Z"
+      "updatedAt": "2026-09-14T03:41:36.742Z"
     },
     {
       "id": 621237,
@@ -2100,7 +2100,7 @@
           "season": {
             "gamesPlayed": 62,
             "gamesStarted": 0,
-            "wins": 3,
+            "wins": 4,
             "losses": 3,
             "saves": 1,
             "holds": 15,
@@ -2133,7 +2133,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:52.838Z"
+      "updatedAt": "2026-09-14T03:41:36.902Z"
     },
     {
       "id": 702222,
@@ -2210,7 +2210,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:52.963Z"
+      "updatedAt": "2026-09-14T03:41:37.043Z"
     },
     {
       "id": 670224,
@@ -2287,7 +2287,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:53.090Z"
+      "updatedAt": "2026-09-14T03:41:37.148Z"
     },
     {
       "id": 679775,
@@ -2357,7 +2357,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:53.217Z"
+      "updatedAt": "2026-09-14T03:41:38.558Z"
     },
     {
       "id": 656941,
@@ -2434,7 +2434,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:53.354Z"
+      "updatedAt": "2026-09-14T03:41:38.703Z"
     },
     {
       "id": 650333,
@@ -2506,12 +2506,12 @@
             "re24": null,
             "wrcPlus": null,
             "wraa": null,
-            "woba": 0.335048
+            "woba": 0.334946
           }
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:53.477Z"
+      "updatedAt": "2026-09-14T03:41:38.852Z"
     },
     {
       "id": 676661,
@@ -2581,7 +2581,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:53.612Z"
+      "updatedAt": "2026-09-14T03:41:40.303Z"
     },
     {
       "id": 691330,
@@ -2651,7 +2651,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:53.763Z"
+      "updatedAt": "2026-09-14T03:41:40.414Z"
     },
     {
       "id": 641482,
@@ -2721,7 +2721,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:53.865Z"
+      "updatedAt": "2026-09-14T03:41:40.518Z"
     },
     {
       "id": 689147,
@@ -2791,7 +2791,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:54.005Z"
+      "updatedAt": "2026-09-14T03:41:40.635Z"
     },
     {
       "id": 805249,
@@ -2868,7 +2868,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:54.127Z"
+      "updatedAt": "2026-09-14T03:41:40.777Z"
     },
     {
       "id": 665561,
@@ -2945,7 +2945,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:54.251Z"
+      "updatedAt": "2026-09-14T03:41:40.881Z"
     },
     {
       "id": 621383,
@@ -2986,23 +2986,23 @@
             "losses": 4,
             "saves": 0,
             "holds": 2,
-            "inningsPitched": "30.1",
-            "hits": 45,
-            "runs": 27,
-            "earnedRuns": 23,
-            "homeRuns": 7,
+            "inningsPitched": "31.0",
+            "hits": 48,
+            "runs": 29,
+            "earnedRuns": 25,
+            "homeRuns": 8,
             "baseOnBalls": 13,
-            "strikeOuts": 34,
-            "era": "6.82",
-            "whip": "1.91"
+            "strikeOuts": 35,
+            "era": "7.26",
+            "whip": "1.97"
           },
           "advanced": {
             "strikeoutsPer9Inn": null,
             "walksPer9Inn": null,
             "hitsPer9Inn": null,
-            "homeRunsPer9": "2.08",
+            "homeRunsPer9": "2.32",
             "strikeoutWalkRatio": null,
-            "strikePercentage": ".660"
+            "strikePercentage": ".670"
           },
           "sabermetrics": {
             "war": -0.219661,
@@ -3015,7 +3015,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:54.377Z"
+      "updatedAt": "2026-09-14T03:41:41.017Z"
     },
     {
       "id": 641835,
@@ -3085,7 +3085,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:54.485Z"
+      "updatedAt": "2026-09-14T03:41:41.170Z"
     },
     {
       "id": 607208,
@@ -3162,7 +3162,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-09-13T20:24:54.610Z"
+      "updatedAt": "2026-09-14T03:41:41.317Z"
     },
     {
       "id": 554430,
@@ -3232,7 +3232,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-09-13T20:24:54.752Z"
+      "updatedAt": "2026-09-14T03:41:41.459Z"
     }
   ]
 }
