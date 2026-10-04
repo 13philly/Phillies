@@ -4,7 +4,7 @@
     "name": "Philadelphia Phillies"
   },
   "season": 2026,
-  "updatedAt": "2026-10-04T11:51:56.864Z",
+  "updatedAt": "2026-10-04T16:31:38.591Z",
   "source": "MLB Stats API",
   "players": [
     {
@@ -75,7 +75,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:53.557Z"
+      "updatedAt": "2026-10-04T16:31:31.889Z"
     },
     {
       "id": 666969,
@@ -140,7 +140,7 @@
             "extraBaseHits": 16
           },
           "sabermetrics": {
-            "war": -0.03196,
+            "war": -0.03216,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -152,7 +152,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:53.624Z"
+      "updatedAt": "2026-10-04T16:31:31.989Z"
     },
     {
       "id": 660604,
@@ -177,9 +177,9 @@
         "birthCountry": "Mexico"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -222,7 +222,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:53.684Z"
+      "updatedAt": "2026-10-04T16:31:32.106Z"
     },
     {
       "id": 664761,
@@ -287,7 +287,7 @@
             "extraBaseHits": 45
           },
           "sabermetrics": {
-            "war": 0.19042,
+            "war": 0.19237,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -299,7 +299,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:53.746Z"
+      "updatedAt": "2026-10-04T16:31:32.237Z"
     },
     {
       "id": 686934,
@@ -369,7 +369,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:53.819Z"
+      "updatedAt": "2026-10-04T16:31:32.436Z"
     },
     {
       "id": 694851,
@@ -394,9 +394,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -439,7 +439,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:54.508Z"
+      "updatedAt": "2026-10-04T16:31:32.590Z"
     },
     {
       "id": 691725,
@@ -509,7 +509,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:54.564Z"
+      "updatedAt": "2026-10-04T16:31:32.734Z"
     },
     {
       "id": 641745,
@@ -579,7 +579,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:54.616Z"
+      "updatedAt": "2026-10-04T16:31:32.872Z"
     },
     {
       "id": 669016,
@@ -644,7 +644,7 @@
             "extraBaseHits": 40
           },
           "sabermetrics": {
-            "war": 0.34401,
+            "war": 0.34408,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -656,7 +656,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:54.671Z"
+      "updatedAt": "2026-10-04T16:31:33.005Z"
     },
     {
       "id": 548384,
@@ -681,9 +681,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -726,7 +726,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:54.736Z"
+      "updatedAt": "2026-10-04T16:31:33.130Z"
     },
     {
       "id": 650559,
@@ -791,7 +791,7 @@
             "extraBaseHits": 6
           },
           "sabermetrics": {
-            "war": 0.20145,
+            "war": 0.20135,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -803,7 +803,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:54.794Z"
+      "updatedAt": "2026-10-04T16:31:33.258Z"
     },
     {
       "id": 547180,
@@ -880,7 +880,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:54.852Z"
+      "updatedAt": "2026-10-04T16:31:33.362Z"
     },
     {
       "id": 681082,
@@ -945,7 +945,7 @@
             "extraBaseHits": 52
           },
           "sabermetrics": {
-            "war": 3.84357,
+            "war": 3.84363,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -957,7 +957,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:54.914Z"
+      "updatedAt": "2026-10-04T16:31:33.483Z"
     },
     {
       "id": 668873,
@@ -1027,7 +1027,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:54.985Z"
+      "updatedAt": "2026-10-04T16:31:33.632Z"
     },
     {
       "id": 663767,
@@ -1097,7 +1097,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.093Z"
+      "updatedAt": "2026-10-04T16:31:33.793Z"
     },
     {
       "id": 687515,
@@ -1122,9 +1122,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -1162,7 +1162,7 @@
             "extraBaseHits": 7
           },
           "sabermetrics": {
-            "war": -0.59234,
+            "war": -0.59208,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -1174,7 +1174,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.159Z"
+      "updatedAt": "2026-10-04T16:31:33.911Z"
     },
     {
       "id": 650911,
@@ -1244,7 +1244,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.212Z"
+      "updatedAt": "2026-10-04T16:31:34.716Z"
     },
     {
       "id": 656537,
@@ -1321,7 +1321,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.271Z"
+      "updatedAt": "2026-10-04T16:31:34.919Z"
     },
     {
       "id": 624641,
@@ -1398,7 +1398,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.323Z"
+      "updatedAt": "2026-10-04T16:31:35.039Z"
     },
     {
       "id": 694025,
@@ -1463,7 +1463,7 @@
             "extraBaseHits": 2
           },
           "sabermetrics": {
-            "war": -0.39285,
+            "war": -0.39278,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -1475,7 +1475,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.402Z"
+      "updatedAt": "2026-10-04T16:31:35.178Z"
     },
     {
       "id": 687282,
@@ -1500,9 +1500,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -1540,7 +1540,7 @@
             "extraBaseHits": 6
           },
           "sabermetrics": {
-            "war": -0.55706,
+            "war": -0.55715,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -1552,7 +1552,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.451Z"
+      "updatedAt": "2026-10-04T16:31:35.326Z"
     },
     {
       "id": 596117,
@@ -1629,7 +1629,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.572Z"
+      "updatedAt": "2026-10-04T16:31:35.468Z"
     },
     {
       "id": 680880,
@@ -1654,9 +1654,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -1699,7 +1699,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.643Z"
+      "updatedAt": "2026-10-04T16:31:35.592Z"
     },
     {
       "id": 592663,
@@ -1776,7 +1776,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.697Z"
+      "updatedAt": "2026-10-04T16:31:35.766Z"
     },
     {
       "id": 666200,
@@ -1846,7 +1846,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.773Z"
+      "updatedAt": "2026-10-04T16:31:35.892Z"
     },
     {
       "id": 661395,
@@ -1916,7 +1916,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.855Z"
+      "updatedAt": "2026-10-04T16:31:36.131Z"
     },
     {
       "id": 679032,
@@ -1993,7 +1993,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:55.878Z"
+      "updatedAt": "2026-10-04T16:31:36.230Z"
     },
     {
       "id": 680742,
@@ -2063,7 +2063,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.937Z"
+      "updatedAt": "2026-10-04T16:31:36.422Z"
     },
     {
       "id": 621237,
@@ -2133,7 +2133,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:55.996Z"
+      "updatedAt": "2026-10-04T16:31:36.569Z"
     },
     {
       "id": 702222,
@@ -2198,7 +2198,7 @@
             "extraBaseHits": 27
           },
           "sabermetrics": {
-            "war": 0.17646,
+            "war": 0.17629,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -2210,7 +2210,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.063Z"
+      "updatedAt": "2026-10-04T16:31:36.692Z"
     },
     {
       "id": 670224,
@@ -2235,9 +2235,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2287,7 +2287,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.122Z"
+      "updatedAt": "2026-10-04T16:31:36.802Z"
     },
     {
       "id": 679775,
@@ -2312,9 +2312,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2357,7 +2357,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.164Z"
+      "updatedAt": "2026-10-04T16:31:36.978Z"
     },
     {
       "id": 656941,
@@ -2422,7 +2422,7 @@
             "extraBaseHits": 66
           },
           "sabermetrics": {
-            "war": 2.88916,
+            "war": 2.89024,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -2434,7 +2434,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.207Z"
+      "updatedAt": "2026-10-04T16:31:37.100Z"
     },
     {
       "id": 650333,
@@ -2459,9 +2459,9 @@
         "birthCountry": "Venezuela"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2499,7 +2499,7 @@
             "extraBaseHits": 46
           },
           "sabermetrics": {
-            "war": 4.10569,
+            "war": 4.10603,
             "wpa": null,
             "wpaMinus": null,
             "wpaPlus": null,
@@ -2511,7 +2511,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.272Z"
+      "updatedAt": "2026-10-04T16:31:37.295Z"
     },
     {
       "id": 676661,
@@ -2536,9 +2536,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2581,7 +2581,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.331Z"
+      "updatedAt": "2026-10-04T16:31:37.416Z"
     },
     {
       "id": 691330,
@@ -2606,9 +2606,9 @@
         "birthCountry": "Venezuela"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2651,7 +2651,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.355Z"
+      "updatedAt": "2026-10-04T16:31:37.510Z"
     },
     {
       "id": 641482,
@@ -2676,9 +2676,9 @@
         "birthCountry": "Cuba"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2721,7 +2721,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.393Z"
+      "updatedAt": "2026-10-04T16:31:37.664Z"
     },
     {
       "id": 689147,
@@ -2746,9 +2746,9 @@
         "birthCountry": "USA"
       },
       "roster": {
-        "status": "40-MAN",
+        "status": "ACTIVE",
         "rosterType": "40-MAN",
-        "active": false,
+        "active": true,
         "injured": false,
         "fortyMan": true
       },
@@ -2791,7 +2791,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.486Z"
+      "updatedAt": "2026-10-04T16:31:37.795Z"
     },
     {
       "id": 805249,
@@ -2868,7 +2868,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.549Z"
+      "updatedAt": "2026-10-04T16:31:37.902Z"
     },
     {
       "id": 665561,
@@ -2945,7 +2945,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.605Z"
+      "updatedAt": "2026-10-04T16:31:38.009Z"
     },
     {
       "id": 621383,
@@ -3015,7 +3015,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.662Z"
+      "updatedAt": "2026-10-04T16:31:38.174Z"
     },
     {
       "id": 641835,
@@ -3085,7 +3085,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.714Z"
+      "updatedAt": "2026-10-04T16:31:38.311Z"
     },
     {
       "id": 607208,
@@ -3162,7 +3162,7 @@
         },
         "pitching": null
       },
-      "updatedAt": "2026-10-04T11:51:56.806Z"
+      "updatedAt": "2026-10-04T16:31:38.432Z"
     },
     {
       "id": 554430,
@@ -3232,7 +3232,7 @@
         },
         "hitting": null
       },
-      "updatedAt": "2026-10-04T11:51:56.864Z"
+      "updatedAt": "2026-10-04T16:31:38.591Z"
     }
   ]
 }
